@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <title>月历标记</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+      th,
+      td {
+        width: 14%;
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 8px;
+      }
+      th {
+        background-color: #f2f2f2;
+      }
+      .highlight {
+        background-color: yellow;
+      }
+      .calendar-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .calendar-header button {
+        padding: 5px 10px;
+      }
+      .more-info td {
+        background-color: #f9f9f9;
+        text-align: left;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="calendar-header">
+      <button id="prevMonth">上个月</button>
+      <!-- <div id="calendarTitle"></div> -->
+      <button id="nextMonth">下个月</button>
+    </div>
+    <div id="calendar"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        const today = new Date();
+        let currentYear = today.getFullYear();
+        let currentMonth = today.getMonth() + 1; // JavaScript 中月份是 0-11，所以加 1
+
+        // 预定义的日期和地点数组
+        const events = [
+          { date: "2024-07-25", place: ["东京"] },
+          { date: "2024-07-27", place: ["清井澤", "东京", "京都"] },
+          { date: "2024-07-30", place: ["清井澤", "东京"] },
+          { date: "2024-08-15", place: ["东京"] },
+          { date: "2024-08-03", place: ["京都", "大阪", "清井澤"] },
+          { date: "2024-09-10", place: ["京都", "大阪"] },
+        ];
+
+        function generateCalendar(year, month) {
+          const monthNames = [
+            "一月",
+            "二月",
+            "三月",
+            "四月",
+            "五月",
+            "六月",
+            "七月",
+            "八月",
+            "九月",
+            "十月",
+            "十一月",
+            "十二月",
+          ];
+          const daysInMonth = new Date(year, month, 0).getDate(); // 获取该月的天数
+          const firstDay = new Date(year, month - 1, 1).getDay(); // 获取该月第一天是星期几
+
+          let calendarHtml = `<table><thead><tr><th colspan="7">${year}年 ${
+            monthNames[month - 1]
+          }</th></tr><tr>`;
+          const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
+          for (let day of dayNames) {
+            calendarHtml += `<th>${day}</th>`;
+          }
+          calendarHtml += `</tr></thead><tbody>`;
+
+          for (let i = 0; i < firstDay; i++) {
+            calendarHtml += `<td></td>`;
+          }
+
+          for (let day = 1; day <= daysInMonth; day++) {
+            if ((day + firstDay - 1) % 7 === 0 && day > 1) {
+              calendarHtml += `</tr><tr>`;
+            }
+            const dateId = `${year}-${month.toString().padStart(2, "0")}-${day
+              .toString()
+              .padStart(2, "0")}`;
+            calendarHtml += `<td id="${dateId}">${day}</td>`;
+          }
+          calendarHtml += `</tr></tbody></table>`;
+
+          $("#calendar").html(calendarHtml);
+          $("#calendarTitle").text(`${year}年 ${monthNames[month - 1]}`);
+
+          // 标记日期
+          markDates(events);
+        }
+
+        function markDates(events) {
+          events.forEach((event) => {
+            const date = event.date;
+            const places = event.place;
+            const dateElement = $(`#${date}`);
+            if (dateElement.length) {
+              dateElement.addClass("highlight");
+              dateElement.append(`<br><span>${places[0]}</span>`);
+              if (places.length > 1) {
+                dateElement.append(
+                  `<br><button class="more-btn" data-date="${date}">more</button>`
+                );
+              }
+            }
+          });
+
+          // 添加 more 按钮点击事件处理程序
+          $(".more-btn").click(function () {
+            const date = $(this).data("date");
+            const event = events.find((e) => e.date === date);
+            if (event) {
+              // 检查是否已显示该日期的详细信息
+              const existingMoreInfo = $(`.more-info[data-date="${date}"]`);
+              if (existingMoreInfo.length > 0) {
+                // 如果已存在，删除它（切换隐藏状态）
+                existingMoreInfo.remove();
+              } else {
+                // 否则，先隐藏所有已显示的详细信息
+                $(".more-info").remove();
+                // 显示当前点击的详细信息
+                showMoreInfo(date, event.place);
+              }
+            }
+          });
+        }
+
+        function showMoreInfo(date, places) {
+          // 删除已经存在的详细信息行
+          $(`.more-info[data-date="${date}"]`).remove();
+
+          // 创建详细信息行的 HTML
+          let moreInfoHtml = `<tr class="more-info" data-date="${date}"><td colspan="7"><strong>${date}</strong>: `;
+          moreInfoHtml += places.join(", ");
+          moreInfoHtml += `</td></tr>`;
+
+          // 找到当前日期所在的行
+          const currentRow = $(`#${date}`).closest("tr");
+          // 在当前行的下方插入详细信息行
+          currentRow.after(moreInfoHtml);
+        }
+
+        function changeMonth(offset) {
+          currentMonth += offset;
+          if (currentMonth > 12) {
+            currentMonth = 1;
+            currentYear++;
+          } else if (currentMonth < 1) {
+            currentMonth = 12;
+            currentYear--;
+          }
+          generateCalendar(currentYear, currentMonth);
+        }
+
+        $("#prevMonth").click(function () {
+          changeMonth(-1);
+        });
+
+        $("#nextMonth").click(function () {
+          changeMonth(1);
+        });
+
+        generateCalendar(currentYear, currentMonth); // 初始化时生成当前月份的日历
+      });
+    </script>
+  </body>
+</html>
