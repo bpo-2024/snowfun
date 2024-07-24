@@ -4,36 +4,73 @@
     <meta charset="UTF-8" />
     <title>月历标记</title>
     <style>
-      table {
+      #calendar table {
         width: 100%;
         border-collapse: collapse;
       }
-      th,
-      td {
+      #calendar th,
+      #calendar td {
         width: 14%;
-        border: 1px solid #ddd;
         text-align: center;
         padding: 8px;
       }
-      th {
-        background-color: #f2f2f2;
-      }
-      .highlight {
-        background-color: yellow;
-      }
-      .calendar-header {
+
+      #calendar .calendar-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
       }
-      .calendar-header button {
+      #calendar .calendar-header button {
         padding: 5px 10px;
       }
-      .more-info td {
-        background-color: #f9f9f9;
-        text-align: left;
+      #calendar table tr.more-info > td {
+        padding: 0;
+        border: none;
+        box-shadow: none;
+      }
+      #calendar .more-info-content {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+      }
+      #calendar .more-info-content .tag {
+        width: fit-content;
+        background: #eeecfd;
+        border-radius: 8px;
+        padding: 4px;
+      }
+      #calendar .more-btn {
+        color: #8d8888;
+        font-size: 14px;
+        line-height: 100%;
+        font-weight: 500;
+      }
+      #calendar .before-day {
+        color: #8d8888;
+        pointer-events: none;
+        background-color: transparent;
+      }
+      #calendar .active-day {
+        border: 1px solid;
       }
     </style>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="calendar-header">
@@ -43,14 +80,13 @@
     </div>
     <div id="calendar"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       $(document).ready(function () {
         const today = new Date();
         let currentYear = today.getFullYear();
-        let currentMonth = today.getMonth() + 1; // JavaScript 中月份是 0-11，所以加 1
+        let currentMonth = today.getMonth() + 1;
+        const currentDateStr = today.toISOString().split("T")[0];
 
-        // 预定义的日期和地点数组
         const events = [
           { date: "2024-07-25", place: ["东京"] },
           { date: "2024-07-27", place: ["清井澤", "东京", "京都"] },
@@ -75,10 +111,10 @@
             "十一月",
             "十二月",
           ];
-          const daysInMonth = new Date(year, month, 0).getDate(); // 获取该月的天数
-          const firstDay = new Date(year, month - 1, 1).getDay(); // 获取该月第一天是星期几
+          const daysInMonth = new Date(year, month, 0).getDate();
+          const firstDay = new Date(year, month - 1, 1).getDay();
 
-          let calendarHtml = `<table><thead><tr><th colspan="7">${year}年 ${
+          let calendarHtml = `<table class="table"><thead><tr><th colspan="7">${year}年 ${
             monthNames[month - 1]
           }</th></tr><tr>`;
           const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
@@ -98,14 +134,14 @@
             const dateId = `${year}-${month.toString().padStart(2, "0")}-${day
               .toString()
               .padStart(2, "0")}`;
-            calendarHtml += `<td id="${dateId}">${day}</td>`;
+            let additionalClass = dateId < currentDateStr ? "before-day" : "";
+            calendarHtml += `<td id="${dateId}" class="${additionalClass}">${day}</td>`;
           }
           calendarHtml += `</tr></tbody></table>`;
 
           $("#calendar").html(calendarHtml);
           $("#calendarTitle").text(`${year}年 ${monthNames[month - 1]}`);
 
-          // 标记日期
           markDates(events);
         }
 
@@ -115,49 +151,25 @@
             const places = event.place;
             const dateElement = $(`#${date}`);
             if (dateElement.length) {
-              dateElement.addClass("highlight");
               dateElement.append(`<br><span>${places[0]}</span>`);
               if (places.length > 1) {
                 dateElement.append(
-                  `<br><button class="more-btn" data-date="${date}">more</button>`
+                  `<br><button class="more-btn btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse-${date}">+more</button>`
                 );
               }
+
+              // add MoreInfo
+              let moreInfoHtml = `<tr class="more-info"><td colspan="7"><div class="collapse text-start" id="collapse-${date}"><div class="more-info-content">`;
+              moreInfoHtml += places
+                .map((place) => `<span class="tag">${place}</span>`)
+                .join(" ");
+              moreInfoHtml += `</div></div></td></tr>`;
+
+              const currentRow = dateElement.closest("tr");
+
+              currentRow.after(moreInfoHtml);
             }
           });
-
-          // 添加 more 按钮点击事件处理程序
-          $(".more-btn").click(function () {
-            const date = $(this).data("date");
-            const event = events.find((e) => e.date === date);
-            if (event) {
-              // 检查是否已显示该日期的详细信息
-              const existingMoreInfo = $(`.more-info[data-date="${date}"]`);
-              if (existingMoreInfo.length > 0) {
-                // 如果已存在，删除它（切换隐藏状态）
-                existingMoreInfo.remove();
-              } else {
-                // 否则，先隐藏所有已显示的详细信息
-                $(".more-info").remove();
-                // 显示当前点击的详细信息
-                showMoreInfo(date, event.place);
-              }
-            }
-          });
-        }
-
-        function showMoreInfo(date, places) {
-          // 删除已经存在的详细信息行
-          $(`.more-info[data-date="${date}"]`).remove();
-
-          // 创建详细信息行的 HTML
-          let moreInfoHtml = `<tr class="more-info" data-date="${date}"><td colspan="7"><strong>${date}</strong>: `;
-          moreInfoHtml += places.join(", ");
-          moreInfoHtml += `</td></tr>`;
-
-          // 找到当前日期所在的行
-          const currentRow = $(`#${date}`).closest("tr");
-          // 在当前行的下方插入详细信息行
-          currentRow.after(moreInfoHtml);
         }
 
         function changeMonth(offset) {
@@ -180,7 +192,26 @@
           changeMonth(1);
         });
 
-        generateCalendar(currentYear, currentMonth); // 初始化时生成当前月份的日历
+        let currentExpanded = null;
+        $(document).on("click", ".more-btn", function () {
+          const target = $(this).data("bs-target");
+          if (currentExpanded && currentExpanded !== target) {
+            $(currentExpanded).collapse("hide");
+          }
+
+          $(target).collapse("toggle");
+
+          $(".active-day").removeClass("active-day");
+          const parentTd = $(this).closest("td");
+          parentTd.addClass("active-day");
+          if (currentExpanded === target) {
+            $(".active-day").removeClass("active-day");
+          }
+
+          currentExpanded = target;
+        });
+
+        generateCalendar(currentYear, currentMonth); // init
       });
     </script>
   </body>
