@@ -26,6 +26,12 @@
      type="text/css"
    />
 
+    <!-- OwlCarousel2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
     <link href="./style/layout.css" rel="stylesheet" />
     <link href="./style/coach-instructors.css" rel="stylesheet" />
     <style>
@@ -36,6 +42,7 @@
         display: block;
       }
     </style>
+
   </head>
   <body>
     <nav class="navbar" aria-label="Light offcanvas navbar">
@@ -165,9 +172,43 @@
             </li>
           </ul>
           <div class="tab-content" id="tabContent">
-            <!-- 教練課表 -->
+            <!-- 教練介紹 -->
             <div class="tab-pane fade show active" id="introduction" role="tabpanel" aria-labelledby="introduction-tab" tabindex="0">
-              教練課表
+              <div>
+                <h3 class="fs-5 fw-bold mb-3">影音區</h3>
+                <!-- light gallery -->
+                <div class="owl-carousel video-carousel">
+                  <div class="item" data-bs-toggle="modal"  data-slide-to="0">
+                    <img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5" alt="Item 1">
+                  </div>
+                  <div class="item" data-bs-toggle="modal"  data-slide-to="1">
+                    <img src="https://images.unsplash.com/photo-1505820013142-f86a3439c5b2" alt="Item 2">
+                  </div>
+                  <div class="item" data-bs-toggle="modal"  data-slide-to="2">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Item 3">
+                  </div>
+                  <!-- Add more items as needed -->
+                </div>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="videoCarouselModal" tabindex="-1" aria-labelledby="videoCarouselModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+           
+                        <div class="owl-carousel modal-carousel">
+                          <div class="modal-item"><img src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5" alt="Item 1"></div>
+                          <div class="modal-item"><img src="https://images.unsplash.com/photo-1505820013142-f86a3439c5b2" alt="Item 2"></div>
+                          <div class="modal-item"><img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="Item 3"></div>
+                          <!-- Add more items as needed -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+              </div>
             </div>
             <!-- 教練課表 -->
             <div class="tab-pane fade" id="schedule" role="tabpanel" aria-labelledby="schedule-tab" tabindex="0">
@@ -376,6 +417,9 @@
 
     <!-- script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- OwlCarousel2 JS --> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
       integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
@@ -417,6 +461,7 @@
     <script src="./js/start.js"></script>
     <script src="./js/uploadImage.js"></script>
     <script src="./js/coachDate.js"></script>
+    <script src="./js/videoCarousel.js"></script>
 
     <script>
        function evaluationLogin(){
@@ -424,5 +469,6 @@
         $('#student-login').removeClass('visually-hidden');
        }
     </script>
+    
   </body>
 </html>
