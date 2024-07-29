@@ -1,3 +1,153 @@
+.banner {
+  position: relative;
+  width: 100%;
+  height: 246px;
+  background: url(../images/pic.png) no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.introduce {
+  position: relative;
+  top: -60px;
+  z-index: 1;
+}
+.introduce-img img{
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+.introduce-item {
+  margin-left: 50px;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+.introduce-item .name{
+  margin-right: 16px;
+}
+.introduce-item .type{
+  font-size: 14px;
+  width: 58px;
+  height: 36px;
+  background-color: #EBF1F5;
+  color: #1BA4ED;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+}
+.introduce-item-evaluate {
+  font-size: 16px;
+  color: #444444;
+  margin-top: 8px;
+}
+.introduce-item-evaluate img {
+  width: 20px;
+  height: 20px;
+  margin-right: 2px;
+}
+.ability {
+  margin-top: 16px;
+  padding: 0 8px;
+}
+.ability-item {
+  width: 188px;
+  padding: 16px 24px ;
+  border-right: 1px solid #E3E3E3;
+}
+.ability-item:first-child {
+  padding: 16px 0px ;
+}
+.ability-item:last-child {
+  border-right:0;
+  width: auto;  
+}
+.ability-item .value {
+  font-size: 20px;
+  color: #444444;
+}
+.ability-item .title {
+  font-size: 14px;
+  color: #858585;
+  margin-bottom: 8px;
+}
+
+/*  */
+.type-tag {
+  border: 1px solid #E3E3E3;
+  padding: 24px;
+  margin-top: 40px;
+  border-radius:24px ;
+}
+.type-tag-item:first-child {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E3E3E3;
+}
+.type-tag-item .title {
+  font-size: 18px;
+  color: #7C7C7C;
+} 
+.type-tag-item:last-child {
+  padding-top:24px;
+}
+.type-tag-item .tag {
+  padding-top: 16px;
+  flex-flow: wrap;
+}
+.type-tag-item .tag span{
+  background-color: #F7F7F7;
+  border: 1px solid #E3E3E3;
+  border-radius: 16px;
+  padding: 8px 12px;
+  margin: 8px 8px 0 0;
+}
+
+/*  */
+.resort-tag {
+  border: 1px solid #E3E3E3;
+  padding: 24px;
+  margin-top: 40px;
+  border-radius:24px ;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+
+}
+.resort-tag-item:first-child {
+  padding-bottom: 24px;
+  border-bottom: 1px solid #E3E3E3;
+}
+.resort-tag-item:last-child {
+  padding-top:24px;
+}
+.resort-tag-item .title {
+  font-size: 20px;
+  color: black;
+  justify-content: space-between;
+} 
+.resort-tag-item .title a{
+  font-size: 14px;
+} 
+.resort-tag-item .tag {
+  padding-top: 16px;
+  flex-flow: wrap;
+}
+.resort-tag-item .tag span{
+  background-color: #F7F7F7;
+  border: 1px solid #E3E3E3;
+  border-radius: 16px;
+  padding: 8px 12px;
+  margin: 8px 8px 0 0;
+}
+.resort-tag-item .online {
+  color: #666666;
+  font-size: 16px;
+}
+.resort-tag-item .btn {
+  border-radius: 30px;
+}
+
+
 /* coach-tab */
 .coach-tab {
   margin-bottom: 32px;
@@ -163,4 +313,8 @@
 
 .footer-pc {
     position: relative;
+}
+
+.footer-mb{
+  top: auto;
 }
