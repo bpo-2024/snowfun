@@ -44,7 +44,7 @@ $(document).ready(function() {
     }
 
     // On item click, open modal and go to specific slide
-    $('.item').on('mousedown touchstart', function(e) {
+    $('.video-item').on('mousedown touchstart', function(e) {
       // Start tracking the press
       pressTimer = setTimeout(function() {
         // Do nothing on long press
