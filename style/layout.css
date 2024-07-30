@@ -237,12 +237,12 @@ footer {
 
 
 /* modal */
-.modal-content {
+.login-dialog .modal-content {
     display: none;
     border-radius: 30px;
     font-size: 18px;
 }
-.modal-content.show {
+.login-dialog .modal-content.show {
     display: block;
 }
 .modal-header, .modal-footer {
