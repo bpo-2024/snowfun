@@ -2,10 +2,13 @@
   position: relative;
   height: 246px;
 }
-.about-coach {
-  position: relative;
-  top: -60px;
+.about-coach-pc {
   z-index: 1;
+  position: absolute;
+  top: -80px;
+}
+.test {
+  padding-top: 230px;
 }
 .introduce {
   align-items: flex-end;
@@ -57,7 +60,9 @@
 .ability-item {
   width: 188px;
   padding: 16px 24px ;
-  border-right: 1px solid #E3E3E3;
+}
+.ability-border {
+  border-left: 1px solid #E3E3E3;
 }
 .ability-item:first-child {
   padding: 16px 0px ;
@@ -77,24 +82,8 @@
   margin-bottom: 8px;
 }
 
-
-@media (max-width:991px) {
-  .introduce {
-    align-items: flex-start;
-    flex-flow: column;
-  }
-  .about-coach {
-    top: -100px;
-  }
-  .introduce-item {
-    margin: 16px 0 24px;
-    width: 100%;
-    font-size: 24px;
-  }
-  .introduce-item-title {
-    justify-content: space-between;
-    
-  }
+.about-coach-mb {
+  padding-bottom: 70px;
 }
 
 .type-tag {
@@ -170,12 +159,80 @@
 .resort-tag-item .btn {
   border-radius: 30px;
 }
-
-
+@media (max-width:991px) {
+  .resort-tag {
+    display: none;
+  }
+  .test {
+    padding-top: 32px;
+  }
+  .type-tag-item .title {
+    font-size: 16px;
+  }
+  .about-coach-mb .row {
+    flex-flow: column-reverse;
+  }
+  .introduce {
+    align-items: flex-start;
+    flex-flow: column;
+  }
+  .about-coach-pc {
+    position: initial;
+  }
+  .about-coach-mb {
+    top: -100px;
+    position: relative;
+    z-index: 1;
+  }
+  .introduce-item {
+    margin: 16px 0 24px;
+    width: 100%;
+    font-size: 24px;
+  }
+  .introduce-item-title {
+    justify-content: space-between;
+    
+  }
+  .introduce-item-evaluate {
+    font-size: 14px;
+  }
+  .ability-item .title {
+    font-size: 12px;
+  }
+  .ability-item .value {
+    font-size: 16px;
+  }
+  .ability {
+    padding: 0 4px;
+    margin: 0;
+    justify-content: space-between;
+  }
+  .ability-item {
+    padding: 16px;
+    width: auto;
+  }
+  .ability-item:first-child {
+    padding: 16px 16px 16px 0;
+  }
+  .ability-item:last-child {
+    padding: 16px 0px 16px 16px;
+  }
+  .owl-carousel.owl-banner .item img {
+    height: 180px;
+  }
+}
+/*  */
+.introduction {
+  color: #858585;
+  font-size: 13px;
+  line-height: 20px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid;
+}
 /* coach-tab */
 .coach-tab {
   margin-bottom: 32px;
-  border-bottom: 1px solid #e3e3e3;
+  border-bottom: 1px solid #E3E3E3;
 }
 
 .coach-tab .nav-link {
@@ -614,9 +671,9 @@
 }
 /* footer */
 .footer-pc {
-    position: relative;
+    position: initial;
 }
 
 .footer-mb{
-  top: auto;
+  top: initial;
 }
