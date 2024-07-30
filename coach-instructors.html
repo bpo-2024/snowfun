@@ -17,7 +17,7 @@
      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css"
      crossorigin="anonymous"
    />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css">
    <!-- the fileinput plugin styling CSS file -->
    <link
      href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css"
@@ -150,10 +150,52 @@
         </div>
       </div>
     </nav>
-
+    <section>
+      <div class="owl-carousel owl-banner">
+       <div class="item">
+        <img src="./images/item-banner.png" alt="">
+       </div>
+      </div>
+    </section>
     <div class="container">
       <div class="row">
-        <div class="">
+        <div class="col-lg-8 col-12">
+          <div class="about-coach">
+            <div class="d-flex introduce">
+              <div class="introduce-img">
+                <img src="./images/coach.png" alt="">
+              </div>
+              <div class="introduce-item">
+                <div class="d-flex introduce-item-title">
+                  <div class="name">JACK ROWE</div>
+                  <div class="type d-flex">
+                    <span>單板</span>
+                    <span>雙板</span>
+                  </div>
+                </div>
+                <div class="introduce-item-evaluate d-flex align-items-center">
+                  <img src="./images/star.png" alt="">
+                  <span class="fraction">4.6</span>
+                  <span class="dot">・</span>
+                  <span class="evaluate"><a href="#">14則評價</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="ability d-flex">
+              <div class="ability-item">
+                <div class="title">證照等級</div>
+                <div class="value">Level 1</div>
+              </div>
+              <div class="ability-item">
+                <div class="title">可授課語言</div>
+                <div class="value">中文/英文</div>
+              </div>
+              <div class="ability-item">
+                <div class="title">教練收費</div>
+                <div class="value">JPY14,000/hr起</div>
+              </div>
+            </div>
+          </div>
           <ul class="nav coach-tab" id="tab" role="tablist">
             <li class="nav-item" role="presentation">
               <button class="nav-link active" id="introduction-tab" data-bs-toggle="pill" data-bs-target="#introduction" type="button" role="tab" aria-controls="introduction" aria-selected="true">
@@ -252,6 +294,55 @@
             </div>
           </div>
         </div>
+        <div class="col-lg-4 col-12">
+          <div class="type-tag">
+           <div class="type-tag-item">
+             <div class="title">SKI雙板</div>
+             <div class="tag d-flex">
+               <span>零經驗</span>
+               <span>初階</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+             </div>
+           </div>
+           <div class="type-tag-item">
+             <div class="title">Snowboard單板</div>
+             <div class="tag d-flex">
+               <span>零經驗</span>
+               <span>初階</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+               <span>零經驗</span>
+             </div>
+           </div>
+          </div>
+          <div class="resort-tag">
+           <div class="resort-tag-item">
+             <div class="title d-flex align-items-center">開課雪場 <span><a href="">查看更多<i class="fa-solid fa-angle-right"></i></a></span></div>
+             <div class="tag d-flex">
+               <span>藏王溫泉滑雪場</span>
+               <span>札幌手稻滑雪場</span>
+               <span>越後湯澤 Gala滑雪場</span>
+               <span>越後湯澤 石打丸山滑雪場</span>
+               <span>越後湯澤 神立高原滑雪場</span>
+               <span>越後湯澤 舞子高原滑雪場</span>
+               <span>輕井澤</span>
+             </div>
+           </div>
+           <div class="resort-tag-item d-flex align-items-center justify-content-between">
+             <a href="" class="online">線上諮詢</a>
+             <button type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
+               學費試算
+               <img width="26" src="./images/icon_arrow_right.svg">
+             </button>
+           </div>
+          </div>
+         </div>
       </div>
      </div>
 
@@ -456,7 +547,8 @@
     <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
     <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/zh-TW.js"></script>
      
-   
+    <script src="./js/owl.js"></script>
+
     <script src="./js/login.js"></script> 
     <script src="./js/start.js"></script>
     <script src="./js/uploadImage.js"></script>

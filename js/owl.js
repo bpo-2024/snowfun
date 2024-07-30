@@ -158,3 +158,9 @@ $('.owl-carousel-skiResort').hover(
   }
 );
 
+$('.owl-banner').owlCarousel({
+  loop:true,
+  nav:false,
+  dots:false,
+  items:1,
+});
