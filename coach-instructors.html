@@ -34,15 +34,6 @@
 
     <link href="./style/layout.css" rel="stylesheet" />
     <link href="./style/coach-instructors.css" rel="stylesheet" />
-    <style>
-      .file-caption {
-        display: none; /* Hide the file-caption element */
-      }
-      .show .modal-content {
-        display: block;
-      }
-    </style>
-
   </head>
   <body>
     <nav class="navbar" aria-label="Light offcanvas navbar">
@@ -285,7 +276,7 @@
                     <textarea class="form-control input-evaluation" placeholder="填寫評價"></textarea>
                   </div>
                   <div class="d-flex justify-content-between">
-                    <button type="button" class="btn fs-6 fw-bold rounded-pill btn-addImage" data-bs-toggle="modal" data-bs-target="#exampleModal">新增照片</button>
+                    <button type="button" class="btn fs-6 fw-bold rounded-pill btn-addImage" data-bs-toggle="modal" data-bs-target="#fileUploadModal">新增照片</button>
                     <button class="btn btn-primary btn-lg fs-6 fw-bold rounded-pill">送出</button>
                   </div>
                 </div>
@@ -347,16 +338,17 @@
      </div>
 
      <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
+    <div class="modal fade" id="fileUploadModal" tabindex="-1" aria-labelledby="fileUploadModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-body">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="container kv-main">
               <form id="upload-form" enctype="multipart/form-data">
-                <input id="file-upload-demo" type="file" multiple /><br />
-                <button type="submit" class="btn btn-success">Upload Files</button>
-                <!-- <button type="reset" class="btn btn-warning">Reset</button> -->
+                <input id="file-upload-image" type="file" multiple />
+                <div class="d-flex justify-content-end">
+                  <button type="submit" class="btn btn-primary btn-lg fs-6 fw-medium rounded-pill btn-submit">上傳照片</button>
+                </div>
               </form>
             </div>
           </div>

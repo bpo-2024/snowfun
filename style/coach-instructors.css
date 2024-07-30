@@ -461,7 +461,158 @@
   background: url('../images/more.svg') no-repeat;
 }
 
+/* file-upload-image */
+.file-caption {
+  display: none; /* Hide the file-caption element */
+}
+.kv-main {
+  padding: 0;
+}
+#fileUploadModal .modal-dialog {
+  max-width: 560px;
+  width: 100vw;
+}
+#fileUploadModal .btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#fileUploadModal .modal-body {
+  max-width: 560px;
+  width: 100%;
+  padding: 56px 40px 40px;
+}
+#fileUploadModal .file-preview .fileinput-remove {
+  display: none; /* Hide the remove button */
+}
+#fileUploadModal .file-preview {
+  border: none;
+  padding: 0;
+  margin-bottom: 24px;
+}
+#fileUploadModal .file-drop-zone {
+  margin: 0;
+  padding: 24px 19px;
+  min-height: auto;
+  max-width: 480px;
+  width: 100vw;
+}
+#fileUploadModal .file-preview-thumbnails {
+  cursor: default;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+#fileUploadModal .file-drop-zone-title {
+  color: #666;
+  font-size: 18px;
+  padding: 24px 118px;
+}
+#fileUploadModal .file-drop-zone-title::before {
+  content: '';
+  display: block;
+  height: 64px;
+  width: 64px;
+  margin: 0 auto 8px;
+  background-image: url('../images/cloud_upload.svg');
+}
+#fileUploadModal .kv-file-rotate,
+#fileUploadModal .kv-file-upload,
+#fileUploadModal .file-footer-caption,
+#fileUploadModal .file-upload-indicator {
+  display: none; /* Hide the rotate button */
+}
 
+.krajee-default.file-preview-frame {
+  padding: 0;
+  margin: 0;
+  box-shadow: none;
+  height: 212px;
+  width: 216px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.krajee-default.file-preview-frame .kv-file-content {
+  height: 212px;
+  width: 216px;
+}
+.krajee-default.file-preview-frame .kv-file-content img {
+  width: 100% !important;
+  height: 100% !important;
+}
+#fileUploadModal .file-footer-buttons button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+#fileUploadModal .file-footer-buttons button:hover {
+  background-color: #c2c2c2;
+}
+#fileUploadModal .file-footer-buttons button.kv-file-remove {
+  right: 60px;
+}
+
+.kv-file-remove,
+.kv-file-zoom {
+  background: #ffffff;
+  border-radius: 114.29px;
+  padding: 4px 0;
+  width: 32px;
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  box-shadow: 0px 0px 9.14px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  border: none;
+}
+.kv-file-remove::before {
+  content: url('../images/delete.svg');
+}
+.kv-file-zoom::before {
+  content: url('../images/zoomIn.svg');
+}
+#fileUploadModal .krajee-default.file-preview-frame .file-thumbnail-footer {
+  height: auto;
+}
+#fileUploadModal .btn-submit {
+  line-height: 32px;
+}
+
+#kvFileinputModal h6 {
+  display: none;
+}
+#kvFileinputModal .modal-dialog {
+  max-width: 1001px;
+}
+#kvFileinputModal .modal-dialog img {
+  border-radius: 16px;
+}
+.file-zoom-dialog .modal-header {
+  min-height: 64px;
+}
+.file-zoom-dialog .kv-zoom-body {
+  padding: 0 40px 48px;
+}
+.kv-zoom-actions {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  min-width: auto;
+}
+.kv-zoom-actions button,
+.rotatable:not(.hide-rotate) .btn-kv-rotate {
+  display: none;
+}
+.kv-zoom-actions .btn-kv-close {
+  display: block;
+}
+#fileUploadModal .kv-upload-progress {
+  display: none !important;
+}
+#fileUploadModal .kv-fileinput-error .btn-close {
+  position: unset;
+}
+/* footer */
 .footer-pc {
     position: relative;
 }

@@ -1,8 +1,9 @@
 $(document).ready(function () {
-    $("#file-upload-demo").fileinput({
+    $("#file-upload-image").fileinput({
       theme: "explorer",
       uploadUrl: "/",
       language: "zh-TW",
+      showRemove: false,
       overwriteInitial: false,
       initialPreviewAsData: true,
       initialPreview: [],
@@ -20,12 +21,20 @@ $(document).ready(function () {
     $(".file-drop-zone").on("click", function (e) {
       // Check if the click target is not a file preview frame
       if (!$(e.target).closest(".file-preview-frame").length && !$(e.target).closest(".file-error-message").length ) {
-        $("#file-upload-demo").trigger("click");
+        $("#file-upload-image").trigger("click");
       }
     });
 
     $("#upload-form").on("submit", function (e) {
       e.preventDefault(); // Prevent default form submission
-      $("#file-upload-demo").fileinput("upload"); // Trigger the fileinput plugin's upload method
+      $("#file-upload-image").fileinput("upload"); // Trigger the fileinput plugin's upload method
     });
+
+    $(document).on('show.bs.modal', '#kvFileinputModal', function () {
+      var modalDialog = $(this).find('.modal-dialog');
+      if (!modalDialog.hasClass('modal-dialog-centered')) {
+          modalDialog.addClass('modal-dialog-centered');
+      }
+  });
+
   });
