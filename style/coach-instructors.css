@@ -374,8 +374,19 @@
   right: 20px;
 }
 /* evaluation */
-#evaluation .btn-lg {
-  padding: 12px 24px;
+#evaluation .btn-evaluation-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+}
+#evaluation .btn-evaluation-submit::after {
+  content: '';
+  width: 26px;
+  height: 26px;
+  margin-left: 4px;
+  margin-right: -4px;
+  background: url('../images/icon_arrow_right.svg');
 }
 .student-box {
   padding: 32px 0;
@@ -462,6 +473,20 @@
   color: #848484;
   margin: 16px 0;
   line-height: 20px;
+}
+.evaluation-more {
+  color: #1BA4ED;
+  font-size: 14px;
+  border: none;
+}
+.evaluation-more:active {
+  border: none;
+}
+.hidden-content {
+  display: none;
+}
+.ellipsis {
+  display: inline;
 }
 
 .coach-list {
@@ -729,10 +754,19 @@
   max-width: 560px;
   width: 100vw;
 }
+#fileUploadModal .modal-content {
+  border-radius: 20px;
+}
 #fileUploadModal .btn-close {
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 15px;
+  right: 15px;
+  background-image: url('../images/modal_cross.svg');
+  opacity: 1;
+  box-shadow: none;
+}
+#fileUploadModal .btn-close:hover {
+  opacity: .8;
 }
 #fileUploadModal .modal-body {
   max-width: 560px;
@@ -763,7 +797,8 @@
 #fileUploadModal .file-drop-zone-title {
   color: #666;
   font-size: 18px;
-  padding: 24px 118px;
+  padding: 0;
+  font-weight: 500;
 }
 #fileUploadModal .file-drop-zone-title::before {
   content: '';
@@ -772,6 +807,11 @@
   width: 64px;
   margin: 0 auto 8px;
   background-image: url('../images/cloud_upload.svg');
+}
+#fileUploadModal .file-drop-zone-title::after {
+  content: '或點擊此處選擇照片';
+  display: block;
+  margin-top: 4px;
 }
 #fileUploadModal .kv-file-rotate,
 #fileUploadModal .kv-file-upload,
@@ -802,13 +842,16 @@
   bottom: 20px;
   right: 20px;
 }
-#fileUploadModal .file-footer-buttons button:hover {
+#fileUploadModal .file-footer-buttons button:hover,
+.upload-image-box button:hover {
   background-color: #c2c2c2;
 }
 #fileUploadModal .file-footer-buttons button.kv-file-remove {
   right: 60px;
 }
 
+.btn-remove,
+.btn-zoomIn,
 .kv-file-remove,
 .kv-file-zoom {
   background: #ffffff;
@@ -822,9 +865,42 @@
   overflow: hidden;
   border: none;
 }
+.btn-remove,
+.btn-zoomIn {
+  width: 28px;
+  height: 28px;
+}
+.upload-image-box {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.btn-container {
+  position: absolute;
+  display: flex;
+  gap: 4px;
+  right: 4px;
+  bottom: 8px;
+}
+.btn-remove::before,
+.btn-zoomIn::before {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  background: url('../images/delete.svg') no-repeat;
+  background-size: 100%;
+}
+.btn-zoomIn::before {
+  background-image: url('../images/zoomIn.svg');
+}
+
 .kv-file-remove::before {
   content: url('../images/delete.svg');
 }
+
 .kv-file-zoom::before {
   content: url('../images/zoomIn.svg');
 }
@@ -869,6 +945,85 @@
 #fileUploadModal .kv-fileinput-error .btn-close {
   position: unset;
 }
+.kv-zoom-actions .btn-kv-close {
+  height: 16px;
+  width: 16px;
+  padding: 0;
+  border: none;
+  background-size: 100%;
+  background-image: url('../images/modal_cross.svg');
+}
+.kv-zoom-actions .btn-kv-close:hover {
+  background-color: transparent;
+  opacity: .8;
+}
+.kv-zoom-actions .btn-kv-close i {
+  display: none;
+}
+#kvFileinputModal .btn-kv-prev, 
+#kvFileinputModal .btn-kv-next {
+  display: none !important;
+}
+
+#fileUploadModal .file-drop-zone {
+  border: 1.3px dashed transparent;
+  background: linear-gradient(#fff,#fff) padding-box, repeating-linear-gradient(-45deg,#c2c2c2 0, #c2c2c2 0.25em,#fff 0,#fff 0.75em);
+}
+
+.file-zoom-fullscreen .modal-content {
+  min-height: auto;
+  height: 500px;
+  max-width: 1001px;
+  margin: 0 auto;
+  border-radius: 20px;
+}
+@media (max-width:1024px) {
+  .file-zoom-fullscreen .modal-content  {
+    max-width: none;
+    margin: 0 20px;
+  }
+}
+@media (max-width:767px) {
+  #fileUploadModal .file-drop-zone {
+    width: 100%;
+  }
+  #fileUploadModal .file-preview-thumbnails {
+    flex-direction: row;
+  }
+  .krajee-default.file-preview-frame,
+  .krajee-default.file-preview-frame .kv-file-content {
+    height: 114px;
+    width: 114px;
+  }
+}
+
+@media (max-width:575px) {
+  #fileUploadModal .modal-dialog {
+    max-width: none;
+    margin: 0;
+  }
+  #fileUploadModal .modal-content {
+   margin: 0 20px; 
+  }
+  #fileUploadModal .file-preview-thumbnails {
+    gap: 5px;
+  }
+}
+@media (max-width:520px) {
+  .file-zoom-dialog .modal-header {
+    height: 45px;
+  }
+  #fileUploadModal .file-preview-thumbnails {
+    justify-content: start;
+    gap: 2px;
+  }
+}
+@media (max-width:425px) {
+  .file-zoom-dialog .kv-zoom-body {
+    padding: 0 20px 20px;
+  }
+}
+
 /* footer */
 .footer-pc {
     position: initial;
@@ -877,3 +1032,4 @@
 .footer-mb{
   top: initial;
 }
+

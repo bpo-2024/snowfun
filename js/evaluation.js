@@ -19,7 +19,7 @@ $(document).ready(function () {
         id: 2,
         username: "Jamo",
         content:
-          "超讚的教練，可以馬上看出學生的問題並加已改正，而且溫柔有耐心，樂於分享滑雪與北海道的一切，還帶我們去雪場漂亮的秘境跟體驗鬆軟粉雪，時間上好上滿，真的很開心選擇他！超讚的教練，可以馬上看出學生的問題並加已改正，而且溫柔有耐心，樂於分享滑雪與北海道的一切，還帶我們去雪場漂亮的秘境跟體驗鬆軟粉雪",
+          "超讚的教練，可以馬上看出學生的問題並加已改正，而且溫柔有耐心，樂於分享滑雪與北海道的一切，還帶我們去雪場漂亮的秘境跟體驗鬆軟粉雪，時間上好上滿，真的很開心選擇他！超讚的教練，可以馬上看出學生的問題並加已改正，而且溫柔有耐心，樂於分享滑雪與北海道的一切，還帶我們去雪場漂亮的秘境跟體驗鬆軟粉雪，可以馬上看出學生的問題並加已改正，而且溫柔有耐心，樂於分享滑雪與北海道的一切，還帶我們去雪場漂亮的秘境跟體驗鬆軟粉雪",
         rate: 3.5,
         date: "2024/03/10",
         images: [],
@@ -153,7 +153,7 @@ $(document).ready(function () {
                     <div class="date">${item.date}</div>
                 </div>
             </div>
-            <div class="content">${item.content}</div>
+            <div class="content evaluation-content">${item.content}</div>
             <div class="img-group">${renderContent(item.images)}</div>
     `;
 
@@ -168,7 +168,7 @@ $(document).ready(function () {
                             <div class="date"> ${item.answer.date}</div>
                         </div>
                     </div>
-                    <div class="content">${item.answer.content}</div>
+                    <div class="content evaluation-content">${item.answer.content}</div>
                 </li>
             </ul>
           `;
@@ -251,4 +251,38 @@ $(document).ready(function () {
     // Initial rendering
     renderList(currentPage);
     renderPagination();
+
+
+
+    // more
+    $('.evaluation-content').each(function() {
+      var fullText = $(this).text();
+      var maxLength = 144;
+
+      if (fullText.length > maxLength) {
+        var visibleText = fullText.substring(0, maxLength);
+        var hiddenText = fullText.substring(maxLength);
+
+        $(this).html(
+          '<span class="visible-content">' + visibleText + '</span>' +
+          '<span class="ellipsis">...</span>' +
+          '<span class="hidden-content">' + hiddenText + '</span>' +
+          ' <button class="btn btn-text evaluation-more toggle-content">看更多</button>'
+        );
+      }
+    });
+
+    $(document).on('click', '.toggle-content', function() {
+      var $parent = $(this).parent();
+      var $hiddenContent = $parent.find('.hidden-content');
+      var $ellipsis = $parent.find('.ellipsis');
+
+      // Show the hidden content and hide the ellipsis
+      $hiddenContent.show();
+      $ellipsis.hide();
+
+      // Hide the "看更多" button
+      $(this).hide();
+  });
+ 
   });

@@ -32,13 +32,11 @@ $(document).ready(function() {
     function syncCarousels() {
       $mainCarousel.on('changed.owl.carousel', function(event) {
         currentSlide = event.item.index;
-        console.log('mainCarousel', currentSlide)
         $modalCarousel.trigger('to.owl.carousel', [currentSlide, 0]);
       });
   
       $modalCarousel.on('changed.owl.carousel', function(event) {
         currentSlide = event.item.index;
-        console.log('modalCarousel', currentSlide)
         $mainCarousel.trigger('to.owl.carousel', [currentSlide, 0]);
       });
     }
