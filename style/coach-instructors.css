@@ -476,6 +476,7 @@
   border-bottom: 1px solid #c2c2c2;
 }
 .calendar-date {
+  font-size: 18px;
   margin-bottom: 6px;
 }
 #calendar th,
@@ -522,12 +523,14 @@
 #next-month  {
     right: 24px;
     transform: rotate(180deg);
+    background-position-x: 10px ;
 }
 
 #calendar table tr.more-info > td {
   padding: 0;
   border: none;
   box-shadow: none;
+  height: auto;
 }
 #calendar .tag {
   width: fit-content;
@@ -536,6 +539,11 @@
   padding: 4px;
   display: block;
   margin: 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 88px;
+  line-height: 22px;
 }
 #calendar .more-info-content {
   display: flex;
@@ -543,11 +551,12 @@
   padding: 20px 16px 0;
   border: 1px solid #e3e3e3;
   border-radius: 8px;
+  background-color: #fcfcfc;
 }
 #calendar .more-info-content .tag {
   margin: 0;
   margin-bottom: 12px;
-
+  max-width: none;
 }
 #calendar .more-btn {
   color: #8d8888;
@@ -555,6 +564,8 @@
   line-height: 100%;
   font-weight: 500;
   text-decoration: auto;
+  padding: 0;
+  margin-top: 4px;
 }
 #calendar .before-day {
   color: #8d8888;
@@ -591,6 +602,61 @@
   left: 50%;
   margin-left: -10px;
   background: url('../images/more.svg') no-repeat;
+}
+
+@media (max-width:767px) {
+  .calendar-schedule {
+    padding: 12px 8px 0;
+  }
+  #calendar th, 
+  #calendar td {
+    padding: 8px 2px;
+  }
+  #calendar .tag {
+    max-width: 72px;
+  }
+  #calendar tbody tr {
+    height: auto;
+  }
+}
+@media (max-width:475px) {
+  #calendar th.calendar-title {
+    font-size: 18px;
+    line-height: 27px;
+    height: 26px;
+  }
+  #calendar th, 
+  #calendar td {
+    font-size: 10px;
+    width: 48px;
+    height: 67px;
+  }
+  #calendar .tag {
+    max-width: 48px;
+    line-height: 10px;
+  }
+  #prev-month, #next-month {
+    top: 3px;
+  }
+  #prev-month {
+    left: -2px;
+    transform: scale(.6);
+  }
+  #next-month {
+    right: -2px;
+    transform: scale(.6) rotate(180deg);
+  }
+  .calendar-date {
+    font-size: 13px;
+  }
+  #calendar .more-btn {
+    font-size: 10px;
+  }
+}
+@media (max-width:342px) {
+  #calendar .tag {
+    max-width: 30px;
+  }
 }
 
 /* file-upload-image */

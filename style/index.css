@@ -412,6 +412,11 @@
     white-space: nowrap;
     overflow-y: scroll;
 }
+
+#selectPlaceModal .modal-content.show {
+    display: block;
+}
+
 .banner .card-footer {
     position: sticky;
     bottom: 0;

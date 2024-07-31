@@ -5,52 +5,6 @@ $(document).ready(function () {
     const currentDateStr = today.toISOString().split("T")[0];
 
     const events = [
-      { date: "2024-07-01", 
-        place: 
-          [
-            {
-              "title": "輕井澤",
-              "skiResort": 9,
-              "order": 4,
-              "date": "2024-07-23",
-              "bgColor": "#e5f2f0",
-              "textColor": "#109084",
-              "url": "#"
-            },
-            {
-              "title": "越後湯澤 岩原滑雪場",
-              "skiResort": 32,
-              "order": 3,
-              "date": "2024-07-24",
-              "bgColor": "#fcf1e1",
-              "textColor": "#836942",
-              "url": "#"
-            }
-          ]
-      },
-      { date: "2024-07-25", 
-        place: 
-          [
-            {
-              "title": "輕井澤",
-              "skiResort": 9,
-              "order": 4,
-              "date": "2024-07-23",
-              "bgColor": "#e5f2f0",
-              "textColor": "#109084",
-              "url": "#"
-            },
-            {
-              "title": "越後湯澤 岩原滑雪場",
-              "skiResort": 32,
-              "order": 3,
-              "date": "2024-07-24",
-              "bgColor": "#fcf1e1",
-              "textColor": "#836942",
-              "url": "#"
-            }
-          ]
-      },
       { date: "2024-07-30", 
         place: 
           [
@@ -58,16 +12,129 @@ $(document).ready(function () {
               "title": "輕井澤",
               "skiResort": 9,
               "order": 4,
-              "date": "2024-07-23",
               "bgColor": "#e5f2f0",
               "textColor": "#109084",
               "url": "#"
             },
             {
-              "title": "輕井澤2",
+              "title": "越後湯澤 岩原滑雪場",
+              "skiResort": 32,
+              "order": 3,
+              "bgColor": "#fcf1e1",
+              "textColor": "#836942",
+              "url": "#"
+            }
+          ]
+      },
+      { date: "2024-07-31", 
+        place: 
+          [
+            {
+              title:'札幌手稻滑雪場滑雪場',
               "skiResort": 9,
               "order": 4,
-              "date": "2024-07-23",
+              "bgColor": "#eeecfd",
+              "textColor": "#5b4fa7",
+              "url": "#"
+            },
+            {
+              "title": "輕井澤",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#e5f2f0",
+              "textColor": "#109084",
+              "url": "#"
+            },
+            {
+              "title": "越後湯澤 岩原滑雪場",
+              "skiResort": 32,
+              "order": 3,
+              "bgColor": "#fcf1e1",
+              "textColor": "#836942",
+              "url": "#"
+            }
+          ]
+      },
+      { date: "2024-08-01", 
+        place: 
+          [
+            {
+              "title": "輕井澤",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#e5f2f0",
+              "textColor": "#109084",
+              "url": "#"
+            },
+          ]
+      },
+      { date: "2024-08-02", 
+        place: 
+          [
+            {
+              "title": "輕井澤",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#e5f2f0",
+              "textColor": "#109084",
+              "url": "#"
+            },
+            {
+              "title": "札幌手稻滑雪場",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#ebf1f5",
+              "textColor": "#1ba4ed",
+              "url": "#"
+            },
+          ]
+      },
+      { date: "2024-08-03", 
+        place: 
+          [
+            {
+              "title": "輕井澤",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#e5f2f0",
+              "textColor": "#109084",
+              "url": "#"
+            },
+          ]
+      },
+      { date: "2024-08-07", 
+        place: 
+          [
+            {
+              "title": "札幌手稻滑雪場",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#ebf1f5",
+              "textColor": "#1ba4ed",
+              "url": "#"
+            },
+          ]
+      },
+      { date: "2024-08-10", 
+        place: 
+          [
+            {
+              "title": "札幌手稻滑雪場",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#ebf1f5",
+              "textColor": "#1ba4ed",
+              "url": "#"
+            },
+          ]
+      },
+      { date: "2024-08-11", 
+        place: 
+          [
+            {
+              "title": "藏王溫泉滑雪場",
+              "skiResort": 9,
+              "order": 4,
               "bgColor": "#eeecfd",
               "textColor": "#5b4fa7",
               "url": "#"
@@ -76,11 +143,76 @@ $(document).ready(function () {
               "title": "越後湯澤 岩原滑雪場",
               "skiResort": 32,
               "order": 3,
-              "date": "2024-07-24",
+              "bgColor": "#fcf1e1",
+              "textColor": "#836942",
+              "url": "#"
+            },
+            {
+              "title": "札幌手稻滑雪場",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#ebf1f5",
+              "textColor": "#1ba4ed",
+              "url": "#"
+            },
+          ]
+      },
+      { date: "2024-08-20", 
+        place: 
+          [
+            {
+              "title": "輕井澤",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#e5f2f0",
+              "textColor": "#109084",
+              "url": "#"
+            },
+            {
+              "title": "越後湯澤 岩原滑雪場",
+              "skiResort": 32,
+              "order": 3,
+              "bgColor": "#fcf1e1",
+              "textColor": "#836942",
+              "url": "#"
+            },
+            {
+              "title": "越後湯澤 石打丸山滑雪場",
+              "skiResort": 32,
+              "order": 3,
               "bgColor": "#fcf1e1",
               "textColor": "#836942",
               "url": "#"
             }
+          ]
+      },
+      { date: "2024-08-25", 
+        place: 
+          [
+            {
+              "title": "越後湯澤 岩原滑雪場",
+              "skiResort": 32,
+              "order": 3,
+              "bgColor": "#fcf1e1",
+              "textColor": "#836942",
+              "url": "#"
+            },
+            {
+              "title": "輕井澤",
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#e5f2f0",
+              "textColor": "#109084",
+              "url": "#"
+            },
+            {
+              title:'札幌手稻滑雪場滑雪場',
+              "skiResort": 9,
+              "order": 4,
+              "bgColor": "#eeecfd",
+              "textColor": "#5b4fa7",
+              "url": "#"
+            },
           ]
       },
     ];
