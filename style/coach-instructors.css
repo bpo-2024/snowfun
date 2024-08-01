@@ -223,7 +223,6 @@
   }
 }
 
-
 .description-content {
   overflow: hidden;
   transition: all 0.5s ease-in-out;
@@ -237,15 +236,53 @@
   color: #000;
   cursor: pointer;
 }
-
 .description {
   padding-bottom: 56px;
 }
-#introduction p{
+.description-content{
   color: #858585;
   font-size: 13px;
   line-height: 20px;
   padding-bottom: 16px;
+}
+
+.certificate {
+  border: 1px solid #E4E6EA;
+  padding: 20px;
+  max-width: 564px;
+  border-radius: 16px;
+}
+
+.certificate-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #E4E6EA;
+}
+.certificate-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.certificate-item .thumbnail img {
+  width: 60px;
+  height: 60px;
+}
+
+.certificate-item .type {
+  max-width: 330px;
+  width: 100%;
+  padding: 0 24px;
+}
+
+.certificate-item .type li+li {
+  margin-top: 8px;
+}
+.certificate-item .type li:first-child {
+  font-size: 18px;
+  font-weight: 700;
+  color: black;
+}
+.certificate-item .type li:last-child {
+  font-weight: 500;
+  font-size: 14px;
 }
 
 /* coach-tab */
@@ -317,18 +354,21 @@
   object-fit: cover
 }
 
-#videoCarouselModal .modal-dialog {
+#videoCarouselModal .modal-dialog,
+#certificate-modal .modal-dialog {
   width: 100%;
   height: 100%;
   max-width: 1000px;
   max-height: 638px;
   overflow: hidden;
 }
-#videoCarouselModal .modal-body {
+#videoCarouselModal .modal-body,
+#certificate-modal .modal-body{
   padding: 64px 40px 48px;
   min-height: 300px;
 }
-#videoCarouselModal .btn-close {
+#videoCarouselModal .btn-close,
+#certificate-modal .btn-close{
   position: absolute;
   top: 20px;
   right: 20px;
