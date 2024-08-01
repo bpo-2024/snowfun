@@ -6,7 +6,7 @@ $(document).ready(function () {
         content:
           "超讚的教練，可以馬上看出學生的問題並加已改正，而且溫柔有耐心，樂於分享滑雪與北海道的一切，還帶我們去雪場漂亮的秘境跟體驗鬆軟粉雪，時間上好上滿，真的很開心選擇他！",
         rate: 5,
-        images:['../images/default_image.png'],
+        images:['./images/default_image.png'],
         date: "2024/02/09",
         answer: {
           date: "2024/02/10",
