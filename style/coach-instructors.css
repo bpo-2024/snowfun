@@ -227,7 +227,8 @@
   overflow: hidden;
   transition: all 0.5s ease-in-out;
 }
-.description-button {
+.description-button,
+.description-button-nodot {
   display: block;
   margin-top: 12px;
   font-weight: 500;
@@ -235,6 +236,10 @@
   text-decoration: underline;
   color: #000;
   cursor: pointer;
+}
+.description-button i,
+.description-button-nodot i {
+  margin-left: 4px;
 }
 .description {
   padding-bottom: 56px;
@@ -256,6 +261,9 @@
 .certificate-item {
   padding: 20px 0;
   border-bottom: 1px solid #E4E6EA;
+}
+.certificate-item:first-child {
+  padding-top: 0;
 }
 .certificate-item:last-child {
   padding-bottom: 0;
@@ -371,6 +379,8 @@
   padding: 64px 40px 48px;
   min-height: 300px;
   border-radius: 30px;
+  justify-content: center;
+  display: flex;
 }
 #videoCarouselModal .btn-close,
 #certificate-modal .btn-close{
@@ -382,7 +392,10 @@
   max-width: 921px;
   max-height: 526px;
 }
-
+#certificate-modal img {
+  width: 80%;
+  height: auto;
+}
 @media (max-width:1044px) {
   #videoCarouselModal .modal-dialog, 
   #certificate-modal .modal-dialog {
