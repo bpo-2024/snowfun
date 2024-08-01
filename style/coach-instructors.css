@@ -2,13 +2,14 @@
   position: relative;
   height: 246px;
 }
-.about-coach-pc {
+.about-coach-bar{
   z-index: 1;
   position: absolute;
   top: -80px;
 }
-.test {
+.coach-content {
   padding-top: 230px;
+  padding-bottom: 70px;
 }
 .introduce {
   align-items: flex-end;
@@ -80,10 +81,6 @@
   font-size: 14px;
   color: #858585;
   margin-bottom: 8px;
-}
-
-.about-coach-mb {
-  padding-bottom: 70px;
 }
 
 .type-tag {
@@ -163,26 +160,30 @@
   .resort-tag {
     display: none;
   }
-  .test {
+  .coach-content {
     padding-top: 32px;
   }
   .type-tag-item .title {
     font-size: 16px;
   }
-  .about-coach-mb .row {
+  .about-coach .row {
     flex-flow: column-reverse;
   }
   .introduce {
     align-items: flex-start;
     flex-flow: column;
   }
-  .about-coach-pc {
-    position: initial;
-  }
-  .about-coach-mb {
-    top: -100px;
-    position: relative;
+  .about-coach-bar {
+    position: absolute;
     z-index: 1;
+    top: -100px;
+    left: 0;
+    right: 0;
+    padding-right: calc(var(--bs-gutter-x)* .5);
+    padding-left: calc(var(--bs-gutter-x)* .5);
+  }
+  .type-mb {
+    padding-top: 260px;
   }
   .introduce-item {
     margin: 16px 0 24px;
@@ -221,14 +222,32 @@
     height: 180px;
   }
 }
-/*  */
-.introduction {
+
+
+.description-content {
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+}
+.description-button {
+  display: block;
+  margin-top: 12px;
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: underline;
+  color: #000;
+  cursor: pointer;
+}
+
+.description {
+  padding-bottom: 56px;
+}
+#introduction p{
   color: #858585;
   font-size: 13px;
   line-height: 20px;
-  padding-bottom: 32px;
-  border-bottom: 1px solid;
+  padding-bottom: 16px;
 }
+
 /* coach-tab */
 .coach-tab {
   margin-bottom: 32px;
