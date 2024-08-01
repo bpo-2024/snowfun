@@ -338,8 +338,8 @@
 .video-dots button.owl-dot {
   background: #444; /* Adjust dot styling */
   border-radius: 50%;
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
   margin: 0 5px;
 }
 
@@ -362,10 +362,15 @@
   max-height: 638px;
   overflow: hidden;
 }
+#videoCarouselModal .modal-content,
+#certificate-modal  .modal-content {
+  border-radius: 30px;
+}
 #videoCarouselModal .modal-body,
-#certificate-modal .modal-body{
+#certificate-modal .modal-body {
   padding: 64px 40px 48px;
   min-height: 300px;
+  border-radius: 30px;
 }
 #videoCarouselModal .btn-close,
 #certificate-modal .btn-close{
@@ -373,6 +378,51 @@
   top: 20px;
   right: 20px;
 }
+#videoCarouselModal .modal-item {
+  max-width: 921px;
+  max-height: 526px;
+}
+
+@media (max-width:1044px) {
+  #videoCarouselModal .modal-dialog, 
+  #certificate-modal .modal-dialog {
+    max-width: 840px;
+  }
+}
+@media (max-width:895px) {
+  #videoCarouselModal .modal-dialog, #certificate-modal .modal-dialog {
+    max-width: 685px;
+  }
+
+  #videoCarouselModal .modal-item {
+    max-width: 600px;
+  }
+}
+@media (max-width:755px) {
+  #videoCarouselModal .modal-dialog, 
+  #certificate-modal .modal-dialog {
+    max-width: 550px;
+  }
+}
+@media (max-width:600px) {
+  #videoCarouselModal .modal-dialog, 
+  #certificate-modal .modal-dialog {
+    max-width: calc(100% - 40px);
+    margin: 0 auto;
+  }
+
+  #videoCarouselModal .modal-body, 
+  #certificate-modal .modal-body {
+    padding: 40px 20px 24px;
+    min-height: auto;
+  }
+
+  #videoCarouselModal .btn-close, #certificate-modal .btn-close {
+    top: 12px;
+    right: 15px;
+  }
+}
+
 /* evaluation */
 #evaluation .btn-evaluation-submit {
   display: flex;
@@ -494,6 +544,7 @@
   margin-top: 32px;
   padding-top: 32px;
   border-top: 1px solid #c2c2c2;
+  border-radius: 0;
 }
 .coach-list .list-group-item{
   padding: 0;
