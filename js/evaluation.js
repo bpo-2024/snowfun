@@ -141,7 +141,7 @@ $(document).ready(function () {
         <li class="list-group-item">
             <div class="d-flex gap-3">
                 <div class="avatar"></div>
-                <div class="d-flex justify-content-between flex-fill">
+                <div class="d-flex justify-content-between align-items-center flex-fill">
                     <div class="d-flex flex-column justify-content-center gap-1">
                         <div class="username">${
                           item.username

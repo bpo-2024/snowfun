@@ -781,6 +781,10 @@
   #calendar tbody tr {
     height: auto;
   }
+  #calendar table thead tr:last-child th{
+    height: 34px;
+    line-height: 34px;
+  }
 }
 @media (max-width:475px) {
   #calendar th.calendar-title {
