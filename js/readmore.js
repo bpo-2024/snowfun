@@ -10,13 +10,13 @@ for (let card of cards) {
   const readMore = card.querySelector(".description-button");
   const readMoreNoDot = card.querySelector(".description-button-nodot");
 
-  if (description != null) {
+  if (description) {
     description.style.maxHeight = `${cardHeight}px`;
     if (description.scrollHeight <= cardHeight && readMore) {
       readMore.style.display = "none";
     }  
   }
-  if (certificate != null) {
+  if (certificate) {
     certificate.style.maxHeight = `${certificateHeight}px`;
     if (certificate.scrollHeight <= certificateHeight &&readMoreNoDot){
       readMoreNoDot.style.display = "none";
