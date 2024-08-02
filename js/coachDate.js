@@ -218,11 +218,11 @@ $(document).ready(function () {
     ];
 
     function generateCalendar(year, month) {
-      const monthNames = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+      const monthNames = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
       const daysInMonth = new Date(year, month, 0).getDate(); // 获取该月的天数
       const firstDay = new Date(year, month - 1, 1).getDay(); // 获取该月第一天是星期几
 
-      let calendarHtml = `<table class="table"><thead><tr><th class="calendar-title" colspan="7">${year}年 ${monthNames[month - 1]}</th></tr><tr>`;
+      let calendarHtml = `<table class="table"><thead><tr><th class="calendar-title" colspan="7">${year}年${monthNames[month - 1]}</th></tr><tr>`;
       const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
       for (let day of dayNames) {
           calendarHtml += `<th>${day}</th>`;
