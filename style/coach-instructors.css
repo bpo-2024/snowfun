@@ -171,10 +171,10 @@
 .resort-tag-item .btn {
   border-radius: 30px;
 }
+.type-mb {
+  padding-bottom: 70px;
+}
 @media (max-width:991px) {
-  .resort-tag {
-    /* display: none; */
-  }
   .coach-content {
     padding-top: 32px;
   }
@@ -199,6 +199,7 @@
   }
   .type-mb {
     padding-top: 260px;
+    padding-bottom: 28px;
   }
   .introduce-item {
     margin: 16px 0 24px;
@@ -395,6 +396,7 @@
   min-height: 300px;
   border-radius: 30px;
   justify-content: center;
+  align-items: center;
   display: flex;
 }
 #videoCarouselModal .btn-close,
@@ -408,8 +410,10 @@
   max-height: 526px;
 }
 #certificate-modal img {
-  width: 80%;
   height: auto;
+  width: 100%;
+  max-width: 921px;
+  max-height: 526px;
 }
 @media (max-width:1044px) {
   #videoCarouselModal .modal-dialog, 
@@ -467,7 +471,7 @@
   background: url('../images/icon_arrow_right.svg');
 }
 .student-box {
-  padding: 32px 0;
+  padding: 0 0 32px 0;
   border-bottom: 1px solid #e3e3e3;
 }
 #student-login {

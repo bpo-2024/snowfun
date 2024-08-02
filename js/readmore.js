@@ -37,15 +37,11 @@ for (let card of cards) {
       readMore.addEventListener("click", () => {
         if (description.style.maxHeight === `${cardHeight}px`) {
           description.style.maxHeight = `${description.scrollHeight}px`;
-          const arrow_up =`<i class="fa-solid fa-angle-up"></i>`;
-          readMore.innerHTML = "顯示較少內容"+arrow_up;
-          // remove span with hellip when description is expanded
+          readMore.innerHTML = "顯示較少內容"+`<i class="fa-solid fa-angle-up"></i>`;
           description.nextSibling.remove();
         } else {
           description.style.maxHeight = `${cardHeight}px`;
-          const arrow_down =`<i class="fa-solid fa-angle-down"></i>`;
-          readMore.innerHTML = "顯示更多內容"+arrow_down;
-          // add span with hellip when description is collapsed
+          readMore.innerHTML = "顯示更多內容"+`<i class="fa-solid fa-angle-down"></i>`;
           addSpan();
         }
       });
@@ -54,12 +50,10 @@ for (let card of cards) {
     readMoreNoDot.addEventListener("click", () => {
       if (certificate.style.maxHeight === `${certificateHeight}px`) {
         certificate.style.maxHeight = `${certificate.scrollHeight}px`;
-        const arrow_up =`<i class="fa-solid fa-angle-up"></i>`;
-        readMoreNoDot.innerHTML = "顯示較少內容"+arrow_up;
+        readMoreNoDot.innerHTML = "顯示較少內容"+`<i class="fa-solid fa-angle-up"></i>`;
       } else {
         certificate.style.maxHeight = `${certificateHeight}px`;
-        const arrow_down =`<i class="fa-solid fa-angle-down"></i>`;
-        readMoreNoDot.innerHTML = "顯示更多內容"+arrow_down;
+        readMoreNoDot.innerHTML = "顯示更多內容"+`<i class="fa-solid fa-angle-down"></i>`;
       }
     })
   }

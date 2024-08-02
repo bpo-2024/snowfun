@@ -437,7 +437,7 @@
           </div>
           <div class="resort-tag">
            <div class="resort-tag-item">
-             <div class="title d-flex align-items-center">開課雪場 <span><a href="">查看更多<i class="fa-solid fa-angle-right"></i></a></span></div>
+             <div class="title d-flex align-items-center">開課雪場 <span><a id="calendar-link" href="#">查看更多<i class="fa-solid fa-angle-right"></i></a></span></div>
              <div class="tag d-flex">
                <span class="purple">藏王溫泉滑雪場</span>
                <span class="blue">札幌手稻滑雪場</span>
@@ -670,7 +670,7 @@
     <script src="./js/coachDate.js"></script>
     <script src="./js/videoCarousel.js"></script>
     <script src="./js/evaluation.js"></script>
-    <script src="./js/readmore.js"></script>
+    <script src="./js/readMore.js"></script>
     <script src="./js/certificateModal.js"></script>
 
     <script>
@@ -679,11 +679,16 @@
         $('#student-login').removeClass('visually-hidden');
        }
 
-        $(document).ready(function(){
+      $(document).ready(function(){
           $("#evaluation-link").click(function(e){
             e.preventDefault();
             var evaluationTab = new bootstrap.Tab(document.querySelector('#contact-tab'));
             evaluationTab.show();
+          });
+          $("#calendar-link").click(function(e){
+            e.preventDefault();
+            var scheduleTab = new bootstrap.Tab(document.querySelector('#schedule-tab'));
+            scheduleTab.show();
         });
       });
     </script>
