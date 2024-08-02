@@ -715,7 +715,7 @@
 #calendar .more-info-content {
   display: flex;
   flex-direction: column;
-  padding: 20px 16px 0;
+  padding: 20px 16px 16px 16px;
   border: 1px solid #e3e3e3;
   border-radius: 8px;
   background-color: #fcfcfc;
@@ -1094,6 +1094,10 @@
   }
   #fileUploadModal .file-preview-thumbnails {
     gap: 5px;
+  }
+  .coach-tab .nav-link {
+    padding: 8px 10px;
+    width: 100px;
   }
 }
 @media (max-width:520px) {

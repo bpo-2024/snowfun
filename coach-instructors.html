@@ -684,11 +684,13 @@
             e.preventDefault();
             var evaluationTab = new bootstrap.Tab(document.querySelector('#contact-tab'));
             evaluationTab.show();
+            document.getElementById("tab").scrollIntoView();
           });
           $("#calendar-link").click(function(e){
             e.preventDefault();
             var scheduleTab = new bootstrap.Tab(document.querySelector('#schedule-tab'));
             scheduleTab.show();
+            document.getElementById("tab").scrollIntoView();
         });
       });
     </script>
