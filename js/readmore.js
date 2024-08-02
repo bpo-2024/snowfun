@@ -1,4 +1,5 @@
-const cardHeight = 160;
+$(document).ready(function() {
+  const cardHeight = 160;
 const certificateHeight = 212;
 
 const cards = document.querySelectorAll(".description");
@@ -58,3 +59,6 @@ for (let card of cards) {
     })
   }
 }
+});
+
+
