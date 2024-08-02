@@ -167,7 +167,7 @@
               <img src="./images/star.png" alt="">
               <span class="fraction">4.6</span>
               <span class="dot">・</span>
-              <span class="evaluate"><a href="#">14則評價</a></span>
+              <span class="evaluate"><a id="evaluation-link" href="#">14則評價</a></span>
             </div>
           </div>
         </div>
@@ -678,6 +678,14 @@
         $('#student').addClass('visually-hidden');
         $('#student-login').removeClass('visually-hidden');
        }
+
+        $(document).ready(function(){
+          $("#evaluation-link").click(function(e){
+            e.preventDefault();
+            var evaluationTab = new bootstrap.Tab(document.querySelector('#contact-tab'));
+            evaluationTab.show();
+        });
+      });
     </script>
   
   </body>
