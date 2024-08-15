@@ -383,3 +383,8 @@ footer {
     border-top: 1px solid #E8E8E8;
     z-index: -1;
 }
+/* form */
+.form-control:focus {
+    box-shadow: none;
+    border-color: #c2c2c2;
+}
