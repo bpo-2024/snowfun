@@ -724,6 +724,10 @@
   margin: 0;
   margin-bottom: 12px;
   max-width: none;
+  cursor: pointer;
+}
+#calendar .more-td {
+  cursor: pointer;
 }
 #calendar .more-btn {
   color: #8d8888;
@@ -733,6 +737,7 @@
   text-decoration: auto;
   padding: 0;
   margin-top: 4px;
+  cursor: pointer;
 }
 #calendar .before-day {
   color: #8d8888;

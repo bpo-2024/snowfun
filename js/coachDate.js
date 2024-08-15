@@ -5,7 +5,7 @@ $(document).ready(function () {
     const currentDateStr = today.toISOString().split("T")[0];
 
     const events = [
-      { date: "2024-07-30", 
+      { date: "2024-09-30", 
         place: 
           [
             {
@@ -26,7 +26,7 @@ $(document).ready(function () {
             }
           ]
       },
-      { date: "2024-07-31", 
+      { date: "2024-09-01", 
         place: 
           [
             {
@@ -68,7 +68,7 @@ $(document).ready(function () {
             },
           ]
       },
-      { date: "2024-08-02", 
+      { date: "2024-09-02", 
         place: 
           [
             {
@@ -89,7 +89,7 @@ $(document).ready(function () {
             },
           ]
       },
-      { date: "2024-08-03", 
+      { date: "2024-09-03", 
         place: 
           [
             {
@@ -219,8 +219,8 @@ $(document).ready(function () {
 
     function generateCalendar(year, month) {
       const monthNames = ["1月", "2月", "3月", "4月", "5月", "6月", "7月", "8月", "9月", "10月", "11月", "12月"];
-      const daysInMonth = new Date(year, month, 0).getDate(); // 获取该月的天数
-      const firstDay = new Date(year, month - 1, 1).getDay(); // 获取该月第一天是星期几
+      const daysInMonth = new Date(year, month, 0).getDate(); // 當月天數
+      const firstDay = new Date(year, month - 1, 1).getDay(); // 當月第一天星期幾
 
       let calendarHtml = `<table class="table"><thead><tr><th class="calendar-title" colspan="7">${year}年${monthNames[month - 1]}</th></tr><tr>`;
       const dayNames = ["日", "一", "二", "三", "四", "五", "六"];
@@ -245,35 +245,39 @@ $(document).ready(function () {
 
       $('#calendar').html(calendarHtml);
       
-      // 标记日期
+      // tag date
       markDates(events);
     }
 
     
     function markDates(events) {
-        events.forEach(event => {
-            const date = event.date;
-            const places = event.place;
-            const dateElement = $(`#${date}`);
-            if (dateElement.length) {
-                // 显示第一个地点
-                const firstPlace = places[0];
-                dateElement.append(`<span class="tag" style="background-color:${firstPlace.bgColor}; color:${firstPlace.textColor};">${firstPlace.title}</span>`);
-                if (places.length > 1) {
-                    dateElement.append(`<button class="more-btn btn btn-link" data-bs-toggle="collapse" data-bs-target="#collapse-${date}">+more</button>`);
-                }
+      events.forEach(event => {
+          const date = event.date;
+          const places = event.place;
+          const dateElement = $(`#${date}`);
+          if (dateElement.length) {
+              // 顯示第一個地點
+              const firstPlace = places[0];
+              dateElement.append(`<span class="tag" style="background-color:${firstPlace.bgColor}; color:${firstPlace.textColor};">${firstPlace.title}</span>`);
+  
+              if (places.length > 1) {
+                  dateElement.attr('data-bs-toggle', 'collapse');
+                  dateElement.attr('data-bs-target', `#collapse-${date}`);
+                  dateElement.addClass('more-td');  // 加入class來做更多處理
+                  dateElement.append(`<div class="more-btn" data-bs-target="#collapse-${date}">+more</div>`);
 
-                // 初始化时插入 MoreInfo 行
-                let moreInfoHtml = `<tr class="more-info"><td colspan="7"><div class="collapse text-start" id="collapse-${date}"><div class="more-info-content">`;
-                moreInfoHtml += places.map(place => `<span class="tag" style="background-color:${place.bgColor}; color:${place.textColor};">${place.title}</span>`).join(" ");
-                moreInfoHtml += `</div></div></td></tr>`;
-                // 找到当前日期所在的行
-                const currentRow = dateElement.closest('tr');
-                // 在当前行的下方插入详细信息行
-                currentRow.after(moreInfoHtml);
-            }
-        });
-    }
+                  // init MoreInfo
+                  let moreInfoHtml = `<tr class="more-info"><td colspan="7"><div class="collapse text-start" id="collapse-${date}"><div class="more-info-content">`;
+                  moreInfoHtml += places.map(place => `<span class="tag" style="background-color:${place.bgColor}; color:${place.textColor};">${place.title}</span>`).join(" ");
+                  moreInfoHtml += `</div></div></td></tr>`;
+                  // find current date tr
+                  const currentRow = dateElement.closest('tr');
+                  // insert tr
+                  currentRow.after(moreInfoHtml);
+              }
+          }
+      });
+  }
     function changeMonth(offset) {
       currentMonth += offset;
       if (currentMonth > 12) {
@@ -295,7 +299,7 @@ $(document).ready(function () {
     });
 
     let currentExpanded = null;
-    $(document).on("click", ".more-btn", function () {
+    $(document).on("click", ".more-td", function () {
       const target = $(this).data("bs-target");
       if (currentExpanded && currentExpanded !== target) {
         $(currentExpanded).collapse("hide");
