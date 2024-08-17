@@ -18,46 +18,45 @@
   <body>
     <main>
       <nav class="navbar" aria-label="Light offcanvas navbar">
-        <div class="container-lg container-fluid justify-content-between">
+        <div class="container-fluid justify-content-between">
           <div class="d-flex align-items-center flex-grow-1">
             <div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
-              <a href="index.html">
+              <a href="index.html" class="logo">
                 <img src="./images/logo.svg" />
               </a>
             </div>
             <ul class="nav d-none d-lg-flex">
               <li class="nav-item">
-                <a class="nav-link text-dark" href="coach-item.html">教練團隊</a>
+                <a class="nav-link" href="coach-item.html">教練團隊</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" href="#">雪場資訊</a>
+                <a class="nav-link" href="#">雪場資訊</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" href="#">常見問題</a>
+                <a class="nav-link" href="#">常見問題</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" href="#">旅遊攻略</a>
+                <a class="nav-link" href="#">旅遊攻略</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" href="#">最新消息</a>
+                <a class="nav-link" href="#">最新消息</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link text-dark" href="#">聯絡客服</a>
+                <a class="nav-link" href="#">聯絡客服</a>
               </li>
             </ul>
           </div>
-          <div class="d-none d-lg-flex">
-            <button type="button" class="btn px-1 px-lg-2 text-blue-light">教練登入</button>
+          <div class="d-none d-lg-flex login">
+            <button type="button" class="btn px-1 px-lg-2 login-coach">教練登入</button>
             <button
               type="button"
               class="btn btn-outline-primary px-1 px-lg-2"
-              onclick="loginModal()"
               data-bs-toggle="modal"
               data-bs-target="#snowModal"
-              data-bs-dismiss="offcanvas"
+              onclick="loginModal()"
             >
               登入
-          </button>
+            </button>
           </div>
 
           <button
@@ -71,25 +70,18 @@
             <img src="./images/icon_hamburger.svg" />
           </button>
           <div
-            class="offcanvas offcanvas-end"
+            class="offcanvas offcanvas-start nav-offcanvas"
             tabindex="-1"
             id="offcanvasNavbarLight"
+            style="z-index: 1051"
           >
             <div class="offcanvas-header">
-              <button
-                type="button"
-                class="btn-close"
-                data-bs-dismiss="offcanvas"
-                aria-label="Close"
-              ></button>
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" height="60" />
+              </a>
             </div>
             <div class="offcanvas-body">
-              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#"
-                    >首頁</a
-                  >
-                </li>
+              <ul class="navbar-nav justify-content-end flex-grow-1">
                 <li class="nav-item">
                   <a class="nav-link" href="#">教練團隊</a>
                 </li>
@@ -108,7 +100,36 @@
                 <li class="nav-item">
                   <a class="nav-link" href="#">聯絡客服</a>
                 </li>
+                <li class="nav-item d-flex  justify-content-between">
+                  <button
+                    type="button"
+                    class="btn coach-register"
+                  >
+                    教練註冊
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary px-1 px-lg-2"
+                    onclick="loginModal()"
+                    data-bs-toggle="modal"
+                    data-bs-target="#snowModal"
+                    data-bs-dismiss="offcanvas"
+                  >
+                    登入
+                  </button>
+                  <!-- <button 
+                    type="button" 
+                    class="btn" 
+                    onclick="registerModal()" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#snowModal" 
+                    data-bs-dismiss="offcanvas"
+                  >
+                    註冊
+                  </button> -->
+                </li>
               </ul>
+              
             </div>
           </div>
         </div>
