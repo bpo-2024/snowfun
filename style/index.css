@@ -1,6 +1,11 @@
 .banner {
     position: relative;
-    padding-top: 0;
+    padding-top: 62.5px;
+}
+@media(min-width:992px){
+    .banner {
+        padding-top: 80px;
+    }
 }
 .banner-box {
     position: relative;
@@ -64,7 +69,7 @@
     position: absolute;
     left: 0;
     right: 0;
-    top: 390px;
+    top: 470px;
     z-index: 3;
     margin-left: 20px;
     margin-right: 20px;
@@ -572,7 +577,7 @@
         font-weight: 600;
     }
     .selectDate-box {
-        top: 230px;
+        top: 292.5px;
     }
     /* .btn-select-place{
         width: 126px;

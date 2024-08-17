@@ -1126,6 +1126,15 @@
   }
 }
 
+/* header */
+.banner {
+  padding-top: 80px;
+}
+@media (max-width:991px) {
+ .banner {
+  padding-top: 62.5px;
+ }
+}
 /* footer */
 .footer-pc {
     position: initial;

@@ -6,6 +6,12 @@
   background: url(../images/pic.png) no-repeat;
   background-position: center;
   background-size: cover;
+  margin-top: 80px;
+}
+@media(max-width:991px){
+  .banner {
+    margin-top: 62.5px;
+  }
 }
 .banner::before {
   content: '';
@@ -210,4 +216,13 @@
 
 .footer-pc {
   position: static;
+}
+
+/* footer */
+.footer-pc {
+  position: initial;
+}
+
+.footer-mb{
+top: initial;
 }
