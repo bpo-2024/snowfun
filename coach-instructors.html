@@ -346,6 +346,12 @@
           </div>
         </div>
         <div class="col-lg-4 col-12 type-mb">
+          <div class="d-flex justify-content-end mt-4 calculation">
+            <button id="calculation-link" type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
+              學費試算
+              <img width="26" src="./images/icon_arrow_right.svg">
+            </button>
+          </div>
           <div class="type-tag">
            <div class="type-tag-item">
              <div class="title">SKI雙板</div>
@@ -359,7 +365,6 @@
                <span>零經驗</span>
              </div>
              <div class="description">
-           
               <div class="certificate description-content">
                 <div class="certificate-item d-flex justify-content-between align-items-center">
                   <div class="d-flex align-items-center">
@@ -431,7 +436,6 @@
                <span>零經驗</span>
              </div>
              <div class="description">
-           
               <div class="certificate description-content">
                 <div class="certificate-item d-flex justify-content-between align-items-center">
                   <div class="d-flex align-items-center">
@@ -507,10 +511,6 @@
            </div>
            <div class="resort-tag-item d-flex align-items-center justify-content-between">
              <a href="" class="online">線上諮詢</a>
-             <button type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
-               學費試算
-               <img width="26" src="./images/icon_arrow_right.svg">
-             </button>
            </div>
           </div>
          </div>
@@ -743,12 +743,12 @@
             evaluationTab.show();
             document.getElementById("tab").scrollIntoView();
           });
-          $("#calendar-link").click(function(e){
+          $('#calendar-link,#calculation-link').click(function(e){
             e.preventDefault();
             var scheduleTab = new bootstrap.Tab(document.querySelector('#schedule-tab'));
             scheduleTab.show();
             document.getElementById("tab").scrollIntoView();
-        });
+          });
       });
     </script>
   

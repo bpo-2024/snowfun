@@ -83,6 +83,14 @@
   margin-bottom: 8px;
 }
 
+.calculation .btn {
+  border-radius: 30px;
+}
+@media (max-width:991px){
+  .calculation {
+    display: none !important;
+  }
+}
 .type-tag {
   border: 1px solid #E3E3E3;
   padding: 24px;
@@ -171,9 +179,6 @@
 .resort-tag-item .online {
   color: #666666;
   font-size: 16px;
-}
-.resort-tag-item .btn {
-  border-radius: 30px;
 }
 .type-mb {
   padding-bottom: 70px;
