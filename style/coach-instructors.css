@@ -102,7 +102,7 @@
   padding-top:24px;
 }
 .type-tag-item .tag {
-  padding-top: 16px;
+  padding: 16px 0 24px;
   flex-flow: wrap;
 }
 .type-tag-item .tag span{
@@ -111,6 +111,10 @@
   border-radius: 16px;
   padding: 8px 12px;
   margin: 8px 8px 0 0;
+}
+
+.type-tag .description {
+  padding: 0;
 }
 .resort-tag {
   border: 1px solid #E3E3E3;
@@ -268,12 +272,9 @@
 }
 
 .certificate {
-  border: 1px solid #E4E6EA;
-  padding: 20px;
+  padding: 8px 8px 20px 8px∂;
   max-width: 564px;
-  border-radius: 16px;
 }
-
 .certificate-item {
   padding: 20px 0;
   border-bottom: 1px solid #E4E6EA;
