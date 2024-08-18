@@ -782,17 +782,16 @@
       });
 
       $(document).ready(function() {
+        let offset = $(window).width() < 991 ? (-40) : 82;
         var why = $('#tab').offset().top;	
-        console.log('123',$('#tab').scroll());
+        console.log('123',offset);
         document.addEventListener("scroll", (event) => {
           lastKnownScrollPosition = window.scrollY;
-          console.log('lastKnownScrollPosition',lastKnownScrollPosition)
                 
        });		   
         $(window).scroll(function() {
           var hehe = window.scrollY;
-          console.log('hehe',hehe);
-          if (  hehe > why) {
+          if (  hehe > (why - offset)) {
             $(".test").addClass("stick");
           } else {
             $(".test").removeClass("stick");	
