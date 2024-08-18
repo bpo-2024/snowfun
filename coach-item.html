@@ -152,7 +152,7 @@
               <div class="input-search">
                 <input class="form-control input-style" placeholder="關鍵字搜尋">
               </div>
-              <button class=" filter-btn d-flex justify-content-center"  type="button" data-bs-toggle="" data-bs-target="#" aria-expanded="" aria-controls="">
+              <button class=" filter-btn d-flex justify-content-center"  type="button" data-bs-toggle="modal" data-bs-target="#filterModal" aria-expanded="" aria-controls="">
                 排序
                 <img src="./images/mage_filter.png" alt="">
               </button>
@@ -168,9 +168,74 @@
               </select> -->
              <!-- </div> -->
            </div>
+           <div id="selectResult" class="d-flex align-items-center">
+            <p id="result_text"></p>
+            <button type="button" class="btn" id="resetButton">請除所有選項</button>
+           </div>
          </div>
         </form>
       </section>
+      <!-- filter modal -->
+      <div class="modal fade" id="filterModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="filterModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div class="selectLang-area mt-3">
+                <h3>授課語言</h3>
+                <input type="checkbox" class="btn-check" id="selectLang_1" value="chinese">
+                <label class="btn btn-radio" for="selectLang_1">中文</label>
+
+                <input type="checkbox" class="btn-check" id="selectLang_2" value="english">
+                <label class="btn btn-radio" for="selectLang_2">英文</label>
+
+                <input type="checkbox" class="btn-check" id="selectLang_3" value="cantonese">
+                <label class="btn btn-radio" for="selectLang_3">粵語</label>
+
+                <input type="checkbox" class="btn-check" id="selectLang_4" value="japanese">
+                <label class="btn btn-radio" for="selectLang_4">日文</label>
+              </div>
+
+              <div class="selectLevel-area mt-3">
+                <h3>滑雪等級</h3>
+                <input type="checkbox" class="btn-check" id="selectLevel_1" value="level_1">
+                <label class="btn btn-radio" for="selectLevel_1">Level 1</label>
+
+                <input type="checkbox" class="btn-check" id="selectLevel_2" value="level_2">
+                <label class="btn btn-radio" for="selectLevel_2">Level 2</label>
+
+                <input type="checkbox" class="btn-check" id="selectLevel_3" value="level_3">
+                <label class="btn btn-radio" for="selectLevel_3">Level 3</label>
+
+                <input type="checkbox" class="btn-check" id="selectLevel_4" value="level_4">
+                <label class="btn btn-radio" for="selectLevel_4">Level 4</label>
+              </div>
+            </div>
+            <div class="modal-body">
+              <div class="selectEvaluate-area mt-3">
+                <h3>依評價排序</h3>
+                <input type="radio" class="btn-check" name="evaluate" id="evaluate_1" autocomplete="off"  value="evaluate_1">
+                <label class="btn btn-radio" for="evaluate_1">評價從高到低</label>
+
+                <input type="radio" class="btn-check" name="evaluate" id="evaluate_2" autocomplete="off" value="evaluate_2">
+                <label class="btn btn-radio" for="evaluate_2">評價從低到高</label>
+              </div>
+
+              <div class="selectPrice-area mt-3">
+                <h3>依價格排序</h3>
+                <input type="radio" class="btn-check" name="price" id="price_1" autocomplete="off" value="price_1">
+                <label class="btn btn-radio" for="price_1">價格從高到低</label>
+
+                <input type="radio" class="btn-check" name="price" id="price_2" autocomplete="off" value="price_2">
+                <label class="btn btn-radio" for="price_2">價格從低到高</label>
+              </div>
+            </div>
+            <div class="modal-footer flex justify-content-between">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">關閉</button>
+              <button id="confirmButton" type="button" class="btn btn-primary">確認</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <section>
         <!-- 教練 -->
@@ -390,5 +455,68 @@
     <script src="./js/login.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
     <!-- <script src="js/owl.js"></script> -->
+
+    <script>
+     
+      $('#confirmButton').on('click', function() {
+        // Get selected languages
+        const selectedLanguages = [];
+        $('.selectLang-area input[type="checkbox"]:checked').each(function() {
+            selectedLanguages.push(this.value);
+        });
+
+        // Get selected levels
+        const selectedLevels = [];
+        $('.selectLevel-area input[type="checkbox"]:checked').each(function() {
+            selectedLevels.push(this.value);
+        });
+
+        // Get selected evaluation order
+        let selectedEvaluate = '';
+        const selectedEvaluateRadio = $('.selectEvaluate-area input[type="radio"]:checked');
+        if (selectedEvaluateRadio.length) {
+            selectedEvaluate = selectedEvaluateRadio.val();
+        }
+
+        // Get selected price order
+        let selectedPrice = '';
+        const selectedPriceRadio = $('.selectPrice-area input[type="radio"]:checked');
+        if (selectedPriceRadio.length) {
+            selectedPrice = selectedPriceRadio.val();
+        }
+
+        // Create JSON object
+        const selectedOptions = {
+            lang: selectedLanguages,
+            level: selectedLevels,
+            evaluate: selectedEvaluate,
+            price: selectedPrice,
+        };
+
+        // Print JSON object to console
+        console.log(selectedOptions);
+
+        if (selectedLanguages.length || selectedLevels.length || selectedEvaluate || selectedPrice) {
+          $('#result_text').text('41個搜尋結果');
+          $('#resetButton').show();
+        } else {
+            $('#resetButton').hide();
+        }
+
+        $('#filterModal').modal('hide');
+      });
+
+      // Reset button functionality
+      $('#resetButton').on('click', function() {
+          // Uncheck all checkboxes and radios
+          $('input[type="checkbox"], input[type="radio"]').prop('checked', false);
+
+          // Hide the reset button after reset
+          $('#resetButton').hide();
+          $('#result_text').text('');
+      });
+
+      $('#resetButton').hide();
+    </script>
   </body>
 </html>
