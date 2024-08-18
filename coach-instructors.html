@@ -737,18 +737,28 @@
        }
 
       $(document).ready(function(){
-          $("#evaluation-link").click(function(e){
-            e.preventDefault();
-            var evaluationTab = new bootstrap.Tab(document.querySelector('#contact-tab'));
-            evaluationTab.show();
-            document.getElementById("tab").scrollIntoView();
-          });
-          $('#calendar-link,#calculation-link').click(function(e){
-            e.preventDefault();
-            var scheduleTab = new bootstrap.Tab(document.querySelector('#schedule-tab'));
-            scheduleTab.show();
-            document.getElementById("tab").scrollIntoView();
-          });
+        let offset = $(window).width() < 991 ? 62 : 82;
+        $("#evaluation-link").on("click", function(e) {
+          e.preventDefault();
+
+          new bootstrap.Tab('#contact-tab').show();
+          let offsetPosition = $("#tab").offset().top - offset;
+
+          // 平滑滚动到目标位置
+          $('html, body').animate({ scrollTop: offsetPosition }, 100);
+        });
+        
+        $('#calculation-link').click(function(e){
+          e.preventDefault();
+          new bootstrap.Tab('#schedule-tab').show();
+          
+          var tabElement = $("#tab");
+          var offsetPosition = tabElement.offset().top - offset;
+
+          $('html, body').animate({
+              scrollTop: offsetPosition
+          }, 100);
+        });
       });
     </script>
   
