@@ -769,10 +769,26 @@
     <script src="./js/certificateModal.js"></script>
 
     <script>
-       function evaluationLogin(){
+      function evaluationLogin(){
         $('#student').addClass('visually-hidden');
         $('#student-login').removeClass('visually-hidden');
-       }
+      }
+
+      // tab active
+      function syncTabs(clickedTab) {
+          var tabId = $(clickedTab).attr('id');
+
+          var correspondingTab = $('#tab2 #' + tabId + ', #tab #' + tabId);
+          
+          $('#tab .nav-link, #tab2 .nav-link').removeClass('active').attr('aria-selected', 'false');
+          
+          correspondingTab.addClass('active').attr('aria-selected', 'true');
+      }
+
+      // 监听 tab 中的按钮点击事件
+      $('#tab .nav-link, #tab2 .nav-link').click(function() {
+          syncTabs(this);
+      });
 
       $(document).ready(function(){
         let offset = $(window).width() < 991 ? 62 : 82;
