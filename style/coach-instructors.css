@@ -1160,3 +1160,34 @@
     top: 62.5px;
   }
 }
+
+/*  */
+.fixed-footer-bar {
+  display:  none
+}
+
+.layout {
+  height: 100px;
+}
+
+.fixed-footer-bar button {
+  width: 146px;
+  border-radius: 30px;
+  height: 50px;
+}
+
+@media (max-width:992px){
+  .fixed-footer-bar {
+    display: block;
+    background-color: white;
+    border-radius: 12px 12px 0 0;
+    height: 100px;
+    z-index: 1;
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0px -5px 7px 0px #00000033;
+  }
+}
+
+

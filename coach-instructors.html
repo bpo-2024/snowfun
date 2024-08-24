@@ -517,7 +517,7 @@
             </div>
            </div>
           </div>
-          <div class="resort-tag">
+          <div class="resort-tag" id="resort-tag">
            <div class="resort-tag-item">
              <div class="title d-flex align-items-center">開課雪場 <span><a id="calendar-link" href="#">查看更多<i class="fa-solid fa-angle-right"></i></a></span></div>
              <div class="tag d-flex">
@@ -557,6 +557,20 @@
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary">Save changes</button>
           </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="fixed-footer-bar">
+      <div class="container">
+        <div class="layout d-flex justify-content-between align-items-center">
+          <button id="fixed-resortTag-link" type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
+            開課雪場
+            <img width="26" src="./images/icon_arrow_right.svg">
+          </button>
+          <button id="fixed-calculation-link" type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
+          學費試算
+          <img width="26" src="./images/icon_arrow_right.svg">
+        </button>
         </div>
       </div>
     </div>
@@ -758,7 +772,7 @@
 
       $(document).ready(function(){
         let offset = $(window).width() < 991 ? 62 : 82;
-        $("#evaluation-link").on("click", function(e) {
+        $("#evaluation-link").click(function(e){
           e.preventDefault();
 
           new bootstrap.Tab('#contact-tab').show();
@@ -768,16 +782,23 @@
           $('html, body').animate({ scrollTop: offsetPosition }, 100);
         });
         
-        $('#calculation-link').click(function(e){
+        $('#calculation-link , #fixed-calculation-link').click(function(e){
           e.preventDefault();
           new bootstrap.Tab('#schedule-tab').show();
           
           var tabElement = $("#tab");
           var offsetPosition = tabElement.offset().top - offset;
 
-          $('html, body').animate({
-              scrollTop: offsetPosition
-          }, 100);
+          $('html, body').animate({ scrollTop: offsetPosition }, 100);
+        });
+
+        $('#fixed-resortTag-link').click(function(e){
+          e.preventDefault();
+          
+          var tabElement = $("#resort-tag");
+          var offsetPosition = tabElement.offset().top - 80;
+
+          $('html, body').animate({ scrollTop: offsetPosition }, 100);
         });
       });
 
