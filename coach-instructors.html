@@ -149,7 +149,7 @@
        </div>
       </div>
     </section>
-    <div class="test">
+    <div class="fixed-tab">
       <div class="container d-flex justify-content-between">
         <ul class="nav coach-tab" id="tab2" role="tablist">
           <li class="nav-item" role="presentation">
@@ -788,6 +788,9 @@
       // 监听 tab 中的按钮点击事件
       $('#tab .nav-link, #tab2 .nav-link').click(function() {
           syncTabs(this);
+          let offset = $(window).width() < 991 ? 75 : 110;
+          var tabTop = $('#tab').offset().top;	
+          $('html, body').animate({ scrollTop: tabTop - offset }, 100);
       });
 
       $(document).ready(function(){
@@ -823,37 +826,32 @@
       });
 
       $(document).ready(function() {
-        let offset = $(window).width() < 991 ? (-30) : 102;
-
-        var why = $('#tab').offset().top;	
-        console.log('123',offset);
         function calculateOffset() {
           let windowWidth = $(window).width();
           if (windowWidth >= 991) {
-              return 82;
+              return 102;
           } else if (windowWidth >= 747 && windowWidth < 991) {
               return 70;
           } else {
-              return 65;
-          }
+              return 75;
+        }
       }
 
-        document.addEventListener("scroll", (event) => {
+      document.addEventListener("scroll", (event) => {
           lastKnownScrollPosition = window.scrollY;
                 
-       });		   
-        $(window).scroll(function() {
+      });		   
+      $(window).scroll(function() {
           let offset = calculateOffset();
-          var why = $('#tab').offset().top;	
+          var tabTop = $('#tab').offset().top;	
           
-          var hehe = window.scrollY;
-          if (  hehe > (why - offset)) {
-            $(".test").addClass("stick");
+          var scrollY = window.scrollY;
+          if (scrollY > (tabTop - offset)) {
+            $(".fixed-tab").addClass("stick");
           } else {
-            $(".test").removeClass("stick");	
+            $(".fixed-tab").removeClass("stick");	
           }
         });
-        
       });
     </script>
   
