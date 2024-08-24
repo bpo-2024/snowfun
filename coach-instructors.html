@@ -149,8 +149,8 @@
        </div>
       </div>
     </section>
-    <div class="container test">
-      <div>
+    <div class="test">
+      <div class="container d-flex justify-content-between">
         <ul class="nav coach-tab" id="tab2" role="tablist">
           <li class="nav-item" role="presentation">
             <button class="nav-link active" id="introduction-tab" data-bs-toggle="pill" data-bs-target="#introduction" type="button" role="tab" aria-controls="introduction" aria-selected="true">
@@ -168,6 +168,10 @@
             </button>
           </li>
         </ul>
+        <button id="fixed-calculation-link" type="button" class="btn btn-primary join-btn justify-content-center align-items-center">
+          學費試算
+          <img width="26" src="./images/icon_arrow_right.svg">
+        </button>
       </div>
     </div>
     <div class="container about-coach position-relative">
@@ -569,8 +573,8 @@
           </button>
           <button id="fixed-calculation-link" type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
           學費試算
-          <img width="26" src="./images/icon_arrow_right.svg">
-        </button>
+            <img width="26" src="./images/icon_arrow_right.svg">
+          </button>
         </div>
       </div>
     </div>
@@ -803,7 +807,8 @@
       });
 
       $(document).ready(function() {
-        let offset = $(window).width() < 991 ? (-40) : 82;
+        let offset = $(window).width() < 991 ? (-30) : 102;
+
         var why = $('#tab').offset().top;	
         console.log('123',offset);
         document.addEventListener("scroll", (event) => {
@@ -817,6 +822,9 @@
           } else {
             $(".test").removeClass("stick");	
           }
+        });
+        $(window).resize(function() {
+          location.reload();
         });
       });
     </script>
