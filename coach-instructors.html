@@ -521,7 +521,7 @@
             </div>
            </div>
           </div>
-          <div class="resort-tag" id="resort-tag">
+          <div class="resort-tag" id="resortTag">
            <div class="resort-tag-item">
              <div class="title d-flex align-items-center">開課雪場 <span><a id="calendar-link" href="#">查看更多<i class="fa-solid fa-angle-right"></i></a></span></div>
              <div class="tag d-flex">
@@ -788,38 +788,9 @@
       // 监听 tab 中的按钮点击事件
       $('#tab .nav-link, #tab2 .nav-link').click(function() {
           syncTabs(this);
-          let offset = $(window).width() < 991 ? 75 : 110;
-          var tabTop = $('#tab').offset().top;	
-          $('html, body').animate({ scrollTop: tabTop - offset }, 100);
       });
 
-      $(document).ready(function(){
-        let offset = $(window).width() < 991 ? 62 : 82;
-        $("#evaluation-link").click(function(e){
-          e.preventDefault();
-
-          new bootstrap.Tab('#contact-tab').show();
-          let offsetPosition = $("#tab").offset().top - offset;
-
-          // 平滑滚动到目标位置
-          $('html, body').animate({ scrollTop: offsetPosition }, 100);
-        });
-        
-        $('#calculation-link, .fixed-calculation-link').click(function(e){
-          e.preventDefault();
-          new bootstrap.Tab('#schedule-tab').show();
-          $('#tab .nav-link, #tab2 .nav-link').removeClass('active').attr('aria-selected', 'false');
-          $('#tab #schedule-tab, #tab2 #schedule-tab').addClass('active').attr('aria-selected', 'true');
-          
-          var tabElement = $("#tab");
-          var offsetPosition = tabElement.offset().top - offset;
-
-          $('html, body').animate({ scrollTop: offsetPosition }, 100);
-        });
-      });
-
-      $(document).ready(function() {
-        function calculateOffset() {
+      function calculateOffset() {
           let windowWidth = $(window).width();
           if (windowWidth >= 991) {
               return 102;
@@ -829,18 +800,55 @@
               return 75;
         }
       }
-	   
-      $(window).scroll(function() {
-          let offset = calculateOffset();
-          var tabTop = $('#tab').offset().top;	
-          
-          var scrollY = window.scrollY;
-          if (scrollY > (tabTop - offset)) {
-            $(".fixed-tab").addClass("stick");
-          } else {
-            $(".fixed-tab").removeClass("stick");	
-          }
+
+      $(document).ready(function(){
+        let offset = calculateOffset();
+        $("#evaluation-link").click(function(e){
+          e.preventDefault();
+
+          new bootstrap.Tab('#contact-tab').show();
+          let offsetPosition = $("#tab").offset().top - offset;
+
+          // 平滑滚动到目标位置
+          $('html, body').animate({ scrollTop: offsetPosition }, 100);
         });
+        $('#fixed-resortTag-link').click(function(e){
+         
+          $('html, body').animate({ scrollTop: ( ($('#resortTag').offset().top) - offset) - 50}, 100);
+        });
+        
+        $('#calculation-link, .fixed-calculation-link').click(function(e){
+          e.preventDefault();
+          new bootstrap.Tab('#schedule-tab').show();
+          $('#tab .nav-link, #tab2 .nav-link').removeClass('active').attr('aria-selected', 'false');
+          $('#tab #schedule-tab, #tab2 #schedule-tab').addClass('active').attr('aria-selected', 'true');
+          
+          var tabElement = $("#tab");
+          var offsetPosition = (tabElement.offset().top - offset);
+
+          $('html, body').animate({ scrollTop: offsetPosition }, 100);
+        });
+
+        function stickyShow(){
+          let offset = calculateOffset();
+            var tabTop = $('#tab').offset().top;	
+            
+            var scrollY = window.scrollY;
+            if (scrollY > (tabTop - offset)) {
+              $(".fixed-tab").addClass("sticky");
+            } else {
+              $(".fixed-tab").removeClass("sticky");	
+            }
+        }
+      
+        $(window).scroll(function() {
+          stickyShow()
+        });
+
+        $(window).resize(function() {
+          stickyShow()
+        });
+
       });
     </script>
   

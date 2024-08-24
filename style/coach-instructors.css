@@ -1175,13 +1175,13 @@
   }
 }
 
-.stick {
+.sticky {
   display: flex;
   align-items: flex-end;
   background-color: white;
-  position: fixed;
+  position: sticky;
   top: 79px;
-  z-index: 100;
+  z-index: 3;
   top: 80px;
   width: 100%;
   height: 66px;
@@ -1190,7 +1190,7 @@
   padding-left:1px;
 }
   
-.stick .coach-tab {
+.sticky .coach-tab {
   margin: 0;
   border-bottom:0;
 }
@@ -1199,7 +1199,7 @@
   .fixed-tab {
     top: 62.5px;
   }
-  .stick {
+  .sticky {
     height: 56px;
   }
 }
@@ -1225,7 +1225,7 @@
     background-color: white;
     border-radius: 12px 12px 0 0;
     height: 100px;
-    z-index: 1;
+    z-index: 4;
     position: sticky;
     bottom: 0;
     width: 100%;
