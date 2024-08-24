@@ -168,7 +168,7 @@
             </button>
           </li>
         </ul>
-        <button id="fixed-calculation-link" type="button" class="btn btn-primary join-btn justify-content-center align-items-center">
+        <button type="button" class="fixed-calculation-link btn btn-primary join-btn justify-content-center align-items-center">
           學費試算
           <img width="26" src="./images/icon_arrow_right.svg">
         </button>
@@ -571,7 +571,7 @@
             開課雪場
             <img width="26" src="./images/icon_arrow_right.svg">
           </button>
-          <button id="fixed-calculation-link" type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
+          <button type="button" class="fixed-calculation-link btn btn-primary join-btn d-flex justify-content-center align-items-center">
           學費試算
             <img width="26" src="./images/icon_arrow_right.svg">
           </button>
@@ -805,21 +805,14 @@
           $('html, body').animate({ scrollTop: offsetPosition }, 100);
         });
         
-        $('#calculation-link , #fixed-calculation-link').click(function(e){
+        $('#calculation-link, .fixed-calculation-link').click(function(e){
           e.preventDefault();
           new bootstrap.Tab('#schedule-tab').show();
+          $('#tab .nav-link, #tab2 .nav-link').removeClass('active').attr('aria-selected', 'false');
+          $('#tab #schedule-tab, #tab2 #schedule-tab').addClass('active').attr('aria-selected', 'true');
           
           var tabElement = $("#tab");
           var offsetPosition = tabElement.offset().top - offset;
-
-          $('html, body').animate({ scrollTop: offsetPosition }, 100);
-        });
-
-        $('#fixed-resortTag-link').click(function(e){
-          e.preventDefault();
-          
-          var tabElement = $("#resort-tag");
-          var offsetPosition = tabElement.offset().top - 80;
 
           $('html, body').animate({ scrollTop: offsetPosition }, 100);
         });
@@ -836,11 +829,7 @@
               return 75;
         }
       }
-
-      document.addEventListener("scroll", (event) => {
-          lastKnownScrollPosition = window.scrollY;
-                
-      });		   
+	   
       $(window).scroll(function() {
           let offset = calculateOffset();
           var tabTop = $('#tab').offset().top;	

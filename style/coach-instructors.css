@@ -1153,7 +1153,7 @@
 .fixed-tab .container {
   position: relative;
 }
-.fixed-tab #fixed-calculation-link {
+.fixed-tab .fixed-calculation-link {
   display: none;
 }
 .fixed-tab .coach-tab {
@@ -1162,12 +1162,12 @@
   bottom: 0;
 }
 @media (min-width:992px){
-  .fixed-tab #fixed-calculation-link {
+  .fixed-tab .fixed-calculation-link {
     position: absolute;
     right: 8px;
     bottom: 6px;
   }
-  .fixed-tab #fixed-calculation-link , #calculation-link{
+  .fixed-tab .fixed-calculation-link , #calculation-link{
     display: flex;
     width: 146px;
     border-radius: 30px;
