@@ -827,11 +827,25 @@
 
         var why = $('#tab').offset().top;	
         console.log('123',offset);
+        function calculateOffset() {
+          let windowWidth = $(window).width();
+          if (windowWidth >= 991) {
+              return 82;
+          } else if (windowWidth >= 747 && windowWidth < 991) {
+              return 70;
+          } else {
+              return 65;
+          }
+      }
+
         document.addEventListener("scroll", (event) => {
           lastKnownScrollPosition = window.scrollY;
                 
        });		   
         $(window).scroll(function() {
+          let offset = calculateOffset();
+          var why = $('#tab').offset().top;	
+          
           var hehe = window.scrollY;
           if (  hehe > (why - offset)) {
             $(".test").addClass("stick");
@@ -839,9 +853,7 @@
             $(".test").removeClass("stick");	
           }
         });
-        $(window).resize(function() {
-          location.reload();
-        });
+        
       });
     </script>
   
