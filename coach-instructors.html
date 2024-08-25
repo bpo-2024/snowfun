@@ -773,7 +773,7 @@
         $('#student').addClass('visually-hidden');
         $('#student-login').removeClass('visually-hidden');
       }
-
+      var fixedInterval = 0;
       // tab active
       function syncTabs(clickedTab) {
           var tabId = $(clickedTab).attr('id');
@@ -788,7 +788,11 @@
       // 监听 tab 中的按钮点击事件
       $('#tab .nav-link, #tab2 .nav-link').click(function() {
           syncTabs(this);
-      });
+          let offset = calculateOffset();
+          var tabElement = $("#tab");
+          var offsetPosition = (tabElement.offset().top - offset - fixedInterval);
+          $('html, body').animate({ scrollTop: offsetPosition }, 100);
+      })
 
       function calculateOffset() {
           let windowWidth = $(window).width();
@@ -812,8 +816,8 @@
           // 平滑滚动到目标位置
           $('html, body').animate({ scrollTop: offsetPosition }, 100);
         });
+        
         $('#fixed-resortTag-link').click(function(e){
-         
           $('html, body').animate({ scrollTop: ( ($('#resortTag').offset().top) - offset) - 50}, 100);
         });
         
@@ -824,7 +828,7 @@
           $('#tab #schedule-tab, #tab2 #schedule-tab').addClass('active').attr('aria-selected', 'true');
           
           var tabElement = $("#tab");
-          var offsetPosition = (tabElement.offset().top - offset);
+          var offsetPosition = (tabElement.offset().top - offset - fixedInterval);
 
           $('html, body').animate({ scrollTop: offsetPosition }, 100);
         });
@@ -836,8 +840,10 @@
             var scrollY = window.scrollY;
             if (scrollY > (tabTop - offset)) {
               $(".fixed-tab").addClass("sticky");
+              fixedInterval = -6;
             } else {
               $(".fixed-tab").removeClass("sticky");	
+              fixedInterval = 0;
             }
         }
       
