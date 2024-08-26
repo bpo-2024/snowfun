@@ -729,6 +729,7 @@
 #calendar .more-info-content .tag {
   margin: 0;
   margin-bottom: 12px;
+  padding: 8px 4px;
   max-width: none;
   cursor: pointer;
 }
@@ -792,6 +793,9 @@
   }
   #calendar .tag {
     max-width: 72px;
+    }
+  #calendar .more-info-content .tag  {
+    font-size: 14px;
   }
   #calendar tbody tr {
     height: auto;
