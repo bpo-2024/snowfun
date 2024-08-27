@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
     <!-- style -->
     <link
@@ -769,6 +769,9 @@
     <script src="./js/certificateModal.js"></script>
 
     <script>
+      document.addEventListener('gesturestart', function (event) {
+          event.preventDefault();
+      });
       function evaluationLogin(){
         $('#student').addClass('visually-hidden');
         $('#student-login').removeClass('visually-hidden');
