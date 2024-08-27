@@ -804,7 +804,7 @@
           } else if (windowWidth >= 747 && windowWidth < 991) {
               return 70;
           } else {
-              return 75;
+              return 78;
         }
       }
 
@@ -814,7 +814,9 @@
           e.preventDefault();
 
           new bootstrap.Tab('#contact-tab').show();
-          let offsetPosition = $("#tab").offset().top - offset;
+          let offsetPosition = $("#tab").offset().top - offset;         
+           $('#tab .nav-link, #tab2 .nav-link').removeClass('active').attr('aria-selected', 'false');
+          $('#tab #contact-tab, #tab2 #contact-tab').addClass('active').attr('aria-selected', 'true');
 
           // 平滑滚动到目标位置
           $('html, body').animate({ scrollTop: offsetPosition }, 100);
@@ -824,7 +826,7 @@
           $('html, body').animate({ scrollTop: ( ($('#resortTag').offset().top) - offset) - 50}, 100);
         });
         
-        $('#calculation-link, .fixed-calculation-link').click(function(e){
+        $('#calculation-link, .fixed-calculation-link ,  #calendar-link').click(function(e){
           e.preventDefault();
           new bootstrap.Tab('#schedule-tab').show();
           $('#tab .nav-link, #tab2 .nav-link').removeClass('active').attr('aria-selected', 'false');
@@ -843,9 +845,11 @@
             var scrollY = window.scrollY;
             if (scrollY > (tabTop - offset)) {
               $(".fixed-tab").addClass("sticky");
+              $('#tab').addClass('tab-opacticy')
               fixedInterval = -6;
             } else {
               $(".fixed-tab").removeClass("sticky");	
+              $('#tab').removeClass('tab-opacticy')
               fixedInterval = 0;
             }
         }
