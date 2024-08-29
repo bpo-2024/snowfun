@@ -250,10 +250,12 @@ footer {
 
 
 /* modal */
-.login-dialog .modal-content {
-    display: none;
+.modal-content {
     border-radius: 30px;
     font-size: 18px;
+}
+.login-dialog .modal-content {
+    display: none;
 }
 .login-dialog .modal-content.show {
     display: block;
