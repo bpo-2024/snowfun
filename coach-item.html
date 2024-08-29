@@ -15,12 +15,11 @@
     <!-- <link href="./style/index.css" rel="stylesheet" /> -->
     <link href="./style/coach-item.css" rel="stylesheet">
     <style>
-      .banner.introduction-tab {
-        background: red;
-      }
-      .banner.schedule-tab {
-
+      .banner[banner-data="schedule-tab"] {
         background: yellow;
+      }
+      .banner[banner-data="contact-tab"] {
+        background: red;
       }
      
       @media(min-width:992px){
@@ -150,7 +149,7 @@
           </div>
         </div>
       </nav>
-      <section class="banner introduction-tab">
+      <section class="banner">
       </section>
       <section>
         <ul class="nav coach-tab" id="tab" role="tablist">
@@ -899,21 +898,18 @@
     ></script>
     <script src="./js/login.js"></script>
     <script>
-        $(document).ready(function(){
-          $('.nav-link').click(function(e){
-            console.log('13245')
-            e.preventDefault();
-            // 需要remove掉舊的clickedTab
-            $('.banner').removeClass('不是點擊的那個');
-
-          });
-        });
-      function syncTabs(clickedTab) {
-          console.log(';clickedTab',clickedTab)
-          $('.banner').addClass(clickedTab);
-
+      function syncTabs(tabId) {
+          // Remove existing banner-data attribute
+          $('.banner').removeAttr('banner-data');
+          if (tabId === 'introduction-tab') {
+             return;
+          }
+          $('.banner').attr('banner-data', tabId);
       }
-     
+
+      $('.nav-link').on('click', function() {
+          syncTabs($(this).attr('id'));
+      });
       
     </script>
   </body>
