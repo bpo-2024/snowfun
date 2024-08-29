@@ -427,6 +427,24 @@
     max-width: 840px;
   }
 }
+@media (max-width:992px) {
+  .coach-tab.test {
+    position: sticky;
+    top: 62.5px;
+    background: #fff;
+    border: none;
+  }
+
+  .coach-tab.test::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    height: 1px;
+    background: #E3E3E3;
+    margin-left: calc((100% - 100vw) / 2);
+  }
+}
 @media (max-width:895px) {
   #videoCarouselModal .modal-dialog, #certificate-modal .modal-dialog {
     max-width: 685px;

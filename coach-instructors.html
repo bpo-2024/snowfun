@@ -840,18 +840,29 @@
 
         function stickyShow(){
           let offset = calculateOffset();
-            var tabTop = $('#tab').offset().top;	
-            
-            var scrollY = window.scrollY;
-            if (scrollY > (tabTop - offset)) {
-              $(".fixed-tab").addClass("sticky");
-              $('#tab').addClass('tab-opacticy')
-              fixedInterval = -6;
-            } else {
-              $(".fixed-tab").removeClass("sticky");	
-              $('#tab').removeClass('tab-opacticy')
-              fixedInterval = 0;
-            }
+          var scrollY = window.scrollY;
+          var tabTop = $('#tab').offset().top;	
+          let windowWidth = $(window).width();
+
+          if(windowWidth<992){
+            console.log('890')
+          if (scrollY > (tabTop - offset)) {
+            $('#tab').addClass('test')
+          } else {
+            $("#tab").removeClass("test");	
+          }
+            return
+          }
+          
+          if (scrollY > (tabTop - offset)) {
+            $(".fixed-tab").addClass("sticky");
+            $('#tab').addClass('tab-opacticy')
+            fixedInterval = -6;
+          } else {
+            $(".fixed-tab").removeClass("sticky");	
+            $('#tab').removeClass('tab-opacticy')
+            fixedInterval = 0;
+          }
         }
       
         $(window).scroll(function() {
