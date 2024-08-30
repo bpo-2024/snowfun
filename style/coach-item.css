@@ -11,12 +11,15 @@
 }
 .banner[banner-data="all"] {
   background: url(../images/top-Banner.png) no-repeat;
+  background-size: cover;
 }
 .banner[banner-data="snowboard"] {
   background: url(../images/top-Banner.png) no-repeat;
+  background-size: cover;
 }
 .banner[banner-data="ski"] {
   background: url(../images/top-Banner.png) no-repeat;
+  background-size: cover;
 }
 @media(max-width:991px){
   .banner {
