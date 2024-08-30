@@ -1,12 +1,22 @@
 /* coach-item*/
 .banner {
   position: relative;
+  z-index: 1;
   width: 100%;
-  height: 246px;
-  background: url(../images/pic.png) no-repeat;
+  height: 160px;
+  background: white;
   background-position: center;
   background-size: cover;
   margin-top: 80px;
+}
+.banner[banner-data="all"] {
+  background: url(../images/top-Banner.png) no-repeat;
+}
+.banner[banner-data="snowboard"] {
+  background: url(../images/top-Banner.png) no-repeat;
+}
+.banner[banner-data="ski"] {
+  background: url(../images/top-Banner.png) no-repeat;
 }
 @media(max-width:991px){
   .banner {
@@ -189,6 +199,7 @@
   position: relative;
   width: 624px;
   margin-right: 12px;
+  height: 50px;
 }
 .input-search::after{
   content: '';
@@ -202,12 +213,20 @@
 .filter-btn {
   align-items: center;
   padding: 10px 16px;
-  border-radius: 30px;
+  border-radius: 8px;
   border: 1px solid #c2c2c2;
   color: #666666;
   font-weight: 500;
   font-size: 16px;
   background-color: #ffffff;
+}
+@media (max-width:991px) {
+  .filter-btn {
+    width: 110px;
+  }
+  .input-search {
+    width: 73%;
+  }
 }
 
 .filter-btn img{
@@ -225,4 +244,172 @@
 
 .footer-mb{
 top: initial;
+}
+
+.coach-tab {
+  position: absolute;
+  z-index: 10;
+  justify-content: center;
+  bottom: 0;
+  left: 0;
+  right: 0;
+} 
+
+.coach-tab .nav-item {
+  display: flex;
+  justify-content: center;
+}
+.coach-tab .nav-item .nav-link {
+  width: 180px;
+  height: 50px;
+  padding-bottom: 2px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+@media(max-width:768px){
+  .coach-tab {
+    justify-content: space-between;
+  }
+  .coach-tab .nav-item .nav-link {
+    width: 100%;
+  }
+  .coach-tab .nav-item {
+    justify-content: space-between;
+    width: 33.3%;
+  }
+}
+.coach-tab .nav-item .nav-link.active{
+  padding-bottom: 0;
+  border-bottom: 2px solid #1BA4ED;
+  color: black;
+}
+@media(min-width:1200px){
+  .item.coach-card {
+
+     width: 20%;
+   }
+ }
+ @media(max-width:991px){
+   .item-group-img .name span{
+     font-size: 16px;
+   }
+   .item-group-rate .amount {
+     font-size: 16px;
+   }
+   .level {
+     font-size: 12px;
+   }
+  .item.coach-card {
+
+     width: 50%;
+   }
+ }
+
+ #filterModal .modal-body:first-child{
+  border-bottom: 1px solid #E3E3E3;
+ }
+
+ #filterModal .title{
+  font-size: 24px;
+  color: black;
+  font-weight: 500;
+ }
+
+ #filterModal .btn {
+  border: 1px solid #DEDEDE;
+  width: 103px;
+  height: 52px;
+  padding: 0;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  margin-right: 12px;
+  color: black;
+  border-radius: 8px;
+  font-size: 16px;
+ }
+ @media (max-width:475px) {
+  #filterModal .btn {
+   width: 76px;
+   margin-right: 6px;
+  }
+ }
+ 
+ #filterModal .btn:last-child{
+   margin-right: 0;
+ }
+ #filterModal .btn-check:checked+.btn {
+   background: #00558F;
+   color: white;
+ }
+
+ #filterModal .selectEvaluate-area .btn , #filterModal .selectPrice-area .btn {
+   border-radius: 30px;
+   width: 148px;
+   height: 50px;
+   color: #666666;
+   font-weight: 500;
+ }
+ #filterModal .selectEvaluate-area .btn-check:checked+.btn , #filterModal .selectPrice-area .btn-check:checked+.btn {
+   border: 2px solid #00558F;
+   background: #EBF1F5;
+   color: #666666;
+ }
+
+ #filterModal .close {
+   color: #666666;
+   background: transparent;
+   border: 0;
+   text-decoration: underline;
+   width: auto;
+   padding-left: 18px;
+ }
+ #filterModal .check.btn {
+   color: white;
+   font-size: 18px;
+   font-weight: 500;
+   border-radius: 30px;
+   width: 110px;
+   height: 50px;
+   background: #1BA4ED;
+   margin-right: 18px;
+ }
+
+ #filterModal .modal-footer{
+   min-height: 90px;
+   padding: 0;
+ }
+
+ #selectResult {
+   margin-top: 30px;
+ }
+
+ #result_text {
+   color: #666666;
+   font-weight: 500;
+   font-size: 16px;
+   padding: 0 16px;
+ }
+
+ #resetButton {
+  margin-left: 20px;
+  color: #0F80BD;
+  font-weight: 500;
+  font-size: 16px;
+  position: relative;
+ }
+
+ #resetButton::before {
+  content: '';
+  position: absolute;
+  top: 7px;
+  right: 0;
+  bottom: 0;
+  left: -12px;
+  background:url('../images/close.png') no-repeat ;
+  background-size: contain;
+  width: 22px;
+  height: 22px;
 }
