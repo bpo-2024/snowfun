@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
@@ -127,19 +127,19 @@
       </nav>
       <section>
       <section class="banner" banner-data="all" id="tab" >
-        <ul class="nav coach-tab" id="tab" role="tablist">
-          <li class="nav-item" role="presentation">
-            <button class="nav-link active" onclick="syncTabs('all')" id="all" data-bs-toggle="pill" data-bs-target="#all-content" type="button" role="tab" aria-controls="all-content">
+        <ul class="nav coach-tab" id="tab">
+          <li class="nav-item">
+            <button class="nav-link active" onclick="syncTabs('all',this)" id="all" data-bs-toggle="pill" type="button">
               全部教練
             </button>
           </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" onclick="syncTabs('snowboard')" id="snowboard" data-bs-toggle="pill" data-bs-target="#snowboard-content" type="button" role="tab" aria-controls="snowboard-content">
+          <li class="nav-item">
+            <button class="nav-link" onclick="syncTabs('snowboard',this)" id="snowboard" data-bs-toggle="pill" type="button" data-category="snowboard">
               單板教練ski
             </button>
           </li>
-          <li class="nav-item" role="presentation">
-            <button class="nav-link" onclick="syncTabs('ski')" id="ski" data-bs-toggle="pill" data-bs-target="#ski-content" type="button" role="tab" aria-controls="ski-content">
+          <li class="nav-item">
+            <button class="nav-link" onclick="syncTabs('ski',this)" id="ski" data-bs-toggle="pill" type="button" data-category="ski">
               雙板教練ski
             </button>
           </li>
@@ -234,281 +234,12 @@
         </div>
       </div>
 
-      <section>
+      <section class="pb-4">
         <!-- 教練 -->
         <div class="tab-content" id="tabContent">
-          <div class="tab-pane fade show active" id="all-content" role="tabpanel" aria-labelledby="introduction-tab" tabindex="0">
-          
-            <div class="container">
-              <div class="row py-3">
-                <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                  <a href="./coach-instructors.html">
-                    <div class="item-group">
-                      <div class="item-group-header d-flex justify-content-between">
-                        <div class="level d-flex flex-column">
-                            <div class="level-title">
-                              證照等級
-                            </div>
-                            <div class="level-number">Level 1</div>
-                        </div>
-                        <div class="sort d-flex">
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">單</span>
-                          </div>
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">雙</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-group-img d-flex">
-                        <!-- 三種狀態 -->
-                        <div class="state">
-                          <div class="state-composite d-flex justify-content-center align-items-center">
-                            綜合
-                          </div>
-                          <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                            贊助
-                          </div> -->
-                          <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                            開課中
-                          </div> -->
-                        </div>
-                        <img src="images/coach.png"/>
-                        <div class="name d-flex justify-content-center">
-                          <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                        </div>
-                      </div>
-                      <div class="item-group-fraction d-flex align-items-center">
-                        <img class="star" src="images/star.png"/>
-                        <div class="fraction">4.6</div>
-                      </div>
-                      <div class="item-group-rate d-flex flex-column justify-content-center">
-                        <div class="title">
-                          教練收費
-                        </div>
-                        <div class="amount">JPY 14,000 / hr
-                          <span class="amount-up">起</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                  <a href="./coach-instructors.html">
-                    <div class="item-group">
-                      <div class="item-group-header d-flex justify-content-between">
-                        <div class="level d-flex flex-column">
-                            <div class="level-title">
-                              證照等級
-                            </div>
-                            <div class="level-number">Level 1</div>
-                        </div>
-                        <div class="sort d-flex">
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">單</span>
-                          </div>
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">雙</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-group-img d-flex">
-                        <!-- 三種狀態 -->
-                        <div class="state">
-                          <div class="state-composite d-flex justify-content-center align-items-center">
-                            綜合
-                          </div>
-                          <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                            贊助
-                          </div> -->
-                          <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                            開課中
-                          </div> -->
-                        </div>
-                        <img src="images/coach.png"/>
-                        <div class="name d-flex justify-content-center">
-                          <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                        </div>
-                      </div>
-                      <div class="item-group-fraction d-flex align-items-center">
-                        <img class="star" src="images/star.png"/>
-                        <div class="fraction">4.6</div>
-                      </div>
-                      <div class="item-group-rate d-flex flex-column justify-content-center">
-                        <div class="title">
-                          教練收費
-                        </div>
-                        <div class="amount">JPY 14,000 / hr
-                          <span class="amount-up">起</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                  <a href="./coach-instructors.html">
-                    <div class="item-group">
-                      <div class="item-group-header d-flex justify-content-between">
-                        <div class="level d-flex flex-column">
-                            <div class="level-title">
-                              證照等級
-                            </div>
-                            <div class="level-number">Level 1</div>
-                        </div>
-                        <div class="sort d-flex">
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">單</span>
-                          </div>
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">雙</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-group-img d-flex">
-                        <!-- 三種狀態 -->
-                        <div class="state">
-                          <div class="state-composite d-flex justify-content-center align-items-center">
-                            綜合
-                          </div>
-                          <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                            贊助
-                          </div> -->
-                          <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                            開課中
-                          </div> -->
-                        </div>
-                        <img src="images/coach.png"/>
-                        <div class="name d-flex justify-content-center">
-                          <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                        </div>
-                      </div>
-                      <div class="item-group-fraction d-flex align-items-center">
-                        <img class="star" src="images/star.png"/>
-                        <div class="fraction">4.6</div>
-                      </div>
-                      <div class="item-group-rate d-flex flex-column justify-content-center">
-                        <div class="title">
-                          教練收費
-                        </div>
-                        <div class="amount">JPY 14,000 / hr
-                          <span class="amount-up">起</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                  <a href="./coach-instructors.html">
-                    <div class="item-group">
-                      <div class="item-group-header d-flex justify-content-between">
-                        <div class="level d-flex flex-column">
-                            <div class="level-title">
-                              證照等級
-                            </div>
-                            <div class="level-number">Level 1</div>
-                        </div>
-                        <div class="sort d-flex">
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">單</span>
-                          </div>
-                          <div class="type d-flex flex-column justify-content-center">
-                            <span class="d-flex justify-content-center">雙</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="item-group-img d-flex">
-                        <!-- 三種狀態 -->
-                        <div class="state">
-                          <div class="state-composite d-flex justify-content-center align-items-center">
-                            綜合
-                          </div>
-                          <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                            贊助
-                          </div> -->
-                          <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                            開課中
-                          </div> -->
-                        </div>
-                        <img src="images/coach.png"/>
-                        <div class="name d-flex justify-content-center">
-                          <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                        </div>
-                      </div>
-                      <div class="item-group-fraction d-flex align-items-center">
-                        <img class="star" src="images/star.png"/>
-                        <div class="fraction">4.6</div>
-                      </div>
-                      <div class="item-group-rate d-flex flex-column justify-content-center">
-                        <div class="title">
-                          教練收費
-                        </div>
-                        <div class="amount">JPY 14,000 / hr
-                          <span class="amount-up">起</span>
-                        </div>
-                      </div>
-                    </div>
-                  </a>
-                </div>
-                <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                <a href="./coach-instructors.html">
-                  <div class="item-group">
-                    <div class="item-group-header d-flex justify-content-between">
-                      <div class="level d-flex flex-column">
-                          <div class="level-title">
-                            證照等級
-                          </div>
-                          <div class="level-number">Level 1</div>
-                      </div>
-                      <div class="sort d-flex">
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">單</span>
-                        </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
-                      <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
-                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                          贊助
-                        </div> -->
-                        <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                          開課中
-                        </div> -->
-                      </div>
-                      <img src="images/coach.png"/>
-                      <div class="name d-flex justify-content-center">
-                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                      </div>
-                    </div>
-                    <div class="item-group-fraction d-flex align-items-center">
-                      <img class="star" src="images/star.png"/>
-                      <div class="fraction">4.6</div>
-                    </div>
-                    <div class="item-group-rate d-flex flex-column justify-content-center">
-                      <div class="title">
-                        教練收費
-                      </div>
-                      <div class="amount">JPY 14,000 / hr
-                        <span class="amount-up">起</span>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              </div>
-            </div>
-          </div>
-       
-        <div class="tab-pane fade" id="snowboard-content" role="tabpanel" aria-labelledby="snowboard" tabindex="0">
           <div class="container">
             <div class="row py-3">
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="all">
                 <a href="./coach-instructors.html">
                   <div class="item-group">
                     <div class="item-group-header d-flex justify-content-between">
@@ -528,11 +259,569 @@
                       </div>
                     </div>
                     <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
+                      <!-- 狀態 -->
                       <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
                         </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="all">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">單</span>
+                        </div>
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="all">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">單</span>
+                        </div>
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="all">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">單</span>
+                        </div>
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="ski">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">雙</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
+                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
+                          贊助
+                        </div> -->
+                        <div class="state-open d-flex justify-content-center align-items-center">
+                          開課中
+                        </div>
+                      </div>
+                      <img src="images/coach.png"/>
+                      <div class="name d-flex justify-content-center">
+                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
+                      </div>
+                    </div>
+                    <div class="item-group-fraction d-flex align-items-center">
+                      <img class="star" src="images/star.png"/>
+                      <div class="fraction">4.6</div>
+                    </div>
+                    <div class="item-group-rate d-flex flex-column justify-content-center">
+                      <div class="title">
+                        教練收費
+                      </div>
+                      <div class="amount">JPY 14,000 / hr
+                        <span class="amount-up">起</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="snowboard">
+                <a href="./coach-instructors.html">
+                  <div class="item-group">
+                    <div class="item-group-header d-flex justify-content-between">
+                      <div class="level d-flex flex-column">
+                          <div class="level-title">
+                            證照等級
+                          </div>
+                          <div class="level-number">Level 1</div>
+                      </div>
+                      <div class="sort d-flex">
+                        <div class="type d-flex flex-column justify-content-center">
+                          <span class="d-flex justify-content-center">單</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="item-group-img d-flex">
+                      <!-- 狀態 -->
+                      <div class="state">
                         <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
                           贊助
                         </div> -->
@@ -560,7 +849,7 @@
                   </div>
                 </a>
               </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="snowboard">
                 <a href="./coach-instructors.html">
                   <div class="item-group">
                     <div class="item-group-header d-flex justify-content-between">
@@ -574,17 +863,11 @@
                         <div class="type d-flex flex-column justify-content-center">
                           <span class="d-flex justify-content-center">單</span>
                         </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
                       </div>
                     </div>
                     <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
+                      <!-- 狀態 -->
                       <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
                         <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
                           贊助
                         </div> -->
@@ -612,7 +895,7 @@
                   </div>
                 </a>
               </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
+              <div class="item coach-card col-lg-3 col-md-4 col-sm-6" data-category="snowboard">
                 <a href="./coach-instructors.html">
                   <div class="item-group">
                     <div class="item-group-header d-flex justify-content-between">
@@ -626,23 +909,17 @@
                         <div class="type d-flex flex-column justify-content-center">
                           <span class="d-flex justify-content-center">單</span>
                         </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
                       </div>
                     </div>
                     <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
+                      <!-- 狀態 -->
                       <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
                         <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
                           贊助
                         </div> -->
-                        <!-- <div class="state-open d-flex justify-content-center align-items-center">
+                        <div class="state-open d-flex justify-content-center align-items-center">
                           開課中
-                        </div> -->
+                        </div>
                       </div>
                       <img src="images/coach.png"/>
                       <div class="name d-flex justify-content-center">
@@ -664,381 +941,8 @@
                   </div>
                 </a>
               </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                <a href="./coach-instructors.html">
-                  <div class="item-group">
-                    <div class="item-group-header d-flex justify-content-between">
-                      <div class="level d-flex flex-column">
-                          <div class="level-title">
-                            證照等級
-                          </div>
-                          <div class="level-number">Level 1</div>
-                      </div>
-                      <div class="sort d-flex">
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">單</span>
-                        </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
-                      <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
-                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                          贊助
-                        </div> -->
-                        <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                          開課中
-                        </div> -->
-                      </div>
-                      <img src="images/coach.png"/>
-                      <div class="name d-flex justify-content-center">
-                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                      </div>
-                    </div>
-                    <div class="item-group-fraction d-flex align-items-center">
-                      <img class="star" src="images/star.png"/>
-                      <div class="fraction">4.6</div>
-                    </div>
-                    <div class="item-group-rate d-flex flex-column justify-content-center">
-                      <div class="title">
-                        教練收費
-                      </div>
-                      <div class="amount">JPY 14,000 / hr
-                        <span class="amount-up">起</span>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-              <a href="./coach-instructors.html">
-                <div class="item-group">
-                  <div class="item-group-header d-flex justify-content-between">
-                    <div class="level d-flex flex-column">
-                        <div class="level-title">
-                          證照等級
-                        </div>
-                        <div class="level-number">Level 1</div>
-                    </div>
-                    <div class="sort d-flex">
-                      <div class="type d-flex flex-column justify-content-center">
-                        <span class="d-flex justify-content-center">單</span>
-                      </div>
-                      <div class="type d-flex flex-column justify-content-center">
-                        <span class="d-flex justify-content-center">雙</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item-group-img d-flex">
-                    <!-- 三種狀態 -->
-                    <div class="state">
-                      <div class="state-composite d-flex justify-content-center align-items-center">
-                        綜合
-                      </div>
-                      <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                        贊助
-                      </div> -->
-                      <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                        開課中
-                      </div> -->
-                    </div>
-                    <img src="images/coach.png"/>
-                    <div class="name d-flex justify-content-center">
-                      <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                    </div>
-                  </div>
-                  <div class="item-group-fraction d-flex align-items-center">
-                    <img class="star" src="images/star.png"/>
-                    <div class="fraction">4.6</div>
-                  </div>
-                  <div class="item-group-rate d-flex flex-column justify-content-center">
-                    <div class="title">
-                      教練收費
-                    </div>
-                    <div class="amount">JPY 14,000 / hr
-                      <span class="amount-up">起</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
             </div>
           </div>
-        </div>
-           
-        <div class="tab-pane fade" id="ski-content" role="tabpanel" aria-labelledby="ski" tabindex="0">
-          <div class="container">
-            <div class="row py-3">
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                <a href="./coach-instructors.html">
-                  <div class="item-group">
-                    <div class="item-group-header d-flex justify-content-between">
-                      <div class="level d-flex flex-column">
-                          <div class="level-title">
-                            證照等級
-                          </div>
-                          <div class="level-number">Level 1</div>
-                      </div>
-                      <div class="sort d-flex">
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">單</span>
-                        </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
-                      <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
-                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                          贊助
-                        </div> -->
-                        <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                          開課中
-                        </div> -->
-                      </div>
-                      <img src="images/coach.png"/>
-                      <div class="name d-flex justify-content-center">
-                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                      </div>
-                    </div>
-                    <div class="item-group-fraction d-flex align-items-center">
-                      <img class="star" src="images/star.png"/>
-                      <div class="fraction">4.6</div>
-                    </div>
-                    <div class="item-group-rate d-flex flex-column justify-content-center">
-                      <div class="title">
-                        教練收費
-                      </div>
-                      <div class="amount">JPY 14,000 / hr
-                        <span class="amount-up">起</span>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                <a href="./coach-instructors.html">
-                  <div class="item-group">
-                    <div class="item-group-header d-flex justify-content-between">
-                      <div class="level d-flex flex-column">
-                          <div class="level-title">
-                            證照等級
-                          </div>
-                          <div class="level-number">Level 1</div>
-                      </div>
-                      <div class="sort d-flex">
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">單</span>
-                        </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
-                      <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
-                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                          贊助
-                        </div> -->
-                        <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                          開課中
-                        </div> -->
-                      </div>
-                      <img src="images/coach.png"/>
-                      <div class="name d-flex justify-content-center">
-                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                      </div>
-                    </div>
-                    <div class="item-group-fraction d-flex align-items-center">
-                      <img class="star" src="images/star.png"/>
-                      <div class="fraction">4.6</div>
-                    </div>
-                    <div class="item-group-rate d-flex flex-column justify-content-center">
-                      <div class="title">
-                        教練收費
-                      </div>
-                      <div class="amount">JPY 14,000 / hr
-                        <span class="amount-up">起</span>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                <a href="./coach-instructors.html">
-                  <div class="item-group">
-                    <div class="item-group-header d-flex justify-content-between">
-                      <div class="level d-flex flex-column">
-                          <div class="level-title">
-                            證照等級
-                          </div>
-                          <div class="level-number">Level 1</div>
-                      </div>
-                      <div class="sort d-flex">
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">單</span>
-                        </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
-                      <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
-                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                          贊助
-                        </div> -->
-                        <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                          開課中
-                        </div> -->
-                      </div>
-                      <img src="images/coach.png"/>
-                      <div class="name d-flex justify-content-center">
-                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                      </div>
-                    </div>
-                    <div class="item-group-fraction d-flex align-items-center">
-                      <img class="star" src="images/star.png"/>
-                      <div class="fraction">4.6</div>
-                    </div>
-                    <div class="item-group-rate d-flex flex-column justify-content-center">
-                      <div class="title">
-                        教練收費
-                      </div>
-                      <div class="amount">JPY 14,000 / hr
-                        <span class="amount-up">起</span>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-                <a href="./coach-instructors.html">
-                  <div class="item-group">
-                    <div class="item-group-header d-flex justify-content-between">
-                      <div class="level d-flex flex-column">
-                          <div class="level-title">
-                            證照等級
-                          </div>
-                          <div class="level-number">Level 1</div>
-                      </div>
-                      <div class="sort d-flex">
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">單</span>
-                        </div>
-                        <div class="type d-flex flex-column justify-content-center">
-                          <span class="d-flex justify-content-center">雙</span>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="item-group-img d-flex">
-                      <!-- 三種狀態 -->
-                      <div class="state">
-                        <div class="state-composite d-flex justify-content-center align-items-center">
-                          綜合
-                        </div>
-                        <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                          贊助
-                        </div> -->
-                        <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                          開課中
-                        </div> -->
-                      </div>
-                      <img src="images/coach.png"/>
-                      <div class="name d-flex justify-content-center">
-                        <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                      </div>
-                    </div>
-                    <div class="item-group-fraction d-flex align-items-center">
-                      <img class="star" src="images/star.png"/>
-                      <div class="fraction">4.6</div>
-                    </div>
-                    <div class="item-group-rate d-flex flex-column justify-content-center">
-                      <div class="title">
-                        教練收費
-                      </div>
-                      <div class="amount">JPY 14,000 / hr
-                        <span class="amount-up">起</span>
-                      </div>
-                    </div>
-                  </div>
-                </a>
-              </div>
-              <div class="item coach-card col-lg-3 col-md-4 col-sm-6 mb-3">
-              <a href="./coach-instructors.html">
-                <div class="item-group">
-                  <div class="item-group-header d-flex justify-content-between">
-                    <div class="level d-flex flex-column">
-                        <div class="level-title">
-                          證照等級
-                        </div>
-                        <div class="level-number">Level 1</div>
-                    </div>
-                    <div class="sort d-flex">
-                      <div class="type d-flex flex-column justify-content-center">
-                        <span class="d-flex justify-content-center">單</span>
-                      </div>
-                      <div class="type d-flex flex-column justify-content-center">
-                        <span class="d-flex justify-content-center">雙</span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="item-group-img d-flex">
-                    <!-- 三種狀態 -->
-                    <div class="state">
-                      <div class="state-composite d-flex justify-content-center align-items-center">
-                        綜合
-                      </div>
-                      <!-- <div class="state-sponsor d-flex justify-content-center align-items-center text-white">
-                        贊助
-                      </div> -->
-                      <!-- <div class="state-open d-flex justify-content-center align-items-center">
-                        開課中
-                      </div> -->
-                    </div>
-                    <img src="images/coach.png"/>
-                    <div class="name d-flex justify-content-center">
-                      <span class="d-flex justify-content-center align-items-center text-white">Name</span>
-                    </div>
-                  </div>
-                  <div class="item-group-fraction d-flex align-items-center">
-                    <img class="star" src="images/star.png"/>
-                    <div class="fraction">4.6</div>
-                  </div>
-                  <div class="item-group-rate d-flex flex-column justify-content-center">
-                    <div class="title">
-                      教練收費
-                    </div>
-                    <div class="amount">JPY 14,000 / hr
-                      <span class="amount-up">起</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-            </div>
-          </div>
-        </div>
-        
       </div>
         
     
@@ -1127,7 +1031,7 @@
                 <li>Email : info@snowfun.com.tw</li>
               </ul>
             </div>
-            <div class="row mt-3 mb-3">
+            <div class="row mt-3">
               <div class="col-12 align-self-end">
                 <ul class="social-box d-flex justify-content-center ">
                   <li>
@@ -1203,7 +1107,6 @@
     <!-- <script src="js/owl.js"></script> -->
 
     <script>
-     
       $('#confirmButton').on('click', function() {
         // Get selected languages
         const selectedLanguages = [];
@@ -1263,9 +1166,40 @@
       });
 
       $('#resetButton').hide();
-      function syncTabs(tabId) {
-          $('.banner').removeAttr('banner-data');
-          $('.banner').attr('banner-data', tabId);
+
+      
+      const cards = document.querySelectorAll(".coach-card")
+      function updateGallery(btnCategory) {
+        cards.forEach((card) => {
+          const cardCategory = card.dataset.category;
+          switch (btnCategory)  {
+            case cardCategory:
+            case undefined: {
+              card.style.display = "block";
+              break;
+            }
+            default: {
+              card.style.display = "none";
+            }
+          }
+          if(cardCategory ==='all'){
+            card.style.display = "block";
+          }
+          });
+        return cards;
+      }
+
+      function syncTabs(tabId,btn) {
+        $('.banner').removeAttr('banner-data');
+        $('.banner').attr('banner-data', tabId);
+
+        // 判斷點選全部教練
+        if (btn.dataset.category === undefined ) {
+          return updateGallery(undefined);
+        }
+        
+        const btnCategory = btn.dataset.category;
+        return updateGallery(btnCategory);
       }
     </script>
   </body>

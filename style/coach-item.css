@@ -56,6 +56,11 @@
 	border-radius: 16px;
 	border: #c2c2c2 solid 1px;
 }
+@media (max-width:475px){
+  .item-group {
+    padding: 10px;
+  }
+}
 
 .level {
   align-items: flex-start;
@@ -287,9 +292,11 @@ top: initial;
   border-bottom: 2px solid #1BA4ED;
   color: black;
 }
+.item.coach-card {
+  padding: 0 5px 24px 5px;
+}
 @media(min-width:1200px){
   .item.coach-card {
-
      width: 20%;
    }
  }
@@ -304,8 +311,8 @@ top: initial;
      font-size: 12px;
    }
   .item.coach-card {
-
      width: 50%;
+     padding:0 3px 10px 3px;
    }
  }
 
@@ -402,6 +409,7 @@ top: initial;
   font-weight: 500;
   font-size: 16px;
   position: relative;
+  border: 0;
  }
 
  #resetButton::before {
@@ -415,4 +423,9 @@ top: initial;
   background-size: contain;
   width: 22px;
   height: 22px;
+}
+
+#tabContent .row {
+  margin-left: 0;
+  margin-right: 0;
 }
