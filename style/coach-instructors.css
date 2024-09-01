@@ -132,6 +132,11 @@
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
 
 }
+.resort-tag-item-fixed {
+  border-bottom: 1px solid #E3E3E3;
+  margin-left: 10px;
+  color: #666666;
+}
 .resort-tag-item:first-child {
   padding-bottom: 24px;
   border-bottom: 1px solid #E3E3E3;
