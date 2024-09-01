@@ -541,7 +541,6 @@
          </div>
       </div>
      </div>
-
      <!-- Modal -->
     <div class="modal fade" id="fileUploadModal" tabindex="-1" aria-labelledby="fileUploadModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered">
@@ -567,21 +566,32 @@
     <div class="fixed-footer-bar">
       <div class="container">
           <div class=" layout d-flex justify-content-between align-items-center">
-            <!-- <button id="fixed-resortTag-link" type="button" class="btn btn-primary join-btn d-flex justify-content-center align-items-center">
-              開課雪場
-              <img width="26" src="./images/icon_arrow_right.svg">
-            </button> -->
             <div class="resort-tag-item-fixed d-flex align-items-center justify-content-between">
-              <a href="" class="online">線上諮詢</a>
+              <button class="resort-tag-item-fixed online" type="button" data-bs-toggle="modal"  data-bs-target="#test">線上諮詢</button>
             </div>
             <button type="button" class="fixed-calculation-link btn btn-primary join-btn d-flex justify-content-center align-items-center">
-            學費試算
+               學費試算
               <img width="26" src="./images/icon_arrow_right.svg">
             </button>
           </div>
         </div>
       </div>
     </div>
+    <!-- test modal -->
+    <div class="modal fade" id="test" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button type="button" class="btn-close btn-close-black" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+
     <!-- pc footer -->
     <footer class="footer-pc">
       <div class="container">
@@ -719,6 +729,7 @@
 
     <!-- 登入 modal -->
     <div id="sharedModalContainer"></div>
+<!--  -->
 
     <!-- script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

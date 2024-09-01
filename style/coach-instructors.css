@@ -133,9 +133,13 @@
 
 }
 .resort-tag-item-fixed {
-  border-bottom: 1px solid #E3E3E3;
-  margin-left: 10px;
   color: #666666;
+  border: 0;
+    background: transparent;
+    margin: 0;
+    padding: 0;
+    width: auto !important;
+    text-decoration: underline;
 }
 .resort-tag-item:first-child {
   padding-bottom: 24px;
