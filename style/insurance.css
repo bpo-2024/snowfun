@@ -1,0 +1,262 @@
+.f12 {
+  font-size: 12px;
+}
+
+.f13 {
+  font-size: 13px;
+}
+
+.f16 {
+  font-size: 16px;
+}
+
+.f18 {
+  font-size: 18px;
+}
+
+.f20 {
+  font-size: 20px;
+}
+
+.f-b {
+  font-weight: bold;
+}
+
+.f-gray-light {
+  color: #858585;
+}
+
+.f-gray-dark {
+  color: #444444;
+}
+
+.bg_blue_light {
+  background-color: #ebf1f5;
+}
+
+.border-gray {
+  border: 1px solid #ebf1f5;
+}
+
+.line35 {
+  line-height: 35px;
+}
+
+.lin50 {
+  line-height: 50px;
+}
+
+.top-15 {
+  top: 15px;
+}
+
+.top-20 {
+  top: 20px;
+}
+
+.top-25 {
+  top: 25px;
+}
+
+.end-20 {
+  right: 20px;
+}
+
+.rounded-4 {
+  border-radius: 4px;
+}
+
+.gap-16px {
+  gap: 16px;
+}
+
+.gap-24px {
+  gap: 24px;
+}
+
+.px-16px {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.px-32px {
+  padding-left: 32px;
+  padding-right: 32px;
+}
+@media (max-width: 767px) {
+  .px-32px {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+.max-w-610 {
+  max-width: 610px;
+}
+
+.max-w-690 {
+  max-width: 690px;
+}
+
+.max-w-920 {
+  max-width: 920px;
+}
+
+.max-w-1030 {
+  max-width: 1030px;
+}
+
+:root {
+  --bs-danger-text-emphasis: #ff2d55;
+  --bs-danger-bg-subtle: #fff3f5;
+  --bs-alert-border-radius: 4px;
+  --bs-primary-rgb: 27, 164, 237;
+  --bs-danger-rgb: 255, 45, 85;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+
+.tooltip {
+  padding-left: 20px;
+}
+.tooltip * {
+  font-size: 12px;
+  text-align: left;
+}
+.tooltip ul {
+  padding-left: 0 !important;
+}
+.tooltip ul li {
+  list-style: decimal !important;
+}
+.tooltip .tooltip-inner {
+  padding: 10px 10px 5px 25px;
+}
+.insurance {
+  padding-top: 60px;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+.insurance .modal-dialog {
+  max-width: 690px;
+  width: calc(100% - 32px);
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 767px) {
+  .insurance .modal-dialog .modal-header img {
+    width: 64px;
+  }
+}
+@media (max-width: 767px) {
+  .insurance .modal-dialog .modal-header .modal-title {
+    font-size: 24px;
+  }
+}
+.insurance .modal-dialog p {
+  font-size: 14px;
+  line-height: 20px;
+  color: #858585;
+  text-align: center;
+}
+.insurance .divider {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.insurance .divider font {
+  flex-grow: 1;
+  height: 1px;
+  background-color: #c2c2c2;
+}
+.insurance .divider span {
+  font-size: 16px;
+  width: 24px;
+  flex-grow: 0;
+  color: #666666;
+}
+.insurance ul {
+  padding-left: 18px;
+}
+.insurance ul li {
+  margin-bottom: 8px;
+  list-style-type: disc;
+  list-style-position: outside;
+  line-height: 1.4;
+}
+.insurance .form-control {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  background-color: #f5f5f5;
+}
+.insurance .form-control::-moz-placeholder {
+  font-size: 14px;
+  color: #666666;
+}
+.insurance .form-control::placeholder {
+  font-size: 14px;
+  color: #666666;
+}
+.insurance .calendar-container > a {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  min-width: auto;
+  border-radius: 50%;
+  border: 1px solid #c2c2c2;
+}
+.insurance .calendar-container > a#prev-month {
+  left: 60px;
+}
+.insurance .calendar-container > a#next-month {
+  right: 60px;
+}
+.insurance .calendar-container > a#prev-year {
+  left: 0;
+  background: url(../images/arrow_left_year.svg) center no-repeat;
+}
+.insurance .calendar-container > a#next-year {
+  right: 0;
+  background: url(../images/arrow_right_year.svg) center no-repeat;
+}
+.insurance .calendar-container tr {
+  margin: 5px 0;
+}
+.insurance .calendar-container tr td {
+  padding: 0;
+}
+.insurance #calendar-right {
+  display: none;
+}
+.insurance .add-member:hover img,
+.insurance .remove-member:hover img {
+  filter: invert(1);
+}
+.insurance #signature img {
+  right: 10px;
+  top: 10px;
+}
+
+@media (max-width: 767px) {
+  .fade {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    outline: 0;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: all 0.6s;
+  }
+  .fade.show {
+    z-index: 10;
+  }
+}/*# sourceMappingURL=insurance.css.map */

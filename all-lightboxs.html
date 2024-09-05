@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>SnowFun滑雪趣 - 投保燈箱</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+		/>
+		<!-- font -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link href="./style/layout.css" rel="stylesheet" />
+		<link href="./style/index.css" rel="stylesheet" />
+		<link href="./style/insurance.css" rel="stylesheet" />
+
+		<!-- map -->
+		<script
+			type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARCV0fj5q0dPKTy95aMrhccdqnwKMMh-U"
+		></script>
+		<script type="text/javascript" src="./js/map.js"></script>
+	</head>
+	<body class="insurance">
+		<main class="max-w-920">
+			<div class="mt-5">
+				<button
+					type="button"
+					class="btn btn-outline-primary px-1 px-lg-2"
+					data-bs-toggle="modal"
+					data-bs-target="#completeModal"
+				>
+					完成訂單 燈箱
+				</button>
+				<button
+					type="button"
+					class="btn btn-outline-primary px-1 px-lg-2"
+					data-bs-toggle="modal"
+					data-bs-target="#IDIssueModal"
+				>
+					身分問題 燈箱
+				</button>
+				<button
+					type="button"
+					class="btn btn-outline-primary px-1 px-lg-2"
+					data-bs-toggle="modal"
+					data-bs-target="#ageIssueModal"
+				>
+					身分問題 燈箱
+				</button>
+				<button
+					type="button"
+					class="btn btn-outline-primary px-1 px-lg-2"
+					data-bs-toggle="modal"
+					data-bs-target="#savedInsuranceModal"
+				>
+					保單暫存 燈箱
+				</button>
+				<button
+					type="button"
+					class="btn btn-outline-primary px-1 px-lg-2"
+					data-bs-toggle="modal"
+					data-bs-target="#sentInsuranceModal"
+				>
+					保單送出 燈箱
+				</button>
+			</div>
+
+			<!-- 完成訂單 modal -->
+			<div
+				class="modal fade"
+				id="completeModal"
+				tabindex="-1"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content complete-content" style="display: block;">
+						<div class="modal-header">
+							<h5 class="modal-title mx-auto">完成訂單</h5>
+							<button
+								type="button"
+								class="btn-close position-absolute top-25 end-20"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body pt-0 max-w-610 mx-auto">
+							<p class="pb-4">
+								SnowFun滑雪趣關心您的安全，本次課程特別加贈「國泰特定活動險」，<br />
+								依法規及產險公司規定，請先確認您及同行夥伴的身分是否符合本次活動資格
+							</p>
+
+							<div
+								class="d-block d-md-flex justify-content-between mt-2 text-center"
+							>
+								<button
+									type="submit"
+									class="btn border-0 btn-primary px-32px rounded-5 f18 lin50 fw-bold mb-3"
+								>
+									學員皆未持台灣身分證或居留證
+								</button>
+								<button
+									type="submit"
+									class="btn border-0 btn-primary px-16px rounded-5 f18 lin50 fw-bold mb-3"
+								>
+									學員持台灣身分證或居留證
+								</button>
+							</div>
+							<div class="divider mt-1 mb-4">
+								<font></font><span>OR</span><font></font>
+							</div>
+							<div class="d-flex justify-content-center mb-4">
+								<button
+									type="button"
+									class="btn btn-outline-secondary  px-32px rounded-5 f18 f-gray-dark lin50 fw-bold"
+								>
+									不需要，我已自行加保
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 身分問題 modal -->
+			<div
+				class="modal fade"
+				id="IDIssueModal"
+				tabindex="-1"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content complete-content" style="display: block;">
+						<div class="modal-header">
+							<h5 class="modal-title mx-auto text-center">
+								很抱歉，<br
+									class="d-block d-md-none"
+								/>依據您的身份您可以參考...
+							</h5>
+							<button
+								type="button"
+								class="btn-close position-absolute top-25 end-20"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body pt-0 max-w-610 mx-auto">
+							<p class="pb-4">
+								受限於法規及產險公司規定,未持台灣身分證或居留證，不在此次贈送範圍<br />
+								SnowFun滑雪趣關心您的安全，請務必自行購買「適用日本滑雪」保險，<br />您可參考日本觀光局推薦：
+							</p>
+
+							<div
+								class="d-block d-md-flex justify-content-center gap-24px my-2 text-center"
+							>
+								<button
+									type="submit"
+									class="btn border-0 btn-primary px-16px rounded-5 f18 lin50 fw-bold mb-3"
+								>
+									東京海上日動 訪日外國人旅平險
+								</button>
+								<button
+									type="submit"
+									class="btn btn-outline-secondary px-32px rounded-5 f18 lin50 f-gray-dark fw-bold mb-3"
+								>
+									返回訂單頁
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 年齡問題 modal -->
+			<div
+				class="modal fade"
+				id="ageIssueModal"
+				tabindex="-1"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content complete-content" style="display: block;">
+						<div class="modal-header">
+							<h5 class="modal-title mx-auto">
+								很抱歉！
+							</h5>
+							<button
+								type="button"
+								class="btn-close position-absolute top-25 end-20"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body pt-0 max-w-610 mx-auto">
+							<p class="pb-4">
+								受限於法規及產險公司規定,年齡未滿15歲或70歲以上，不在此次贈送範圍
+								<br />
+								SnowFun滑雪趣關心您的安全，請務必自行購買「適用日本滑雪」保險，<br />
+								您可參考日本觀光局推薦：
+							</p>
+
+							<div
+								class="d-block d-md-flex  justify-content-center gap-24px my-2 text-center"
+							>
+								<button
+									type="submit"
+									class="btn border-0 btn-primary px-16px rounded-5 f18 lin50 fw-bold mb-3"
+								>
+									東京海上日動 訪日外國人旅平險
+								</button>
+								<button
+									type="submit"
+									class="btn btn-outline-secondary px-32px rounded-5 f18 lin50 f-gray-dark fw-bold mb-3"
+								>
+									返回訂單頁
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 保單暫存 modal -->
+			<div
+				class="modal fade"
+				id="savedInsuranceModal"
+				tabindex="-1"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content complete-content" style="display: block;">
+						<div class="modal-header flex-column">
+							<img
+								src="./images/icon_edit.svg"
+								class="mt-3 mb-2 d-block"
+								alt=""
+							/>
+							<h5 class="modal-title mx-auto">
+								您的保單資料已暫存
+							</h5>
+							<button
+								type="button"
+								class="btn-close position-absolute top-25 end-20"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body pt-0 max-w-610 mx-auto">
+							<p class="pb-4">
+								請注意 <br />
+								請於課前72小時填妥正確資料送出，<br />
+								否則視同已自行購買保險，放棄贈送選項
+							</p>
+							<div class="d-flex justify-content-center gap-24px mb-4 mt-2">
+								<button
+									type="submit"
+									class="btn border-0 btn-primary px-16px rounded-5 f18 lin50 fw-bold"
+								>
+									返回訂單頁
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 保單送出 modal -->
+			<div
+				class="modal fade"
+				id="sentInsuranceModal"
+				tabindex="-1"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content complete-content" style="display: block;">
+						<div class="modal-header flex-column">
+							<img
+								src="./images/icon_sent.svg"
+								class="mt-3 mb-2 d-block"
+								alt=""
+							/>
+							<h5 class="modal-title mx-auto">
+								您的保單資料已送出
+							</h5>
+							<button
+								type="button"
+								class="btn-close position-absolute top-25 end-20"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body pt-0 max-w-610 mx-auto">
+							<p class="pb-4">
+								請留意您的信箱，保單確認生成後<br />
+								國泰世紀產物保險將發送電子郵件
+							</p>
+							<div class="d-flex justify-content-center gap-24px mb-4 mt-2">
+								<button
+									type="submit"
+									class="btn border-0 btn-primary px-16px rounded-5 f18 lin50 fw-bold"
+								>
+									返回訂單頁
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+		></script>
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+			integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+			crossorigin="anonymous"
+		></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+		<script src="js/owl.js"></script>
+
+		<script src="./js/date.js"></script>
+		<script src="./js/selectPlace.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+	</body>
+</html>
