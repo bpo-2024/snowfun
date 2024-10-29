@@ -1,0 +1,157 @@
+.default-tab .nav-link {
+  position: relative;
+  color: #444;
+  height: 42px;
+  min-width: auto;
+  font-size: 16px;
+  padding: 8px 10px;
+}
+
+@media (min-width: 400px) {
+  .default-tab .nav-link {
+    padding: 8px 20px;
+  }
+}
+@media (min-width: 375px) {
+  .default-tab .nav-link {
+    padding: 8px 16px;
+  }
+}
+@media (min-width: 401px) {
+  .default-tab:nth-child(4) .nav-link {
+    padding: 8px 18px;
+  }
+}
+@media (min-width: 992px) {
+  .default-tab .nav-link {
+    min-width: 112px;
+    font-size: 18px;
+  }
+}
+.default-tab .nav-link.active {
+  position: relative;
+  color: #1ba4ed;
+}
+.default-tab .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2.5px;
+  width: 100%;
+  background-color: #1ba4ed;
+}
+
+/* modal */
+.bookingsModal .modal-dialog {
+  max-width: 678px;
+}
+.bookingsModal .modal-dialog.modal-s {
+  max-width: 400px;
+}
+.bookingsModal .modal-header {
+  min-height: auto;
+  height: 56px;
+  padding: 20px;
+}
+.bookingsModal h6 {
+  font-size: 24px;
+  font-weight: 500;
+}
+.bookingsModal .modal-body {
+  padding: 0 20px 20px;
+}
+@media (min-width: 992px) {
+  .bookingsModal .modal-body {
+    padding: 0 40px 40px;
+  }
+}
+.bookingsModal .bookings-info-box {
+  max-height: 440px;
+  overflow-y: scroll;
+  margin-bottom: 32px;
+}
+.bookingsModal ol {
+  color: #858585;
+  font-size: 13px;
+  line-height: 1rem;
+}
+.bookingsModal .btn-cancel {
+  border-radius: 30px;
+  min-width: auto;
+  padding: 0 24px;
+}
+.bookingsModal .btn-submit {
+  height: 50px;
+  padding: 0 15px;
+  border-radius: 30px;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* order-details */
+.order-list-card {
+  border-radius: 16px;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+.order-title {
+  width: 100%;
+  padding: 0 16px;
+  line-height: 55px;
+  cursor: pointer;
+}
+.order-title::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  background: url("../images/arrow_down.svg") no-repeat center;
+  transform: rotate(180deg);
+}
+.order-title.close::after {
+  transform: rotate(0deg);
+}
+.order-details {
+  color: #666;
+  background-color: #fff;
+  padding: 0 12px 12px;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  transition: all 0.1s;
+}
+@media (min-width: 390px) {
+  .order-details {
+    padding: 0 16px 16px;
+  }
+}
+.order-title-details {
+  color: #666;
+  background-color: #fff;
+  padding: 0 16px;
+}
+.order-details.collapse {
+  opacity: 0;
+}
+.order-details.collapse.show {
+  opacity: 1;
+}
+.order-details ul {
+  color: #666;
+  line-height: 23px;
+  padding-bottom: 16px;
+}
+.order-card ul {
+  margin-top: 4px;
+  line-height: 23px;
+  padding-bottom: 0;
+}
+
+.order-details li + li,
+.order-card li + li {
+  margin-top: 4px;
+}
+
+#pills-tab {
+  margin-bottom: 20px;
+}
