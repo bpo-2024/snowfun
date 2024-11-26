@@ -783,8 +783,11 @@
 
 			<div class="sticky-lg-top total-price box-sizing">
 				<div class="border">
-					<label for="" class="handler"></label>
+					
 					<div class="p-4 mb_collapsed">
+						<label for="" class="handler">
+							<img src="images/page_arrow_right.svg" alt="">
+						</label>
 						<div class="d-flex flex-column gap-16px mb-4">
 							<div class="d-flex flex-row justify-content-between">
 								<p>上課總人數</p>
@@ -811,7 +814,7 @@
 							<font class="px-2">預訂同位教練課程達10小時享95折優惠！</font>
 						</span>
 					</div>
-					<div class="final-price d-flex justify-content-between p-4">
+					<div class="final-price d-flex justify-content-between p-4 ">
 						<div class="d-flex flex-column">
 							<p class="mb-1">總金額</p>
 							<h6 class="f24">JPY 80000</h6>
@@ -2178,7 +2181,8 @@
 				});
 
 				$("body").on("click", ".handler", function() {
-					$(".mb_collapsed").toggleClass("show");
+					$(".mb_collapsed").toggleClass("show_205");
+					$(this).toggleClass("show");
 				});
 			});
 
