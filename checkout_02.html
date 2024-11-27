@@ -438,8 +438,10 @@
 			</div>
 			<div class="sticky-lg-top total-price box-sizing mt-0">
 				<div class="border">
-					<label for="" class="handler"></label>
 					<div class="p-4 mb_collapsed">
+						<label for="" class="handler">
+							<img src="images/page_arrow_right.svg" alt="">
+						</label>
 						<div class="d-flex justify-content-between align-items-center mb-3">
 							<h5 class="f24 text-black">
 								付款方式
@@ -773,7 +775,8 @@
 				});
 
 				$("body").on("click", ".handler", function() {
-					$(".mb_collapsed").toggleClass("show");
+					$(".mb_collapsed").toggleClass("show_300");
+					$(this).toggleClass("show");
 				});
 			});
 		</script>

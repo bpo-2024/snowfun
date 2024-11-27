@@ -140,9 +140,7 @@ input[type="checkbox"] {
 }
 
 .insurance {
-	padding-top: 60px;
-	padding-left: 24px;
-	padding-right: 24px;
+	padding: 90px 24px;
 
 	.modal-dialog {
 		max-width: 690px;
@@ -276,4 +274,8 @@ input[type="checkbox"] {
 			z-index: 10;
 		}
 	}
+	.footer-mb {
+        position: relative;
+		top: 0;
+    }
 }
