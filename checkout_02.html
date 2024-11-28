@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>SnowFun滑雪趣 - 結帳流程</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+		/>
+		<!-- font -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link href="./style/layout.css" rel="stylesheet" />
+		<link href="./style/index.css" rel="stylesheet" />
+		<link href="./style/coach-item.css" rel="stylesheet" />
+		<link href="./style/checkout.css" rel="stylesheet" />
+	</head>
+	<body>
+    <nav class="navbar" aria-label="Light offcanvas navbar">
+      <div class="container-fluid justify-content-between">
+        <div class="d-flex align-items-center flex-grow-1">
+          <div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
+            <a href="index.html" class="logo">
+              <img src="./images/logo.svg" />
+            </a>
+          </div>
+          <ul class="nav d-none d-lg-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="coach-item.html">教練團隊</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">雪場資訊</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">常見問題</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">旅遊攻略</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">最新消息</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">聯絡客服</a>
+            </li>
+          </ul>
+        </div>
+        <div class="d-none d-lg-flex login">
+          <button type="button" class="btn px-1 px-lg-2 login-coach">
+            教練登入
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-1 px-lg-2"
+            data-bs-toggle="modal"
+            data-bs-target="#snowModal"
+            onclick="loginModal()"
+          >
+            登入
+          </button>
+        </div>
+
+        <button
+          class="navbar-toggler d-block d-lg-none border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbarLight"
+          aria-controls="offcanvasNavbarLight"
+          aria-label="Toggle navigation"
+        >
+          <img src="./images/icon_hamburger.svg" />
+        </button>
+        <div
+          class="offcanvas offcanvas-start nav-offcanvas"
+          tabindex="-1"
+          id="offcanvasNavbarLight"
+          style="z-index: 1051"
+        >
+          <div class="offcanvas-header">
+            <a href="index.html" class="logo">
+              <img src="./images/logo.svg" height="60" />
+            </a>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+              <li class="nav-item">
+                <a class="nav-link" href="coach-item.html">教練團隊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">雪場資訊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">常見問題</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">旅遊攻略</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">最新消息</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">聯絡客服</a>
+              </li>
+              <li class="nav-item d-flex justify-content-between">
+                <button type="button" class="btn coach-register">
+                  教練註冊
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary px-1 px-lg-2"
+                  onclick="loginModal()"
+                  data-bs-toggle="modal"
+                  data-bs-target="#snowModal"
+                  data-bs-dismiss="offcanvas"
+                >
+                  登入
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+		<main class="checkout max-w-1300 mx-auto d-flex gap-24px">
+			<div class="main_content d-flex flex-column gap-40px flex-grow-1 mt-3">
+				<div class="section py-0">
+					<div class="course-item py-4">
+						<div class="d-flex justify-content-between align-items-center">
+							<h5 class="f24 mb-3 text-black">
+								課堂編號＃1
+							</h5>
+						</div>
+
+						<div class="course-detail">
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">日期</p>
+									<b>2024-12-12</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">類型</p>
+									<b>單版</b>
+								</div>
+							</div>
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">時段</p>
+									<b>13:00-16:00</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">滑行程度</p>
+									<b>零經驗</b>
+								</div>
+							</div>
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">教練</p>
+									<b>Leilei</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">上課人數</p>
+									<b>6位</b>
+								</div>
+							</div>
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">雪場</p>
+									<b>札幌 手稻滑雪場</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">單堂收費</p>
+									<b class="text-primary f-700">¥45,000JPY</b>
+								</div>
+							</div>
+							<div class="d-flex flex-row justify-content-end">
+								<div class="course_price d-flex flex-column gap-8px w-100 pt-3">
+									<div class="d-flex justify-content-end gap-16px">
+										<p>課程總金額</p>
+										<b class="text-primary">¥45,000JPY</b>
+									</div>
+									<div
+										class="d-flex justify-content-end align-items-center gap-16px"
+									>
+										<p class="f13 px-1">訂課10小時以上95折</p>
+										<label class="price-discount" for="">-¥4,500JPY</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="course-item py-4">
+						<div class="d-flex justify-content-between align-items-center">
+							<h5 class="f24 mb-3 text-black">
+								課堂編號＃2
+							</h5>
+						</div>
+
+						<div class="course-detail">
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">日期</p>
+									<b>2024-12-12</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">類型</p>
+									<b>單版</b>
+								</div>
+							</div>
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">時段</p>
+									<b>13:00-16:00</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">滑行程度</p>
+									<b>零經驗</b>
+								</div>
+							</div>
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">教練</p>
+									<b>Leilei</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">上課人數</p>
+									<b>6位</b>
+								</div>
+							</div>
+							<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">雪場</p>
+									<b>札幌 手稻滑雪場</b>
+								</div>
+								<div
+									class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0"
+								>
+									<p class="w-80">單堂收費</p>
+									<b class="text-primary f-700">¥45,000JPY</b>
+								</div>
+							</div>
+							<div class="d-flex flex-row justify-content-end">
+								<div class="course_price d-flex flex-column gap-8px w-100 pt-3">
+									<div
+										class="d-flex justify-content-end align-items-center gap-16px"
+									>
+										<p>課程總金額</p>
+										<b class="text-primary">¥45,000JPY</b>
+									</div>
+									<div
+										class="d-flex justify-content-end align-items-center gap-16px"
+									>
+										<p class="f13 px-1">訂課10小時以上95折</p>
+										<label class="price-discount" for="">-¥4,500JPY</label>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div
+						class="d-flex flex-column flex-md-row justify-content-between py-4 gap-3 gap-md-0"
+					>
+						<div
+							class="d-flex  flex-column flex-md-row f16 gap-24px align-items-end align-items-md-center"
+						>
+							<div class="d-flex gap-16px">
+								<b class="f-b">學費總金額</b>
+								<b class="text-primary f-700">JPY 90,000</b>
+							</div>
+							<div class="d-flex gap-16px align-items-center">
+								<b class="f-b">課程折抵</b>
+								<label class="price-discount f14" for="">-JPY 9,000</label>
+							</div>
+						</div>
+						<div class="d-flex gap-8px align-items-center justify-content-end">
+							<b class="f16 f-b">總金額合計</b>
+							<div class="f24 text-primary f-700">JPY 81,000</div>
+						</div>
+					</div>
+				</div>
+				<div class="section">
+					<div class="d-flex justify-content-between align-items-center">
+						<h5 class="f24 mb-3 text-black">
+							報名成員
+						</h5>
+					</div>
+					<div class="member-detail">
+						<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+							<div class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0">
+								<p class="w-80">成員1</p>
+								<b>男(30歲)</b>
+							</div>
+							<div class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0">
+								<p class="w-80">成員2</p>
+								<b>男(30歲)</b>
+							</div>
+						</div>
+						<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+							<div class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0">
+								<p class="w-80">成員3</p>
+								<b>男(30歲)</b>
+							</div>
+							<div class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0">
+								<p class="w-80">成員4</p>
+								<b>男(30歲)</b>
+							</div>
+						</div>
+						<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+							<div class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0">
+								<p class="w-80">成員5</p>
+								<b>男(30歲)</b>
+							</div>
+							<div class="d-flex flex-row w-100 w-md-50 gap-16px mb-3 mb-md-0">
+								<p class="w-80">成員6</p>
+								<b>男(30歲)</b>
+							</div>
+						</div>
+					</div>
+					<hr class="my-4" />
+					<div class="d-flex justify-content-between align-items-center">
+						<h5 class="f24 mb-3 text-black">
+							備註
+						</h5>
+					</div>
+					<div class="note-detail">
+						<div class="d-flex flex-column flex-md-row mb-0 mb-md-3">
+							無
+						</div>
+					</div>
+				</div>
+				<div class="mt-3 mt-md-0">
+					<h5 class="f28 mb-3 text-black">
+						訂購人資料
+					</h5>
+					<form action="">
+						<div
+							class="form-row d-flex flex-column justify-content-between flex-md-row gap-3 mb-3"
+						>
+							<div class="form-group w-100 w-md-50">
+								<label class="mb-2">聯絡手機</label>
+								<input type="tel" id="phone" placeholder="請輸入聯絡手機" />
+							</div>
+							<div class="form-group w-100 w-md-50">
+								<label class="mb-2" for="type">生日</label>
+								<input type="date" id="date" placeholder="請輸入生日" />
+							</div>
+						</div>
+						<div
+							class="form-row d-flex flex-column justify-content-between flex-md-row gap-3 mb-3"
+						>
+							<div class="form-group w-100 w-md-50">
+								<label class="mb-2" for="type">緊急聯絡人</label>
+								<input type="text" id="" placeholder="請輸入緊急聯絡人" />
+							</div>
+							<div class="form-group w-100 w-md-50">
+								<label class="mb-2" for="type">緊急聯絡電話</label>
+								<input type="tel" id="" placeholder="請輸入緊急聯絡電話" />
+							</div>
+						</div>
+						<div
+							class="form-row d-flex flex-column justify-content-between flex-md-row gap-3 mb-3"
+						>
+							<div class="form-group w-100 w-md-50">
+								<label class="mb-2" for="type"
+									>社群帳號
+									<font class="f13 f-44">(請至少輸入一個通訊軟題)</font>
+								</label>
+								<input type="text" id="phone" placeholder="請輸入LINE ID" />
+							</div>
+							<div class="form-group w-100 w-md-50 align-items-end d-flex">
+								<input type="text" id="phone" placeholder="請輸入Wechat" />
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="sticky-lg-top total-price box-sizing mt-0">
+				<div class="border">
+					<div class="p-4 mb_collapsed">
+						<label for="" class="handler">
+							<img src="images/page_arrow_right.svg" alt="">
+						</label>
+						<div class="d-flex justify-content-between align-items-center mb-3">
+							<h5 class="f24 text-black">
+								付款方式
+							</h5>
+							<p class="f-black">採台幣結帳</p>
+						</div>
+
+						<form action="">
+							<div class="border-bottom py-3">
+								<input type="radio" name="pay_way" id="credit" />
+								<label for="credit" class="align-text-top px-1">信用卡</label>
+							</div>
+							<div class="border-bottom py-3">
+								<input type="radio" name="pay_way" id="UnionPay" />
+								<label for="UnionPay" class="align-text-top px-1">銀聯卡</label>
+							</div>
+							<div class="border-bottom py-3">
+								<input type="radio" name="pay_way" id="account" />
+								<label for="account" class="align-text-top px-1"
+									>銀行轉帳</label
+								>
+							</div>
+							<div class="W100 py-3">
+								<input type="checkbox" name="" id="" />
+								<label for="" class="align-top px-1"
+									>本人已閱讀並同意
+									<span
+										class="text-primary cursor-pointer"
+										data-bs-toggle="modal"
+										data-bs-target="#contract"
+									>
+										訂單注意事項
+									</span>
+									<img src="images/info.svg" class="align-text-top" alt=""
+								/></label>
+							</div>
+						</form>
+					</div>
+					<div class="final-price d-flex justify-content-between p-4">
+						<div class="d-flex flex-column gap-2">
+							<p>總金額</p>
+							<h6 class="f24">TWD 45,000</h6>
+							<p class="f-44 f12 current-note">
+								匯率為時時轉換幣值金額
+							</p>
+						</div>
+						<button
+							type="submit"
+							class="btn border-0 btn-primary px-4 rounded-5 f18 line35 fw-bold mb-0 d-flex align-items-center align-self-center gap-1"
+							onclick="location.href='checkout_complete.html'"
+						>
+							前往結帳
+							<img src="/images/solar_arrow-up-broken.svg" alt="" />
+						</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- pc footer -->
+		<footer class="footer-pc">
+		<div class="container">
+			<div class="row">
+			<div class="col-9">
+				<div>
+				<img src="./images/logo_white.svg">
+				</div>
+				<div class="row">
+				<div class="col-4">
+					<ul>
+					<li>滑雪趣有限公司 </li>
+					<li>Snow Fun International Co., Ltd.</li>
+					<li>統一編號 82841380</li>
+					<li>Email : info@snowfun.com.tw</li>
+					</ul>
+				</div>
+				<div class="col-8 align-self-end">
+					<ul class="social-box">
+					<li>
+						<a href="//www.facebook.com/groups/453785412129721/" target="_blank">
+						<img src="./images/fb.svg">
+						</a>
+					</li>
+					<li><a href="//www.instagram.com/snowfunfun/" target="_blank">
+						<img src="./images/ig.svg">
+					</a></li>
+					<li><a href="#">
+						<img src="./images/tk.svg">
+						</a></li>
+					<li><a href="#">
+						<img src="./images/wc.svg">
+						</a></li>
+					<li><a href="#">
+						<img src="./images/yt.svg">
+						</a></li>
+					</ui>
+				</div>
+				</div>
+			</div>
+			<div class="col-3">
+				<div class="row">
+				<div class="col">
+					<p class="footer-title">信息</p>
+					<ul class="footer-link">
+					<li><a class="link-underline link-underline-opacity-0" href="#">關於我們</a></li>
+					<li><a class="link-underline link-underline-opacity-0" href="#">常見問題</a></li>
+					<li><a class="link-underline link-underline-opacity-0" href="#">聯絡我們</a></li>
+					</ul>
+				</div>
+				<div class="col">
+					<p class="footer-title">合作</p>
+					<ul class="footer-link">
+						<li><a class="link-underline link-underline-opacity-0" href="#">成為教練</a></li>
+						<li><a class="link-underline link-underline-opacity-0" href="#">合作夥伴申請</a></li>
+					</ul>
+				</div>
+				</div>
+			</div>
+			</div>
+			<div class="d-flex justify-content-between footer-bottom">
+			<ul class="row g-3">
+				<li class="col"><a class="link-underline link-underline-opacity-0" href="#">網站使用聲明</a></li>
+				<li class="col"><a class="link-underline link-underline-opacity-0" href="#">隱私權條款</a></li>
+			</ul>
+			<div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+			</div>
+		</div>
+		</footer>
+		<!-- mb footer -->
+		<footer class="footer-mb">
+		<div class="container">
+			<div class="row">
+			<div class="col-6 d-flex justify-content-center">
+				<img src="./images/logo_white.svg" width="100%">          
+			</div>
+			<div class="col-6 d-flex justify-content-center align-items-center">
+				<ul>
+				<li>滑雪趣有限公司 </li>
+				<li>Snow Fun International Co., Ltd.</li>
+				<li>統一編號 82841380</li>
+				<li>Email : info@snowfun.com.tw</li>
+				</ul>
+			</div>
+			<div class="row mt-3 mb-3">
+				<div class="col-12 align-self-end">
+				<ul class="social-box d-flex justify-content-center ">
+					<li>
+					<a href="//www.facebook.com/groups/453785412129721/" target="_blank">
+						<img src="./images/fb.svg">
+					</a>
+					</li>
+					<li><a href="//www.instagram.com/snowfunfun/" target="_blank">
+					<img src="./images/ig.svg">
+					</a></li>
+					<li><a href="#">
+						<img src="./images/tk.svg">
+					</a></li>
+					<li><a href="#">
+						<img src="./images/wc.svg">
+					</a></li>
+					<li><a href="#">
+						<img src="./images/yt.svg">
+					</a></li>
+				</ui>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-4">
+				<p class="footer-title">信息</p>
+					<ul class="footer-link">
+					<li><a class="link-underline link-underline-opacity-0" href="#">關於我們</a></li>
+					<li><a class="link-underline link-underline-opacity-0" href="#">常見問題</a></li>
+					<li><a class="link-underline link-underline-opacity-0" href="#">聯絡我們</a></li>
+					</ul>
+				</div>
+				<div class="col-4">
+				<p class="footer-title">合作</p>
+					<ul class="footer-link">
+						<li><a class="link-underline link-underline-opacity-0" href="#">成為教練</a></li>
+						<li><a class="link-underline link-underline-opacity-0" href="#">合作夥伴申請</a></li>
+					</ul>
+				</div>
+			</div>
+			</div>
+			<div class="d-flex justify-content-between footer-bottom">
+			<ul class="row g-3">
+				<li class="col"><a class="link-underline link-underline-opacity-0" href="#">網站使用聲明</a></li>
+				<li class="col"><a class="link-underline link-underline-opacity-0" href="#">隱私權條款</a></li>
+			</ul>
+			<div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+			</div>
+		</div>
+		</footer>
+
+		<!-- <div class="fade_bg"></div> -->
+
+		<!-- 訂單注意事項 modal -->
+		<div class="modal fade" id="contract" tabindex="-1" aria-hidden="true">
+			<div class="modal-dialog max-w-720 modal-dialog-centered">
+				<div class="modal-content complete-content" style="display: block;">
+					<div class="modal-body px-3 py-4 p-md-5 mx-auto">
+						<button
+							type="button"
+							class="btn-close position-absolute"
+							data-bs-dismiss="modal"
+							aria-label="Close"
+						></button>
+						<div class="scroll h-400">
+							<h5 class="f24 text-black mb-2">
+								付款方式
+							</h5>
+							<ul class="mb-4 f13 d-flex gap-8px flex-column">
+								<li>
+									一旦完成教學預訂， 不得變更原預訂內容，
+									所有變更情事都將視為取消課程， 需重新預訂。
+								</li>
+								<li>在約定教學日前 31 天以上申請取消課程， 退還全額款項。</li>
+								<li>
+									在約定教學日前 15-30 天內申請取消課程， 退還款項的 80%。
+								</li>
+								<li>在約定教學日前 8-14 天內申請取消課程， 退還款項的 50%。</li>
+								<li>在約定教學日前 1-7 天內申請取消課程， 退還款項的 20%。</li>
+								<li>在約定教學日當天申請取消課程， 不予退款。</li>
+								<li>
+									除上述第 (6) 項外， 退還款項將另扣除手續費， 為款項原價的 5%。
+								</li>
+								<li>
+									在約定教學日當天，除因遭遇因天氣因素造成滑雪場關閉(需有滑雪場公告)無法上課之外，其他任何因學生方因素導致無法上課之情況，款項均無法退還。
+								</li>
+								<li>因教練方個人因素取消課程， 退還全額款項。</li>
+							</ul>
+							<h5 class="f24 text-black mb-2">
+								注意事項
+							</h5>
+							<ul class="mb-4 f13 d-flex gap-8px flex-column">
+								<li>
+									在預定課程前，
+									付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻，
+									若發生意外可能導致受傷或死亡，
+									於報名時應盡力提供真實且詳盡之健康資料， 以利教練接課時評估。
+								</li>
+								<li>
+									在課程開始前、
+									期間或之後所發生的任何私人設備或財物之遺失或損壞，
+									本平台不承擔任何形式責任。
+								</li>
+								<li>
+									在課程開始前、 期間或之後所發生的任何傷害或事故，
+									本平台不承擔任何形式之責任。
+								</li>
+								<li>
+									在課程開始前， 建議至少提早 30 分鐘到達與教練約定之集合點，
+									務必檢查及帶齊必要之滑雪裝備器材及衣著， 如因個人因素（例如：
+									未帶手套、 雪鞋尺寸不合...
+									等）造成更換設備的費用或課程時間損失，
+									本平台將不提供任何退款、 延時或補時。
+								</li>
+								<li>
+									課程期間基於安全考量， 應聽從教練之建議及指示，
+									經屢勸不聽者（例如： 擅自脫隊、 破壞雪場設施... 等），
+									教練有權立即中止契約及提供課程服務， 亦無法退費。
+								</li>
+								<li>
+									課程期間， 由教練或本平台聘請人員拍攝之照片，
+									除「單人之正面清晰人像獨照」會徵求當事人同意外，
+									報名者皆同意本平台使用其餘照片（例如： 課程經驗分享及宣傳...
+									等）。
+								</li>
+								<li>
+									雪地戶外運動若發生意外可能導致受傷或死亡，
+									建議報名者及同行人員可自行投保旅平險、
+									醫療險或相關戶外活動保險... 等。
+								</li>
+							</ul>
+						</div>
+						<button
+							data-bs-dismiss="modal"
+							aria-label="Close"
+							type="submit"
+							class="btn border-0 btn-primary px-4 rounded-5 f18 line35 fw-bold mt-4 mb-0 mx-auto d-flex align-items-center gap-1"
+						>
+							我已閱讀並同意
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+		></script>
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+			crossorigin="anonymous"
+		></script>
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+		<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+		<script src="i18n/datepicker-zh-TW.js"></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+		<script src="js/owl.js"></script>
+
+		<script>
+			$(function() {
+				$(".owl-carousel-date").owlCarousel({
+					margin: 10,
+					nav: true,
+					responsive: {
+						600: {
+							items: 3,
+						},
+						1000: {
+							items: 7,
+						},
+					},
+				});
+
+				var owl = $(".owl-carousel");
+				owl.owlCarousel({
+					items: 3,
+					margin: 10,
+					loop: true,
+					nav: true,
+				});
+
+				$("body").on("click", ".handler", function() {
+					$(".mb_collapsed").toggleClass("show_300");
+					$(this).toggleClass("show");
+				});
+			});
+		</script>
+	</body>
+</html>
