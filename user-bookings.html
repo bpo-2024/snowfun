@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="./style/layout.css" rel="stylesheet" />
+    <!-- TODO -->
+    <link href="./style/user-profile.css" rel="stylesheet" />
+    <link href="./style/user-bookings.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <nav class="navbar" aria-label="Light offcanvas navbar">
+        <div class="container-fluid justify-content-between">
+          <div class="d-flex align-items-center flex-grow-1">
+            <div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" />
+              </a>
+            </div>
+            <ul class="nav d-none d-lg-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="coach-item.html">教練團隊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">雪場資訊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">常見問題</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">旅遊攻略</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">最新消息</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">聯絡客服</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="header-avatar"
+            data-bs-toggle="collapse"
+            href="#collapseHeaderMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseHeaderMenu"
+          ></div>
+
+          <button
+            class="navbar-toggler d-block d-lg-none border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbarLight"
+            aria-controls="offcanvasNavbarLight"
+            aria-label="Toggle navigation"
+          >
+            <img src="./images/icon_hamburger.svg" />
+          </button>
+          <div
+            class="offcanvas offcanvas-start nav-offcanvas"
+            tabindex="-1"
+            id="offcanvasNavbarLight"
+            style="z-index: 1051"
+          >
+            <div class="offcanvas-header">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" height="60" />
+              </a>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                  <a class="nav-link" href="coach-item.html">教練團隊</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">雪場資訊</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">常見問題</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">旅遊攻略</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">最新消息</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">聯絡客服</a>
+                </li>
+                <li class="nav-item d-flex justify-content-between">
+                  <button type="button" class="btn coach-register">
+                    教練註冊
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary px-1 px-lg-2"
+                    onclick="loginModal()"
+                    data-bs-toggle="modal"
+                    data-bs-target="#snowModal"
+                    data-bs-dismiss="offcanvas"
+                  >
+                    登入
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse-login collapse" id="collapseHeaderMenu">
+        <div class="isLogin">
+          <p>個人資料</p>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-1 px-lg-2 float-end me-3"
+          >
+            登出
+          </button>
+        </div>
+      </div>
+      <section class="container">
+        <div class="d-flex user-profile">
+          <div id="left-side">
+            <div class="user-card">
+              <div class="user-avatar"></div>
+              <p class="user-name">測試名字測試名字長度測試名字測試名字長度</p>
+              <p class="user-level">一般會員</p>
+            </div>
+            <ul class="profile-menu">
+              <li class="user-info" data-url="user-profile.html?status=1">
+                個人資料
+              </li>
+              <li
+                class="course-record active"
+                data-url="user-bookings.html?status=1"
+              >
+                課程紀錄
+              </li>
+              <li class="order-info" data-url="user-orders.html?status=1">
+                訂單資料
+              </li>
+            </ul>
+          </div>
+          <div id="right-side" class="profile-card user-bookings flex-grow-1">
+            <div class="d-flex">
+              <a class="page-arrow" href="user-bookings.html"></a>
+              <h2>課程資訊</h2>
+            </div>
+            <ul class="nav mt-3" id="pills-tab" role="tablist">
+              <li class="nav-item default-tab" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="pills-future-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-future"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-future"
+                  aria-selected="true"
+                >
+                  未來課程
+                </button>
+              </li>
+              <li class="nav-item default-tab" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-history-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-history"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-history"
+                  aria-selected="false"
+                >
+                  歷史課程
+                </button>
+              </li>
+              <li class="nav-item default-tab" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-cancel-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-cancel"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-cancel"
+                  aria-selected="false"
+                >
+                  已取消課程
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-future"
+                role="tabpanel"
+                aria-labelledby="pills-future-tab"
+                tabindex="0"
+              >
+                <div class="orderList list-group d-block d-lg-none"></div>
+                <div class="bookings-container d-none d-lg-block"></div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-history"
+                role="tabpanel"
+                aria-labelledby="pills-history-tab"
+                tabindex="0"
+              >
+                <div class="orderList list-group d-block d-lg-none"></div>
+                <div class="bookings-container d-none d-lg-block"></div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-cancel"
+                role="tabpanel"
+                aria-labelledby="pills-cancel-tab"
+                tabindex="0"
+              >
+                <div class="orderList list-group d-block d-lg-none"></div>
+                <div class="bookings-container d-none d-lg-block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- pc footer -->
+      <footer class="footer-pc">
+        <div class="container">
+          <div class="row">
+            <div class="col-9">
+              <div>
+                <img src="./images/logo_white.svg" />
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <ul>
+                    <li>滑雪趣有限公司</li>
+                    <li>Snow Fun International Co., Ltd.</li>
+                    <li>統一編號 82841380</li>
+                    <li>Email : info@snowfun.com.tw</li>
+                  </ul>
+                </div>
+                <div class="col-8 align-self-end">
+                  <ul class="social-box">
+                    <li>
+                      <a
+                        href="//www.facebook.com/groups/453785412129721/"
+                        target="_blank"
+                      >
+                        <img src="./images/fb.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                        <img src="./images/ig.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/tk.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/wc.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/yt.svg" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="col">
+                  <p class="footer-title">信息</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >關於我們</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >常見問題</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >聯絡我們</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <p class="footer-title">合作</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >成為教練</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >合作夥伴申請</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- mb footer -->
+      <footer class="footer-mb">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-center">
+              <img src="./images/logo_white.svg" width="100%" />
+            </div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+              <ul>
+                <li>滑雪趣有限公司</li>
+                <li>Snow Fun International Co., Ltd.</li>
+                <li>統一編號 82841380</li>
+                <li>Email : info@snowfun.com.tw</li>
+              </ul>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12 align-self-end">
+                <ul class="social-box d-flex justify-content-center">
+                  <li>
+                    <a
+                      href="//www.facebook.com/groups/453785412129721/"
+                      target="_blank"
+                    >
+                      <img src="./images/fb.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                      <img src="./images/ig.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/tk.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/wc.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/yt.svg" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <p class="footer-title">信息</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >關於我們</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >常見問題</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >聯絡我們</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4">
+                <p class="footer-title">合作</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >成為教練</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >合作夥伴申請</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- 登入 modal -->
+      <div id="sharedModalContainer"></div>
+
+      <!-- info modal -->
+      <div
+        class="modal fade bookingsModal"
+        id="bookingInfoModal"
+        tabindex="-1"
+        aria-labelledby="bookingInfoModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="bookings-info-box">
+                <h6 class="modal-title fs-5" id="bookingInfoModalLabel">
+                  注意事項
+                </h6>
+                <ol class="list-group-numbered">
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在預定課程前，
+                      付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻，
+                      若發生意外可能導致受傷或死亡，
+                      於報名時應盡力提供真實且詳盡之健康資料，
+                      以利教練接課時評估。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在課程開始前、
+                      期間或之後所發生的任何私人設備或財物之遺失或損壞，
+                      本平台不承擔任何形式責任。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在課程開始前、 期間或之後所發生的任何傷害或事故，
+                      本平台不承擔任何形式之責任。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在課程開始前， 建議至少提早 30
+                      分鐘到達與教練約定之集合點，
+                      務必檢查及帶齊必要之滑雪裝備器材及衣著，
+                      如因個人因素（例如： 未帶手套、 雪鞋尺寸不合...
+                      等）造成更換設備的費用或課程時間損失，
+                      本平台將不提供任何退款、 延時或補時。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      課程期間基於安全考量， 應聽從教練之建議及指示，
+                      經屢勸不聽者（例如： 擅自脫隊、 破壞雪場設施... 等），
+                      教練有權立即中止契約及提供課程服務， 亦無法退費。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      課程期間， 由教練或本平台聘請人員拍攝之照片，
+                      除「單人之正面清晰人像獨照」會徵求當事人同意外，
+                      報名者皆同意本平台使用其餘照片（例如：
+                      課程經驗分享及宣傳... 等）。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      雪地戶外運動若發生意外可能導致受傷或死亡，
+                      建議報名者及同行人員可自行投保旅平險、
+                      醫療險或相關戶外活動保險... 等。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在預定課程前，
+                      付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻，
+                      若發生意外可能導致受傷或死亡，
+                      於報名時應盡力提供真實且詳盡之健康資料，
+                      以利教練接課時評估。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在課程開始前、
+                      期間或之後所發生的任何私人設備或財物之遺失或損壞，
+                      本平台不承擔任何形式責任。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在課程開始前、 期間或之後所發生的任何傷害或事故，
+                      本平台不承擔任何形式之責任。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      在課程開始前， 建議至少提早 30
+                      分鐘到達與教練約定之集合點，
+                      務必檢查及帶齊必要之滑雪裝備器材及衣著，
+                      如因個人因素（例如： 未帶手套、 雪鞋尺寸不合...
+                      等）造成更換設備的費用或課程時間損失，
+                      本平台將不提供任何退款、 延時或補時。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      課程期間基於安全考量， 應聽從教練之建議及指示，
+                      經屢勸不聽者（例如： 擅自脫隊、 破壞雪場設施... 等），
+                      教練有權立即中止契約及提供課程服務， 亦無法退費。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      課程期間， 由教練或本平台聘請人員拍攝之照片，
+                      除「單人之正面清晰人像獨照」會徵求當事人同意外，
+                      報名者皆同意本平台使用其餘照片（例如：
+                      課程經驗分享及宣傳... 等）。
+                    </div>
+                  </li>
+                  <li
+                    class="list-group-item d-flex justify-content-between align-items-start"
+                  >
+                    <div class="ms-2 me-auto">
+                      雪地戶外運動若發生意外可能導致受傷或死亡，
+                      建議報名者及同行人員可自行投保旅平險、
+                      醫療險或相關戶外活動保險... 等。
+                    </div>
+                  </li>
+                </ol>
+              </div>
+              <div class="d-flex justify-content-center">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-submit"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  確定
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- cancel modal -->
+      <div
+        class="modal fade bookingsModal"
+        id="cancelModal"
+        tabindex="-1"
+        aria-labelledby="cancelModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered modal-s">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="bookings-info-box">
+                <p>確認是否取消?</p>
+              </div>
+              <div class="d-flex gap-2 justify-content-center">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary btn-cancel"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  是
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-primary btn-submit px-4"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                >
+                  否
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/login.js"></script>
+
+    <script src="./js/user.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        const bookingData = [
+          {
+            orderId: "20240709204402417068",
+            classDate: "2024-07-09",
+            participantCount: 1,
+            classTime: "20:44",
+            type: "單板",
+            skiResort: "札幌手稻",
+            skillLevel: "初階",
+            coach: "Leilei",
+            email: "leilei@example.com",
+            amountPaid: "60,000",
+            status: "future",
+          },
+          {
+            orderId: "20240710234402417069",
+            classDate: "2024-07-10",
+            participantCount: 2,
+            classTime: "23:44",
+            type: "雙板",
+            skiResort: "北海道二世古",
+            skillLevel: "中階",
+            coach: "Ming",
+            email: "Ming@example.com",
+            amountPaid: "80,000",
+            status: "future",
+          },
+          {
+            orderId: "20240508201401457268",
+            classDate: "2024-05-08",
+            participantCount: 2,
+            classTime: "15:30",
+            type: "雙板",
+            skiResort: "富良野",
+            skillLevel: "進階",
+            coach: "Yuki",
+            email: "yuki@example.com",
+            amountPaid: "40,000",
+            status: "history",
+          },
+          {
+            orderId: "20240305201205367298",
+            classDate: "2024-03-05",
+            participantCount: 1,
+            classTime: "10:15",
+            type: "單板",
+            skiResort: "二世古",
+            skillLevel: "高階",
+            coach: "Taro",
+            email: "taro@example.com",
+            amountPaid: "55,000",
+            status: "cancel",
+          },
+        ];
+
+        function renderBookings(status) {
+          const $container = $(`#pills-${status} .bookings-container`);
+          const $containerList = $(`#pills-${status} .orderList`);
+          $container.empty();
+          $containerList.empty();
+
+          const filteredData = bookingData.filter(
+            (booking) => booking.status === status
+          );
+
+          filteredData.forEach((booking) => {
+            const actionButtons =
+              status === "future"
+                ? `
+                  <button class="btn icon btn-infos" type="button" data-bs-toggle="modal" data-bs-target="#bookingInfoModal">注意事項</button>
+                  <button class="btn icon btn-closes" type="button" data-order-id="${booking.orderId}" data-bs-toggle="modal" data-bs-target="#cancelModal">取消課程</button>
+                  <button class="btn icon btn-messages" type="button" data-email="${booking.email}">訊息教練</button>
+              `
+                : "";
+
+            const bookingHTML = `
+                  <div class="user-bookings-card">
+                      <div class="user-bookings-title d-flex justify-content-between align-items-center">
+                          <div class="order-id">#<span>${booking.orderId}</span></div>
+                          <div class="d-flex gap-2">${actionButtons}</div>
+                      </div>
+                      <div>
+                          <ul class="row">
+                              <li class="col-6">上課日期：<span>${booking.classDate}</span></li>
+                              <li class="col-6">上課人數：<span>${booking.participantCount}</span>人</li>
+                              <li class="col-6">上課時段：<span>${booking.classTime}</span></li>
+                              <li class="col-6">類型：<span>${booking.type}</span></li>
+                              <li class="col-6">雪場：<a class="text-primary-blue fw-medium">${booking.skiResort}</a></li>
+                              <li class="col-6">滑行程度：<span>${booking.skillLevel}</span></li>
+                              <li class="col-6">教練：<a class="text-primary-blue fw-medium" href="#">${booking.coach}</a></li>
+                              <li class="col-6">實付金額：<span class="text-primary-blue text-bold">JPY ${booking.amountPaid}</span></li>
+                          </ul>
+                      </div>
+                  </div>
+              `;
+            $container.append(bookingHTML);
+          });
+
+          // 生成訂單列表
+          filteredData.forEach((item, index) => {
+            const orderButton = `
+            <div class="order-list-card">
+              <div class="order-title d-flex align-items-center justify-content-between" data-index="${item.orderId}">
+               <span>#${item.orderId}</span>
+              </div>
+              <div class="order-details collapse show" id="details-${item.orderId}">
+                <ul class="row">
+                    <li>上課日期：<span>${item.classDate}</span></li>
+                    <li>上課人數：<span>${item.participantCount}</span>人</li>
+                    <li>上課時段：<span>${item.classTime}</span></li>
+                    <li>類型：<span>${item.type}</span></li>
+                    <li>雪場：<a class="text-primary-blue fw-medium">${item.skiResort}</a></li>
+                    <li>滑行程度：<span>${item.skillLevel}</span></li>
+                    <li>教練：<a class="text-primary-blue fw-medium" href="#">${item.coach}</a></li>
+                    <li>實付金額：<span class="text-primary-blue text-bold">JPY ${item.amountPaid}</span></li>
+                </ul>
+                <div class="d-flex gap-2">
+                  <button class="btn icon btn-infos" type="button" data-bs-toggle="modal" data-bs-target="#bookingInfoModal">注意事項</button>
+                  <button class="btn icon btn-closes" type="button" data-order-id="${item.orderId}" data-bs-toggle="modal" data-bs-target="#cancelModal">取消課程</button>
+                  <button class="btn icon btn-messages" type="button" data-email="${item.email}">訊息教練</button>
+                </div>
+              </div>
+            </div>
+        `;
+
+            $containerList.append(orderButton);
+          });
+        }
+
+        renderBookings("future");
+
+        // 點擊時顯示或隱藏訂單細節
+        $(".orderList").on("click", ".order-title", function () {
+          const index = $(this).data("index");
+          $(`#details-${index}`).collapse("toggle");
+          $(this).toggleClass("close");
+        });
+
+        $('button[data-bs-toggle="pill"]').on("shown.bs.tab", function (e) {
+          const targetId = $(e.target).attr("data-bs-target").split("-").pop(); // 取得 'future'、'history' 或 'cancel'
+          renderBookings(targetId);
+        });
+
+        $(".bookings-container").on("click", ".btn-messages", function () {
+          const email = $(this).data("email");
+          window.location.href = `mailto:${email}`;
+        });
+
+        let cancelOrderId = null;
+
+        // Event listener for opening the cancel modal
+        $(".bookings-container, .orderList").on(
+          "click",
+          ".btn-closes",
+          function () {
+            cancelOrderId = $(this).data("order-id");
+          }
+        );
+
+        // Event listener for confirming cancellation
+        $("#cancelModal").on("click", ".btn-cancel", function () {
+          if (cancelOrderId !== null) {
+            const bookingIndex = bookingData.findIndex(
+              (booking) => booking.orderId === cancelOrderId
+            );
+            if (bookingIndex !== -1) {
+              bookingData[bookingIndex].status = "cancel";
+              renderBookings("future"); // Refresh bookings in 'future' tab
+              renderBookings("cancel"); // Refresh bookings in 'cancel' tab if applicable
+            }
+            cancelOrderId = null;
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
