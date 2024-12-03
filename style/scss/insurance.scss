@@ -139,9 +139,14 @@ input[type="checkbox"] {
 	}
 }
 
+body {
+	min-height: 100vh;
+	padding-bottom: 260px;
+	position: relative;
+}
+
 .insurance {
 	padding: 90px 24px;
-
 	.modal-dialog {
 		max-width: 690px;
 		width: calc(100% - 32px);
@@ -257,7 +262,15 @@ input[type="checkbox"] {
 	}
 }
 
+.footer-pc {
+	top: initial;
+	bottom: 0;
+}
+
 @media (max-width: 767px) {
+	body {
+		padding-bottom: 0;
+	}
 	.fade {
 		position: fixed;
 		top: 0;
@@ -275,7 +288,7 @@ input[type="checkbox"] {
 		}
 	}
 	.footer-mb {
-        position: relative;
+		position: relative;
 		top: 0;
-    }
+	}
 }
