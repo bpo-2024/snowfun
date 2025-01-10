@@ -437,8 +437,8 @@ footer {
 }
 @media (max-width: 390px) {
   .float-bar img {
-    width: 30px;
-    height: 30px;
+    width: 64px;
+    height: 64px;
   }
 }
 
@@ -484,4 +484,8 @@ footer {
 .form-control:focus {
   box-shadow: none;
   border-color: #c2c2c2;
+}
+
+.float-bar {
+  bottom: 110px;
 }

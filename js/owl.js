@@ -164,3 +164,59 @@ $('.owl-banner').owlCarousel({
   dots:false,
   items:1,
 });
+
+$(".owl-carousel-article").owlCarousel({
+  nav: false,
+  loop: true,
+  dots: false,
+  center: false,
+  pagination: false,
+  margin: 0,
+  center: false,
+  responsive: {
+    0: {
+      startPosition: 0,
+      items: 1.6,
+      stagePadding: 0,
+      margin: 8,
+    },
+    576:{
+      items: 1.4,
+      startPosition: 0,
+      stagePadding: 0,
+      margin: 8,
+    },
+    768: {
+      items: 3,
+      startPosition: 0,
+      stagePadding: 0,
+      margin: 8,
+    },
+    992: {
+      startPosition: 0,
+      items: 1.2,
+      stagePadding: 0,
+      margin: 8,
+    },
+    1120: {
+      startPosition: 0,
+      items: 1.2,
+      stagePadding: 0,
+      margin: 8,
+    },
+    1200: {
+      startPosition: 0,
+      items: 1.2,
+      stagePadding: 0,
+      margin: 8,
+    },
+  },
+});
+
+$('.article-prev').click(function() {
+  $('.owl-carousel-article').trigger('prev.owl.carousel');
+});
+
+$('.article-next').click(function() {
+  $('.owl-carousel-article').trigger('next.owl.carousel');
+});

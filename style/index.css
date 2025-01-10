@@ -1190,24 +1190,6 @@ img[alt="Google"],
     background: rgba(68, 68, 68, 0.8);
 }
 
-/* float */
-.float-bar{
-    right: 22px;
-    position: fixed;
-    bottom: 20px;
-    z-index:2;
-    flex-flow: column;
-}
-.float-bar a+a {
-    margin-top: 10px;
-}
-@media (max-width:390px){
-	.float-bar img{
-        width: 64px;
-        height: 64px;
-    }
-}
-
 /* 月曆 */
 .calendar-container {
     position: relative;
