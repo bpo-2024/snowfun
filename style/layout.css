@@ -188,6 +188,7 @@ a {
   z-index: 10;
   background: white;
   width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
 }
 @media (min-width: 1200px) {
   .navbar {
@@ -484,8 +485,4 @@ footer {
 .form-control:focus {
   box-shadow: none;
   border-color: #c2c2c2;
-}
-
-.float-bar {
-  bottom: 110px;
 }

@@ -176,18 +176,18 @@ $(".owl-carousel-article").owlCarousel({
   responsive: {
     0: {
       startPosition: 0,
-      items: 1.6,
+      items: 1.2,
       stagePadding: 0,
       margin: 8,
     },
     576:{
-      items: 1.4,
+      items: 1.2,
       startPosition: 0,
       stagePadding: 0,
       margin: 8,
     },
     768: {
-      items: 3,
+      items: 2.1,
       startPosition: 0,
       stagePadding: 0,
       margin: 8,

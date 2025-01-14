@@ -2,6 +2,10 @@
   margin-left: 0;
   margin-top: 32px;
 }
+.introduce-item-evaluate a:hover {
+  color: #1ba4ed;
+  text-decoration: none;
+}
 
 .place-type {
   color: #5b4fa7;
@@ -92,7 +96,7 @@
 .level-dots li::before {
   content: "●";
   display: inline-block;
-  color: #0f80bd;
+  color: #1ba4ed;
   font-weight: 900;
 }
 .level-dots li.middle:before {
@@ -123,7 +127,7 @@
   line-height: 31px;
 }
 .level-percentage .junior {
-  background: #0f80bd;
+  background: #1ba4ed;
 }
 .level-percentage .middle {
   background: #edbf1b;
@@ -161,6 +165,9 @@
   }
 }
 @media (max-width: 768px) {
+  .coach-tab .nav-link {
+    min-width: 100px;
+  }
   #tab2 .nav-link {
     min-width: 112px;
     width: auto;
@@ -210,9 +217,8 @@ img[alt="Google"],
 }
 
 /* carousel */
-.carousel-section {
-  margin-top: 8px;
-  overflow: hidden;
+.owl-carousel .owl-stage-outer {
+  padding: 8px 0;
 }
 
 .owl-carousel-article .owl-nav {
@@ -287,9 +293,25 @@ img[alt="Google"],
   line-height: 30px;
   padding: 0 23px;
 }
+.carousel-item a {
+  display: block;
+}
+.carousel-item a:hover .card-strategy {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
 
 @media (max-width: 991px) {
   .type-mb {
     padding-top: 0;
+  }
+}
+
+.float-bar {
+  z-index: 5;
+}
+@media (max-width: 991px) {
+  .float-bar {
+    bottom: 110px;
   }
 }
