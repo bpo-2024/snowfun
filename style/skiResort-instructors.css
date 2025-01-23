@@ -217,7 +217,7 @@ img[alt="Google"],
 }
 
 /* carousel */
-.owl-carousel .owl-stage-outer {
+.article-box .owl-carousel .owl-stage-outer {
   padding: 8px 0;
 }
 
