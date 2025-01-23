@@ -105,12 +105,6 @@
     z-index: 1;
     padding:0 10px 0 15px;
 }
-.selectDate-btn-group .btn[type="submit"]{
-    color: #fff;
-    font-size: 18px;
-    width: 148px;
-    text-align: center;
-}
 .collapse {
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     border-radius: 30px;
@@ -141,7 +135,12 @@
     font-size: 14px;
     color: #666666;
 }
-
+.selectDate-btn-group button[type="submit"]{
+    color: #fff;
+    font-size: 18px;
+    width: 148px;
+    text-align: center;
+}
 @media (max-width:575px) {
     #collapseSelectDate  .card-footer {
         flex-direction: column;
@@ -257,6 +256,7 @@
     position: absolute;
     right: 0;
 }
+
 
 .btn-select-date input{
     width: 204px;
