@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+		<title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+			crossorigin="anonymous"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css"
+		/>
+
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+		/>
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+		/>
+		<!-- font -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link href="./style/layout.css" rel="stylesheet" />
+		<link href="./style/coach-item.css" rel="stylesheet" />
+		<link href="./style/list.css" rel="stylesheet" />
+		<!-- map -->
+		<script
+			type="text/javascript"
+			src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARCV0fj5q0dPKTy95aMrhccdqnwKMMh-U"
+		></script>
+		<script type="text/javascript" src="./js/map.js"></script>
+		<script type="text/javascript" src="./js/selectPlace.js"></script>
+	</head>
+	<body>
+		<main>
+			<nav class="navbar" aria-label="Light offcanvas navbar">
+				<div class="container-fluid justify-content-between">
+					<div class="d-flex align-items-center flex-grow-1">
+						<div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
+							<a href="index.html" class="logo">
+								<img src="./images/logo.svg" />
+							</a>
+						</div>
+						<ul class="nav d-none d-lg-flex">
+							<li class="nav-item">
+								<a class="nav-link" href="coach-item.html">教練團隊</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">雪場資訊</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">常見問題</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">旅遊攻略</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">最新消息</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">聯絡客服</a>
+							</li>
+						</ul>
+					</div>
+					<div class="d-none d-lg-flex login">
+						<button type="button" class="btn px-1 px-lg-2 login-coach">
+							教練登入
+						</button>
+						<button
+							type="button"
+							class="btn btn-outline-primary px-1 px-lg-2"
+							data-bs-toggle="modal"
+							data-bs-target="#snowModal"
+							onclick="loginModal()"
+						>
+							登入
+						</button>
+					</div>
+
+					<button
+						class="navbar-toggler d-block d-lg-none border-0"
+						type="button"
+						data-bs-toggle="offcanvas"
+						data-bs-target="#offcanvasNavbarLight"
+						aria-controls="offcanvasNavbarLight"
+						aria-label="Toggle navigation"
+					>
+						<img src="./images/icon_hamburger.svg" />
+					</button>
+					<div
+						class="offcanvas offcanvas-start nav-offcanvas"
+						tabindex="-1"
+						id="offcanvasNavbarLight"
+						style="z-index: 1051"
+					>
+						<div class="offcanvas-header">
+							<a href="index.html" class="logo">
+								<img src="./images/logo.svg" height="60" />
+							</a>
+						</div>
+						<div class="offcanvas-body">
+							<ul class="navbar-nav justify-content-end flex-grow-1">
+								<li class="nav-item">
+									<a class="nav-link" href="coach-item.html">教練團隊</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">雪場資訊</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">常見問題</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">旅遊攻略</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">最新消息</a>
+								</li>
+								<li class="nav-item">
+									<a class="nav-link" href="#">聯絡客服</a>
+								</li>
+								<li class="nav-item d-flex justify-content-between">
+									<button type="button" class="btn coach-register">
+										教練註冊
+									</button>
+									<button
+										type="button"
+										class="btn btn-outline-primary px-1 px-lg-2"
+										onclick="loginModal()"
+										data-bs-toggle="modal"
+										data-bs-target="#snowModal"
+										data-bs-dismiss="offcanvas"
+									>
+										登入
+									</button>
+									<!-- <button 
+                    type="button" 
+                    class="btn" 
+                    onclick="registerModal()" 
+                    data-bs-toggle="modal"
+                    data-bs-target="#snowModal" 
+                    data-bs-dismiss="offcanvas"
+                  >
+                    註冊
+                  </button> -->
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</nav>
+
+			<section class="kv" style="background-image: url(/images/bg_japan.jpeg);">
+				<form>
+					<div class="container">
+						<h2>日本</h2>
+						<div class="row">
+							<div class="col-12 d-flex justify-content-center">
+								<div class="input-search">
+									<input
+										class="form-control input-style"
+										placeholder="搜尋雪場"
+										data-bs-toggle="modal"
+										data-bs-target="#filterModal"
+									/>
+								</div>
+								<!-- <button
+									class=" filter-btn d-flex justify-content-center"
+									type="button"
+									data-bs-toggle="modal"
+									data-bs-target="#filterModal"
+									aria-expanded=""
+									aria-controls=""
+								>
+									篩選
+									<img src="./images/mage_filter.png" alt="" />
+								</button> -->
+							</div>
+						</div>
+						<div id="selectResult" class="d-flex align-items-center">
+							<p id="result_text"></p>
+							<button type="button" class="btn" id="resetButton">
+								清除所有選項
+							</button>
+						</div>
+					</div>
+				</form>
+			</section>
+
+			<div class="area">
+				<ul>
+					<li class="active">北海道</li>
+					<li>東北</li>
+					<li>新瀉</li>
+					<li>長野</li>
+				</ul>
+			</div>
+			<div class="area_list">
+				<ul>
+					<li>SkiIn&Out</li>
+					<li>觀光飯店</li>
+					<li>傳統民宿</li>
+					<li>天然溫泉</li>
+					<li>觀光購物</li>
+					<li>特色美食</li>
+					<li>托兒服務</li>
+					<li>特技公園</li>
+					<li>親子樂園</li>
+					<li>初學者友善</li>
+					<li>野雪樹林</li>
+					<li>NightSki</li>
+				</ul>
+			</div>
+			<!-- filter modal -->
+			<div
+				class="modal fade"
+				id="filterModal"
+				data-bs-backdrop="static"
+				data-bs-keyboard="false"
+				tabindex="-1"
+				aria-labelledby="filterModalLabel"
+				aria-hidden="true"
+			>
+				<div class="modal-dialog modal-dialog-centered">
+					<div class="modal-content">
+						<div class="modal-body">
+							<div
+								class="input-search"
+								style="width: 100%; margin-bottom: 24px;"
+							>
+								<input
+									class="form-control input-style"
+									placeholder="關鍵字搜索"
+								/>
+							</div>
+							<div class="select-area mt-3">
+								<h3 class="mb-3 title">北海道</h3>
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="Sahoro"
+										autocomplete="off"
+										value="evaluate_1"
+									/>
+									<label class="btn btn-radio" for="evaluate_1">Sahoro</label>
+								</div>
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="Moiwa"
+										autocomplete="off"
+										value="evaluate_2"
+									/><label class="btn btn-radio" for="evaluate_2">Moiwa</label>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="Annupur"
+										autocomplete="off"
+										value="evaluate_2"
+									/><label class="btn btn-radio" for="evaluate_2"
+										>Annupur</label
+									>
+								</div>
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="Grand HIRAFU"
+										autocomplete="off"
+										value="evaluate_2"
+									/>
+									<label class="btn btn-radio" for="evaluate_2"
+										>Grand HIRAFU</label
+									>
+								</div>
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="夕張"
+										autocomplete="off"
+										value="evaluate_2"
+									/>
+									<label class="btn btn-radio" for="evaluate_2">夕張</label>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="小樽天狗山"
+										autocomplete="off"
+										value="evaluate_2"
+									/>
+									<label class="btn btn-radio" for="evaluate_2"
+										>小樽天狗山</label
+									>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="札幌手稻"
+										autocomplete="off"
+										value="evaluate_2"
+									/>
+									<label class="btn btn-radio" for="evaluate_2">札幌手稻</label>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="札幌國際"
+										autocomplete="off"
+										value="evaluate_2"
+									/>
+									<label class="btn btn-radio" for="evaluate_2">札幌國際</label>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area1"
+										id="札幌盤溪"
+										autocomplete="off"
+										value="evaluate_2"
+									/>
+									<label class="btn btn-radio" for="evaluate_2">札幌盤溪</label>
+								</div>
+							</div>
+
+							<div class="select-area mt-3">
+								<h3 class="mb-3 title">東北</h3>
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area2"
+										id="Sahoro"
+										autocomplete="off"
+										value="price_1"
+									/>
+									<label class="btn btn-radio" for="price_1">Sahoro</label>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area2"
+										id="Moiwa"
+										autocomplete="off"
+										value="price_2"
+									/>
+									<label class="btn btn-radio" for="price_2">Moiwa</label>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area2"
+										id="Annupur"
+										autocomplete="off"
+										value="price_2"
+									/>
+									<label class="btn btn-radio" for="price_2">Annupur</label>
+								</div>
+
+								<div class="d_inline">
+									<input
+										type="radio"
+										class="btn-check"
+										name="area2"
+										id="Grand HIRAFU"
+										autocomplete="off"
+										value="price_2"
+									/>
+									<label class="btn btn-radio" for="price_2"
+										>Grand HIRAFU</label
+									>
+								</div>
+							</div>
+						</div>
+						<div class="modal-footer flex justify-content-between">
+							<button
+								type="button"
+								class="btn btn-secondary close"
+								data-bs-dismiss="modal"
+							>
+								關閉
+							</button>
+							<button
+								id="confirmButton"
+								type="button"
+								class="btn btn-primary check"
+							>
+								確認
+								<img width="26" src="./images/icon_arrow_right.svg" />
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- 雪場 -->
+			<section class="max-w-1120 mx-auto p-4" style="margin-bottom: 80px;">
+				<ul class="switch">
+					<li data-tab="0" class="active"><font>雪場列表</font></li>
+					<li data-tab="1"><font>地圖資訊</font></li>
+					<span></span>
+				</ul>
+
+				<div class="tab-content" style="display: block;">
+					<div class="resort-list">
+						<a href="#" class="card-item">
+							<div
+								class="card-img"
+								style="background-image: url(/images/video1.png);"
+							>
+								<div class="tag-top">開課中</div>
+								<div class="card-tags">
+									<div class="tags d-flex flex-wrap">
+										<div class="tag">SkiIn&Out</div>
+										<div class="tag">觀光飯店</div>
+										<div class="tag">特技公園</div>
+										<div class="tag">親子樂園</div>
+										<div class="tag">NightSki</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-detail">
+								<h5>Sahoro</h5>
+								<p>
+									北海道道東地區最大的雪場，晴天機率很高，但溫度夠低，還是能維持很棒的粉雪，氣候條件實屬難得。與留壽都、手稻同屬加森觀光集團，軟硬體品質皆有一定水準。
+								</p>
+							</div>
+						</a>
+						<a href="#" class="card-item">
+							<div
+								class="card-img"
+								style="background-image: url(/images/video1.png);"
+							>
+								<div class="tag-top">開課中</div>
+								<div class="card-tags">
+									<div class="tags d-flex flex-wrap">
+										<div class="tag">SkiIn&Out</div>
+										<div class="tag">觀光飯店</div>
+										<div class="tag">特技公園</div>
+										<div class="tag">親子樂園</div>
+										<div class="tag">NightSki</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-detail">
+								<h5>Sahoro</h5>
+								<p>
+									北海道道東地區最大的雪場，晴天機率很高，但溫度夠低，還是能維持很棒的粉雪，氣候條件實屬難得。與留壽都、手稻同屬加森觀光集團，軟硬體品質皆有一定水準。
+								</p>
+							</div>
+						</a>
+						<a href="#" class="card-item">
+							<div
+								class="card-img"
+								style="background-image: url(/images/video1.png);"
+							>
+								<div class="tag-top">開課中</div>
+								<div class="card-tags">
+									<div class="tags d-flex flex-wrap">
+										<div class="tag">SkiIn&Out</div>
+										<div class="tag">觀光飯店</div>
+										<div class="tag">特技公園</div>
+										<div class="tag">親子樂園</div>
+										<div class="tag">NightSki</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-detail">
+								<h5>Sahoro</h5>
+								<p>
+									北海道道東地區最大的雪場，晴天機率很高，但溫度夠低，還是能維持很棒的粉雪，氣候條件實屬難得。與留壽都、手稻同屬加森觀光集團，軟硬體品質皆有一定水準。
+								</p>
+							</div>
+						</a>
+						<a href="#" class="card-item">
+							<div
+								class="card-img"
+								style="background-image: url(/images/video1.png);"
+							>
+								<div class="tag-top">開課中</div>
+								<div class="card-tags">
+									<div class="tags d-flex flex-wrap">
+										<div class="tag">SkiIn&Out</div>
+										<div class="tag">觀光飯店</div>
+										<div class="tag">特技公園</div>
+										<div class="tag">親子樂園</div>
+										<div class="tag">NightSki</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-detail">
+								<h5>Sahoro</h5>
+								<p>
+									北海道道東地區最大的雪場，晴天機率很高，但溫度夠低，還是能維持很棒的粉雪，氣候條件實屬難得。與留壽都、手稻同屬加森觀光集團，軟硬體品質皆有一定水準。
+								</p>
+							</div>
+						</a>
+						<a href="#" class="card-item">
+							<div
+								class="card-img"
+								style="background-image: url(/images/video1.png);"
+							>
+								<div class="tag-top">開課中</div>
+								<div class="card-tags">
+									<div class="tags d-flex flex-wrap">
+										<div class="tag">SkiIn&Out</div>
+										<div class="tag">觀光飯店</div>
+										<div class="tag">特技公園</div>
+										<div class="tag">親子樂園</div>
+										<div class="tag">NightSki</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-detail">
+								<h5>Sahoro</h5>
+								<p>
+									北海道道東地區最大的雪場，晴天機率很高，但溫度夠低，還是能維持很棒的粉雪，氣候條件實屬難得。與留壽都、手稻同屬加森觀光集團，軟硬體品質皆有一定水準。
+								</p>
+							</div>
+						</a>
+						<a href="#" class="card-item">
+							<div
+								class="card-img"
+								style="background-image: url(/images/video1.png);"
+							>
+								<div class="tag-top">開課中</div>
+								<div class="card-tags">
+									<div class="tags d-flex flex-wrap">
+										<div class="tag">SkiIn&Out</div>
+										<div class="tag">觀光飯店</div>
+										<div class="tag">特技公園</div>
+										<div class="tag">親子樂園</div>
+										<div class="tag">NightSki</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-detail">
+								<h5>Sahoro</h5>
+								<p>
+									北海道道東地區最大的雪場，晴天機率很高，但溫度夠低，還是能維持很棒的粉雪，氣候條件實屬難得。與留壽都、手稻同屬加森觀光集團，軟硬體品質皆有一定水準。
+								</p>
+							</div>
+						</a>
+						<a href="#" class="card-item">
+							<div
+								class="card-img"
+								style="background-image: url(/images/video1.png);"
+							>
+								<div class="tag-top">開課中</div>
+								<div class="card-tags">
+									<div class="tags d-flex flex-wrap">
+										<div class="tag">SkiIn&Out</div>
+										<div class="tag">觀光飯店</div>
+										<div class="tag">特技公園</div>
+										<div class="tag">親子樂園</div>
+										<div class="tag">NightSki</div>
+									</div>
+								</div>
+							</div>
+							<div class="card-detail">
+								<h5>Sahoro</h5>
+								<p>
+									北海道道東地區最大的雪場，晴天機率很高，但溫度夠低，還是能維持很棒的粉雪，氣候條件實屬難得。與留壽都、手稻同屬加森觀光集團，軟硬體品質皆有一定水準。
+								</p>
+							</div>
+						</a>
+					</div>
+				</div>
+
+				<div class="tab-content">
+					<iframe
+						src="https://snazzymaps.com/embed/661809"
+						width="100%"
+						height="650px"
+						style="border:none;"
+					></iframe>
+				</div>
+			</section>
+
+			<!-- 成為教練 -->
+			<footer>
+				<div class="footer-pc">
+					<div class="container">
+						<div class="row">
+							<div class="col-9">
+								<div>
+									<img src="./images/logo_white.svg" />
+								</div>
+								<div class="row">
+									<div class="col-4 about-company">
+										<ul>
+											<li>滑雪趣有限公司</li>
+											<li>Snow Fun International Co., Ltd.</li>
+											<li>統一編號 82841380</li>
+											<li>Email : info@snowfun.com.tw</li>
+										</ul>
+									</div>
+									<div class="col-8 align-self-end">
+										<ul class="social-box">
+											<li>
+												<a
+													href="//www.facebook.com/groups/453785412129721/"
+													target="_blank"
+												>
+													<img class="d-flex" src="./images/fb.svg" />
+												</a>
+											</li>
+											<li>
+												<a
+													href="//www.instagram.com/snowfunfun/"
+													target="_blank"
+												>
+													<img class="d-flex" src="./images/ig.svg" />
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="d-flex" src="./images/tk.svg" />
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="d-flex" src="./images/wc.svg" />
+												</a>
+											</li>
+											<li>
+												<a href="#">
+													<img class="d-flex" src="./images/yt.svg" />
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-3">
+								<div class="row">
+									<div class="col">
+										<p class="footer-title">信息</p>
+										<ul class="footer-link">
+											<li>
+												<a
+													class="link-underline link-underline-opacity-0"
+													href="#"
+													>關於我們</a
+												>
+											</li>
+											<li>
+												<a
+													class="link-underline link-underline-opacity-0"
+													href="#"
+													>常見問題</a
+												>
+											</li>
+											<li>
+												<a
+													class="link-underline link-underline-opacity-0"
+													href="#"
+													>聯絡我們</a
+												>
+											</li>
+										</ul>
+									</div>
+									<div class="col">
+										<p class="footer-title">合作</p>
+										<ul class="footer-link">
+											<li>
+												<a
+													class="link-underline link-underline-opacity-0"
+													href="#"
+													>成為教練</a
+												>
+											</li>
+											<li>
+												<a
+													class="link-underline link-underline-opacity-0"
+													href="#"
+													>合作夥伴申請</a
+												>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="d-flex justify-content-between footer-bottom">
+							<ul class="row g-3">
+								<li class="col">
+									<a class="link-underline link-underline-opacity-0" href="#"
+										>網站使用聲明</a
+									>
+								</li>
+								<li class="col">
+									<a class="link-underline link-underline-opacity-0" href="#"
+										>隱私權條款</a
+									>
+								</li>
+							</ul>
+							<div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+						</div>
+					</div>
+				</div>
+				<div class="footer-mb">
+					<div class="container">
+						<div class="row">
+							<div class="col-6 d-flex justify-content-center">
+								<img src="./images/logo_white.svg" width="150px" />
+							</div>
+							<div
+								class="col-6 d-flex justify-content-center align-items-center about-company"
+							>
+								<ul>
+									<li>滑雪趣有限公司</li>
+									<li>Snow Fun International Co., Ltd.</li>
+									<li>統一編號 82841380</li>
+									<li>Email : info@snowfun.com.tw</li>
+								</ul>
+							</div>
+							<div class="mt-3 mb-3">
+								<div class="col-12 align-self-end">
+									<ul class="social-box d-flex justify-content-center">
+										<li>
+											<a
+												href="//www.facebook.com/groups/453785412129721/"
+												target="_blank"
+											>
+												<img class="d-flex" src="./images/fb.svg" />
+											</a>
+										</li>
+										<li>
+											<a href="//www.instagram.com/snowfunfun/" target="_blank">
+												<img class="d-flex" src="./images/ig.svg" />
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img class="d-flex" src="./images/tk.svg" />
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img class="d-flex" src="./images/wc.svg" />
+											</a>
+										</li>
+										<li>
+											<a href="#">
+												<img class="d-flex" src="./images/yt.svg" />
+											</a>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-4">
+									<p class="footer-title">信息</p>
+									<ul class="footer-link">
+										<li>
+											<a
+												class="link-underline link-underline-opacity-0"
+												href="#"
+												>關於我們</a
+											>
+										</li>
+										<li>
+											<a
+												class="link-underline link-underline-opacity-0"
+												href="#"
+												>常見問題</a
+											>
+										</li>
+										<li>
+											<a
+												class="link-underline link-underline-opacity-0"
+												href="#"
+												>聯絡我們</a
+											>
+										</li>
+									</ul>
+								</div>
+								<div class="col-4">
+									<p class="footer-title">合作</p>
+									<ul class="footer-link">
+										<li>
+											<a
+												class="link-underline link-underline-opacity-0"
+												href="#"
+												>成為教練</a
+											>
+										</li>
+										<li>
+											<a
+												class="link-underline link-underline-opacity-0"
+												href="#"
+												>合作夥伴申請</a
+											>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div
+							class="d-flex justify-content-between footer-bottom flex-column"
+						>
+							<ul class="mb-4 g-3 statement">
+								<li class="">
+									<a class="link-underline link-underline-opacity-0" href="#"
+										>網站使用聲明</a
+									>
+								</li>
+								<li class="">
+									<a class="link-underline link-underline-opacity-0" href="#"
+										>隱私權條款</a
+									>
+								</li>
+							</ul>
+							<div class="col-12 copyright">
+								© 2024 SnowFun ALL RIGHTS RESERVED.
+							</div>
+						</div>
+					</div>
+				</div>
+			</footer>
+
+			<!-- 登入 modal -->
+			<div id="sharedModalContainer"></div>
+
+			<!-- 選擇雪場 -->
+			<div
+				class="modal fade"
+				id="selectPlaceModal"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="selectPlaceModalLabel"
+				aria-hidden="true"
+			>
+				<div
+					class="selectBox-dialog modal-dialog modal-dialog-centered"
+					role="document"
+				>
+					<div class="modal-content show">
+						<div class="modal-header">
+							<h5 class="modal-title mx-auto" id="selectPlaceModalLabel">
+								選擇雪場
+							</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<div class="modal-body mx-auto">
+							<div class="input-search">
+								<input
+									class="form-control input-style"
+									placeholder="關鍵字搜尋"
+								/>
+							</div>
+
+							<div class="selectPlaceLine-box">
+								<div>北海道</div>
+								<div class="selectPlaceLine"></div>
+							</div>
+							<div id="modal_hokkaido" class="mt-3 row g-2"></div>
+
+							<div class="selectPlaceLine-box">
+								<div>東北</div>
+								<div class="selectPlaceLine"></div>
+							</div>
+							<div id="modal_tohoku" class="mt-3 row row g-2"></div>
+
+							<div class="selectPlaceLine-box">
+								<div>新瀉</div>
+								<div class="selectPlaceLine"></div>
+							</div>
+							<div id="modal_niigata" class="mt-3 row row g-2"></div>
+
+							<div class="selectPlaceLine-box">
+								<div>長野</div>
+								<div class="selectPlaceLine"></div>
+							</div>
+							<div id="modal_nagano" class="mt-3 row row g-2"></div>
+						</div>
+						<div class="modal-footer">
+							<div class="row w-full justify-content-between">
+								<div class="col">
+									<input
+										type="radio"
+										class="btn-check"
+										name="selectPlaceModal"
+										id="selectPlaceModal_none"
+										value="selectPlace_none"
+										autocomplete="off"
+									/>
+									<label
+										class="btn btn-radio w-full"
+										for="selectPlaceModal_none"
+										>雪場不拘</label
+									>
+								</div>
+								<div class="col">
+									<button
+										id="modal_selectPlace_confirmButton"
+										data-bs-dismiss="modal"
+										type="button"
+										class="btn btn-primary btn-rounded btn-selectPlaceLine confirmButton"
+									>
+										<div class="ms-1">確定</div>
+										<img src="./images/icon_arrow_right.svg" />
+									</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 雪板類型 -->
+			<div
+				class="modal fade"
+				id="selectTypeModal"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="selectTypeModalLabel"
+				aria-hidden="true"
+			>
+				<div
+					class="selectBox-dialog modal-dialog modal-dialog-centered"
+					role="document"
+				>
+					<div class="modal-content show">
+						<div class="modal-header">
+							<h5 class="modal-title mx-auto" id="selectTypeModalLabel">
+								雪板類型
+							</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<div class="d-flex">
+									<div class="collapseSelectType-item col">
+										<input
+											type="radio"
+											class="btn-check"
+											name="selectTypeModal"
+											id="snowboard_1"
+											value="selectType_snowboard"
+											autocomplete="off"
+										/>
+										<label class="btn btn-radio w-full" for="snowboard_1"
+											>單板 snowboard</label
+										>
+									</div>
+									<div class="collapseSelectType-item col">
+										<input
+											type="radio"
+											class="btn-check"
+											name="selectTypeModal"
+											id="ski_1"
+											value="selectType_ski"
+											autocomplete="off"
+										/>
+										<label class="btn btn-radio w-full" for="ski_1"
+											>雙板 ski</label
+										>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<div class="row w-full justify-content-between">
+									<div class="col">
+										<input
+											type="radio"
+											class="btn-check"
+											name="selectTypeModal"
+											id="selectTypeNone_1"
+											value="selectType_none"
+											autocomplete="off"
+										/>
+										<label class="btn btn-radio w-full" for="selectTypeNone_1"
+											>雪板類型不拘</label
+										>
+									</div>
+									<div class="col">
+										<button
+											id="modal_selectType_confirmButton"
+											type="button"
+											class="btn btn-primary btn-rounded btn-selectPlaceLine confirmButton"
+											data-bs-dismiss="modal"
+										>
+											<div class="ms-1">確定</div>
+											<img src="./images/icon_arrow_right.svg" />
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+			<!-- 選擇日期  -->
+			<div
+				class="modal fade"
+				id="selectDateModal"
+				tabindex="-1"
+				role="dialog"
+				aria-labelledby="selectDateModalLabel"
+				aria-hidden="true"
+			>
+				<div
+					class="selectBox-dialog modal-dialog modal-dialog-centered"
+					role="document"
+				>
+					<div class="modal-content show">
+						<div class="modal-header">
+							<h5 class="modal-title mx-auto" id="selectDateModalLabel">
+								選擇日期
+							</h5>
+							<button
+								type="button"
+								class="btn-close"
+								data-bs-dismiss="modal"
+								aria-label="Close"
+							></button>
+						</div>
+						<form>
+							<div class="modal-body">
+								<form class="row">
+									<input type="text" name="daterange" style="display: none" />
+									<div class="collapseSelectDate-info">
+										暫無教練暫無教練空堂，歡迎聯繫客服為您媒合教練
+									</div>
+								</form>
+								<div class="calendar-container">
+									<button id="modal-prev-month" class="btn"></button>
+									<button id="modal-next-month" class="btn"></button>
+									<div class="d-flex flex-column">
+										<div id="modal-calendar-left" class="calendar"></div>
+										<div id="modal-calendar-right" class="calendar"></div>
+									</div>
+								</div>
+							</div>
+							<div class="modal-footer">
+								<div class="d-flex flex-column gap-3 w-full">
+									<div
+										class="d-flex gap-0 gap-md-3 w-full justify-content-center align-items-center"
+									>
+										<input
+											aria-value="確切日期"
+											type="radio"
+											class="btn-check"
+											name="selectDateModal"
+											id="selectDate_day"
+											value="selectDay"
+											autocomplete="off"
+										/>
+										<label
+											id="modal-single-date"
+											class="btn btn-radio"
+											for="selectDate_day"
+											>確切日期</label
+										>
+
+										<input
+											aria-value="含前後兩日"
+											type="radio"
+											class="btn-check"
+											name="selectDateModal"
+											id="selectDate_towday"
+											value="selectTowDay"
+											autocomplete="off"
+										/>
+										<label
+											id="modal-highlight-range"
+											class="btn btn-radio"
+											for="selectDate_towday"
+											>含前後兩日</label
+										>
+
+										<input
+											aria-value="含前後一週"
+											type="radio"
+											class="btn-check"
+											name="selectDateModal"
+											id="selectDate_week"
+											value="selectWeek"
+											autocomplete="off"
+										/>
+										<label
+											id="modal-week-range"
+											class="btn btn-radio"
+											for="selectDate_week"
+											>含前後一週</label
+										>
+									</div>
+									<div class="w-full d-flex justify-content-end">
+										<button id="modal-clear-button" class="btn">清除</button>
+										<button
+											id="modal-date-submit"
+											type="button"
+											class="btn btn-primary btn-rounded btn-selectPlaceLine confirmButton"
+											data-bs-dismiss="modal"
+										>
+											<div class="ms-1">確定</div>
+											<img src="./images/icon_arrow_right.svg" />
+										</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<!-- float -->
+			<div class="float-bar d-flex">
+				<a href="index.html#search-bar"
+					><img src="images/calendar.png" alt=""
+				/></a>
+				<a href="https://line.me/R/ti/p/@648okivy" target="_blank"
+					><img src="images/line.png" alt=""
+				/></a>
+			</div>
+		</main>
+
+		<!-- Optional JavaScript -->
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"
+		></script>
+		<!-- <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script> -->
+		<script
+			src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+			integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+			crossorigin="anonymous"
+		></script>
+		<script
+			src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+			integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+			crossorigin="anonymous"
+		></script>
+
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+		<script src="js/owl.js"></script>
+
+		<script src="./js/date.js"></script>
+		<script src="./js/selectPlace.js"></script>
+		<script src="./js/login.js"></script>
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+		<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script> -->
+
+		<!-- 選擇 -->
+		<script>
+			$(function() {
+				$(".switch").on("click", "li", function(e) {
+					const selected = Number($(this).attr("data-tab"));
+					$(".switch")
+						.find("span")
+						.animate({ left: `${selected * 103 + 5}px` });
+					$(".switch")
+						.find("li")
+						.removeClass("active")
+						.eq(selected)
+						.addClass("active");
+					$(".tab-content")
+						.hide()
+						.eq(selected)
+						.fadeIn();
+				});
+
+				$("#confirmButton").on("click", function() {
+					// Get selected languages
+					const selectedLanguages = [];
+					$('.selectLang-area input[type="checkbox"]:checked').each(function() {
+						selectedLanguages.push(this.value);
+					});
+
+					// Get selected levels
+					const selectedLevels = [];
+					$('.selectLevel-area input[type="checkbox"]:checked').each(
+						function() {
+							selectedLevels.push(this.value);
+						}
+					);
+
+					// Get selected evaluation order
+					let selectedEvaluate = "";
+					const selectedEvaluateRadio = $(
+						'.selectEvaluate-area input[type="radio"]:checked'
+					);
+					if (selectedEvaluateRadio.length) {
+						selectedEvaluate = selectedEvaluateRadio.val();
+					}
+
+					// Get selected price order
+					let selectedPrice = "";
+					const selectedPriceRadio = $(
+						'.selectPrice-area input[type="radio"]:checked'
+					);
+					if (selectedPriceRadio.length) {
+						selectedPrice = selectedPriceRadio.val();
+					}
+
+					// Create JSON object
+					const selectedOptions = {
+						lang: selectedLanguages,
+						level: selectedLevels,
+						evaluate: selectedEvaluate,
+						price: selectedPrice,
+					};
+
+					// Print JSON object to console
+					console.log(selectedOptions);
+
+					if (
+						selectedLanguages.length ||
+						selectedLevels.length ||
+						selectedEvaluate ||
+						selectedPrice
+					) {
+						$("#result_text").text("41個搜尋結果");
+						$("#resetButton").show();
+					} else {
+						$("#resetButton").hide();
+					}
+
+					$("#filterModal").modal("hide");
+				});
+
+				// Reset button functionality
+				$("#resetButton").on("click", function() {
+					// Uncheck all checkboxes and radios
+					$('input[type="checkbox"], input[type="radio"]').prop(
+						"checked",
+						false
+					);
+
+					// Hide the reset button after reset
+					$("#resetButton").hide();
+					$("#result_text").text("");
+				});
+
+				$("#resetButton").hide();
+
+				$(".area").on("click", "li", function() {
+					$(".area li").removeClass("active");
+					$(this).addClass("active");
+				});
+
+				$(".area_list").on("click", "li", function() {
+					$(this).toggleClass("active");
+				});
+
+				$('.modal-dialog').on("click", '.d_inline', function() {
+					var $input = $(this).find('input');
+					// 如果需要的話，設置 input 為 checked
+					$input.prop('checked', true);
+				});
+			});
+		</script>
+	</body>
+</html>
