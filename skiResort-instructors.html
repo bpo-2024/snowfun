@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
+    <!-- style -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <!-- default icons used in the plugin are from Bootstrap 5.x icon library (which can be enabled by loading CSS below) -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"
+    />
+    <!-- the fileinput plugin styling CSS file -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css"
+      media="all"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- OwlCarousel2 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+    />
+
+    <!-- map -->
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyARCV0fj5q0dPKTy95aMrhccdqnwKMMh-U"
+    ></script>
+    <script type="text/javascript" src="./js/map.js"></script>
+
+    <link href="./style/layout.css" rel="stylesheet" />
+    <link href="./style/coach-instructors.css" rel="stylesheet" />
+    <link href="./style/skiResort-instructors.css" rel="stylesheet" />
+  </head>
+  <body>
+    <nav class="navbar" aria-label="Light offcanvas navbar">
+      <div class="container-fluid justify-content-between">
+        <div class="d-flex align-items-center flex-grow-1">
+          <div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
+            <a href="index.html" class="logo">
+              <img src="./images/logo.svg" />
+            </a>
+          </div>
+          <ul class="nav d-none d-lg-flex">
+            <li class="nav-item">
+              <a class="nav-link" href="coach-item.html">教練團隊</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="skiResort-instructors.html">雪場資訊</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">常見問題</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">旅遊攻略</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">最新消息</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">聯絡客服</a>
+            </li>
+          </ul>
+        </div>
+        <div class="d-none d-lg-flex login">
+          <button type="button" class="btn px-1 px-lg-2 login-coach">
+            教練登入
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-1 px-lg-2"
+            data-bs-toggle="modal"
+            data-bs-target="#snowModal"
+            onclick="loginModal()"
+          >
+            登入
+          </button>
+        </div>
+
+        <button
+          class="navbar-toggler d-block d-lg-none border-0"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasNavbarLight"
+          aria-controls="offcanvasNavbarLight"
+          aria-label="Toggle navigation"
+        >
+          <img src="./images/icon_hamburger.svg" />
+        </button>
+        <div
+          class="offcanvas offcanvas-start nav-offcanvas"
+          tabindex="-1"
+          id="offcanvasNavbarLight"
+          style="z-index: 1051"
+        >
+          <div class="offcanvas-header">
+            <a href="index.html" class="logo">
+              <img src="./images/logo.svg" height="60" />
+            </a>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1">
+              <li class="nav-item">
+                <a class="nav-link" href="coach-item.html">教練團隊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="skiResort-instructors.html"
+                  >雪場資訊</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">常見問題</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">旅遊攻略</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">最新消息</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">聯絡客服</a>
+              </li>
+              <li class="nav-item d-flex justify-content-between">
+                <button type="button" class="btn coach-register">
+                  教練註冊
+                </button>
+                <button
+                  type="button"
+                  class="btn btn-outline-primary px-1 px-lg-2"
+                  onclick="loginModal()"
+                  data-bs-toggle="modal"
+                  data-bs-target="#snowModal"
+                  data-bs-dismiss="offcanvas"
+                >
+                  登入
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="banner">
+      <div class="owl-carousel owl-banner">
+        <div class="item">
+          <img src="./images/skiResort-banner.png" alt="" />
+        </div>
+      </div>
+    </section>
+    <div class="fixed-tab">
+      <div class="container d-flex justify-content-between">
+        <ul class="nav coach-tab" id="tab2" role="tablist">
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link active"
+              id="introduction-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#introduction"
+              type="button"
+              role="tab"
+              aria-controls="introduction"
+              aria-selected="true"
+            >
+              雪道介紹
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="cableCarFare-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#cableCarFare"
+              type="button"
+              role="tab"
+              aria-controls="cableCarFare"
+              aria-selected="false"
+            >
+              纜車票價
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="equipmentRental-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#equipmentRental"
+              type="button"
+              role="tab"
+              aria-controls="equipmentRental"
+              aria-selected="false"
+            >
+              裝備租賃
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="transportation-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#transportation"
+              type="button"
+              role="tab"
+              aria-controls="transportation"
+              aria-selected="false"
+            >
+              交通
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="accommodation-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#accommodation"
+              type="button"
+              role="tab"
+              aria-controls="accommodation"
+              aria-selected="false"
+            >
+              住宿
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="dining-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#dining"
+              type="button"
+              role="tab"
+              aria-controls="dining"
+              aria-selected="false"
+            >
+              餐飲
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button
+              class="nav-link"
+              id="meetingPoint-tab"
+              data-bs-toggle="pill"
+              data-bs-target="#meetingPoint"
+              type="button"
+              role="tab"
+              aria-controls="meetingPoint"
+              aria-selected="false"
+            >
+              集合地點
+            </button>
+          </li>
+        </ul>
+        <button
+          type="button"
+          class="fixed-calculation-link btn btn-primary join-btn justify-content-center align-items-center"
+        >
+          開課教練
+          <img width="26" src="./images/icon_arrow_right.svg" />
+        </button>
+      </div>
+    </div>
+    <div class="container position-relative">
+      <div class="row">
+        <div class="col-lg-8 col-12">
+          <div class="d-flex introduce">
+            <div class="introduce-item">
+              <div class="d-flex introduce-item-title">
+                <div class="name">藏王溫泉滑雪場</div>
+                <div class="d-flex">
+                  <span class="place-type">東北</span>
+                </div>
+              </div>
+              <div class="introduce-item-evaluate d-flex align-items-center">
+                <a href="http://www.zao-ski.or.jp/" target="_blank"
+                  >蔵王温泉スキー場 / Zao Onsen Ski Rsort</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="introduce-detail d-flex justify-content-between">
+            <div class="introduce-detail-item">
+              <div class="title">雪季</div>
+              <div class="fw-medium value">2024/12/16~2025/04/06</div>
+            </div>
+            <div class="introduce-detail-item">
+              <div class="title">滑雪道數量</div>
+              <div class="fw-medium value">36</div>
+            </div>
+            <div class="introduce-detail-item">
+              <div class="title">纜車數量</div>
+              <div class="fw-medium value">32</div>
+            </div>
+          </div>
+          <div class="skiResort-introduce">
+            <div class="d-flex justify-content-between">
+              <ul class="d-flex flex-column">
+                <li class="d-flex">
+                  <div class="title">最大斜度</div>
+                  <div class="fw-medium value"><span>38</span> 度</div>
+                </li>
+                <li class="d-flex">
+                  <div class="title">最大坡度</div>
+                  <div class="fw-medium value"><span>9000</span> m</div>
+                </li>
+                <li class="d-flex">
+                  <div class="title">雪場面積</div>
+                  <div class="fw-medium value"><span>305</span> ha</div>
+                </li>
+              </ul>
+              <ul class="d-flex flex-column">
+                <li class="d-flex">
+                  <div class="title">最大海拔</div>
+                  <div class="fw-medium value"><span>1841</span> m</div>
+                </li>
+                <li class="d-flex">
+                  <div class="title">最低海拔</div>
+                  <div class="fw-medium value"><span>855</span> m</div>
+                </li>
+                <li class="d-flex">
+                  <div class="title">海拔差</div>
+                  <div class="fw-medium value"><span>986</span> m</div>
+                </li>
+              </ul>
+            </div>
+            <div class="skiResort-level">
+              <div class="d-flex justify-content-between">
+                <div class="title">雪道分級</div>
+                <div class="d-flex">
+                  <ul class="d-flex level-dots">
+                    <li class="junior">初</li>
+                    <li class="middle">中</li>
+                    <li class="senior">高</li>
+                  </ul>
+                  <span>/級</span>
+                </div>
+              </div>
+              <div class="level-percentage position-relative">
+                <div
+                  class="position-absolute end-0 fw-medium junior"
+                  style="width: calc(100%)"
+                >
+                  40%
+                </div>
+                <div
+                  class="position-absolute end-0 fw-medium middle"
+                  style="width: calc(100% - 40%)"
+                >
+                  40%
+                </div>
+                <div
+                  class="position-absolute end-0 fw-medium senior"
+                  style="width: calc(100% - 80%)"
+                >
+                  20%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-12 type-mb">
+          <div class="d-flex justify-content-end calculation">
+            <button
+              id="calculation-link"
+              type="button"
+              class="btn btn-primary join-btn d-flex justify-content-center align-items-center"
+            >
+              開課教練
+              <img width="26" src="./images/icon_arrow_right.svg" />
+            </button>
+          </div>
+          <!-- map -->
+          <div class="skiResort-map">
+            <div id="map"></div>
+          </div>
+          <!-- tag -->
+          <div class="type-tag">
+            <div class="type-tag-item">
+              <div class="title">特色</div>
+              <div class="tag d-flex">
+                <span>SkiIn&Out</span>
+                <span>觀光飯店</span>
+                <span>傳統民宿</span>
+                <span>天然溫泉</span>
+                <span>托兒服務</span>
+                <span>初學者友善</span>
+                <span>野雪樹林</span>
+              </div>
+            </div>
+          </div>
+          <!-- 文章 -->
+          <div class="article-box">
+            <div class="d-flex justify-content-between">
+              <h5>相關文章</h5>
+              <div class="custom-nav d-flex gap-2">
+                <div class="article-prev"></div>
+                <div class="article-next"></div>
+                <div></div>
+              </div>
+            </div>
+            <div class="carousel-section">
+              <div class="carousel-container">
+                <div class="owl-carousel owl-carousel-article owl-theme">
+                  <div class="carousel-item">
+                    <a href="#">
+                      <div class="card-strategy">
+                        <div class="strategy-tag">攻略</div>
+                        <img src="./images/strategy02.png" />
+                        <div class="strategy-title">
+                          <p>[ 2024-25 最新 ] 日本雪場開放時間</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <a href="#">
+                      <div class="card-strategy">
+                        <div class="strategy-tag">攻略</div>
+                        <img src="./images/strategy02.png" />
+                        <div class="strategy-title">
+                          <p>[ 2024-25 最新 ] 日本雪場開放時間</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="carousel-item">
+                    <a href="#">
+                      <div class="card-strategy">
+                        <div class="strategy-tag">綜合</div>
+                        <img src="./images/strategy02.png" />
+                        <div class="strategy-title">
+                          <p>[ 2024-25 最新 ] 日本雪場開放時間</p>
+                        </div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-12 coach-content">
+          <ul class="nav coach-tab" id="tab" role="tablist">
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link active"
+                id="introduction-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#introduction"
+                type="button"
+                role="tab"
+                aria-controls="introduction"
+                aria-selected="true"
+              >
+                雪道介紹
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="cableCarFare-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#cableCarFare"
+                type="button"
+                role="tab"
+                aria-controls="cableCarFare"
+                aria-selected="false"
+              >
+                纜車票價
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="equipmentRental-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#equipmentRental"
+                type="button"
+                role="tab"
+                aria-controls="equipmentRental"
+                aria-selected="false"
+              >
+                裝備租賃
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="transportation-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#transportation"
+                type="button"
+                role="tab"
+                aria-controls="transportation"
+                aria-selected="false"
+              >
+                交通
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="accommodation-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#accommodation"
+                type="button"
+                role="tab"
+                aria-controls="accommodation"
+                aria-selected="false"
+              >
+                住宿
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="dining-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#dining"
+                type="button"
+                role="tab"
+                aria-controls="dining"
+                aria-selected="false"
+              >
+                餐飲
+              </button>
+            </li>
+            <li class="nav-item" role="presentation">
+              <button
+                class="nav-link"
+                id="meetingPoint-tab"
+                data-bs-toggle="pill"
+                data-bs-target="#meetingPoint"
+                type="button"
+                role="tab"
+                aria-controls="meetingPoint"
+                aria-selected="false"
+              >
+                集合地點
+              </button>
+            </li>
+          </ul>
+          <!-- tab -->
+          <div class="tab-content" id="tabContent">
+            <!-- introduction -->
+            <div
+              class="tab-pane fade show active"
+              id="introduction"
+              role="tabpanel"
+              aria-labelledby="introduction-tab"
+              tabindex="0"
+            >
+              <div class="description">
+                <h3 class="fs-5 fw-bold mb-3 title">藏王溫泉滑雪場雪道介紹</h3>
+                <div class="description-content">
+                  此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                  此區知名度較高的雪具出租是 Best
+                  Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                  兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                  營業，但通常
+                  07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                  <!-- TODO -->
+                  <span>
+                    地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                    08:00，但通常都會提早在 07:40
+                    開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                    值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                    總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                  </span>
+                </div>
+                <span class="description-button"
+                  >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                ></span>
+              </div>
+            </div>
+            <!-- cableCarFare -->
+            <div
+              class="tab-pane fade"
+              id="cableCarFare"
+              role="tabpanel"
+              aria-labelledby="cableCarFare-tab"
+              tabindex="0"
+            >
+              <div class="description">
+                <h3 class="fs-5 fw-bold mb-3 title">藏王溫泉滑雪場纜車票價</h3>
+                <div class="description-content">
+                  此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                  此區知名度較高的雪具出租是 Best
+                  Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                  兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                  營業，但通常
+                  07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                  <!-- TODO -->
+                  <span>
+                    地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                    08:00，但通常都會提早在 07:40
+                    開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                    值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                    總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                  </span>
+                </div>
+                <span class="description-button"
+                  >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                ></span>
+              </div>
+            </div>
+            <!-- equipmentRental -->
+            <div
+              class="tab-pane fade"
+              id="equipmentRental"
+              role="tabpanel"
+              aria-labelledby="equipmentRental-tab"
+              tabindex="0"
+            >
+              <div class="description">
+                <h3 class="fs-5 fw-bold mb-3 title">
+                  藏王溫泉滑雪場裝備租賃方式
+                </h3>
+                <div class="description-content">
+                  此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                  此區知名度較高的雪具出租是 Best
+                  Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                  兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                  營業，但通常
+                  07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                  <!-- TODO -->
+                  <span>
+                    地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                    08:00，但通常都會提早在 07:40
+                    開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                    值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                    總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                  </span>
+                </div>
+                <span class="description-button"
+                  >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                ></span>
+              </div>
+            </div>
+            <!-- transportation -->
+            <div
+              class="tab-pane fade"
+              id="transportation"
+              role="tabpanel"
+              aria-labelledby="transportation-tab"
+              tabindex="0"
+            >
+              <div class="description">
+                <h3 class="fs-5 fw-bold mb-3 title">藏王溫泉滑雪場交通方式</h3>
+                <div class="description-content">
+                  此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                  此區知名度較高的雪具出租是 Best
+                  Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                  兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                  營業，但通常
+                  07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                  <!-- TODO -->
+                  <span>
+                    地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                    08:00，但通常都會提早在 07:40
+                    開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                    值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                    總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                  </span>
+                </div>
+                <span class="description-button"
+                  >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                ></span>
+              </div>
+            </div>
+            <!-- transportation -->
+            <div
+              class="tab-pane fade"
+              id="accommodation"
+              role="tabpanel"
+              aria-labelledby="accommodation-tab"
+              tabindex="0"
+            >
+              <div class="description">
+                <h3 class="fs-5 fw-bold mb-3 title">藏王溫泉滑雪場住宿方式</h3>
+                <div class="description-content">
+                  此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                  此區知名度較高的雪具出租是 Best
+                  Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                  兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                  營業，但通常
+                  07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                  <!-- TODO -->
+                  <span>
+                    地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                    08:00，但通常都會提早在 07:40
+                    開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                    值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                    總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                  </span>
+                </div>
+                <span class="description-button"
+                  >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                ></span>
+              </div>
+            </div>
+            <!-- dining -->
+            <div
+              class="tab-pane fade"
+              id="dining"
+              role="tabpanel"
+              aria-labelledby="dining-tab"
+              tabindex="0"
+            >
+              <div class="description">
+                <h3 class="fs-5 fw-bold mb-3 title">藏王溫泉滑雪場餐飲方式</h3>
+                <div class="description-content">
+                  此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                  此區知名度較高的雪具出租是 Best
+                  Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                  兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                  營業，但通常
+                  07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                  <!-- TODO -->
+                  <span>
+                    地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                    08:00，但通常都會提早在 07:40
+                    開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                    值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                    總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                  </span>
+                </div>
+                <span class="description-button"
+                  >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                ></span>
+              </div>
+            </div>
+            <!-- meetingPoint -->
+            <div
+              class="tab-pane fade"
+              id="meetingPoint"
+              role="tabpanel"
+              aria-labelledby="meetingPoint-tab"
+              tabindex="0"
+            >
+              <div class="description">
+                <h3 class="fs-5 fw-bold mb-3 title">藏王溫泉滑雪場集合地點</h3>
+                <div class="description-content">
+                  此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                  此區知名度較高的雪具出租是 Best
+                  Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                  兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                  營業，但通常
+                  07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                  <!-- TODO -->
+                  <span>
+                    地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                    08:00，但通常都會提早在 07:40
+                    開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                    值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                    總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                  </span>
+                </div>
+                <span class="description-button"
+                  >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                ></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 雪場照片 -->
+          <h3 class="fs-5 fw-bold mb-3">雪場照片</h3>
+          <!-- light gallery -->
+          <div class="owl-carousel video-carousel">
+            <div
+              class="item video-item"
+              data-bs-toggle="modal"
+              data-slide-to="0"
+            >
+              <img src="./images/video1.png" alt="Item 1" />
+            </div>
+            <div
+              class="item video-item"
+              data-bs-toggle="modal"
+              data-slide-to="1"
+            >
+              <img src="./images/video1.png" alt="Item 2" />
+            </div>
+            <div
+              class="item video-item"
+              data-bs-toggle="modal"
+              data-slide-to="2"
+            >
+              <img src="./images/video1.png" alt="Item 3" />
+            </div>
+            <!-- Add more items as needed -->
+          </div>
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="videoCarouselModal"
+            tabindex="-1"
+            aria-labelledby="videoCarouselModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+
+                  <div class="owl-carousel modal-carousel">
+                    <div class="modal-item">
+                      <img src="./images/video1.png" alt="Item 1" />
+                    </div>
+                    <div class="modal-item">
+                      <img src="./images/video1.png" alt="Item 2" />
+                    </div>
+                    <div class="modal-item">
+                      <img src="./images/video1.png" alt="Item 3" />
+                    </div>
+                    <!-- Add more items as needed -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="fileUploadModal"
+      tabindex="-1"
+      aria-labelledby="fileUploadModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="btn-close btn-close-black"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div class="container kv-main">
+              <form id="upload-form" enctype="multipart/form-data">
+                <input id="file-upload-image" type="file" multiple />
+                <div class="d-flex justify-content-end">
+                  <button
+                    type="submit"
+                    class="btn btn-primary btn-lg fs-6 fw-medium rounded-pill btn-submit"
+                  >
+                    上傳照片
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div> -->
+        </div>
+      </div>
+    </div>
+    <div class="fixed-footer-bar">
+      <div class="container">
+        <div class="layout d-flex justify-content-end align-items-center">
+          <button
+            type="button"
+            class="fixed-calculation-link btn btn-primary join-btn d-flex justify-content-center align-items-center"
+          >
+            開課教練
+            <img width="26" src="./images/icon_arrow_right.svg" />
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- modal -->
+    <div class="modal fade" id="test" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <button
+              type="button"
+              class="btn-close btn-close-black"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- float -->
+    <div class="float-bar d-flex">
+      <a href="#"><img src="images/line.png" alt="" /></a>
+      <a href="#"><img src="images/calendar.png" alt="" /></a>
+    </div>
+
+    <!-- pc footer -->
+    <footer class="footer-pc">
+      <div class="container">
+        <div class="row">
+          <div class="col-9">
+            <div>
+              <img src="./images/logo_white.svg" />
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <ul>
+                  <li>滑雪趣有限公司</li>
+                  <li>Snow Fun International Co., Ltd.</li>
+                  <li>統一編號 82841380</li>
+                  <li>Email : info@snowfun.com.tw</li>
+                </ul>
+              </div>
+              <div class="col-8 align-self-end">
+                <ul class="social-box">
+                  <li>
+                    <a
+                      href="//www.facebook.com/groups/453785412129721/"
+                      target="_blank"
+                    >
+                      <img src="./images/fb.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                      <img src="./images/ig.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/tk.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/wc.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/yt.svg" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-3">
+            <div class="row">
+              <div class="col">
+                <p class="footer-title">信息</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >關於我們</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >常見問題</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >聯絡我們</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col">
+                <p class="footer-title">合作</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >成為教練</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >合作夥伴申請</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between footer-bottom">
+          <ul class="row g-3">
+            <li class="col">
+              <a class="link-underline link-underline-opacity-0" href="#"
+                >網站使用聲明</a
+              >
+            </li>
+            <li class="col">
+              <a class="link-underline link-underline-opacity-0" href="#"
+                >隱私權條款</a
+              >
+            </li>
+          </ul>
+          <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+        </div>
+      </div>
+    </footer>
+    <!-- mb footer -->
+    <footer class="footer-mb">
+      <div class="container">
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center">
+            <img src="./images/logo_white.svg" width="100%" />
+          </div>
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <ul>
+              <li>滑雪趣有限公司</li>
+              <li>Snow Fun International Co., Ltd.</li>
+              <li>統一編號 82841380</li>
+              <li>Email : info@snowfun.com.tw</li>
+            </ul>
+          </div>
+          <div class="row mt-3 mb-3">
+            <div class="col-12 align-self-end">
+              <ul class="social-box d-flex justify-content-center">
+                <li>
+                  <a
+                    href="//www.facebook.com/groups/453785412129721/"
+                    target="_blank"
+                  >
+                    <img src="./images/fb.svg" />
+                  </a>
+                </li>
+                <li>
+                  <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                    <img src="./images/ig.svg" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="./images/tk.svg" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="./images/wc.svg" />
+                  </a>
+                </li>
+                <li>
+                  <a href="#">
+                    <img src="./images/yt.svg" />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-4">
+              <p class="footer-title">信息</p>
+              <ul class="footer-link">
+                <li>
+                  <a class="link-underline link-underline-opacity-0" href="#"
+                    >關於我們</a
+                  >
+                </li>
+                <li>
+                  <a class="link-underline link-underline-opacity-0" href="#"
+                    >常見問題</a
+                  >
+                </li>
+                <li>
+                  <a class="link-underline link-underline-opacity-0" href="#"
+                    >聯絡我們</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="col-4">
+              <p class="footer-title">合作</p>
+              <ul class="footer-link">
+                <li>
+                  <a class="link-underline link-underline-opacity-0" href="#"
+                    >成為教練</a
+                  >
+                </li>
+                <li>
+                  <a class="link-underline link-underline-opacity-0" href="#"
+                    >合作夥伴申請</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between footer-bottom">
+          <ul class="row g-3">
+            <li class="col">
+              <a class="link-underline link-underline-opacity-0" href="#"
+                >網站使用聲明</a
+              >
+            </li>
+            <li class="col">
+              <a class="link-underline link-underline-opacity-0" href="#"
+                >隱私權條款</a
+              >
+            </li>
+          </ul>
+          <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 登入 modal -->
+    <div id="sharedModalContainer"></div>
+    <!--  -->
+
+    <!-- script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- OwlCarousel2 JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/buffer.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/filetype.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/piexif.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/sortable.min.js"
+      type="text/javascript"
+    ></script>
+
+    <!-- the main fileinput plugin script JS file -->
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"></script>
+
+    <!-- following theme script is needed to use the Font Awesome 5.x theme (`fa5`). Uncomment if needed. -->
+    <!-- script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/themes/fa5/theme.min.js"></script -->
+
+    <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/zh-TW.js"></script>
+
+    <script src="js/owl.js"></script>
+
+    <script src="./js/login.js"></script>
+    <script src="./js/videoCarousel.js"></script>
+    <script src="./js/readmore.js"></script>
+    <script src="./js/certificateModal.js"></script>
+
+    <script>
+      document.addEventListener("gesturestart", function (event) {
+        event.preventDefault();
+      });
+      function evaluationLogin() {
+        $("#student").addClass("visually-hidden");
+        $("#student-login").removeClass("visually-hidden");
+      }
+      var fixedInterval = 0;
+      // tab active
+      function syncTabs(clickedTab) {
+        var tabId = $(clickedTab).attr("id");
+
+        var correspondingTab = $("#tab2 #" + tabId + ", #tab #" + tabId);
+
+        $("#tab .nav-link, #tab2 .nav-link")
+          .removeClass("active")
+          .attr("aria-selected", "false");
+
+        correspondingTab.addClass("active").attr("aria-selected", "true");
+      }
+
+      // 监听 tab 中的按钮点击事件
+      $("#tab .nav-link, #tab2 .nav-link").click(function () {
+        syncTabs(this);
+        let offset = calculateOffset();
+        var tabElement = $("#tab");
+        var offsetPosition = tabElement.offset().top - offset - fixedInterval;
+        $("html, body").animate({ scrollTop: offsetPosition }, 100);
+      });
+
+      function calculateOffset() {
+        let windowWidth = $(window).width();
+        if (windowWidth >= 991) {
+          return 102;
+        } else if (windowWidth >= 747 && windowWidth < 991) {
+          return 70;
+        } else {
+          return 78;
+        }
+      }
+
+      $(document).ready(function () {
+        let offset = calculateOffset();
+        $("#evaluation-link").click(function (e) {
+          e.preventDefault();
+
+          new bootstrap.Tab("#contact-tab").show();
+          let offsetPosition = $("#tab").offset().top - offset;
+          $("#tab .nav-link, #tab2 .nav-link")
+            .removeClass("active")
+            .attr("aria-selected", "false");
+          $("#tab #contact-tab, #tab2 #contact-tab")
+            .addClass("active")
+            .attr("aria-selected", "true");
+
+          // 平滑滚动到目标位置
+          $("html, body").animate({ scrollTop: offsetPosition }, 100);
+        });
+
+        $("#fixed-resortTag-link").click(function (e) {
+          $("html, body").animate(
+            { scrollTop: $("#resortTag").offset().top - offset - 50 },
+            100
+          );
+        });
+
+        $("#calculation-link, .fixed-calculation-link ,  #calendar-link").click(
+          function (e) {
+            e.preventDefault();
+            new bootstrap.Tab("#schedule-tab").show();
+            $("#tab .nav-link, #tab2 .nav-link")
+              .removeClass("active")
+              .attr("aria-selected", "false");
+            $("#tab #schedule-tab, #tab2 #schedule-tab")
+              .addClass("active")
+              .attr("aria-selected", "true");
+
+            var tabElement = $("#tab");
+            var offsetPosition =
+              tabElement.offset().top - offset - fixedInterval;
+
+            $("html, body").animate({ scrollTop: offsetPosition }, 100);
+          }
+        );
+
+        function stickyShow() {
+          let offset = calculateOffset();
+          var tabTop = $("#tab").offset().top;
+
+          var scrollY = window.scrollY;
+          if (scrollY > tabTop - offset) {
+            $(".fixed-tab").addClass("sticky");
+            $("#tab").addClass("tab-opacticy");
+            fixedInterval = -6;
+          } else {
+            $(".fixed-tab").removeClass("sticky");
+            $("#tab").removeClass("tab-opacticy");
+            fixedInterval = 0;
+          }
+        }
+
+        $(window).scroll(function () {
+          stickyShow();
+        });
+
+        $(window).resize(function () {
+          stickyShow();
+        });
+      });
+    </script>
+  </body>
+</html>

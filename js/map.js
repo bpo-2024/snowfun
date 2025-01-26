@@ -1,6 +1,7 @@
   // When the window has finished loading create our google map below
   var map;
   var marker;
+  console.log(1234)
 
   google.maps.event.addDomListener(window, "load", init);
 
