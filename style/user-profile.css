@@ -287,7 +287,7 @@ hr {
   display: none;
   flex-direction: column;
   width: 100%;
-  max-width: 525px;
+  /* max-width: 525px; */
 }
 .user-profile .user-bookings {
   max-width: none;
@@ -331,12 +331,14 @@ hr {
   margin-bottom: 2px;
   line-height: 23px;
 }
-.userInfo-form input {
+.userInfo-form input,
+.userInfo-form select {
+  height: 44px;
   padding-left: 16px;
   padding-right: 16px;
   border-radius: 8px;
   border-color: #c2c2c2;
-  background-color: #f5f5f5;
+  /* background-color: #f5f5f5; */
 }
 .userInfo-form input::placeholder {
   color: #666;

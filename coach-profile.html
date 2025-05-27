@@ -1,0 +1,1824 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="./style/layout.css" rel="stylesheet" />
+    <link href="./style/user-profile.css" rel="stylesheet" />
+    <link href="./style/member-center.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <nav class="navbar" aria-label="Light offcanvas navbar">
+        <div class="container-fluid justify-content-between">
+          <div class="d-flex align-items-center flex-grow-1">
+            <div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" />
+              </a>
+            </div>
+            <ul class="nav d-none d-lg-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="coach-item.html">教練團隊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="skiResort-instructors.html"
+                  >雪場資訊</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">常見問題</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">旅遊攻略</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">最新消息</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">聯絡客服</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="header-avatar"
+            data-bs-toggle="collapse"
+            href="#collapseHeaderMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseHeaderMenu"
+          ></div>
+
+          <button
+            class="navbar-toggler d-block d-lg-none border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbarLight"
+            aria-controls="offcanvasNavbarLight"
+            aria-label="Toggle navigation"
+          >
+            <img src="./images/icon_hamburger.svg" />
+          </button>
+          <div
+            class="offcanvas offcanvas-start nav-offcanvas"
+            tabindex="-1"
+            id="offcanvasNavbarLight"
+            style="z-index: 1051"
+          >
+            <div class="offcanvas-header">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" height="60" />
+              </a>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                  <a class="nav-link" href="coach-item.html">教練團隊</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="skiResort-instructors.html"
+                    >雪場資訊</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">常見問題</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">旅遊攻略</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">最新消息</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">聯絡客服</a>
+                </li>
+                <li class="nav-item d-flex justify-content-between">
+                  <button type="button" class="btn coach-register">
+                    教練註冊
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary px-1 px-lg-2"
+                    onclick="loginModal()"
+                    data-bs-toggle="modal"
+                    data-bs-target="#snowModal"
+                    data-bs-dismiss="offcanvas"
+                  >
+                    登入
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse-login collapse" id="collapseHeaderMenu">
+        <div class="isLogin">
+          <p>個人資料</p>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-1 px-lg-2 float-end me-3"
+          >
+            登出
+          </button>
+        </div>
+      </div>
+      <section class="container">
+        <div class="d-flex user-profile">
+          <div id="left-side">
+            <div class="user-card">
+              <div class="user-avatar"></div>
+              <p class="user-name">測試名字測試名字長度測試名字測試名字長度</p>
+              <p class="user-level">教練</p>
+            </div>
+            <ul class="profile-menu">
+              <li
+                class="coach-info active"
+                data-url="coach-profile.html?status=1"
+              >
+                教練資料設定
+              </li>
+              <li
+                class="course-settings"
+                data-url="coach-profile.html?status=1"
+              >
+                開設設定
+              </li>
+              <li class="course-record" data-url="coach-profile.html?status=1">
+                課程紀錄
+              </li>
+              <li
+                class="course-earnings"
+                data-url="coach-profile.html?status=1"
+              >
+                課程收益
+              </li>
+              <li class="user-info" data-url="coach-profile.html?status=1">
+                個人資料
+              </li>
+            </ul>
+          </div>
+          <div id="right-side" class="profile-card">
+            <div class="d-flex justify-content-between">
+              <div>
+                <div class="d-flex">
+                  <a class="page-arrow" href="coach-profile.html"></a>
+                  <h2>教練資料設定</h2>
+                </div>
+                <p class="text-gary">
+                  <span class="text-red">*為必填。</span
+                  >資料更新後，請在「6協議契約」頁面送出審核。
+                </p>
+              </div>
+              <div class="d-none gap-3 d-lg-flex">
+                <button
+                  id="btn-prev"
+                  data-direction="prev"
+                  class="d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded"
+                >
+                  上一步
+                </button>
+                <button
+                  class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save"
+                >
+                  暫存
+                </button>
+                <button
+                  id="btn-next"
+                  data-direction="next"
+                  class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center"
+                >
+                  下一步
+                  <img src="./images/icon_arrow_right.svg" />
+                </button>
+              </div>
+            </div>
+            <div id="alert-msg" class="text-center visually-hidden">
+              資料尚未填寫
+            </div>
+            <!-- tab -->
+            <ul class="nav nav-pills mb-3 nav-step" role="tablist">
+              <li
+                class="nav-item d-flex align-items-center active-tab"
+                role="presentation"
+              >
+                <span class="tab-index">1</span>
+                <button
+                  class="nav-link active"
+                  id="pills-info-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-info"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-info"
+                  aria-selected="true"
+                >
+                  帳號資料
+                </button>
+              </li>
+              <li
+                class="nav-item d-flex align-items-center"
+                role="presentation"
+                aria-selected="false"
+              >
+                <span class="tab-index">2</span>
+                <button
+                  class="nav-link"
+                  id="pills-intro-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-intro"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-intro"
+                >
+                  教學介紹
+                </button>
+              </li>
+              <li
+                class="nav-item d-flex align-items-center"
+                role="presentation"
+              >
+                <span class="tab-index">3</span>
+                <button
+                  class="nav-link"
+                  id="pills-skill-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-skill"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-skill"
+                  aria-selected="false"
+                >
+                  證照專長
+                </button>
+              </li>
+
+              <li
+                class="nav-item d-flex align-items-center"
+                role="presentation"
+              >
+                <span class="tab-index">4</span>
+                <button
+                  class="nav-link"
+                  id="pills-upload-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-upload"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-upload"
+                  aria-selected="false"
+                >
+                  圖片上傳
+                </button>
+              </li>
+              <li
+                class="nav-item d-flex align-items-center"
+                role="presentation"
+              >
+                <span class="tab-index">5</span>
+                <button
+                  class="nav-link"
+                  id="pills-verify-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-verify"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-verify"
+                  aria-selected="false"
+                >
+                  實名認證
+                </button>
+              </li>
+              <li
+                class="nav-item d-flex align-items-center"
+                role="presentation"
+              >
+                <span class="tab-index">6</span>
+                <button
+                  class="nav-link"
+                  id="pills-agreement-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-agreement"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-agreement"
+                  aria-selected="false"
+                >
+                  協議契約
+                </button>
+              </li>
+            </ul>
+            <!-- tab content -->
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-info"
+                role="tabpanel"
+                aria-labelledby="pills-info-tab"
+                tabindex="0"
+              >
+                <div class="d-flex align-items-center gap-3">
+                  <div class="user-avatar flex-shrink-0">
+                    <div class="camera-file"></div>
+                    <input
+                      type="file"
+                      id="fileInput"
+                      style="display: none"
+                      accept="image/*"
+                    />
+                  </div>
+                  <div id="system-alert" class="success flex-grow-1">
+                    * 請上傳能清楚看見五官的雪場大頭照
+                  </div>
+                </div>
+                <div class="userInfo-form">
+                  <form id="infoForm" class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <label for="username" class="form-label required"
+                        >真實姓名</label
+                      >
+                      <input
+                        class="form-control"
+                        id="username"
+                        placeholder="請輸入真實姓名"
+                        required
+                      />
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="nickname" class="form-label required"
+                        >暱稱</label
+                      >
+                      <input
+                        class="form-control"
+                        id="nickname"
+                        placeholder="請輸入暱稱"
+                        required
+                      />
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="gender" class="form-label required"
+                        >性別</label
+                      >
+                      <select class="form-select" required>
+                        <option selected value="1">男</option>
+                        <option value="2">女</option>
+                      </select>
+                    </div>
+                    <div class="offset-6 m-0"></div>
+                    <div class="col-12 col-md-6">
+                      <label for="emergencyContact" class="form-label required"
+                        >緊急聯絡人</label
+                      >
+                      <input
+                        class="form-control"
+                        id="emergencyContact"
+                        placeholder="請輸入緊急聯絡人"
+                        required
+                      />
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label for="emergencyPhone" class="form-label required"
+                        >緊急連路人手機號碼</label
+                      >
+                      <div class="d-flex gap-3">
+                        <div class="emergency-phone">
+                          <select class="form-select" id="countryCode">
+                            <option selected value="886">+886</option>
+                          </select>
+                        </div>
+                        <input
+                          id="emergencyPhone"
+                          class="form-control"
+                          placeholder="請輸入緊急連路人手機號碼"
+                          required
+                        />
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div class="d-flex align-items-center gap-2">
+                        <label class="form-label required">社群帳號</label>
+                        <p class="text-red font-12">
+                          請至少輸入一個通訊軟體，否則無法進行下一步
+                        </p>
+                      </div>
+                      <div class="row g-3">
+                        <div class="col-12 col-md-6">
+                          <input
+                            id="line"
+                            class="form-control"
+                            placeholder="請輸入LINE ID"
+                          />
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <input
+                            id="wechat"
+                            class="form-control"
+                            placeholder="請輸入Wechat"
+                          />
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <input
+                            id="facebook"
+                            class="form-control"
+                            placeholder="請輸入Facebook"
+                          />
+                        </div>
+                        <div class="col-12 col-md-6">
+                          <input
+                            id="whatsApp"
+                            class="form-control"
+                            placeholder="請輸入WhatsApp"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-intro"
+                role="tabpanel"
+                aria-labelledby="pills-intro-tab"
+                tabindex="0"
+              >
+                <form id="introForm" class="row g-3 userInfo-form">
+                  <!-- 隸屬單位 -->
+                  <div class="col-12 col-md-6">
+                    <label
+                      for="affiliatedUnit"
+                      class="form-label required label-title"
+                      >隸屬單位</label
+                    >
+                    <select id="affiliatedUnit" class="form-select" required>
+                      <option selected value="1">個人教練</option>
+                      <option value="2">教練團隊</option>
+                      <option value="3">滑雪學校</option>
+                      <option value="4">市內滑雪教室</option>
+                      <option value="5">旅行社</option>
+                      <option value="6">滑雪俱樂部</option>
+                    </select>
+                  </div>
+                  <!-- 類型 -->
+                  <div class="col-12">
+                    <label class="form-label label-title required">
+                      類型<span class="mcq">(可複選)</span>
+                    </label>
+                    <div
+                      class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                      data-checkbox-group="identityType"
+                    >
+                      <div class="form-check form-check-inline mb-0">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="typeCoach"
+                          value="coach"
+                          required
+                        />
+                        <label class="form-check-label" for="typeCoach"
+                          >教練</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="typeAssistant"
+                          value="assistant"
+                        />
+                        <label class="form-check-label" for="typeAssistant"
+                          >助教</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="typeStudent"
+                          value="student"
+                          required
+                        />
+                        <label class="form-check-label" for="typeStudent"
+                          >學員</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 語言 -->
+                  <div class="col-12">
+                    <label class="form-label required label-title"
+                      >語言<span class="mcq">(可複選)</span></label
+                    >
+                    <div
+                      class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                      data-checkbox-group="langType"
+                    >
+                      <div class="form-check form-check-inline mb-0">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="langChinese"
+                          value="chinese"
+                        />
+                        <label class="form-check-label" for="langChinese"
+                          >中文</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="langEnglish"
+                          value="english"
+                        />
+                        <label class="form-check-label" for="langEnglish"
+                          >英文</label
+                        >
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input
+                          class="form-check-input"
+                          type="checkbox"
+                          id="langJapanese"
+                          value="japanese"
+                        />
+                        <label class="form-check-label" for="langJapanese"
+                          >日文</label
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- 基本資料 -->
+                  <div class="col-12">
+                    <label
+                      for="basicInfo"
+                      class="form-label label-title required"
+                      >基本資料</label
+                    >
+                    <textarea
+                      id="basicInfo"
+                      class="form-control"
+                      rows="4"
+                      placeholder="請輸入基本資料"
+                      required
+                    ></textarea>
+                    <p id="basicInfo-error" class="error-mag visually-hidden">
+                      請輸入基本介紹
+                    </p>
+                  </div>
+
+                  <!-- 滑雪經驗 -->
+                  <div class="col-12">
+                    <label
+                      for="skiExperience"
+                      class="form-label label-title required"
+                      >滑雪經驗</label
+                    >
+                    <textarea
+                      id="skiExperience"
+                      class="form-control"
+                      rows="4"
+                      placeholder="請輸入滑雪經驗"
+                      required
+                    ></textarea>
+                    <p
+                      id="skiExperience-error"
+                      class="error-mag visually-hidden"
+                    >
+                      請輸入滑雪經驗
+                    </p>
+                  </div>
+                </form>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-skill"
+                role="tabpanel"
+                aria-labelledby="pills-skill-tab"
+                tabindex="0"
+              >
+                <ul class="nav link-tab mb-3" id="pills-tab" role="tablist">
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link active"
+                      id="pills-skis-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-skis"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-skis"
+                      aria-selected="true"
+                    >
+                      雙板
+                    </button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button
+                      class="nav-link"
+                      id="pills-snowboard-tab"
+                      data-bs-toggle="pill"
+                      data-bs-target="#pills-snowboard"
+                      type="button"
+                      role="tab"
+                      aria-controls="pills-snowboard"
+                      aria-selected="false"
+                    >
+                      單版
+                    </button>
+                  </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                  <div
+                    class="tab-pane fade show active"
+                    id="pills-skis"
+                    role="tabpanel"
+                    aria-labelledby="pills-skis-tab"
+                    tabindex="0"
+                  >
+                    <form id="skillForm_skis" class="row g-3">
+                      <!-- 雙板專長教學項目 -->
+                      <label class="form-label required label-title">
+                        雙板專長教學項目 <span class="mcq">(可複選)</span>
+                      </label>
+                      <div class="col-12">
+                        <label
+                          class="form-label required label-sub-title fs-5 fw-medium"
+                          >程度</label
+                        >
+                        <div
+                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          data-checkbox-group="skis_degree"
+                        >
+                          <div class="form-check form-check-inline mb-0">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelNone"
+                              value="none"
+                            />
+                            <label class="form-check-label" for="levelNone"
+                              >零經驗</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelBasic"
+                              value="basic"
+                            />
+                            <label class="form-check-label" for="levelBasic"
+                              >初階</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelIntermediate"
+                              value="intermediate"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="levelIntermediate"
+                              >中階</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelAdvanced"
+                              value="advanced"
+                            />
+                            <label class="form-check-label" for="levelAdvanced"
+                              >高階</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelExam"
+                              value="exam"
+                            />
+                            <label class="form-check-label" for="levelExam"
+                              >考照準備</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <label
+                          class="form-label required label-sub-title fs-5 fw-medium"
+                          >內容</label
+                        >
+                        <div
+                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          data-checkbox-group="skis_content"
+                        >
+                          <div class="form-check form-check-inline mb-0">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentCarving"
+                              value="carving"
+                            />
+                            <label class="form-check-label" for="contentCarving"
+                              >Carving 刻滑</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentRacing"
+                              value="racing"
+                            />
+                            <label class="form-check-label" for="contentRacing"
+                              >Racing 競速</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentButter"
+                              value="butter"
+                            />
+                            <label class="form-check-label" for="contentButter"
+                              >Butter 平花</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentPark"
+                              value="park"
+                            />
+                            <label class="form-check-label" for="contentPark"
+                              >Park 跳台道具</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentPipe"
+                              value="pipe"
+                            />
+                            <label class="form-check-label" for="contentPipe"
+                              >Pipe U 槽</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentMogul"
+                              value="mogul"
+                            />
+                            <label class="form-check-label" for="contentMogul"
+                              >Mogul 蘑菇包</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentPowder"
+                              value="powder"
+                            />
+                            <label class="form-check-label" for="contentPowder"
+                              >Powder 鬆雪</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentTreeRun"
+                              value="treeRun"
+                            />
+                            <label class="form-check-label" for="contentTreeRun"
+                              >Tree Run 樹林</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <label
+                          class="form-label required label-sub-title fs-5 fw-medium"
+                          >對象</label
+                        >
+                        <div
+                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          data-checkbox-group="skisage"
+                        >
+                          <div class="form-check form-check-inline mb-0">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetPreschool"
+                              value="preschool"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="targetPreschool"
+                              >幼兒 (4-6歲)</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetChild"
+                              value="child"
+                            />
+                            <label class="form-check-label" for="targetChild"
+                              >兒童 (7-10歲)</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetParentChild"
+                              value="parentChild"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="targetParentChild"
+                              >親子</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetSenior"
+                              value="senior"
+                            />
+                            <label class="form-check-label" for="targetSenior"
+                              >高齡</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                  <div
+                    class="tab-pane fade"
+                    id="pills-snowboard"
+                    role="tabpanel"
+                    aria-labelledby="pills-snowboard-tab"
+                    tabindex="0"
+                  >
+                    <form
+                      id="skillForm_snowboard"
+                      class="row g-3 userInfo-form"
+                    >
+                      <!-- 單板專長教學項目 -->
+                      <label class="form-label required label-title">
+                        單板專長教學項目 <span class="mcq">(可複選)</span>
+                      </label>
+                      <div class="col-12">
+                        <label
+                          class="form-label required label-sub-title fs-5 fw-medium"
+                          >程度</label
+                        >
+                        <div
+                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          data-checkbox-group="snowboard_degree"
+                        >
+                          <div class="form-check form-check-inline mb-0">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelNone"
+                              value="none"
+                            />
+                            <label class="form-check-label" for="levelNone"
+                              >零經驗</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelBasic"
+                              value="basic"
+                            />
+                            <label class="form-check-label" for="levelBasic"
+                              >初階</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelIntermediate"
+                              value="intermediate"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="levelIntermediate"
+                              >中階</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelAdvanced"
+                              value="advanced"
+                            />
+                            <label class="form-check-label" for="levelAdvanced"
+                              >高階</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="levelExam"
+                              value="exam"
+                            />
+                            <label class="form-check-label" for="levelExam"
+                              >考照準備</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <label
+                          class="form-label required label-sub-title fs-5 fw-medium"
+                          >內容</label
+                        >
+                        <div
+                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          data-checkbox-group="snowboard_content"
+                        >
+                          <div class="form-check form-check-inline mb-0">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentCarving"
+                              value="carving"
+                            />
+                            <label class="form-check-label" for="contentCarving"
+                              >Carving 刻滑</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentRacing"
+                              value="racing"
+                            />
+                            <label class="form-check-label" for="contentRacing"
+                              >Racing 競速</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentButter"
+                              value="butter"
+                            />
+                            <label class="form-check-label" for="contentButter"
+                              >Butter 平花</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentPark"
+                              value="park"
+                            />
+                            <label class="form-check-label" for="contentPark"
+                              >Park 跳台道具</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentPipe"
+                              value="pipe"
+                            />
+                            <label class="form-check-label" for="contentPipe"
+                              >Pipe U 槽</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentMogul"
+                              value="mogul"
+                            />
+                            <label class="form-check-label" for="contentMogul"
+                              >Mogul 蘑菇包</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentPowder"
+                              value="powder"
+                            />
+                            <label class="form-check-label" for="contentPowder"
+                              >Powder 鬆雪</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="contentTreeRun"
+                              value="treeRun"
+                            />
+                            <label class="form-check-label" for="contentTreeRun"
+                              >Tree Run 樹林</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-12">
+                        <label
+                          class="form-label required label-sub-title fs-5 fw-medium"
+                          >對象</label
+                        >
+                        <div
+                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          data-checkbox-group="snowboard_age"
+                        >
+                          <div class="form-check form-check-inline mb-0">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetPreschool"
+                              value="preschool"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="targetPreschool"
+                              >幼兒 (4-6歲)</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetChild"
+                              value="child"
+                            />
+                            <label class="form-check-label" for="targetChild"
+                              >兒童 (7-10歲)</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetParentChild"
+                              value="parentChild"
+                            />
+                            <label
+                              class="form-check-label"
+                              for="targetParentChild"
+                              >親子</label
+                            >
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input
+                              class="form-check-input"
+                              type="checkbox"
+                              id="targetSenior"
+                              value="senior"
+                            />
+                            <label class="form-check-label" for="targetSenior"
+                              >高齡</label
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-upload"
+                role="tabpanel"
+                aria-labelledby="pills-upload-tab"
+                tabindex="0"
+              >
+                upload
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-verify"
+                role="tabpanel"
+                aria-labelledby="pills-verify-tab"
+                tabindex="0"
+              >
+                <div class="userInfo-form">
+                  <form id="verifyForm" class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <label for="en_name" class="form-label required"
+                        >真實英文名字</label
+                      >
+                      <input
+                        class="form-control"
+                        id="en_name"
+                        placeholder="請輸入真實英文名字"
+                        required
+                      />
+                    </div>
+                    <div class="offset-6 m-0"></div>
+                    <div class="col-12 col-md-6">
+                      <label for="passportType" class="form-label required"
+                        >護照種類</label
+                      >
+                      <select
+                        id="passportType"
+                        class="form-select select-placeholder"
+                        required
+                      >
+                        <option value="" disabled selected hidden>
+                          請選擇
+                        </option>
+                        <option value="Ordinary">普通護照</option>
+                        <option value="Diplomatic">外交護照</option>
+                        <option value="Official">公務護照</option>
+                      </select>
+                    </div>
+                    <div class="col-12 col-md-6 d-flex align-self-end">
+                      <input
+                        class="form-control"
+                        id="passport"
+                        placeholder="請輸入證件號碼"
+                        required
+                      />
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label label-title required">
+                        薪資支付
+                      </label>
+                      <div id="system-alert" class="success">
+                        每個月10月號，將支付上月份授課收益 ;
+                        額外獎金待季末結算後統一發放。
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label class="form-label" for="receive"
+                        >選擇領取方式</label
+                      >
+                      <select
+                        id="receive"
+                        class="form-select select-placeholder"
+                        required
+                      >
+                        <option value="" disabled selected hidden>
+                          銀行轉帳(台灣)
+                        </option>
+                        <option value="test">test</option>
+                      </select>
+                    </div>
+                    <div class="offset-6 m-0"></div>
+                    <div class="col-12">
+                      <select
+                        id="bank"
+                        class="form-select select-placeholder"
+                        required
+                      >
+                        <option value="" disabled selected hidden>
+                          請選擇銀行
+                        </option>
+                        <option value="abc">abc</option>
+                      </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <input
+                        class="form-control"
+                        id="bank_account"
+                        placeholder="請輸入帳號"
+                        required
+                      />
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <input
+                        class="form-control"
+                        id="bank_name"
+                        placeholder="請輸入戶名"
+                        required
+                      />
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-agreement"
+                role="tabpanel"
+                aria-labelledby="pills-agreement-tab"
+                tabindex="0"
+              >
+                agreement
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div id="mb-profile-confirm" class="d-block d-lg-none">
+        <p class="text-gary mb-3 d-flex flex-column">
+          <span class="text-red">*為必填。</span
+          >資料更新後，請在「6協議契約」頁面送出審核。
+        </p>
+        <div class="d-flex justify-content-end gap-3">
+          <button
+            id="btn-prev"
+            data-direction="prev"
+            class="d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded"
+          >
+            上一步
+          </button>
+          <button
+            class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save"
+          >
+            暫存
+          </button>
+          <button
+            id="btn-next"
+            data-direction="next"
+            class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center"
+          >
+            下一步
+            <img src="./images/icon_arrow_right.svg" />
+          </button>
+        </div>
+      </div>
+
+      <!-- pc footer -->
+      <footer class="footer-pc">
+        <div class="container">
+          <div class="row">
+            <div class="col-9">
+              <div>
+                <img src="./images/logo_white.svg" />
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <ul>
+                    <li>滑雪趣有限公司</li>
+                    <li>Snow Fun International Co., Ltd.</li>
+                    <li>統一編號 82841380</li>
+                    <li>Email : info@snowfun.com.tw</li>
+                  </ul>
+                </div>
+                <div class="col-8 align-self-end">
+                  <ul class="social-box">
+                    <li>
+                      <a
+                        href="//www.facebook.com/groups/453785412129721/"
+                        target="_blank"
+                      >
+                        <img src="./images/fb.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                        <img src="./images/ig.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/tk.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/wc.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/yt.svg" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="col">
+                  <p class="footer-title">信息</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >關於我們</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >常見問題</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >聯絡我們</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <p class="footer-title">合作</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >成為教練</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >合作夥伴申請</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- mb footer -->
+      <footer class="footer-mb">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-center">
+              <img src="./images/logo_white.svg" width="100%" />
+            </div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+              <ul>
+                <li>滑雪趣有限公司</li>
+                <li>Snow Fun International Co., Ltd.</li>
+                <li>統一編號 82841380</li>
+                <li>Email : info@snowfun.com.tw</li>
+              </ul>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12 align-self-end">
+                <ul class="social-box d-flex justify-content-center">
+                  <li>
+                    <a
+                      href="//www.facebook.com/groups/453785412129721/"
+                      target="_blank"
+                    >
+                      <img src="./images/fb.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                      <img src="./images/ig.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/tk.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/wc.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/yt.svg" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <p class="footer-title">信息</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >關於我們</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >常見問題</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >聯絡我們</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4">
+                <p class="footer-title">合作</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >成為教練</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >合作夥伴申請</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- 登入 modal -->
+      <div id="sharedModalContainer"></div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/user.js"></script>
+
+    <script>
+      // tab 切換
+      $(document).ready(function () {
+        const $navItems = $(".nav-step .nav-item");
+        const $navButtons = $(".nav-step .nav-link");
+
+        // 1. 依 URL 參數 step 設定預設 active-tab
+        const urlParams = new URLSearchParams(window.location.search);
+        const step = urlParams.get("step");
+
+        if (step) {
+          const targetId = `#pills-${step}-tab`;
+          const $targetBtn = $(targetId);
+
+          if ($targetBtn.length) {
+            const targetIndex = $navButtons.index($targetBtn);
+
+            $navItems.removeClass("active-tab");
+            $navItems.slice(0, targetIndex + 1).addClass("active-tab");
+            $targetBtn.tab("show");
+          }
+          if (step === "info") {
+            $("#btn-prev").addClass("visually-hidden");
+          } else {
+            $("#btn-prev").removeClass("visually-hidden");
+          }
+        } else {
+          // 預設第一個
+          $navItems.first().addClass("active-tab");
+          $("#btn-prev").addClass("visually-hidden");
+        }
+
+        // 2. 點擊時，重新設定 active-tab 並更新 URL 參數
+        $navButtons.on("click", function () {
+          const clickedIndex = $navButtons.index(this);
+          $navItems.removeClass("active-tab");
+          $navItems.slice(0, clickedIndex + 1).addClass("active-tab");
+
+          // ✅ 更新 URL 的 step 參數
+          const id = $(this).attr("id"); // 例如 "pills-info-tab"
+          const match = id.match(/^pills-(.+)-tab$/);
+          if (match && match[1]) {
+            updateURLParam("step", match[1]); // e.g. info, intro, contact...
+          }
+        });
+
+        // ✅ URL 參數更新函式
+        function updateURLParam(key, value) {
+          const url = new URL(window.location);
+          url.searchParams.set(key, value);
+          window.history.replaceState({}, "", url);
+        }
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $("#btn-next, #btn-prev").on("click", function (e) {
+          e.preventDefault();
+
+          const direction = $(this).data("direction"); // "next" 或 "prev"
+          const step = getQueryParam("step") || "info";
+
+          const stepMap = [
+            { key: "info", tabId: "pills-info-tab", formId: "infoForm" },
+            { key: "intro", tabId: "pills-intro-tab", formId: "introForm" },
+            {
+              key: "skill",
+              tabId: "pills-skill-tab",
+              formId: "skillForm_skis",
+            },
+            { key: "upload", tabId: "pills-upload-tab", formId: "uploadForm" },
+            { key: "verify", tabId: "pills-verify-tab", formId: "verifyForm" },
+            {
+              key: "agreement",
+              tabId: "pills-agreement-tab",
+              formId: "agreementForm",
+            },
+          ];
+
+          const currentIndex = stepMap.findIndex((item) => item.key === step);
+          if (currentIndex === -1) return;
+
+          const current = stepMap[currentIndex];
+
+          // 若為下一步，進行表單驗證
+          if (direction === "next") {
+            const $form = $("#" + current.formId);
+            if (!validateForm($form)) {
+              $("#alert-msg").removeClass("visually-hidden");
+              return;
+            } else {
+              $("#alert-msg").addClass("visually-hidden");
+            }
+
+            // 表單輸出（可選）
+            const formData = {};
+            $form.find("input, select, textarea").each(function () {
+              const $el = $(this);
+              const type = $el.attr("type");
+              const name = $el.attr("name") || $el.attr("id");
+
+              if (type === "checkbox") {
+                if ($el.prop("checked")) {
+                  if (!formData[name]) {
+                    formData[name] = [];
+                  }
+                  formData[name].push($el.val());
+                }
+              } else {
+                formData[name] = $el.val();
+              }
+            });
+            console.log("表單資料：", formData);
+          }
+
+          // 計算下一步或上一步 index
+          const nextIndex =
+            direction === "next" ? currentIndex + 1 : currentIndex - 1;
+          const next = stepMap[nextIndex];
+          if (next) {
+            $("#" + next.tabId).tab("show");
+            updateActiveTabs(next.tabId);
+            updateURLParam("step", next.key);
+
+            // 根據 step 顯示/隱藏 prev 按鈕
+            if (next.key === "info") {
+              $("#btn-prev").addClass("visually-hidden");
+            } else {
+              $("#btn-prev").removeClass("visually-hidden");
+            }
+          }
+        });
+
+        // 根據當前 URL 自動切換 tab
+        const currentStep = getQueryParam("step");
+        if (currentStep) {
+          const stepMap = {
+            info: "pills-info-tab",
+            intro: "pills-intro-tab",
+            skill: "pills-skill-tab",
+            upload: "pills-upload-tab",
+            verify: "pills-verify-tab",
+            agreement: "pills-agreement-tab",
+          };
+          const tabId = stepMap[currentStep];
+          if (tabId) {
+            $("#" + tabId).tab("show");
+            updateActiveTabs(tabId);
+          }
+        }
+      });
+
+      function validateForm($form = $("#infoForm")) {
+        let isValid = true;
+        const missingFields = [];
+
+        // 所有社群欄位 ID
+        const socialIds = ["line", "wechat", "facebook", "whatsApp"];
+        const socialSelectors = socialIds.map((id) => `#${id}`);
+
+        // 驗證所有具有 required 屬性的 input/select/textarea（不重複檢查社群欄位）
+        $form
+          .find("input[required], select[required], textarea[required]")
+          .each(function () {
+            const $input = $(this);
+            const id = $input.attr("id");
+
+            // 跳過社群欄位，統一處理
+            if (socialIds.includes(id)) return;
+            const hasValue =
+              $input.val() != null ? $input.val()?.trim() !== "" : false;
+
+            if (!hasValue) {
+              isValid = false;
+              $input.addClass("is-invalid");
+              missingFields.push(id || $input.attr("name"));
+
+              // 額外處理 basicInfo 和 skiExperience 錯誤提示
+              if (id === "basicInfo" || id === "skiExperience") {
+                $("#" + id + "-error").removeClass("visually-hidden");
+              }
+            } else {
+              $input.removeClass("is-invalid");
+
+              if (id === "basicInfo" || id === "skiExperience") {
+                $("#" + id + "-error").addClass("visually-hidden");
+              }
+            }
+          });
+
+        // checkbox 群組驗證（支援多組）
+        $form.find("[data-checkbox-group]").each(function () {
+          const $group = $(this);
+          const groupName = $group.data("checkbox-group");
+          const $checkboxes = $group.find("input[type='checkbox']");
+          const isChecked = $checkboxes.is(":checked");
+
+          const $error = $("#" + groupName + "-error");
+
+          if (!isChecked) {
+            isValid = false;
+            missingFields.push(groupName);
+            if ($error.length) $error.removeClass("visually-hidden");
+          } else {
+            if ($error.length) $error.addClass("visually-hidden");
+          }
+        });
+
+        // ✅ 只針對 #infoForm 驗證社群欄位
+        if ($form.attr("id") === "infoForm") {
+          const hasAtLeastOneSocial = socialSelectors.some(
+            (selector) => $(selector).val().trim() !== ""
+          );
+
+          if (!hasAtLeastOneSocial) {
+            isValid = false;
+            socialSelectors.forEach((selector) => {
+              $(selector).addClass("is-invalid");
+              missingFields.push(selector.replace("#", ""));
+            });
+          } else {
+            socialSelectors.forEach((selector) =>
+              $(selector).removeClass("is-invalid")
+            );
+          }
+        }
+
+        // 輸出未填欄位清單
+        if (!isValid) {
+          console.log("未填寫欄位：", missingFields);
+        }
+
+        return isValid;
+      }
+
+      // 根據當前 tab 設定 .active-tab 樣式
+      function updateActiveTabs(targetTabId) {
+        const $navButtons = $(".nav-step .nav-link");
+        const $navItems = $(".nav-step .nav-item");
+        const targetIndex = $navButtons.index($("#" + targetTabId));
+        $navItems.removeClass("active-tab");
+        $navItems.slice(0, targetIndex + 1).addClass("active-tab");
+      }
+
+      // 取得 URL 參數
+      function getQueryParam(name) {
+        const params = new URLSearchParams(window.location.search);
+        return params.get(name);
+      }
+
+      // 更新 URL 中的參數（不刷新頁面）
+      function updateURLParam(key, value) {
+        const url = new URL(window.location);
+        url.searchParams.set(key, value);
+        window.history.replaceState({}, "", url);
+      }
+    </script>
+    <!-- select -->
+    <script>
+      $("select").on("change", function () {
+        if ($(this).val() === "") {
+          $(this).removeClass("select-value").addClass("select-placeholder");
+        } else {
+          $(this).removeClass("select-placeholder").addClass("select-value");
+        }
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        function updateViewBasedOnStatusAndWidth() {
+          const isSmallScreen = $(window).width() < 992;
+          if (!isSmallScreen) {
+            $("#left-side").removeClass("visually-hidden");
+            $("#mb-profile-confirm").removeClass("visually-hidden");
+            $("#right-side").addClass("show");
+
+            return;
+          }
+          const urlParams = new URLSearchParams(window.location.search);
+          const isStatusOne = urlParams.get("status") === "1";
+          if (isStatusOne) {
+            $("#right-side").addClass("show");
+            $("#left-side").addClass("visually-hidden");
+            $("#profile-confirm").removeClass("visually-hidden");
+          } else {
+            $("#right-side").removeClass("show");
+            $("#mb-profile-confirm").addClass("visually-hidden");
+            $("#left-side").removeClass("visually-hidden");
+          }
+        }
+
+        // Initial check on page load
+        updateViewBasedOnStatusAndWidth();
+
+        // Check on window resize
+        $(window).on("resize", function () {
+          updateViewBasedOnStatusAndWidth();
+        });
+      });
+    </script>
+  </body>
+</html>

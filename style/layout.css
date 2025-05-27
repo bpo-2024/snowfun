@@ -164,15 +164,21 @@ a {
 .btn-primary:hover {
   background-color: #0f80bd;
 }
+
 .btn-outline-primary {
   min-width: 92px;
   padding: 7px 30px;
   color: var(--primary-color);
   border-radius: 20px;
   border: 1px solid var(--primary-color);
+  background-color: #fff;
 }
 .btn-outline-primary:hover {
   background-color: var(--primary-color);
+}
+.btn-outline-gray {
+  color: #444;
+  border-color: #c2c2c2;
 }
 
 .navbar .logo {
