@@ -1244,7 +1244,105 @@
                 aria-labelledby="pills-agreement-tab"
                 tabindex="0"
               >
-                agreement
+                <form id="agreementForm" class="mt-4">
+                  <div class="accordion" id="pills-agreement">
+                    <!-- 第一個條約 -->
+                    <div class="accordion-item">
+                      <div class="accordion-header" id="agreement-headingOne">
+                        <button class="accordion-button h2 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#agreement-collapseOne" aria-expanded="true" aria-controls="agreement-collapseOne">
+                          個人教練合作契約
+                        </button>
+                      </div>
+                      <div id="agreement-collapseOne" class="accordion-collapse collapse show" aria-labelledby="agreement-headingOne" data-bs-parent="#pills-agreement">
+                        <div class="accordion-body position-relative">
+                          <div class="check-bottom position-absolute bottom-0 start-0 w-100 bg-white p-3">
+                            <div class="form-check p-0 d-flex align-items-center">
+                              <input class="form-check-input" type="checkbox" id="agreementCheck1" required />
+                              <label class="form-check-label" for="agreementCheck1" >
+                                *本人已閱讀並同意以上合作條約
+                              </label>
+                              <p id="agreementCheck1-error" class="text-danger small visually-hidden mt-2">
+                                請勾選同意合作契約內容才能進行下一步。
+                              </p>
+                            </div>
+                          </div>
+                          <div class="pe-3 pb-5" style="height: 300px;overflow-y: auto;">
+                            <ol class="text-secondary small" style="line-height: 1.25rem;" >
+                               <li>1.一旦完成教學預訂， 不得變更原預訂內容， 所有變更情事都將視為取消課程， 需重新預訂。</li>
+                               <li>2.在約定教學日前 31 天以上申請取消課程， 退還全額款項。</li>
+                               <li>3.在約定教學日前 15-30 天內申請取消課程， 退還款項的 80%。</li>
+                               <li>4.在約定教學日前 8-14 天內申請取消課程， 退還款項的 50%。</li>
+                               <li>5.在約定教學日前 1-7 天內申請取消課程， 退還款項的 20%。</li>
+                               <li>6.在約定教學日當天申請取消課程， 不予退款。</li>
+                               <li>7.除上述第 (6) 項外， 退還款項將另扣除手續費， 為款項原價的 5%。</li>
+                               <li>8.在約定教學日當天，除因遭遇因天氣因素造成滑雪場關閉(需有滑雪場公告)無法上課之外，其他任何因學生方因素導致無法上課之情況，款項均無法退還。</li>
+                               <li>9.因教練方個人因素取消課程， 退還全額款項。</li>
+                               <li>10.在預定課程前， 付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻， 若發生意外可能導致受傷或死亡， 於報名時應盡力提供真實且詳盡之健康資料， 以利教練接課時評估。 </li>
+                               <li>11.在課程開始前、 期間或之後所發生的任何私人設備或財物之遺失或損壞， 本平台不承擔任何形式責任。</li>
+                               <li>12.在課程開始前、 期間或之後所發生的任何傷害或事故， 本平台不承擔任何形式之責任。</li>
+                               <li>13.在課程開始前， 建議至少提早 30 分鐘到達與教練約定之集合點， 務必檢查及帶齊必要之滑雪裝備器材及衣著， 如因個人因素（例如： 未帶手套、 雪鞋尺寸不合... 等）造成更換設備的費用或課程時間損失， 本平台將不提供任何退款、 延時或補時。
+                                </li>
+                               <li>14.課程期間基於安全考量， 應聽從教練之建議及指示， 經屢勸不聽者（例如： 擅自脫隊、 破壞雪場設施... 等）， 教練有權立即中止契約及提供課程服務， 亦無法退費。
+                              </li>
+                               <li>15.課程期間， 由教練或本平台聘請人員拍攝之照片， 除「單人之正面清晰人像獨照」會徵求當事人同意外， 報名者皆同意本平台使用其餘照片（例如： 課程經驗分享及宣傳... 等）。
+                              </li>
+                               <li>16.雪地戶外運動若發生意外可能導致受傷或死亡， 建議報名者及同行人員可自行投保旅平險、 醫療險或相關戶外活動保險... 等。
+                              </li>
+                            </ol>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  
+                    <!-- 第二個條約 -->
+                    <div class="accordion-item">
+                      <div class="accordion-header" id="agreement-headingTwo">
+                        <button class="accordion-button collapsed h2 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#agreement-collapseTwo" aria-expanded="false" aria-controls="agreement-collapseTwo">
+                          滑雪趣註冊協定
+                        </button>
+                      </div>
+                      <div id="agreement-collapseTwo" class="accordion-collapse collapse" aria-labelledby="agreement-headingTwo" data-bs-parent="#pills-agreement">
+                        <div class="accordion-body position-relative">
+                          <div class="check-bottom position-absolute bottom-0 start-0 w-100 bg-white p-3">
+                            <div class="form-check p-0 d-flex align-items-center">
+                              <input class="form-check-input" type="checkbox" id="agreementCheck2" required />
+                              <label class="form-check-label" for="agreementCheck2">
+                                *本人已閱讀並同意以上合作條約
+                              </label>
+                              <p id="agreementCheck2-error" class="text-danger small visually-hidden mt-2">
+                                請勾選同意合作契約內容才能進行下一步。
+                              </p>
+                            </div>
+                          </div>
+                          <div class="pe-3 pb-5" style="height: 300px;overflow-y: auto;">
+                            <ol class="text-secondary small" style="line-height: 1.25rem;" >
+                               <li>1.一旦完成教學預訂， 不得變更原預訂內容， 所有變更情事都將視為取消課程， 需重新預訂。</li>
+                               <li>2.在約定教學日前 31 天以上申請取消課程， 退還全額款項。</li>
+                               <li>3.在約定教學日前 15-30 天內申請取消課程， 退還款項的 80%。</li>
+                               <li>4.在約定教學日前 8-14 天內申請取消課程， 退還款項的 50%。</li>
+                               <li>5.在約定教學日前 1-7 天內申請取消課程， 退還款項的 20%。</li>
+                               <li>6.在約定教學日當天申請取消課程， 不予退款。</li>
+                               <li>7.除上述第 (6) 項外， 退還款項將另扣除手續費， 為款項原價的 5%。</li>
+                               <li>8.在約定教學日當天，除因遭遇因天氣因素造成滑雪場關閉(需有滑雪場公告)無法上課之外，其他任何因學生方因素導致無法上課之情況，款項均無法退還。</li>
+                               <li>9.因教練方個人因素取消課程， 退還全額款項。</li>
+                               <li>10.在預定課程前， 付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻， 若發生意外可能導致受傷或死亡， 於報名時應盡力提供真實且詳盡之健康資料， 以利教練接課時評估。 </li>
+                               <li>11.在課程開始前、 期間或之後所發生的任何私人設備或財物之遺失或損壞， 本平台不承擔任何形式責任。</li>
+                               <li>12.在課程開始前、 期間或之後所發生的任何傷害或事故， 本平台不承擔任何形式之責任。</li>
+                               <li>13.在課程開始前， 建議至少提早 30 分鐘到達與教練約定之集合點， 務必檢查及帶齊必要之滑雪裝備器材及衣著， 如因個人因素（例如： 未帶手套、 雪鞋尺寸不合... 等）造成更換設備的費用或課程時間損失， 本平台將不提供任何退款、 延時或補時。
+                                </li>
+                               <li>14.課程期間基於安全考量， 應聽從教練之建議及指示， 經屢勸不聽者（例如： 擅自脫隊、 破壞雪場設施... 等）， 教練有權立即中止契約及提供課程服務， 亦無法退費。
+                              </li>
+                               <li>15.課程期間， 由教練或本平台聘請人員拍攝之照片， 除「單人之正面清晰人像獨照」會徵求當事人同意外， 報名者皆同意本平台使用其餘照片（例如： 課程經驗分享及宣傳... 等）。
+                              </li>
+                               <li>16.雪地戶外運動若發生意外可能導致受傷或死亡， 建議報名者及同行人員可自行投保旅平險、 醫療險或相關戶外活動保險... 等。
+                              </li>
+                            </ol>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </form>
               </div>
             </div>
           </div>
@@ -1683,6 +1781,56 @@
         // 所有社群欄位 ID
         const socialIds = ["line", "wechat", "facebook", "whatsApp"];
         const socialSelectors = socialIds.map((id) => `#${id}`);
+        
+        // 手風琴判斷
+        if ($form.attr("id") === "agreementForm") {
+          let firstInvalidAccordionId = null;
+
+          $form.find("input[type='checkbox'][required]").each(function () {
+            const $check = $(this);
+            const isChecked = $check.is(":checked");
+            const errorId = $check.attr("id") + "-error";
+
+            if (!isChecked) {
+              isValid = false;
+              $check.addClass("is-invalid");
+              $("#" + errorId).removeClass("visually-hidden");
+
+              // 找到第一個未勾選的手風琴區塊
+              if (!firstInvalidAccordionId) {
+                // 向上找 accordion-collapse ID
+                const $accordionBody = $check.closest(".accordion-collapse");
+                firstInvalidAccordionId = $accordionBody.attr("id");
+              }
+            } else {
+              $check.removeClass("is-invalid");
+              $("#" + errorId).addClass("visually-hidden");
+            }
+          });
+
+          // 展開第一個未勾選的 accordion
+          if (firstInvalidAccordionId) {
+            const $targetCollapse = $("#" + firstInvalidAccordionId);
+            const $allAccordions = $(".accordion-collapse");
+
+            // 折疊所有手風琴
+            $allAccordions.each(function () {
+              const $this = $(this);
+              if ($this.attr("id") !== firstInvalidAccordionId) {
+                $this.removeClass("show");
+              }
+            });
+
+            // 展開目標手風琴
+            $targetCollapse.addClass("show");
+
+            // 滾動到該位置
+            $("html, body").animate(
+              { scrollTop: $targetCollapse.offset().top - 100 },
+              300
+            );
+          }
+        }
 
         // 驗證所有具有 required 屬性的 input/select/textarea（不重複檢查社群欄位）
         $form
