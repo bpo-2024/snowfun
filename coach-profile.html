@@ -1185,7 +1185,7 @@
                       <label class="form-label label-title required">
                         薪資支付
                       </label>
-                      <div id="system-alert" class="success">
+                      <div id="system-alert" class="success mt-4">
                         每個月10月號，將支付上月份授課收益 ;
                         額外獎金待季末結算後統一發放。
                       </div>
@@ -1642,7 +1642,11 @@
           if (next) {
             $("#" + next.tabId).tab("show");
             updateActiveTabs(next.tabId);
+            updateURLParam("status", 1);
             updateURLParam("step", next.key);
+
+            // 加上 scroll top
+            $("html, body").animate({ scrollTop: 0 }, 300);
 
             // 根據 step 顯示/隱藏 prev 按鈕
             if (next.key === "info") {
