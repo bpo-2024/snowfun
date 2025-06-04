@@ -13,8 +13,17 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
+    <!-- the fileinput plugin styling CSS file -->
+    <link
+      href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css"
+      media="all"
+      rel="stylesheet"
+      type="text/css"
+    />
+
     <link href="./style/layout.css" rel="stylesheet" />
     <link href="./style/user-profile.css" rel="stylesheet" />
+    <link href="./style/fileUploadModal.css" rel="stylesheet" />
     <link href="./style/member-center.css" rel="stylesheet" />
   </head>
   <body>
@@ -184,19 +193,19 @@
                 <button
                   id="btn-prev"
                   data-direction="prev"
-                  class="d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded"
+                  class="d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-m"
                 >
                   上一步
                 </button>
                 <button
-                  class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save"
+                  class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save btn-m"
                 >
                   暫存
                 </button>
                 <button
                   id="btn-next"
                   data-direction="next"
-                  class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center"
+                  class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center btn-m"
                 >
                   下一步
                   <img src="./images/icon_arrow_right.svg" />
@@ -475,7 +484,7 @@
                       類型<span class="mcq">(可複選)</span>
                     </label>
                     <div
-                      class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                      class="form-group check-button d-flex w-100 flex-wrap"
                       data-checkbox-group="identityType"
                     >
                       <div class="form-check form-check-inline mb-0">
@@ -522,7 +531,7 @@
                       >語言<span class="mcq">(可複選)</span></label
                     >
                     <div
-                      class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                      class="form-group check-button d-flex w-100 flex-wrap"
                       data-checkbox-group="langType"
                     >
                       <div class="form-check form-check-inline mb-0">
@@ -649,8 +658,76 @@
                     tabindex="0"
                   >
                     <form id="skillForm_skis" class="row g-3">
+                      <!-- 雙板國際證照上傳 -->
+                      <label
+                        class="form-label required label-title d-flex align-items-center"
+                      >
+                        雙板國際證照上傳
+                      </label>
+                      <div
+                        class="row row-cols-2 row-cols-md-2 row-cols-xxl-3 gap-xxl-3 gap-2"
+                      >
+                        <div
+                          class="add-license-card d-flex justify-content-center align-items-center flex-column gap-2"
+                          data-bs-toggle="modal"
+                          data-bs-target="#fileUploadModal"
+                        >
+                          <p>新增國際證照</p>
+                        </div>
+                        <div
+                          class="license-card d-flex align-items-center create-license"
+                        >
+                          <div class="license-card-img"></div>
+                          <div
+                            class="d-flex justify-content-between flex-grow-1"
+                          >
+                            <div class="d-flex flex-column gap-2">
+                              加拿大CSIA
+                              <span class="license-level">Level1 雙板</span>
+                            </div>
+                            <div
+                              class="d-flex flex-column license-button-group justify-content-center"
+                            >
+                              <button
+                                type="button"
+                                class="btn btn-edit"
+                              ></button>
+                              <button
+                                type="button"
+                                class="btn btn-delete"
+                              ></button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="license-card d-flex align-items-center">
+                          <div class="license-card-img"></div>
+                          <div
+                            class="d-flex justify-content-between flex-grow-1"
+                          >
+                            <div class="d-flex flex-column gap-2">
+                              紐西蘭NZSIA
+                              <span class="license-level">Level1 雙板</span>
+                            </div>
+                            <div
+                              class="d-flex flex-column license-button-group justify-content-center"
+                            >
+                              <button
+                                type="button"
+                                class="btn btn-edit"
+                              ></button>
+                              <button
+                                type="button"
+                                class="btn btn-delete"
+                              ></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr class="hr" />
                       <!-- 雙板專長教學項目 -->
-                      <label class="form-label required label-title">
+                      <label
+                        class="form-label required label-title d-flex align-items-center"
+                      >
                         雙板專長教學項目 <span class="mcq">(可複選)</span>
                       </label>
                       <div class="col-12">
@@ -659,7 +736,7 @@
                           >程度</label
                         >
                         <div
-                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          class="form-group check-button d-flex w-100 flex-wrap"
                           data-checkbox-group="skis_degree"
                         >
                           <div class="form-check form-check-inline mb-0">
@@ -727,7 +804,7 @@
                           >內容</label
                         >
                         <div
-                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          class="form-group check-button d-flex w-100 flex-wrap"
                           data-checkbox-group="skis_content"
                         >
                           <div class="form-check form-check-inline mb-0">
@@ -737,7 +814,9 @@
                               id="contentCarving"
                               value="carving"
                             />
-                            <label class="form-check-label" for="contentCarving"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentCarving"
                               >Carving 刻滑</label
                             >
                           </div>
@@ -748,7 +827,9 @@
                               id="contentRacing"
                               value="racing"
                             />
-                            <label class="form-check-label" for="contentRacing"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentRacing"
                               >Racing 競速</label
                             >
                           </div>
@@ -759,7 +840,9 @@
                               id="contentButter"
                               value="butter"
                             />
-                            <label class="form-check-label" for="contentButter"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentButter"
                               >Butter 平花</label
                             >
                           </div>
@@ -770,7 +853,9 @@
                               id="contentPark"
                               value="park"
                             />
-                            <label class="form-check-label" for="contentPark"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentPark"
                               >Park 跳台道具</label
                             >
                           </div>
@@ -781,7 +866,9 @@
                               id="contentPipe"
                               value="pipe"
                             />
-                            <label class="form-check-label" for="contentPipe"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentPipe"
                               >Pipe U 槽</label
                             >
                           </div>
@@ -792,7 +879,9 @@
                               id="contentMogul"
                               value="mogul"
                             />
-                            <label class="form-check-label" for="contentMogul"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentMogul"
                               >Mogul 蘑菇包</label
                             >
                           </div>
@@ -803,7 +892,9 @@
                               id="contentPowder"
                               value="powder"
                             />
-                            <label class="form-check-label" for="contentPowder"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentPowder"
                               >Powder 鬆雪</label
                             >
                           </div>
@@ -814,7 +905,9 @@
                               id="contentTreeRun"
                               value="treeRun"
                             />
-                            <label class="form-check-label" for="contentTreeRun"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentTreeRun"
                               >Tree Run 樹林</label
                             >
                           </div>
@@ -826,7 +919,7 @@
                           >對象</label
                         >
                         <div
-                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          class="form-group check-button d-flex w-100 flex-wrap"
                           data-checkbox-group="skisage"
                         >
                           <div class="form-check form-check-inline mb-0">
@@ -837,7 +930,7 @@
                               value="preschool"
                             />
                             <label
-                              class="form-check-label"
+                              class="form-check-label btn-check-l"
                               for="targetPreschool"
                               >幼兒 (4-6歲)</label
                             >
@@ -849,7 +942,9 @@
                               id="targetChild"
                               value="child"
                             />
-                            <label class="form-check-label" for="targetChild"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="targetChild"
                               >兒童 (7-10歲)</label
                             >
                           </div>
@@ -861,7 +956,7 @@
                               value="parentChild"
                             />
                             <label
-                              class="form-check-label"
+                              class="form-check-label btn-check-l"
                               for="targetParentChild"
                               >親子</label
                             >
@@ -873,7 +968,9 @@
                               id="targetSenior"
                               value="senior"
                             />
-                            <label class="form-check-label" for="targetSenior"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="targetSenior"
                               >高齡</label
                             >
                           </div>
@@ -902,7 +999,7 @@
                           >程度</label
                         >
                         <div
-                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          class="form-group check-button d-flex w-100 flex-wrap"
                           data-checkbox-group="snowboard_degree"
                         >
                           <div class="form-check form-check-inline mb-0">
@@ -970,7 +1067,7 @@
                           >內容</label
                         >
                         <div
-                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          class="form-group check-button d-flex w-100 flex-wrap"
                           data-checkbox-group="snowboard_content"
                         >
                           <div class="form-check form-check-inline mb-0">
@@ -980,7 +1077,9 @@
                               id="contentCarving"
                               value="carving"
                             />
-                            <label class="form-check-label" for="contentCarving"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentCarving"
                               >Carving 刻滑</label
                             >
                           </div>
@@ -991,7 +1090,9 @@
                               id="contentRacing"
                               value="racing"
                             />
-                            <label class="form-check-label" for="contentRacing"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentRacing"
                               >Racing 競速</label
                             >
                           </div>
@@ -1002,7 +1103,9 @@
                               id="contentButter"
                               value="butter"
                             />
-                            <label class="form-check-label" for="contentButter"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentButter"
                               >Butter 平花</label
                             >
                           </div>
@@ -1013,7 +1116,9 @@
                               id="contentPark"
                               value="park"
                             />
-                            <label class="form-check-label" for="contentPark"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentPark"
                               >Park 跳台道具</label
                             >
                           </div>
@@ -1024,7 +1129,9 @@
                               id="contentPipe"
                               value="pipe"
                             />
-                            <label class="form-check-label" for="contentPipe"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentPipe"
                               >Pipe U 槽</label
                             >
                           </div>
@@ -1035,7 +1142,9 @@
                               id="contentMogul"
                               value="mogul"
                             />
-                            <label class="form-check-label" for="contentMogul"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentMogul"
                               >Mogul 蘑菇包</label
                             >
                           </div>
@@ -1046,7 +1155,9 @@
                               id="contentPowder"
                               value="powder"
                             />
-                            <label class="form-check-label" for="contentPowder"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentPowder"
                               >Powder 鬆雪</label
                             >
                           </div>
@@ -1057,7 +1168,9 @@
                               id="contentTreeRun"
                               value="treeRun"
                             />
-                            <label class="form-check-label" for="contentTreeRun"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="contentTreeRun"
                               >Tree Run 樹林</label
                             >
                           </div>
@@ -1069,7 +1182,7 @@
                           >對象</label
                         >
                         <div
-                          class="form-group check-button d-flex gap-3 w-100 flex-wrap"
+                          class="form-group check-button d-flex w-100 flex-wrap"
                           data-checkbox-group="snowboard_age"
                         >
                           <div class="form-check form-check-inline mb-0">
@@ -1080,7 +1193,7 @@
                               value="preschool"
                             />
                             <label
-                              class="form-check-label"
+                              class="form-check-label btn-check-l"
                               for="targetPreschool"
                               >幼兒 (4-6歲)</label
                             >
@@ -1092,7 +1205,9 @@
                               id="targetChild"
                               value="child"
                             />
-                            <label class="form-check-label" for="targetChild"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="targetChild"
                               >兒童 (7-10歲)</label
                             >
                           </div>
@@ -1104,7 +1219,7 @@
                               value="parentChild"
                             />
                             <label
-                              class="form-check-label"
+                              class="form-check-label btn-check-l"
                               for="targetParentChild"
                               >親子</label
                             >
@@ -1116,7 +1231,9 @@
                               id="targetSenior"
                               value="senior"
                             />
-                            <label class="form-check-label" for="targetSenior"
+                            <label
+                              class="form-check-label btn-check-l"
+                              for="targetSenior"
                               >高齡</label
                             >
                           </div>
@@ -1133,7 +1250,102 @@
                 aria-labelledby="pills-upload-tab"
                 tabindex="0"
               >
-                upload
+                <form class="form-upload">
+                  <!-- 照片上傳 -->
+                  <label
+                    class="form-label label-title d-flex align-items-center mb-3"
+                  >
+                    照片上傳<span class="mcq">(可上傳6張照片)</span>
+                  </label>
+                  <div class="upload-card upload-with-tag image-upload">
+                    <div class="d-flex justify-content-between mb-3">
+                      <p><span>0</span>新選取檔案</p>
+                      <div class="d-flex">
+                        <button
+                          id="addPicBtn"
+                          class="align-items-center addPicBtn d-none d-sm-flex"
+                          type="button"
+                        >
+                          新增圖片
+                        </button>
+                        <button
+                          id="deletePicBtn"
+                          class="d-flex align-items-center deletePicBtn"
+                          type="button"
+                        >
+                          全部移除
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="upload-area flex-column justify-content-center align-items-center text-center"
+                    >
+                      <div class="text-blue lh-sm fw-medium fs-6">
+                        可拖曳或直接點擊複選檔案<br />支援JPG與PNG圖檔,
+                        檔案大小6MB以下
+                      </div>
+                    </div>
+                    <div class="file-loading">
+                      <input
+                        id="input-image"
+                        type="file"
+                        multiple
+                        accept="image/*"
+                      />
+                    </div>
+                    <div
+                      id="system-alert"
+                      class="success"
+                      style="margin-top: 6px"
+                    >
+                      點擊照片設為封面
+                    </div>
+                  </div>
+                </form>
+                <form class="form-upload">
+                  <!-- 影片上傳 -->
+                  <label
+                    class="form-label label-title d-flex align-items-center mb-3"
+                  >
+                    影片上傳<span class="mcq">(可上傳2段影片)</span>
+                  </label>
+                  <div class="upload-card video-upload">
+                    <div class="d-flex justify-content-between mb-3">
+                      <p><span>0</span>新選取檔案</p>
+                      <div class="d-flex">
+                        <button
+                          id="addVideoBtn"
+                          class="d-flex align-items-center addPicBtn d-none d-sm-flex"
+                          type="button"
+                        >
+                          新增影片
+                        </button>
+                        <button
+                          id="deleteVideoBtn"
+                          class="d-flex align-items-center deletePicBtn"
+                          type="button"
+                        >
+                          全部移除
+                        </button>
+                      </div>
+                    </div>
+                    <div
+                      class="upload-area flex-column justify-content-center align-items-center text-center"
+                    >
+                      <div class="text-blue lh-sm fw-medium fs-6">
+                        可拖曳或直接點擊複選檔案<br />單一影片檔案上限為500mb，為避免檔案傳輸過程中發生錯誤，建議影片大小為200mb以下，或是先將影片壓縮轉檔後上傳
+                      </div>
+                    </div>
+                    <div class="file-loading">
+                      <input
+                        id="input-video"
+                        type="file"
+                        multiple
+                        accept="video/*"
+                      />
+                    </div>
+                  </div>
+                </form>
               </div>
               <div
                 class="tab-pane fade"
@@ -1144,8 +1356,11 @@
               >
                 <div class="userInfo-form">
                   <form id="verifyForm" class="row g-3">
+                    <label class="form-label label-title required">
+                      實名認證
+                    </label>
                     <div class="col-12 col-md-6">
-                      <label for="en_name" class="form-label required"
+                      <label for="en_name" class="form-label"
                         >真實英文名字</label
                       >
                       <input
@@ -1157,7 +1372,7 @@
                     </div>
                     <div class="offset-6 m-0"></div>
                     <div class="col-12 col-md-6">
-                      <label for="passportType" class="form-label required"
+                      <label for="passportType" class="form-label"
                         >護照種類</label
                       >
                       <select
@@ -1181,6 +1396,79 @@
                         required
                       />
                     </div>
+                    <div class="d-flex justify-content-between">
+                      <p class="text-green d-flex align-items-center gap-1">
+                        教練隱私保護
+                        <span
+                          data-bs-toggle="tooltip"
+                          data-bs-placement="bottom"
+                          data-bs-html="true"
+                          data-bs-offset="0,20"
+                          title="<div class='tooltip-msg rounded'>我們非常重視個人資料安全，將盡力確保教練個人資料安全<br>1. 不會將教練個資對外公開及轉作其它用途<br>2. 所有認證照片上傳後均會加上「SnowFun 滑雪趣」浮水印</div>"
+                        >
+                          <img src="./images/icon_faq.svg" />
+                        </span>
+                      </p>
+                      <a
+                        href="#"
+                        class="text-blue link-underline link-underline-opacity-0"
+                        >參考範例</a
+                      >
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div
+                        class="upload-pic-card passport d-flex flex-column justify-content-center align-items-center empty"
+                      >
+                        <button
+                          class="upload-btn fw-bold btn btn-outline-primary btn-outline-gray btn-rounded"
+                          data-target="passportInput"
+                          type="button"
+                        >
+                          上傳護照資料頁
+                        </button>
+                        <input
+                          type="file"
+                          id="passportInput"
+                          style="display: none"
+                          accept="image/*"
+                        />
+                        <button
+                          class="reupload-btn fw-bold btn btn-outline-primary btn-outline-gray btn-rounded"
+                          data-target="passportInput"
+                          type="button"
+                        >
+                          重新上傳護照資料頁
+                        </button>
+                      </div>
+                    </div>
+
+                    <div class="col-12 col-md-6">
+                      <div
+                        class="upload-pic-card idcard d-flex flex-column justify-content-center align-items-center empty"
+                      >
+                        <button
+                          class="upload-btn fw-bold btn btn-outline-primary btn-outline-gray btn-rounded"
+                          data-target="idcardInput"
+                          type="button"
+                        >
+                          上傳身分證正面
+                        </button>
+                        <input
+                          type="file"
+                          id="idcardInput"
+                          style="display: none"
+                          accept="image/*"
+                        />
+                        <button
+                          class="reupload-btn fw-bold btn btn-outline-primary btn-outline-gray btn-rounded"
+                          data-target="idcardInput"
+                          type="button"
+                        >
+                          重新上傳身分證正面
+                        </button>
+                      </div>
+                    </div>
+
                     <div class="col-12">
                       <label class="form-label label-title required">
                         薪資支付
@@ -1249,92 +1537,266 @@
                     <!-- 第一個條約 -->
                     <div class="accordion-item">
                       <div class="accordion-header" id="agreement-headingOne">
-                        <button class="accordion-button h2 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#agreement-collapseOne" aria-expanded="true" aria-controls="agreement-collapseOne">
+                        <button
+                          class="accordion-button h2 m-0"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#agreement-collapseOne"
+                          aria-expanded="true"
+                          aria-controls="agreement-collapseOne"
+                        >
                           個人教練合作契約
                         </button>
                       </div>
-                      <div id="agreement-collapseOne" class="accordion-collapse collapse show" aria-labelledby="agreement-headingOne" data-bs-parent="#pills-agreement">
+                      <div
+                        id="agreement-collapseOne"
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="agreement-headingOne"
+                        data-bs-parent="#pills-agreement"
+                      >
                         <div class="accordion-body position-relative">
-                          <div class="check-bottom position-absolute bottom-0 start-0 w-100 bg-white p-3">
-                            <div class="form-check p-0 d-flex align-items-center">
-                              <input class="form-check-input" type="checkbox" id="agreementCheck1" required />
-                              <label class="form-check-label" for="agreementCheck1" >
-                                *本人已閱讀並同意以上合作條約
+                          <div
+                            class="check-bottom position-absolute bottom-0 start-0 w-100 bg-white p-3"
+                          >
+                            <div class="form-check p-0 d-flex align-items-end">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="agreementCheck1"
+                                required
+                              />
+                              <label
+                                class="form-check-label required ms-2"
+                                for="agreementCheck1"
+                              >
+                                本人已閱讀並同意以上合作條約
                               </label>
-                              <p id="agreementCheck1-error" class="text-danger small visually-hidden mt-2">
+                              <p
+                                id="agreementCheck1-error"
+                                class="text-danger small visually-hidden mt-2"
+                              >
                                 請勾選同意合作契約內容才能進行下一步。
                               </p>
                             </div>
                           </div>
-                          <div class="pe-3 pb-5" style="height: 300px;overflow-y: auto;">
-                            <ol class="text-secondary small" style="line-height: 1.25rem;" >
-                               <li>1.一旦完成教學預訂， 不得變更原預訂內容， 所有變更情事都將視為取消課程， 需重新預訂。</li>
-                               <li>2.在約定教學日前 31 天以上申請取消課程， 退還全額款項。</li>
-                               <li>3.在約定教學日前 15-30 天內申請取消課程， 退還款項的 80%。</li>
-                               <li>4.在約定教學日前 8-14 天內申請取消課程， 退還款項的 50%。</li>
-                               <li>5.在約定教學日前 1-7 天內申請取消課程， 退還款項的 20%。</li>
-                               <li>6.在約定教學日當天申請取消課程， 不予退款。</li>
-                               <li>7.除上述第 (6) 項外， 退還款項將另扣除手續費， 為款項原價的 5%。</li>
-                               <li>8.在約定教學日當天，除因遭遇因天氣因素造成滑雪場關閉(需有滑雪場公告)無法上課之外，其他任何因學生方因素導致無法上課之情況，款項均無法退還。</li>
-                               <li>9.因教練方個人因素取消課程， 退還全額款項。</li>
-                               <li>10.在預定課程前， 付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻， 若發生意外可能導致受傷或死亡， 於報名時應盡力提供真實且詳盡之健康資料， 以利教練接課時評估。 </li>
-                               <li>11.在課程開始前、 期間或之後所發生的任何私人設備或財物之遺失或損壞， 本平台不承擔任何形式責任。</li>
-                               <li>12.在課程開始前、 期間或之後所發生的任何傷害或事故， 本平台不承擔任何形式之責任。</li>
-                               <li>13.在課程開始前， 建議至少提早 30 分鐘到達與教練約定之集合點， 務必檢查及帶齊必要之滑雪裝備器材及衣著， 如因個人因素（例如： 未帶手套、 雪鞋尺寸不合... 等）造成更換設備的費用或課程時間損失， 本平台將不提供任何退款、 延時或補時。
-                                </li>
-                               <li>14.課程期間基於安全考量， 應聽從教練之建議及指示， 經屢勸不聽者（例如： 擅自脫隊、 破壞雪場設施... 等）， 教練有權立即中止契約及提供課程服務， 亦無法退費。
+                          <div
+                            class="pe-3 pb-5"
+                            style="height: 300px; overflow-y: auto"
+                          >
+                            <ol
+                              class="text-secondary small"
+                              style="line-height: 1.25rem"
+                            >
+                              <li>
+                                1.一旦完成教學預訂， 不得變更原預訂內容，
+                                所有變更情事都將視為取消課程， 需重新預訂。
                               </li>
-                               <li>15.課程期間， 由教練或本平台聘請人員拍攝之照片， 除「單人之正面清晰人像獨照」會徵求當事人同意外， 報名者皆同意本平台使用其餘照片（例如： 課程經驗分享及宣傳... 等）。
+                              <li>
+                                2.在約定教學日前 31 天以上申請取消課程，
+                                退還全額款項。
                               </li>
-                               <li>16.雪地戶外運動若發生意外可能導致受傷或死亡， 建議報名者及同行人員可自行投保旅平險、 醫療險或相關戶外活動保險... 等。
+                              <li>
+                                3.在約定教學日前 15-30 天內申請取消課程，
+                                退還款項的 80%。
+                              </li>
+                              <li>
+                                4.在約定教學日前 8-14 天內申請取消課程，
+                                退還款項的 50%。
+                              </li>
+                              <li>
+                                5.在約定教學日前 1-7 天內申請取消課程，
+                                退還款項的 20%。
+                              </li>
+                              <li>
+                                6.在約定教學日當天申請取消課程， 不予退款。
+                              </li>
+                              <li>
+                                7.除上述第 (6) 項外， 退還款項將另扣除手續費，
+                                為款項原價的 5%。
+                              </li>
+                              <li>
+                                8.在約定教學日當天，除因遭遇因天氣因素造成滑雪場關閉(需有滑雪場公告)無法上課之外，其他任何因學生方因素導致無法上課之情況，款項均無法退還。
+                              </li>
+                              <li>
+                                9.因教練方個人因素取消課程， 退還全額款項。
+                              </li>
+                              <li>
+                                10.在預定課程前，
+                                付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻，
+                                若發生意外可能導致受傷或死亡，
+                                於報名時應盡力提供真實且詳盡之健康資料，
+                                以利教練接課時評估。
+                              </li>
+                              <li>
+                                11.在課程開始前、
+                                期間或之後所發生的任何私人設備或財物之遺失或損壞，
+                                本平台不承擔任何形式責任。
+                              </li>
+                              <li>
+                                12.在課程開始前、
+                                期間或之後所發生的任何傷害或事故，
+                                本平台不承擔任何形式之責任。
+                              </li>
+                              <li>
+                                13.在課程開始前， 建議至少提早 30
+                                分鐘到達與教練約定之集合點，
+                                務必檢查及帶齊必要之滑雪裝備器材及衣著，
+                                如因個人因素（例如： 未帶手套、 雪鞋尺寸不合...
+                                等）造成更換設備的費用或課程時間損失，
+                                本平台將不提供任何退款、 延時或補時。
+                              </li>
+                              <li>
+                                14.課程期間基於安全考量，
+                                應聽從教練之建議及指示， 經屢勸不聽者（例如：
+                                擅自脫隊、 破壞雪場設施... 等），
+                                教練有權立即中止契約及提供課程服務，
+                                亦無法退費。
+                              </li>
+                              <li>
+                                15.課程期間， 由教練或本平台聘請人員拍攝之照片，
+                                除「單人之正面清晰人像獨照」會徵求當事人同意外，
+                                報名者皆同意本平台使用其餘照片（例如：
+                                課程經驗分享及宣傳... 等）。
+                              </li>
+                              <li>
+                                16.雪地戶外運動若發生意外可能導致受傷或死亡，
+                                建議報名者及同行人員可自行投保旅平險、
+                                醫療險或相關戶外活動保險... 等。
                               </li>
                             </ol>
                           </div>
                         </div>
                       </div>
                     </div>
-                  
+
                     <!-- 第二個條約 -->
                     <div class="accordion-item">
                       <div class="accordion-header" id="agreement-headingTwo">
-                        <button class="accordion-button collapsed h2 m-0" type="button" data-bs-toggle="collapse" data-bs-target="#agreement-collapseTwo" aria-expanded="false" aria-controls="agreement-collapseTwo">
+                        <button
+                          class="accordion-button collapsed h2 m-0"
+                          type="button"
+                          data-bs-toggle="collapse"
+                          data-bs-target="#agreement-collapseTwo"
+                          aria-expanded="false"
+                          aria-controls="agreement-collapseTwo"
+                        >
                           滑雪趣註冊協定
                         </button>
                       </div>
-                      <div id="agreement-collapseTwo" class="accordion-collapse collapse" aria-labelledby="agreement-headingTwo" data-bs-parent="#pills-agreement">
+                      <div
+                        id="agreement-collapseTwo"
+                        class="accordion-collapse collapse"
+                        aria-labelledby="agreement-headingTwo"
+                        data-bs-parent="#pills-agreement"
+                      >
                         <div class="accordion-body position-relative">
-                          <div class="check-bottom position-absolute bottom-0 start-0 w-100 bg-white p-3">
-                            <div class="form-check p-0 d-flex align-items-center">
-                              <input class="form-check-input" type="checkbox" id="agreementCheck2" required />
-                              <label class="form-check-label" for="agreementCheck2">
-                                *本人已閱讀並同意以上合作條約
+                          <div
+                            class="check-bottom position-absolute bottom-0 start-0 w-100 bg-white p-3"
+                          >
+                            <div class="form-check p-0 d-flex align-items-end">
+                              <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="agreementCheck2"
+                                required
+                              />
+                              <label
+                                class="form-check-label required ms-2"
+                                for="agreementCheck2"
+                              >
+                                本人已閱讀並同意以上合作條約
                               </label>
-                              <p id="agreementCheck2-error" class="text-danger small visually-hidden mt-2">
+                              <p
+                                id="agreementCheck2-error"
+                                class="text-danger small visually-hidden mt-2"
+                              >
                                 請勾選同意合作契約內容才能進行下一步。
                               </p>
                             </div>
                           </div>
-                          <div class="pe-3 pb-5" style="height: 300px;overflow-y: auto;">
-                            <ol class="text-secondary small" style="line-height: 1.25rem;" >
-                               <li>1.一旦完成教學預訂， 不得變更原預訂內容， 所有變更情事都將視為取消課程， 需重新預訂。</li>
-                               <li>2.在約定教學日前 31 天以上申請取消課程， 退還全額款項。</li>
-                               <li>3.在約定教學日前 15-30 天內申請取消課程， 退還款項的 80%。</li>
-                               <li>4.在約定教學日前 8-14 天內申請取消課程， 退還款項的 50%。</li>
-                               <li>5.在約定教學日前 1-7 天內申請取消課程， 退還款項的 20%。</li>
-                               <li>6.在約定教學日當天申請取消課程， 不予退款。</li>
-                               <li>7.除上述第 (6) 項外， 退還款項將另扣除手續費， 為款項原價的 5%。</li>
-                               <li>8.在約定教學日當天，除因遭遇因天氣因素造成滑雪場關閉(需有滑雪場公告)無法上課之外，其他任何因學生方因素導致無法上課之情況，款項均無法退還。</li>
-                               <li>9.因教練方個人因素取消課程， 退還全額款項。</li>
-                               <li>10.在預定課程前， 付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻， 若發生意外可能導致受傷或死亡， 於報名時應盡力提供真實且詳盡之健康資料， 以利教練接課時評估。 </li>
-                               <li>11.在課程開始前、 期間或之後所發生的任何私人設備或財物之遺失或損壞， 本平台不承擔任何形式責任。</li>
-                               <li>12.在課程開始前、 期間或之後所發生的任何傷害或事故， 本平台不承擔任何形式之責任。</li>
-                               <li>13.在課程開始前， 建議至少提早 30 分鐘到達與教練約定之集合點， 務必檢查及帶齊必要之滑雪裝備器材及衣著， 如因個人因素（例如： 未帶手套、 雪鞋尺寸不合... 等）造成更換設備的費用或課程時間損失， 本平台將不提供任何退款、 延時或補時。
-                                </li>
-                               <li>14.課程期間基於安全考量， 應聽從教練之建議及指示， 經屢勸不聽者（例如： 擅自脫隊、 破壞雪場設施... 等）， 教練有權立即中止契約及提供課程服務， 亦無法退費。
+                          <div
+                            class="pe-3 pb-5"
+                            style="height: 300px; overflow-y: auto"
+                          >
+                            <ol
+                              class="text-secondary small"
+                              style="line-height: 1.25rem"
+                            >
+                              <li>
+                                1.一旦完成教學預訂， 不得變更原預訂內容，
+                                所有變更情事都將視為取消課程， 需重新預訂。
                               </li>
-                               <li>15.課程期間， 由教練或本平台聘請人員拍攝之照片， 除「單人之正面清晰人像獨照」會徵求當事人同意外， 報名者皆同意本平台使用其餘照片（例如： 課程經驗分享及宣傳... 等）。
+                              <li>
+                                2.在約定教學日前 31 天以上申請取消課程，
+                                退還全額款項。
                               </li>
-                               <li>16.雪地戶外運動若發生意外可能導致受傷或死亡， 建議報名者及同行人員可自行投保旅平險、 醫療險或相關戶外活動保險... 等。
+                              <li>
+                                3.在約定教學日前 15-30 天內申請取消課程，
+                                退還款項的 80%。
+                              </li>
+                              <li>
+                                4.在約定教學日前 8-14 天內申請取消課程，
+                                退還款項的 50%。
+                              </li>
+                              <li>
+                                5.在約定教學日前 1-7 天內申請取消課程，
+                                退還款項的 20%。
+                              </li>
+                              <li>
+                                6.在約定教學日當天申請取消課程， 不予退款。
+                              </li>
+                              <li>
+                                7.除上述第 (6) 項外， 退還款項將另扣除手續費，
+                                為款項原價的 5%。
+                              </li>
+                              <li>
+                                8.在約定教學日當天，除因遭遇因天氣因素造成滑雪場關閉(需有滑雪場公告)無法上課之外，其他任何因學生方因素導致無法上課之情況，款項均無法退還。
+                              </li>
+                              <li>
+                                9.因教練方個人因素取消課程， 退還全額款項。
+                              </li>
+                              <li>
+                                10.在預定課程前，
+                                付款人及其他同行人員皆已了解並同意雪地戶外運動有相對之體能與經驗要求之門檻，
+                                若發生意外可能導致受傷或死亡，
+                                於報名時應盡力提供真實且詳盡之健康資料，
+                                以利教練接課時評估。
+                              </li>
+                              <li>
+                                11.在課程開始前、
+                                期間或之後所發生的任何私人設備或財物之遺失或損壞，
+                                本平台不承擔任何形式責任。
+                              </li>
+                              <li>
+                                12.在課程開始前、
+                                期間或之後所發生的任何傷害或事故，
+                                本平台不承擔任何形式之責任。
+                              </li>
+                              <li>
+                                13.在課程開始前， 建議至少提早 30
+                                分鐘到達與教練約定之集合點，
+                                務必檢查及帶齊必要之滑雪裝備器材及衣著，
+                                如因個人因素（例如： 未帶手套、 雪鞋尺寸不合...
+                                等）造成更換設備的費用或課程時間損失，
+                                本平台將不提供任何退款、 延時或補時。
+                              </li>
+                              <li>
+                                14.課程期間基於安全考量，
+                                應聽從教練之建議及指示， 經屢勸不聽者（例如：
+                                擅自脫隊、 破壞雪場設施... 等），
+                                教練有權立即中止契約及提供課程服務，
+                                亦無法退費。
+                              </li>
+                              <li>
+                                15.課程期間， 由教練或本平台聘請人員拍攝之照片，
+                                除「單人之正面清晰人像獨照」會徵求當事人同意外，
+                                報名者皆同意本平台使用其餘照片（例如：
+                                課程經驗分享及宣傳... 等）。
+                              </li>
+                              <li>
+                                16.雪地戶外運動若發生意外可能導致受傷或死亡，
+                                建議報名者及同行人員可自行投保旅平險、
+                                醫療險或相關戶外活動保險... 等。
                               </li>
                             </ol>
                           </div>
@@ -1357,19 +1819,19 @@
           <button
             id="btn-prev"
             data-direction="prev"
-            class="d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded"
+            class="d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-m"
           >
             上一步
           </button>
           <button
-            class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save"
+            class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save btn-m"
           >
             暫存
           </button>
           <button
             id="btn-next"
             data-direction="next"
-            class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center"
+            class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center btn-m"
           >
             下一步
             <img src="./images/icon_arrow_right.svg" />
@@ -1601,7 +2063,68 @@
       </footer>
       <!-- 登入 modal -->
       <div id="sharedModalContainer"></div>
+      <!-- 上傳照片 Modal -->
+      <div
+        class="modal fade"
+        id="fileUploadModal"
+        tabindex="-1"
+        aria-labelledby="fileUploadModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-body">
+              <button
+                type="button"
+                class="btn-close btn-close-black"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+              <div class="container kv-main">
+                <form id="upload-form" enctype="multipart/form-data">
+                  <input id="file-upload-image" type="file" multiple />
+                  <p class="d-flex justify-content-end upload-memo">
+                    支援檔案格式：JPG、PNG
+                  </p>
+                  <div class="my-4">
+                    <label class="form-label">證照</label>
+                    <div class="d-flex flex-column gap-3">
+                      <select
+                        id="picLicense1"
+                        class="form-select select-placeholder"
+                        required
+                      >
+                        <option value="" disabled selected hidden>
+                          請選擇
+                        </option>
+                        <option value="test">test</option>
+                      </select>
+                      <select
+                        id="picLicense2"
+                        class="form-select select-placeholder"
+                        required
+                      >
+                        <option value="" disabled selected hidden>
+                          請選擇
+                        </option>
+                        <option value="test">test</option>
+                      </select>
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary w-100 fs-6 fw-medium rounded-pill btn-submit"
+                  >
+                    確定
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </main>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -1615,8 +2138,45 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/buffer.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/filetype.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/piexif.min.js"
+      type="text/javascript"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/sortable.min.js"
+      type="text/javascript"
+    ></script>
+    <!-- the main fileinput plugin script JS file -->
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"></script>
+
+    <!-- following theme script is needed to use the Font Awesome 5.x theme (`fa5`). Uncomment if needed. -->
+    <!-- script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/themes/fa5/theme.min.js"></script -->
+
+    <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
+    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/zh-TW.js"></script>
+
     <script src="./js/login.js"></script>
     <script src="./js/user.js"></script>
+    <script src="./js/uploadImage.js"></script>
+
+    <!-- tooltip -->
+    <script>
+      var tooltipTriggerList = [].slice.call(
+        document.querySelectorAll('[data-bs-toggle="tooltip"]')
+      );
+      var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+      });
+    </script>
 
     <script>
       // tab 切換
@@ -1670,6 +2230,35 @@
           url.searchParams.set(key, value);
           window.history.replaceState({}, "", url);
         }
+
+        // 點擊 .camera-file 時觸發文件選擇框
+        $(".camera-file").click(function () {
+          $("#fileInput").click();
+        });
+
+        // 當選擇了圖像文件後
+        $("#fileInput").change(function (event) {
+          const file = event.target.files[0];
+
+          // 檢查是否選擇了文件並且是圖片
+          if (file && file.type.startsWith("image/")) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+              $(".profile-card .user-avatar").css({
+                "background-image": `url(${e.target.result})`,
+                "background-size": "cover",
+                "background-position": "center",
+                "background-repeat": "no-repeat",
+              });
+            };
+
+            // 讀取文件為 Data URL
+            reader.readAsDataURL(file);
+          } else {
+            alert("請選擇有效的圖檔格式！");
+          }
+        });
       });
     </script>
     <script>
@@ -1781,7 +2370,7 @@
         // 所有社群欄位 ID
         const socialIds = ["line", "wechat", "facebook", "whatsApp"];
         const socialSelectors = socialIds.map((id) => `#${id}`);
-        
+
         // 手風琴判斷
         if ($form.attr("id") === "agreementForm") {
           let firstInvalidAccordionId = null;
@@ -1970,6 +2559,39 @@
         $(window).on("resize", function () {
           updateViewBasedOnStatusAndWidth();
         });
+      });
+
+      // ///===護照 身分證===///
+      // 綁定上傳與重新上傳按鈕
+      $(".upload-btn, .reupload-btn").on("click", function () {
+        const targetInputId = $(this).data("target");
+        $("#" + targetInputId).click();
+      });
+
+      // 處理圖片選擇
+      $("input[type='file'][accept^='image/']").on("change", function (event) {
+        const file = event.target.files[0];
+        const inputId = $(this).attr("id");
+        const cardClass = inputId.includes("passport") ? "passport" : "idcard";
+        const $card = $(".upload-pic-card." + cardClass);
+
+        if (file && file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            $card.css({
+              "background-image": `url(${e.target.result})`,
+              "background-size": "cover",
+              "background-position": "center",
+              "background-repeat": "no-repeat",
+            });
+          };
+          reader.readAsDataURL(file);
+          $card.removeClass("empty");
+        } else {
+          alert("請選擇有效的圖檔格式！");
+          $card.addClass("empty").css("background-image", "none");
+          $(this).val(""); // 清除錯誤檔案
+        }
       });
     </script>
   </body>
