@@ -548,6 +548,10 @@ form .label-title.required::before {
     height: 150px;
   }
 }
+.upload-card .stock {
+  color: #ed8c19;
+  margin-right: 4px;
+}
 
 /* upload tag */
 .upload-with-tag

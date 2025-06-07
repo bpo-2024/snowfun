@@ -657,7 +657,10 @@
                     aria-labelledby="pills-skis-tab"
                     tabindex="0"
                   >
-                    <form id="skillForm_skis" class="row g-3">
+                    <form
+                      id="skillForm_skis"
+                      class="row g-0 g-sm-3 justify-content-center"
+                    >
                       <!-- 雙板國際證照上傳 -->
                       <label
                         class="form-label required label-title d-flex align-items-center"
@@ -987,8 +990,74 @@
                   >
                     <form
                       id="skillForm_snowboard"
-                      class="row g-3 userInfo-form"
+                      class="row g-0 g-sm-3 justify-content-center"
                     >
+                      <!-- 單板國際證照上傳 -->
+                      <label
+                        class="form-label required label-title d-flex align-items-center"
+                      >
+                        單板國際證照上傳
+                      </label>
+                      <div
+                        class="row row-cols-2 row-cols-md-2 row-cols-xxl-3 gap-xxl-3 gap-2"
+                      >
+                        <div
+                          class="add-license-card d-flex justify-content-center align-items-center flex-column gap-2"
+                          data-bs-toggle="modal"
+                          data-bs-target="#fileUploadModal"
+                        >
+                          <p>新增國際證照</p>
+                        </div>
+                        <div
+                          class="license-card d-flex align-items-center create-license"
+                        >
+                          <div class="license-card-img"></div>
+                          <div
+                            class="d-flex justify-content-between flex-grow-1"
+                          >
+                            <div class="d-flex flex-column gap-2">
+                              加拿大CSIA
+                              <span class="license-level">Level1 雙板</span>
+                            </div>
+                            <div
+                              class="d-flex flex-column license-button-group justify-content-center"
+                            >
+                              <button
+                                type="button"
+                                class="btn btn-edit"
+                              ></button>
+                              <button
+                                type="button"
+                                class="btn btn-delete"
+                              ></button>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="license-card d-flex align-items-center">
+                          <div class="license-card-img"></div>
+                          <div
+                            class="d-flex justify-content-between flex-grow-1"
+                          >
+                            <div class="d-flex flex-column gap-2">
+                              紐西蘭NZSIA
+                              <span class="license-level">Level1 雙板</span>
+                            </div>
+                            <div
+                              class="d-flex flex-column license-button-group justify-content-center"
+                            >
+                              <button
+                                type="button"
+                                class="btn btn-edit"
+                              ></button>
+                              <button
+                                type="button"
+                                class="btn btn-delete"
+                              ></button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <hr class="hr" />
                       <!-- 單板專長教學項目 -->
                       <label class="form-label required label-title">
                         單板專長教學項目 <span class="mcq">(可複選)</span>
@@ -1259,7 +1328,7 @@
                   </label>
                   <div class="upload-card upload-with-tag image-upload">
                     <div class="d-flex justify-content-between mb-3">
-                      <p><span>0</span>新選取檔案</p>
+                      <p><span id="image-upload-num">0</span>新選取檔案</p>
                       <div class="d-flex">
                         <button
                           id="addPicBtn"
@@ -1291,6 +1360,7 @@
                         type="file"
                         multiple
                         accept="image/*"
+                        required
                       />
                     </div>
                     <div
@@ -1311,7 +1381,7 @@
                   </label>
                   <div class="upload-card video-upload">
                     <div class="d-flex justify-content-between mb-3">
-                      <p><span>0</span>新選取檔案</p>
+                      <p><span id="video-upload-num">0</span>新選取檔案</p>
                       <div class="d-flex">
                         <button
                           id="addVideoBtn"
@@ -1342,6 +1412,7 @@
                         type="file"
                         multiple
                         accept="video/*"
+                        required
                       />
                     </div>
                   </div>
@@ -1431,6 +1502,7 @@
                           id="passportInput"
                           style="display: none"
                           accept="image/*"
+                          required
                         />
                         <button
                           class="reupload-btn fw-bold btn btn-outline-primary btn-outline-gray btn-rounded"
@@ -1458,6 +1530,7 @@
                           id="idcardInput"
                           style="display: none"
                           accept="image/*"
+                          required
                         />
                         <button
                           class="reupload-btn fw-bold btn btn-outline-primary btn-outline-gray btn-rounded"
@@ -1571,13 +1644,13 @@
                               >
                                 本人已閱讀並同意以上合作條約
                               </label>
-                              <p
-                                id="agreementCheck1-error"
-                                class="text-danger small visually-hidden mt-2"
-                              >
-                                請勾選同意合作契約內容才能進行下一步。
-                              </p>
                             </div>
+                            <p
+                              id="agreementCheck1-error"
+                              class="text-danger small visually-hidden mt-2 ms-4"
+                            >
+                              請勾選同意合作契約內容才能進行下一步。
+                            </p>
                           </div>
                           <div
                             class="pe-3 pb-5"
@@ -1706,13 +1779,13 @@
                               >
                                 本人已閱讀並同意以上合作條約
                               </label>
-                              <p
-                                id="agreementCheck2-error"
-                                class="text-danger small visually-hidden mt-2"
-                              >
-                                請勾選同意合作契約內容才能進行下一步。
-                              </p>
                             </div>
+                            <p
+                              id="agreementCheck2-error"
+                              class="text-danger small visually-hidden mt-2 ms-4"
+                            >
+                              請勾選同意合作契約內容才能進行下一步。
+                            </p>
                           </div>
                           <div
                             class="pe-3 pb-5"

@@ -171,9 +171,20 @@ $(document).ready(function() {
       console.log('File Uploaded pic', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
     }).on('fileuploaderror', function(event, data, msg) {
         console.log('File Upload Error pic', 'ID: ' + data.fileId + ', Thumb ID: ' + data.previewId);
-    }).on('filebatchuploadcomplete pic', function(event, preview, config, tags, extraData) {
+    }).on('filebatchuploadcomplete', function(event, preview, config, tags, extraData) {
         console.log('File Batch Uploaded', preview, config, tags, extraData);
-    });;
+    });
+  
+  $('#input-image').on('change', function () {
+  const count = this.files.length;
+    // 用原生方式取得目前選取的檔案數
+    const fileCount = this.files.length;
+
+    // 更新文字與加上 class
+    $('#image-upload-num')
+      .text(fileCount)
+      .addClass('stock');
+  });
   
   $('#addPicBtn, .image-upload .upload-area, .image-upload .file-preview').on('click', function (e) {
   // 如果點到的是影片預覽區，就不要觸發
@@ -216,6 +227,7 @@ $(document).ready(function() {
     theme: "explorer",
     uploadUrl: "/",
     language: "zh-TW",
+    uploadAsync: false,
     showRemove: false,
     overwriteInitial: false,
     initialPreviewAsData: true,
@@ -229,23 +241,39 @@ $(document).ready(function() {
     msgSizeTooLarge:
       '檔案 "{name}" (大小: {size} KB) 超過了允許的最大大小 {maxSize} KB。檔案請小於6000 KB。',
     msgUploadError: "上傳錯誤",
-    msgProcessing: "處理中...",
-  }).on('fileuploaded', function(event, previewId, index, fileId) {
-        console.log('File Uploaded', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
-    }).on('fileuploaderror', function(event, previewId, index, fileId) {
-        console.log('File Upload Error', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
-    }).on('filebatchuploadcomplete', function(event, preview, config, tags, extraData) {
-        console.log('File Batch Uploaded', preview, config, tags, extraData);
+    msgProcessing: "<div class='d-flex flex-column align-items-center'><img width='60' src='./images/icon_loading.svg'><div class='msgProcessing text-blue lh-sm fw-medium fs-6'>可拖曳或直接點擊複選檔案<br>單一影片檔案上限為500mb，為避免檔案傳輸過程中發生錯誤，建議影片大小為200mb以下，或是先將影片壓縮轉檔後上傳</div></div> ",
+    }).on('fileuploaded', function(event, previewId, index, fileId) {
+          console.log('File Uploaded', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
+      }).on('fileuploaderror', function(event, previewId, index, fileId) {
+          console.log('File Upload Error', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
+      }).on('filebatchuploadcomplete', function(event, preview, config, tags, extraData) {
+          console.log('File Batch Uploaded', preview, config, tags, extraData);
+      }).on('filebatchselected', function(event, files) {
+      var pending = $('#input-video').fileinput('getFileStack').length;
+      console.log('選取新檔案，待上傳數量:', pending, files.length);
+    });
+    
+
+    
+    $('#addVideoBtn, .video-upload .upload-area, .video-upload .file-preview').on('click', function (e) {
+    // 如果點到的是影片預覽區，就不要觸發
+    if (
+      $(e.target).closest('.kv-file-content, .kv-file-remove, .kv-file-upload, .kv-file-zoom, .fileinput-remove, .file-error-message').length > 0
+    ) return;
+    // 其他地方可以觸發開啟檔案選擇
+    $('#input-video').trigger('click');
     });
   
-  $('#addVideoBtn, .video-upload .upload-area, .video-upload .file-preview').on('click', function (e) {
-  // 如果點到的是影片預覽區，就不要觸發
-  if (
-    $(e.target).closest('.kv-file-content, .kv-file-remove, .kv-file-upload, .kv-file-zoom, .fileinput-remove, .file-error-message').length > 0
-  ) return;
-  // 其他地方可以觸發開啟檔案選擇
-  $('#input-video').trigger('click');
-});
+   $('#input-video').on('change', function () {
+    const count = this.files.length;
+      // 用原生方式取得目前選取的檔案數
+      const fileCount = this.files.length;
+
+      // 更新文字與加上 class
+      $('#video-upload-num')
+        .text(fileCount)
+        .addClass('stock');
+    });
 
   // upload-area show / hidden
   function updateUploadAreaVisibility() {
