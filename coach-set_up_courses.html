@@ -18,7 +18,7 @@
  <link href="./style/user-profile.css" rel="stylesheet" />
  <link href="./style/user-bookings.css" rel="stylesheet" />
  <link href="./style/member-center.css" rel="stylesheet" />
-
+ <link href="./style/coach-set_up_courses.css" rel="stylesheet" />
   </head>
   <body>
     <main>
@@ -159,8 +159,8 @@
               </li>
             </ul>
           </div>
-          <div id="right-side" class="flex-grow-1">
-            <div  class="d-flex justify-content-between">
+          <div id="right-side" class="flex-grow-1 ">
+            <div  class="d-flex justify-content-between pb-3">
               <div>
                 <a class="page-arrow" href="coach-profile.html"></a>
                 <h2>開課設定</h2>
@@ -168,17 +168,15 @@
                   注意：切換設定選項後必須點選「儲存」後才會生效
                 </p>
               </div>
-             
               <div class="d-none gap-3 d-lg-flex">
                 <button
-                  class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save btn-m"
+                  class="btn btn-primary btn-rounded btn-save btn-m align-items-center d-flex justify-content-center"
                 >
-                  儲存
+                  儲存<img src="./images/icon_arrow_right.svg">
                 </button>
               </div>
             </div>
-            
-            <ul class="nav mt-3" id="pills-tab" role="tablist">
+            <ul class="nav nav-tabs mt-3" id="pills-tab" role="tablist">
               <li class="nav-item default-tab" role="presentation">
                 <button
                   class="nav-link active"
@@ -216,21 +214,45 @@
                 aria-labelledby="pills-future-tab"
                 tabindex="0"
               >
+                <div class="form-check mb-1 d-flex align-items-center option-setting">
+                  <input class="form-check-input p-1" type="checkbox" id="option1" checked disabled>
+                  <label class="form-check-label p-2" for="option1">
+                    單次訂課10小時以上再95折 <span class="text-primary-blue">(必選)</span>
+                  </label>
+                </div>
+                <div class="form-check mb-1 d-flex align-items-start option-setting">
+                  <input class="form-check-input mt-3" type="checkbox" id="option2" checked>
+                  <label class="form-check-label p-2" for="option2">
+                    啟用旺季收費，旺季期間：
+                    <span class="text-primary-blue">(需啟用才能設定)</span><br>
+                    聖誕跨年2024/12/21～2025/01/05、農曆新年2025/01/18～2025/02/08
+                  </label>
+                </div>
+       
+                <div class="d-flex align-items-center justify-content-between  mt-3 mb-3 ">
+                           <!-- 類型切換 Tabs -->
+                <ul class="nav form-check-inline" id="typeTabs" role="tablist">
+                  <li class="" role="presentation">
+                    <button class="form-check-label active btn-rounded" id="half-tab" data-bs-toggle="tab" data-bs-target="#half" type="button" role="tab">半天設定</button>
+                  </li>
+                  <li class="" role="presentation">
+                    <button class="form-check-label btn-rounded" id="full-tab" data-bs-toggle="tab" data-bs-target="#full" type="button" role="tab">全天設定</button>
+                  </li>
+                </ul>
+                    <!-- 新增按鈕 -->
+                <button class="btn btn-primary btn-rounded btn-m" data-bs-toggle="modal" data-bs-target="#priceModal">新增收費設定</button>
+                </div>
+                <div class="tab-content" id="resultTabs">
+                  <div class="tab-pane fade show active" id="half" role="tabpanel"></div>
+                  <div class="tab-pane fade" id="full" role="tabpanel"></div>
+                </div>
               
-              <!-- 開啟彈窗按鈕 -->
-              <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#priceModal" id="addNewBtn">
-                新增收費設定
-              </button>
-
-              <!-- 顯示設定結果 -->
-              <ul id="resultArea" class="list-group"></ul>
-
-              <!-- Modal 彈窗 -->
+                <!-- Modal 彈窗 -->
                 <div class="modal fade" id="priceModal" tabindex="-1">
                   <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title">平季收費設定</h5>
+                        <h5 class="modal-title" id="modalTitle">半天收費設定</h5>
                         <button class="btn-close" data-bs-dismiss="modal"></button>
                       </div>
                       <div class="modal-body">
@@ -244,12 +266,20 @@
                         </select>
                       </div>
                       <div class="modal-footer">
-                        <button class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-                        <button class="btn btn-primary" id="saveBtn">確認</button>
+                        <button class="btn btn-secondary" id="nextBtn">繼續下一步</button>
+                        <button class="btn btn-primary d-none" id="confirmBtn">確認</button>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div
+              class="tab-pane fade"
+              id="pills-history"
+              role="tabpanel"
+              aria-labelledby="pills-future-tab"
+              tabindex="0"
+            >
       </section>
      
       <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
@@ -500,13 +530,15 @@
     <script src="./js/user.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
+        let storedData = JSON.parse(localStorage.getItem('priceCards')) || [];
         const priceInputs = document.getElementById('priceInputs');
-        const saveBtn = document.getElementById('saveBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const confirmBtn = document.getElementById('confirmBtn');
         const resortsSelect = document.getElementById('resortsSelect');
-        const resultArea = document.getElementById('resultArea');
-        const modal = new bootstrap.Modal(document.getElementById('priceModal'));
-    
-        let editingCard = null;
+        const modalTitle = document.getElementById('modalTitle');
+        const modalEl = document.getElementById('priceModal');
+        const modal = new bootstrap.Modal(modalEl);
+        let stage = 'half'; // 初始狀態
     
         function renderInputs(data = {}) {
           priceInputs.innerHTML = '';
@@ -532,53 +564,110 @@
           input.value = value;
         }
     
-        saveBtn.onclick = () => {
+        nextBtn.onclick = () => {
+          stage = 'full';
+          modalTitle.textContent = '全天收費設定';
+          nextBtn.classList.add('d-none');
+          confirmBtn.classList.remove('d-none');
+        };
+    
+        confirmBtn.onclick = () => {
           const data = {};
           for (let i = 1; i <= 6; i++) {
             data[`p${i}`] = Math.max(1000, parseInt(document.getElementById(`p${i}`).value));
           }
-    
           const selected = Array.from(resortsSelect.selectedOptions).map(opt => opt.value);
           if (selected.length === 0) return alert('請選擇至少一個雪場');
     
+          const container = document.getElementById(stage);
           const card = document.createElement('div');
           card.className = 'price-card position-relative';
           card.innerHTML = `
             <div class="d-flex justify-content-between">
               <div class="nav nav-tabs mb-2">
                 <span class="nav-link active">平季收費</span>
+                <span class="nav-link disabled">旺季收費</span>
               </div>
               <div class="action-icons">
                 <button class="btn btn-sm text-primary edit">✏️</button>
                 <button class="btn btn-sm text-danger delete">🗑</button>
               </div>
             </div>
-            <div class="d-flex justify-content-between flex-wrap">
-              ${Object.entries(data).map(([k,v],i)=>`<div><div class="text-muted">${i+1}人/堂</div><div class="price-value">${v}</div></div>`).join('')}
+            <div class="d-flex justify-content-between flex-wrap px-2">
+              ${Object.entries(data).map(([k,v],i)=>`<div class="text-center"><div class="text-muted">${i+1}人/堂</div><div class="price-value">${v.toLocaleString()}</div></div>`).join('')}
             </div>
-            <div class="mt-3">
+            <hr>
+            <div class="mt-2">
               ${selected.map(name => `<span class="tag">${name}</span>`).join('')}
               <button class="btn btn-sm btn-outline-secondary ms-2">＋增加相同收費雪場</button>
             </div>
           `;
     
           card.querySelector('.delete').onclick = () => card.remove();
+          container.appendChild(card);
     
-          card.querySelector('.edit').onclick = () => {
-            editingCard = card;
-            renderInputs(data);
-            Array.from(resortsSelect.options).forEach(opt => {
-              opt.selected = selected.includes(opt.value);
-            });
-            modal.show();
-            card.remove();
-          };
-    
-          resultArea.appendChild(card);
+          // 儲存到 localStorage
+          storedData.push({ type: stage, data, resorts: selected });
+          localStorage.setItem('priceCards', JSON.stringify(storedData));
           modal.hide();
+          // Reset for next time
+          modalTitle.textContent = '半天收費設定';
+          nextBtn.classList.remove('d-none');
+          confirmBtn.classList.add('d-none');
+          stage = 'half';
         };
     
         renderInputs();
+    
+        // 初始載入儲存資料
+        storedData.forEach(entry => {
+          const container = document.getElementById(entry.type);
+          const card = document.createElement('div');
+          card.className = 'price-card position-relative';
+          card.innerHTML = `
+            <div class="d-flex justify-content-between">
+              <div class="nav nav-tabs mb-2">
+                <span class="nav-link active">平季收費</span>
+                <span class="nav-link disabled">旺季收費</span>
+              </div>
+              <div class="action-icons">
+                <button class="btn btn-sm text-primary edit">✏️</button>
+                <button class="btn btn-sm text-danger delete">🗑</button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between flex-wrap px-2">
+              ${Object.entries(entry.data).map(([k,v],i)=>`<div class="text-center"><div class="text-muted">${i+1}人/堂</div><div class="price-value">${v.toLocaleString()}</div></div>`).join('')}
+            </div>
+            <hr>
+            <div class="mt-2">
+              ${entry.resorts.map(name => `<span class="tag">${name}</span>`).join('')}
+              <button class="btn btn-sm btn-outline-secondary ms-2">＋增加相同收費雪場</button>
+            </div>
+          `;
+    
+          card.querySelector('.delete').onclick = () => {
+            card.remove();
+            storedData = storedData.filter(c => c !== entry);
+            localStorage.setItem('priceCards', JSON.stringify(storedData));
+          };
+    
+          card.querySelector('.edit').onclick = () => {
+            renderInputs(entry.data);
+            Array.from(resortsSelect.options).forEach(opt => {
+              opt.selected = entry.resorts.includes(opt.value);
+            });
+            stage = entry.type;
+            modalTitle.textContent = stage === 'half' ? '半天收費設定' : '全天收費設定';
+            nextBtn.classList.toggle('d-none', stage === 'full');
+            confirmBtn.classList.toggle('d-none', stage !== 'full');
+            storedData = storedData.filter(c => c !== entry);
+            localStorage.setItem('priceCards', JSON.stringify(storedData));
+            card.remove();
+            modal.show();
+          };
+    
+          container.appendChild(card);
+        });
       });
     </script>
     
