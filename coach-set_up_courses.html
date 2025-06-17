@@ -16,6 +16,9 @@
     <link href="./style/layout.css" rel="stylesheet" />
  <!--  -->
  <link href="./style/user-profile.css" rel="stylesheet" />
+ <link href="./style/user-bookings.css" rel="stylesheet" />
+ <link href="./style/member-center.css" rel="stylesheet" />
+
   </head>
   <body>
     <main>
@@ -213,82 +216,42 @@
                 aria-labelledby="pills-future-tab"
                 tabindex="0"
               >
-                <!-- 觸發按鈕 -->
-              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inputModal" id="addNewBtn">
-                新增收費表
+              
+              <!-- 開啟彈窗按鈕 -->
+              <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#priceModal" id="addNewBtn">
+                新增收費設定
               </button>
 
-              <!-- 顯示結果 -->
-              <div class="mt-4">
-                <h5>輸入紀錄：</h5>
-                <ul id="recordList" class="list-group"></ul>
-              </div>
+              <!-- 顯示設定結果 -->
+              <ul id="resultArea" class="list-group"></ul>
 
-  <!-- Modal 彈窗 -->
-  <div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-
-        <!-- Modal Header -->
-        <div class="modal-header">
-          <h5 class="modal-title" id="inputModalLabel">請輸入資訊</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
-        </div>
-
-        <!-- Modal Body -->
-        <div class="modal-body">
-          <form id="infoForm">
-            <div class="mb-3">
-              <label for="no1" class="form-label">1人/堂</label>
-              <input type="number" class="form-control" id="nameInput" required>
-            </div>
-            <div class="no2">
-              <label for="no2" class="form-label">2人/堂</label>
-              <input type="number" class="form-control" id="emailInput" required>
-            </div>
-            <div class="no3">
-              <label for="no3" class="form-label">3人/堂</label>
-              <input type="number" class="form-control" id="emailInput" required>
-            </div>
-          </form>
-        </div>
-
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
-          <button type="button" class="btn btn-primary" id="confirmBtn">確認</button>
-        </div>
-
-      </div>
-    </div> 
-  </div>
-
-<!--  -->
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-history"
-                role="tabpanel"
-                aria-labelledby="pills-history-tab"
-                tabindex="0"
-              >
-                <div class="orderList list-group d-block d-lg-none"></div>
-                <div class="bookings-container d-none d-lg-block"></div>
-              </div>
-              <div
-                class="tab-pane fade"
-                id="pills-cancel"
-                role="tabpanel"
-                aria-labelledby="pills-cancel-tab"
-                tabindex="0"
-              >
-                <div class="orderList list-group d-block d-lg-none"></div>
-                <div class="bookings-container d-none d-lg-block"></div>
-              </div>
-            </div>
-          </div>
-        </div>
+              <!-- Modal 彈窗 -->
+                <div class="modal fade" id="priceModal" tabindex="-1">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">平季收費設定</h5>
+                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
+                      <div class="modal-body">
+                        <div id="priceInputs"></div>
+                        <label class="form-label mt-3">選擇適用雪場（可複選）：</label>
+                        <select multiple class="form-select" id="resortsSelect">
+                          <option value="星野滑雪場">星野滑雪場</option>
+                          <option value="札幌手稻滑雪場">札幌手稻滑雪場</option>
+                          <option value="越後湯澤 Gala滑雪場">越後湯澤 Gala滑雪場</option>
+                          <option value="白馬滑雪場">白馬滑雪場</option>
+                        </select>
+                      </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                        <button class="btn btn-primary" id="saveBtn">確認</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
       </section>
+     
       <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
         <button type="button" class="btn btn-primary btn-rounded confirmButton">
           儲存變更
@@ -536,82 +499,88 @@
     <script src="./js/login.js"></script>
     <script src="./js/user.js"></script>
     <script>
-      const recordList = document.getElementById('recordList');
-      const confirmBtn = document.getElementById('confirmBtn');
-      const nameInput = document.getElementById('nameInput');
-      const emailInput = document.getElementById('emailInput');
-      const messageInput = document.getElementById('messageInput');
-      const infoForm = document.getElementById('infoForm');
-      const inputModal = document.getElementById('inputModal');
-      const modalInstance = new bootstrap.Modal(inputModal);
-  
-      let editingIndex = null;
-  
-      confirmBtn.addEventListener('click', function () {
-        const name = nameInput.value.trim();
-        const email = emailInput.value.trim();
-        const message = messageInput.value.trim();
-  
-        if (!name || !email || !message) return;
-  
-        const dataHTML = `
-          <div><strong>姓名：</strong><span class="name">${name}</span></div>
-          <div><strong>Email：</strong><span class="email">${email}</span></div>
-          <div><strong>留言：</strong><span class="message">${message}</span></div>
-        `;
-  
-        if (editingIndex !== null) {
-          // 編輯資料
-          const item = recordList.children[editingIndex];
-          item.querySelector('.name').textContent = name;
-          item.querySelector('.email').textContent = email;
-          item.querySelector('.message').textContent = message;
-        } else {
-          // 新增資料
-          const li = document.createElement('li');
-          li.className = 'list-group-item';
-          li.innerHTML = `
-            ${dataHTML}
-            <div class="mt-2">
-              <button class="btn btn-sm btn-outline-secondary me-1 edit-btn">編輯</button>
-              <button class="btn btn-sm btn-outline-danger delete-btn">刪除</button>
+      document.addEventListener("DOMContentLoaded", function () {
+        const priceInputs = document.getElementById('priceInputs');
+        const saveBtn = document.getElementById('saveBtn');
+        const resortsSelect = document.getElementById('resortsSelect');
+        const resultArea = document.getElementById('resultArea');
+        const modal = new bootstrap.Modal(document.getElementById('priceModal'));
+    
+        let editingCard = null;
+    
+        function renderInputs(data = {}) {
+          priceInputs.innerHTML = '';
+          for (let i = 1; i <= 6; i++) {
+            const id = `p${i}`;
+            const value = data[id] || 60000;
+            priceInputs.innerHTML += `
+              <div class="d-flex align-items-center mb-2">
+                <label class="me-2" style="width:80px;">${i}人/堂</label>
+                <div class="input-group">
+                  <button class="btn btn-outline-secondary btn-sm" type="button" onclick="adjust('${id}', -1000)">-</button>
+                  <input type="number" class="form-control text-center" id="${id}" value="${value}" min="1000">
+                  <button class="btn btn-outline-secondary btn-sm" type="button" onclick="adjust('${id}', 1000)">+</button>
+                </div>
+              </div>`;
+          }
+        }
+    
+        window.adjust = function (id, delta) {
+          const input = document.getElementById(id);
+          let value = Math.floor(parseInt(input.value) / 1000) * 1000;
+          value = Math.max(1000, value + delta);
+          input.value = value;
+        }
+    
+        saveBtn.onclick = () => {
+          const data = {};
+          for (let i = 1; i <= 6; i++) {
+            data[`p${i}`] = Math.max(1000, parseInt(document.getElementById(`p${i}`).value));
+          }
+    
+          const selected = Array.from(resortsSelect.selectedOptions).map(opt => opt.value);
+          if (selected.length === 0) return alert('請選擇至少一個雪場');
+    
+          const card = document.createElement('div');
+          card.className = 'price-card position-relative';
+          card.innerHTML = `
+            <div class="d-flex justify-content-between">
+              <div class="nav nav-tabs mb-2">
+                <span class="nav-link active">平季收費</span>
+              </div>
+              <div class="action-icons">
+                <button class="btn btn-sm text-primary edit">✏️</button>
+                <button class="btn btn-sm text-danger delete">🗑</button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between flex-wrap">
+              ${Object.entries(data).map(([k,v],i)=>`<div><div class="text-muted">${i+1}人/堂</div><div class="price-value">${v}</div></div>`).join('')}
+            </div>
+            <div class="mt-3">
+              ${selected.map(name => `<span class="tag">${name}</span>`).join('')}
+              <button class="btn btn-sm btn-outline-secondary ms-2">＋增加相同收費雪場</button>
             </div>
           `;
-          recordList.appendChild(li);
-        }
-  
-        // 清除表單與關閉 Modal
-        infoForm.reset();
-        editingIndex = null;
-        modalInstance.hide();
-      });
-  
-      // 編輯與刪除事件
-      recordList.addEventListener('click', function (e) {
-        const target = e.target;
-        const li = target.closest('li');
-  
-        if (target.classList.contains('edit-btn')) {
-          const index = Array.from(recordList.children).indexOf(li);
-          nameInput.value = li.querySelector('.name').textContent;
-          emailInput.value = li.querySelector('.email').textContent;
-          messageInput.value = li.querySelector('.message').textContent;
-          editingIndex = index;
-          modalInstance.show();
-        }
-  
-        if (target.classList.contains('delete-btn')) {
-          li.remove();
-          editingIndex = null;
-        }
-      });
-  
-      // 點新增按鈕時清除表單
-      document.getElementById('addNewBtn').addEventListener('click', () => {
-        infoForm.reset();
-        editingIndex = null;
+    
+          card.querySelector('.delete').onclick = () => card.remove();
+    
+          card.querySelector('.edit').onclick = () => {
+            editingCard = card;
+            renderInputs(data);
+            Array.from(resortsSelect.options).forEach(opt => {
+              opt.selected = selected.includes(opt.value);
+            });
+            modal.show();
+            card.remove();
+          };
+    
+          resultArea.appendChild(card);
+          modal.hide();
+        };
+    
+        renderInputs();
       });
     </script>
-
+    
   </body>
 </html>
