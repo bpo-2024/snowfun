@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="./style/layout.css" rel="stylesheet" />
+ <!--  -->
+ <link href="./style/user-profile.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <nav class="navbar" aria-label="Light offcanvas navbar">
+        <div class="container-fluid justify-content-between">
+          <div class="d-flex align-items-center flex-grow-1">
+            <div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" />
+              </a>
+            </div>
+            <ul class="nav d-none d-lg-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="coach-item.html">教練團隊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="skiResort-instructors.html"
+                  >雪場資訊</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">常見問題</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">旅遊攻略</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">最新消息</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">聯絡客服</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="header-avatar"
+            data-bs-toggle="collapse"
+            href="#collapseHeaderMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseHeaderMenu"
+          ></div>
+
+          <button
+            class="navbar-toggler d-block d-lg-none border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbarLight"
+            aria-controls="offcanvasNavbarLight"
+            aria-label="Toggle navigation"
+          >
+            <img src="./images/icon_hamburger.svg" />
+          </button>
+          <div
+            class="offcanvas offcanvas-start nav-offcanvas"
+            tabindex="-1"
+            id="offcanvasNavbarLight"
+            style="z-index: 1051"
+          >
+            <div class="offcanvas-header">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" height="60" />
+              </a>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                  <a class="nav-link" href="coach-item.html">教練團隊</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="skiResort-instructors.html"
+                    >雪場資訊</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">常見問題</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">旅遊攻略</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">最新消息</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">聯絡客服</a>
+                </li>
+                <li class="nav-item d-flex justify-content-between">
+                  <button type="button" class="btn coach-register">
+                    教練註冊
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary px-1 px-lg-2"
+                    onclick="loginModal()"
+                    data-bs-toggle="modal"
+                    data-bs-target="#snowModal"
+                    data-bs-dismiss="offcanvas"
+                  >
+                    登入
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse-login collapse" id="collapseHeaderMenu">
+        <div class="isLogin">
+          <p>個人資料</p>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-1 px-lg-2 float-end me-3"
+          >
+            登出
+          </button>
+        </div>
+      </div>
+      <section class="container">
+        <div class="d-flex user-profile">
+          <div id="left-side">
+            <div class="user-card">
+              <div class="user-avatar"></div>
+              <p class="user-name">測試名字測試名字長度測試名字測試名字長度</p>
+              <p class="user-level">一般會員</p>
+            </div>
+            <ul class="profile-menu">
+              <li
+                class="user-info active"
+                data-url="user-profile.html?status=1"
+              >
+                個人資料
+              </li>
+              <li class="course-record" data-url="user-bookings.html?status=1">
+                課程紀錄
+              </li>
+              <li class="order-info" data-url="user-orders.html?status=1">
+                訂單資料
+              </li>
+            </ul>
+          </div>
+          <div id="right-side" class="flex-grow-1">
+            <div  class="d-flex justify-content-between">
+              <div>
+                <a class="page-arrow" href="coach-profile.html"></a>
+                <h2>開課設定</h2>
+                <p class="text-gary">
+                  注意：切換設定選項後必須點選「儲存」後才會生效
+                </p>
+              </div>
+             
+              <div class="d-none gap-3 d-lg-flex">
+                <button
+                  class="btn btn-outline-primary btn-outline-gray px-1 px-lg-2 btn-rounded btn-save btn-m"
+                >
+                  儲存
+                </button>
+              </div>
+            </div>
+            
+            <ul class="nav mt-3" id="pills-tab" role="tablist">
+              <li class="nav-item default-tab" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="pills-future-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-future"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-future"
+                  aria-selected="true"
+                >
+                收費設定
+                </button>
+              </li>
+              <li class="nav-item default-tab" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-history-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-history"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-history"
+                  aria-selected="false"
+                >
+                開課日期設定
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-future"
+                role="tabpanel"
+                aria-labelledby="pills-future-tab"
+                tabindex="0"
+              >
+                <!-- 觸發按鈕 -->
+              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#inputModal" id="addNewBtn">
+                新增收費表
+              </button>
+
+              <!-- 顯示結果 -->
+              <div class="mt-4">
+                <h5>輸入紀錄：</h5>
+                <ul id="recordList" class="list-group"></ul>
+              </div>
+
+  <!-- Modal 彈窗 -->
+  <div class="modal fade" id="inputModal" tabindex="-1" aria-labelledby="inputModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h5 class="modal-title" id="inputModalLabel">請輸入資訊</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <form id="infoForm">
+            <div class="mb-3">
+              <label for="no1" class="form-label">1人/堂</label>
+              <input type="number" class="form-control" id="nameInput" required>
+            </div>
+            <div class="no2">
+              <label for="no2" class="form-label">2人/堂</label>
+              <input type="number" class="form-control" id="emailInput" required>
+            </div>
+            <div class="no3">
+              <label for="no3" class="form-label">3人/堂</label>
+              <input type="number" class="form-control" id="emailInput" required>
+            </div>
+          </form>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary" id="confirmBtn">確認</button>
+        </div>
+
+      </div>
+    </div> 
+  </div>
+
+<!--  -->
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-history"
+                role="tabpanel"
+                aria-labelledby="pills-history-tab"
+                tabindex="0"
+              >
+                <div class="orderList list-group d-block d-lg-none"></div>
+                <div class="bookings-container d-none d-lg-block"></div>
+              </div>
+              <div
+                class="tab-pane fade"
+                id="pills-cancel"
+                role="tabpanel"
+                aria-labelledby="pills-cancel-tab"
+                tabindex="0"
+              >
+                <div class="orderList list-group d-block d-lg-none"></div>
+                <div class="bookings-container d-none d-lg-block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
+        <button type="button" class="btn btn-primary btn-rounded confirmButton">
+          儲存變更
+        </button>
+      </div>
+
+      <!-- pc footer -->
+      <footer class="footer-pc">
+        <div class="container">
+          <div class="row">
+            <div class="col-9">
+              <div>
+                <img src="./images/logo_white.svg" />
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <ul>
+                    <li>滑雪趣有限公司</li>
+                    <li>Snow Fun International Co., Ltd.</li>
+                    <li>統一編號 82841380</li>
+                    <li>Email : info@snowfun.com.tw</li>
+                  </ul>
+                </div>
+                <div class="col-8 align-self-end">
+                  <ul class="social-box">
+                    <li>
+                      <a
+                        href="//www.facebook.com/groups/453785412129721/"
+                        target="_blank"
+                      >
+                        <img src="./images/fb.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                        <img src="./images/ig.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/tk.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/wc.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/yt.svg" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="col">
+                  <p class="footer-title">信息</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >關於我們</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >常見問題</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >聯絡我們</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <p class="footer-title">合作</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >成為教練</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >合作夥伴申請</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- mb footer -->
+      <footer class="footer-mb">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-center">
+              <img src="./images/logo_white.svg" width="100%" />
+            </div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+              <ul>
+                <li>滑雪趣有限公司</li>
+                <li>Snow Fun International Co., Ltd.</li>
+                <li>統一編號 82841380</li>
+                <li>Email : info@snowfun.com.tw</li>
+              </ul>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12 align-self-end">
+                <ul class="social-box d-flex justify-content-center">
+                  <li>
+                    <a
+                      href="//www.facebook.com/groups/453785412129721/"
+                      target="_blank"
+                    >
+                      <img src="./images/fb.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                      <img src="./images/ig.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/tk.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/wc.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/yt.svg" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <p class="footer-title">信息</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >關於我們</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >常見問題</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >聯絡我們</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4">
+                <p class="footer-title">合作</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >成為教練</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >合作夥伴申請</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- 登入 modal -->
+      <div id="sharedModalContainer"></div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/login.js"></script>
+    <script src="./js/user.js"></script>
+    <script>
+      const recordList = document.getElementById('recordList');
+      const confirmBtn = document.getElementById('confirmBtn');
+      const nameInput = document.getElementById('nameInput');
+      const emailInput = document.getElementById('emailInput');
+      const messageInput = document.getElementById('messageInput');
+      const infoForm = document.getElementById('infoForm');
+      const inputModal = document.getElementById('inputModal');
+      const modalInstance = new bootstrap.Modal(inputModal);
+  
+      let editingIndex = null;
+  
+      confirmBtn.addEventListener('click', function () {
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+        const message = messageInput.value.trim();
+  
+        if (!name || !email || !message) return;
+  
+        const dataHTML = `
+          <div><strong>姓名：</strong><span class="name">${name}</span></div>
+          <div><strong>Email：</strong><span class="email">${email}</span></div>
+          <div><strong>留言：</strong><span class="message">${message}</span></div>
+        `;
+  
+        if (editingIndex !== null) {
+          // 編輯資料
+          const item = recordList.children[editingIndex];
+          item.querySelector('.name').textContent = name;
+          item.querySelector('.email').textContent = email;
+          item.querySelector('.message').textContent = message;
+        } else {
+          // 新增資料
+          const li = document.createElement('li');
+          li.className = 'list-group-item';
+          li.innerHTML = `
+            ${dataHTML}
+            <div class="mt-2">
+              <button class="btn btn-sm btn-outline-secondary me-1 edit-btn">編輯</button>
+              <button class="btn btn-sm btn-outline-danger delete-btn">刪除</button>
+            </div>
+          `;
+          recordList.appendChild(li);
+        }
+  
+        // 清除表單與關閉 Modal
+        infoForm.reset();
+        editingIndex = null;
+        modalInstance.hide();
+      });
+  
+      // 編輯與刪除事件
+      recordList.addEventListener('click', function (e) {
+        const target = e.target;
+        const li = target.closest('li');
+  
+        if (target.classList.contains('edit-btn')) {
+          const index = Array.from(recordList.children).indexOf(li);
+          nameInput.value = li.querySelector('.name').textContent;
+          emailInput.value = li.querySelector('.email').textContent;
+          messageInput.value = li.querySelector('.message').textContent;
+          editingIndex = index;
+          modalInstance.show();
+        }
+  
+        if (target.classList.contains('delete-btn')) {
+          li.remove();
+          editingIndex = null;
+        }
+      });
+  
+      // 點新增按鈕時清除表單
+      document.getElementById('addNewBtn').addEventListener('click', () => {
+        infoForm.reset();
+        editingIndex = null;
+      });
+    </script>
+
+  </body>
+</html>
