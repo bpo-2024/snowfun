@@ -14,11 +14,12 @@
       crossorigin="anonymous"
     />
     <link href="./style/layout.css" rel="stylesheet" />
- <!--  -->
- <link href="./style/user-profile.css" rel="stylesheet" />
- <link href="./style/user-bookings.css" rel="stylesheet" />
- <link href="./style/member-center.css" rel="stylesheet" />
- <link href="./style/coach-set_up_courses.css" rel="stylesheet" />
+    <!--  -->
+    <link href="./style/user-profile.css" rel="stylesheet" />
+    <link href="./style/user-bookings.css" rel="stylesheet" />
+    <link href="./style/member-center.css" rel="stylesheet" />
+    <link href="./style/coach-set_up_courses.css" rel="stylesheet" />
+    <link href="./style/coachCourse.css" rel="stylesheet" />
   </head>
   <body>
     <main>
@@ -159,8 +160,8 @@
               </li>
             </ul>
           </div>
-          <div id="right-side" class="flex-grow-1 ">
-            <div  class="d-flex justify-content-between pb-3">
+          <div id="right-side" class="flex-grow-1">
+            <div class="d-flex justify-content-between pb-3">
               <div>
                 <a class="page-arrow" href="coach-profile.html"></a>
                 <h2>開課設定</h2>
@@ -172,7 +173,7 @@
                 <button
                   class="btn btn-primary btn-rounded btn-save btn-m align-items-center d-flex justify-content-center"
                 >
-                  儲存<img src="./images/icon_arrow_right.svg">
+                  儲存<img src="./images/icon_arrow_right.svg" />
                 </button>
               </div>
             </div>
@@ -188,21 +189,21 @@
                   aria-controls="pills-future"
                   aria-selected="true"
                 >
-                收費設定
+                  收費設定
                 </button>
               </li>
               <li class="nav-item default-tab" role="presentation">
                 <button
                   class="nav-link"
-                  id="pills-history-tab"
+                  id="pills-course-tab"
                   data-bs-toggle="pill"
-                  data-bs-target="#pills-history"
+                  data-bs-target="#pills-course"
                   type="button"
                   role="tab"
-                  aria-controls="pills-history"
+                  aria-controls="pills-course"
                   aria-selected="false"
                 >
-                開課日期設定
+                  開課日期設定
                 </button>
               </li>
             </ul>
@@ -214,74 +215,194 @@
                 aria-labelledby="pills-future-tab"
                 tabindex="0"
               >
-                <div class="form-check mb-1 d-flex align-items-center option-setting">
-                  <input class="form-check-input p-1" type="checkbox" id="option1" checked disabled>
+                <div
+                  class="form-check mb-1 d-flex align-items-center option-setting"
+                >
+                  <input
+                    class="form-check-input p-1"
+                    type="checkbox"
+                    id="option1"
+                    checked
+                    disabled
+                  />
                   <label class="form-check-label p-2" for="option1">
-                    單次訂課10小時以上再95折 <span class="text-primary-blue">(必選)</span>
+                    單次訂課10小時以上再95折
+                    <span class="text-primary-blue">(必選)</span>
                   </label>
                 </div>
-                <div class="form-check mb-1 d-flex align-items-start option-setting">
-                  <input class="form-check-input mt-3" type="checkbox" id="option2" checked>
+                <div
+                  class="form-check mb-1 d-flex align-items-start option-setting"
+                >
+                  <input
+                    class="form-check-input mt-3"
+                    type="checkbox"
+                    id="option2"
+                    checked
+                  />
                   <label class="form-check-label p-2" for="option2">
                     啟用旺季收費，旺季期間：
-                    <span class="text-primary-blue">(需啟用才能設定)</span><br>
+                    <span class="text-primary-blue">(需啟用才能設定)</span
+                    ><br />
                     聖誕跨年2024/12/21～2025/01/05、農曆新年2025/01/18～2025/02/08
                   </label>
                 </div>
-       
-                <div class="d-flex align-items-center justify-content-between  mt-3 mb-3 ">
-                           <!-- 類型切換 Tabs -->
-                <ul class="nav form-check-inline" id="typeTabs" role="tablist">
-                  <li class="" role="presentation">
-                    <button class="form-check-label active btn-rounded" id="half-tab" data-bs-toggle="tab" data-bs-target="#half" type="button" role="tab">半天設定</button>
-                  </li>
-                  <li class="" role="presentation">
-                    <button class="form-check-label btn-rounded" id="full-tab" data-bs-toggle="tab" data-bs-target="#full" type="button" role="tab">全天設定</button>
-                  </li>
-                </ul>
-                    <!-- 新增按鈕 -->
-                <button class="btn btn-primary btn-rounded btn-m" data-bs-toggle="modal" data-bs-target="#priceModal">新增收費設定</button>
+
+                <div
+                  class="d-flex align-items-center justify-content-between mt-3 mb-3"
+                >
+                  <!-- 類型切換 Tabs -->
+                  <ul
+                    class="nav form-check-inline"
+                    id="typeTabs"
+                    role="tablist"
+                  >
+                    <li class="" role="presentation">
+                      <button
+                        class="form-check-label active btn-rounded"
+                        id="half-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#half"
+                        type="button"
+                        role="tab"
+                      >
+                        半天設定
+                      </button>
+                    </li>
+                    <li class="" role="presentation">
+                      <button
+                        class="form-check-label btn-rounded"
+                        id="full-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#full"
+                        type="button"
+                        role="tab"
+                      >
+                        全天設定
+                      </button>
+                    </li>
+                  </ul>
+                  <!-- 新增按鈕 -->
+                  <button
+                    class="btn btn-primary btn-rounded btn-m"
+                    data-bs-toggle="modal"
+                    data-bs-target="#priceModal"
+                  >
+                    新增收費設定
+                  </button>
                 </div>
                 <div class="tab-content" id="resultTabs">
-                  <div class="tab-pane fade show active" id="half" role="tabpanel"></div>
+                  <div
+                    class="tab-pane fade show active"
+                    id="half"
+                    role="tabpanel"
+                  ></div>
                   <div class="tab-pane fade" id="full" role="tabpanel"></div>
                 </div>
-              
+
                 <!-- Modal 彈窗 -->
                 <div class="modal fade" id="priceModal" tabindex="-1">
                   <div class="modal-dialog modal-lg">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="modalTitle">半天收費設定</h5>
-                        <button class="btn-close" data-bs-dismiss="modal"></button>
+                        <h5 class="modal-title" id="modalTitle">
+                          半天收費設定
+                        </h5>
+                        <button
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                        ></button>
                       </div>
                       <div class="modal-body">
                         <div id="priceInputs"></div>
-                        <label class="form-label mt-3">選擇適用雪場（可複選）：</label>
+                        <label class="form-label mt-3"
+                          >選擇適用雪場（可複選）：</label
+                        >
                         <select multiple class="form-select" id="resortsSelect">
                           <option value="星野滑雪場">星野滑雪場</option>
                           <option value="札幌手稻滑雪場">札幌手稻滑雪場</option>
-                          <option value="越後湯澤 Gala滑雪場">越後湯澤 Gala滑雪場</option>
+                          <option value="越後湯澤 Gala滑雪場">
+                            越後湯澤 Gala滑雪場
+                          </option>
                           <option value="白馬滑雪場">白馬滑雪場</option>
                         </select>
                       </div>
                       <div class="modal-footer">
-                        <button class="btn btn-secondary" id="nextBtn">繼續下一步</button>
-                        <button class="btn btn-primary d-none" id="confirmBtn">確認</button>
+                        <button class="btn btn-secondary" id="nextBtn">
+                          繼續下一步
+                        </button>
+                        <button class="btn btn-primary d-none" id="confirmBtn">
+                          確認
+                        </button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
               <div
-              class="tab-pane fade"
-              id="pills-history"
-              role="tabpanel"
-              aria-labelledby="pills-future-tab"
-              tabindex="0"
-            >
+                class="tab-pane fade"
+                id="pills-course"
+                role="tabpanel"
+                aria-labelledby="pills-course-tab"
+                tabindex="0"
+              >
+                <div class="d-flex justify-content-between course-info-box">
+                  <ul class="course-range d-flex align-items-center">
+                    <li class="rounded-1 fw-medium">上半 09:00~12:00</li>
+                    <li class="rounded-1 fw-medium">下半 13:00~16:00</li>
+                    <li class="rounded-1 fw-medium">全天 09:30~15:30</li>
+                  </ul>
+                  <button class="btn btn-primary btn-rounded btn-plus">
+                    新增時段
+                  </button>
+                </div>
+                <div id="system-alert" class="success">
+                  『請注意，學員下單後，您無法單方面取消。請謹慎設定您的雪場跟開放時段，並隨時注意訂單更新狀況。』
+                </div>
+
+                <div class="calendar mt-3">
+                  <div class="d-flex justify-content-between">
+                    <div
+                      class="calendar-info fs-6 fw-medium d-flex align-items-center"
+                    >
+                      <p>雪場狀況：</p>
+                      <ul class="calendar-tag">
+                        <li class="status-started">已開課</li>
+                        <li class="status-booked">已被預訂</li>
+                        <li class="status-customized">客製時段</li>
+                        <li class="status-awaitingPayment">已預定代付款</li>
+                      </ul>
+                    </div>
+                    <div class="view-toggle">
+                      <button id="month-view" class="active">月</button>
+                      <button id="week-view">週</button>
+                    </div>
+                  </div>
+                  <div class="calendar-header">
+                    <button id="prev-btn"></button>
+                    <div class="d-flex gap-2">
+                      <span id="calendar-title">2025年06月</span>
+                      <div id="today-btn">今日</div>
+                    </div>
+                    <button id="next-btn"></button>
+                  </div>
+
+                  <div class="calendar-days">
+                    <div>日</div>
+                    <div>一</div>
+                    <div>二</div>
+                    <div>三</div>
+                    <div>四</div>
+                    <div>五</div>
+                    <div>六</div>
+                  </div>
+                  <div class="calendar-dates" id="calendar-dates"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
-     
+
       <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
         <button type="button" class="btn btn-primary btn-rounded confirmButton">
           儲存變更
@@ -528,20 +649,21 @@
     ></script>
     <script src="./js/login.js"></script>
     <script src="./js/user.js"></script>
+    <script src="./js/coachCourse.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        let storedData = JSON.parse(localStorage.getItem('priceCards')) || [];
-        const priceInputs = document.getElementById('priceInputs');
-        const nextBtn = document.getElementById('nextBtn');
-        const confirmBtn = document.getElementById('confirmBtn');
-        const resortsSelect = document.getElementById('resortsSelect');
-        const modalTitle = document.getElementById('modalTitle');
-        const modalEl = document.getElementById('priceModal');
+        let storedData = JSON.parse(localStorage.getItem("priceCards")) || [];
+        const priceInputs = document.getElementById("priceInputs");
+        const nextBtn = document.getElementById("nextBtn");
+        const confirmBtn = document.getElementById("confirmBtn");
+        const resortsSelect = document.getElementById("resortsSelect");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalEl = document.getElementById("priceModal");
         const modal = new bootstrap.Modal(modalEl);
-        let stage = 'half'; // 初始狀態
-    
+        let stage = "half"; // 初始狀態
+
         function renderInputs(data = {}) {
-          priceInputs.innerHTML = '';
+          priceInputs.innerHTML = "";
           for (let i = 1; i <= 6; i++) {
             const id = `p${i}`;
             const value = data[id] || 60000;
@@ -556,32 +678,37 @@
               </div>`;
           }
         }
-    
+
         window.adjust = function (id, delta) {
           const input = document.getElementById(id);
           let value = Math.floor(parseInt(input.value) / 1000) * 1000;
           value = Math.max(1000, value + delta);
           input.value = value;
-        }
-    
-        nextBtn.onclick = () => {
-          stage = 'full';
-          modalTitle.textContent = '全天收費設定';
-          nextBtn.classList.add('d-none');
-          confirmBtn.classList.remove('d-none');
         };
-    
+
+        nextBtn.onclick = () => {
+          stage = "full";
+          modalTitle.textContent = "全天收費設定";
+          nextBtn.classList.add("d-none");
+          confirmBtn.classList.remove("d-none");
+        };
+
         confirmBtn.onclick = () => {
           const data = {};
           for (let i = 1; i <= 6; i++) {
-            data[`p${i}`] = Math.max(1000, parseInt(document.getElementById(`p${i}`).value));
+            data[`p${i}`] = Math.max(
+              1000,
+              parseInt(document.getElementById(`p${i}`).value)
+            );
           }
-          const selected = Array.from(resortsSelect.selectedOptions).map(opt => opt.value);
-          if (selected.length === 0) return alert('請選擇至少一個雪場');
-    
+          const selected = Array.from(resortsSelect.selectedOptions).map(
+            (opt) => opt.value
+          );
+          if (selected.length === 0) return alert("請選擇至少一個雪場");
+
           const container = document.getElementById(stage);
-          const card = document.createElement('div');
-          card.className = 'price-card position-relative';
+          const card = document.createElement("div");
+          card.className = "price-card position-relative";
           card.innerHTML = `
             <div class="d-flex justify-content-between">
               <div class="nav nav-tabs mb-2">
@@ -594,36 +721,45 @@
               </div>
             </div>
             <div class="d-flex justify-content-between flex-wrap px-2">
-              ${Object.entries(data).map(([k,v],i)=>`<div class="text-center"><div class="text-muted">${i+1}人/堂</div><div class="price-value">${v.toLocaleString()}</div></div>`).join('')}
+              ${Object.entries(data)
+                .map(
+                  ([k, v], i) =>
+                    `<div class="text-center"><div class="text-muted">${
+                      i + 1
+                    }人/堂</div><div class="price-value">${v.toLocaleString()}</div></div>`
+                )
+                .join("")}
             </div>
             <hr>
             <div class="mt-2">
-              ${selected.map(name => `<span class="tag">${name}</span>`).join('')}
+              ${selected
+                .map((name) => `<span class="tag">${name}</span>`)
+                .join("")}
               <button class="btn btn-sm btn-outline-secondary ms-2">＋增加相同收費雪場</button>
             </div>
           `;
-    
-          card.querySelector('.delete').onclick = () => card.remove();
+
+          card.querySelector(".delete").onclick = () => card.remove();
           container.appendChild(card);
-    
+
           // 儲存到 localStorage
           storedData.push({ type: stage, data, resorts: selected });
-          localStorage.setItem('priceCards', JSON.stringify(storedData));
+          localStorage.setItem("priceCards", JSON.stringify(storedData));
           modal.hide();
           // Reset for next time
-          modalTitle.textContent = '半天收費設定';
-          nextBtn.classList.remove('d-none');
-          confirmBtn.classList.add('d-none');
-          stage = 'half';
+          modalTitle.textContent = "半天收費設定";
+          nextBtn.classList.remove("d-none");
+          confirmBtn.classList.add("d-none");
+          stage = "half";
         };
-    
+
         renderInputs();
-    
+
         // 初始載入儲存資料
-        storedData.forEach(entry => {
+        storedData.forEach((entry) => {
           const container = document.getElementById(entry.type);
-          const card = document.createElement('div');
-          card.className = 'price-card position-relative';
+          const card = document.createElement("div");
+          card.className = "price-card position-relative";
           card.innerHTML = `
             <div class="d-flex justify-content-between">
               <div class="nav nav-tabs mb-2">
@@ -636,40 +772,49 @@
               </div>
             </div>
             <div class="d-flex justify-content-between flex-wrap px-2">
-              ${Object.entries(entry.data).map(([k,v],i)=>`<div class="text-center"><div class="text-muted">${i+1}人/堂</div><div class="price-value">${v.toLocaleString()}</div></div>`).join('')}
+              ${Object.entries(entry.data)
+                .map(
+                  ([k, v], i) =>
+                    `<div class="text-center"><div class="text-muted">${
+                      i + 1
+                    }人/堂</div><div class="price-value">${v.toLocaleString()}</div></div>`
+                )
+                .join("")}
             </div>
             <hr>
             <div class="mt-2">
-              ${entry.resorts.map(name => `<span class="tag">${name}</span>`).join('')}
+              ${entry.resorts
+                .map((name) => `<span class="tag">${name}</span>`)
+                .join("")}
               <button class="btn btn-sm btn-outline-secondary ms-2">＋增加相同收費雪場</button>
             </div>
           `;
-    
-          card.querySelector('.delete').onclick = () => {
+
+          card.querySelector(".delete").onclick = () => {
             card.remove();
-            storedData = storedData.filter(c => c !== entry);
-            localStorage.setItem('priceCards', JSON.stringify(storedData));
+            storedData = storedData.filter((c) => c !== entry);
+            localStorage.setItem("priceCards", JSON.stringify(storedData));
           };
-    
-          card.querySelector('.edit').onclick = () => {
+
+          card.querySelector(".edit").onclick = () => {
             renderInputs(entry.data);
-            Array.from(resortsSelect.options).forEach(opt => {
+            Array.from(resortsSelect.options).forEach((opt) => {
               opt.selected = entry.resorts.includes(opt.value);
             });
             stage = entry.type;
-            modalTitle.textContent = stage === 'half' ? '半天收費設定' : '全天收費設定';
-            nextBtn.classList.toggle('d-none', stage === 'full');
-            confirmBtn.classList.toggle('d-none', stage !== 'full');
-            storedData = storedData.filter(c => c !== entry);
-            localStorage.setItem('priceCards', JSON.stringify(storedData));
+            modalTitle.textContent =
+              stage === "half" ? "半天收費設定" : "全天收費設定";
+            nextBtn.classList.toggle("d-none", stage === "full");
+            confirmBtn.classList.toggle("d-none", stage !== "full");
+            storedData = storedData.filter((c) => c !== entry);
+            localStorage.setItem("priceCards", JSON.stringify(storedData));
             card.remove();
             modal.show();
           };
-    
+
           container.appendChild(card);
         });
       });
     </script>
-    
   </body>
 </html>

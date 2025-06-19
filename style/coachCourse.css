@@ -1,0 +1,210 @@
+.calendar {
+  padding: 24px 16px;
+  border-radius: 16px;
+  background-color: #fff;
+}
+.calendar-info {
+  color: #444;
+  gap: 18px;
+}
+.calendar-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #c2c2c2;
+}
+#calendar-title,
+#today-btn {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 700;
+}
+#today-btn {
+  color: #1ba4ed;
+  border-bottom: 1px solid #1ba4ed;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+#prev-btn,
+#next-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #c2c2c2;
+  background: url(../images/date_arrow_left.svg) center no-repeat;
+}
+#next-btn {
+  transform: rotate(180deg);
+  background-position-x: 10px;
+}
+#prev-btn:hover,
+#next-btn:hover {
+  background-color: #ebf1f5;
+}
+
+.calendar-days {
+  display: flex;
+}
+.calendar-days div {
+  flex: 1;
+  color: #666;
+  font-size: 20px;
+  font-weight: 500;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+}
+.calendar-row {
+  display: flex;
+}
+.calendar-cell {
+  flex: 1;
+  padding: 5px;
+  min-height: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 2px solid transparent;
+}
+.calendar-cell.empty {
+  /* background: #f5f5f5; */
+}
+.date-number {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+.session-text {
+  font-size: 14px;
+  color: #666;
+  border-bottom: 1px solid #c2c2c2;
+  padding-bottom: 4px;
+}
+.item {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.more-button {
+  color: #8d8888;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+}
+.expanded-row {
+  background: #fcfcfc;
+  border: 1px solid #e3e3e3;
+  border-radius: 16px;
+  padding: 5px;
+  display: flex;
+  margin-top: 2px;
+}
+.expanded-cell {
+  flex: 1 1 100%;
+  padding: 5px;
+}
+.expanded-cell-header {
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.expanded-cell-header-top {
+  height: 48px;
+}
+.expanded-cell-header button {
+  width: 24px;
+  height: 24px;
+  background: url(../images/edit.svg) no-repeat;
+  background-size: contain;
+  border: none;
+}
+.expanded-cell-header span {
+  color: red;
+}
+
+/* view-toggle */
+.view-toggle button {
+  width: 68px;
+  height: 50px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  color: #666666;
+  background-color: #fff;
+  border: 1px solid #c2c2c2;
+}
+.view-toggle .active {
+  color: #fff;
+  background-color: #00558f;
+  border-color: #00558f;
+}
+.calendar-cell.select {
+  border-color: #444444;
+}
+.calendar-cell.select::after {
+  content: "";
+  position: absolute;
+  bottom: -48px;
+  height: 20px;
+  width: 20px;
+  left: 50%;
+  margin-left: -10px;
+  background: url(../images/more.svg) no-repeat;
+}
+/* Status 樣式 */
+.status-started,
+.status-booked,
+.status-customized,
+.status-awaitingPayment {
+  color: #26b249;
+  background: #e9f7ed;
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+.status-booked {
+  color: #1ba4ed;
+  background: #e8f6fd;
+}
+.status-customized {
+  color: #ff9500;
+  background: #fff4e5;
+}
+.status-awaitingPayment {
+  color: #ff2d55;
+  background: #ffeaee;
+}
+
+.calendar-cell.status-started {
+  background-color: transparent;
+}
+.calendar-cell.status-started .item {
+  color: #26b249;
+  background: #e9f7ed;
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+.status-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.status-box span {
+  display: inline-block;
+}
