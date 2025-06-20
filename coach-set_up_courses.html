@@ -377,6 +377,7 @@
                       <button id="week-view">週</button>
                     </div>
                   </div>
+                  <!-- 月曆 -->
                   <div class="calendar-header">
                     <button id="prev-btn"></button>
                     <div class="d-flex gap-2">
@@ -385,7 +386,6 @@
                     </div>
                     <button id="next-btn"></button>
                   </div>
-
                   <div class="calendar-days">
                     <div>日</div>
                     <div>一</div>
@@ -402,6 +402,123 @@
           </div>
         </div>
       </section>
+
+      <!-- Edit Coach Course Modal -->
+      <div
+        class="modal fade"
+        id="editCoachCourse"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="editCoachCourseLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div class="modal-body">
+              <form id="editCoachCourseForm" class="row g-3">
+                <div>
+                  <label for="date" class="form-label">日期</label>
+                  <input id="date" class="visually-hidden" />
+                  <div
+                    id="dateDisplay"
+                    class="border p-2 rounded bg-light"
+                    style="cursor: pointer"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#datePickerCollapse"
+                    aria-expanded="false"
+                    aria-controls="datePickerCollapse"
+                  >
+                    開始與結束日期
+                  </div>
+
+                  <!-- 日期選擇器 Collapse 區塊 -->
+                  <div id="datePickerCollapse" class="collapse mt-2">
+                    <div class="border p-3 bg-white shadow-sm">
+                      <div class="d-flex justify-content-between mb-3">
+                        <button
+                          id="prevMonth"
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        >
+                          &lt; 上一月
+                        </button>
+                        <button
+                          id="nextMonth"
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        >
+                          下一月 &gt;
+                        </button>
+                      </div>
+                      <div
+                        id="calendarWrapper"
+                        class="d-flex flex-wrap gap-5"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">開放時段</label>
+
+                  <div>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_morning"
+                      value="morning"
+                    />
+                    <label class="btn btn-radio" for="selectRange_morning"
+                      >上半時段</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_afternoon"
+                      value="afternoon"
+                    />
+                    <label class="btn btn-radio" for="selectRange_afternoon"
+                      >下半時段</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_all"
+                      value="all"
+                    />
+                    <label class="btn btn-radio" for="selectRange_all"
+                      >全天時段</label
+                    >
+                  </div>
+                </div>
+
+                <div>
+                  <label for="skiResort" class="form-label">已設定雪場</label>
+                  <input id="skiResort" class="visually-hidden" />
+                  <div>請選擇</div>
+                </div>
+              </form>
+              <div class="btn-box">
+                <button type="button" class="btn btn-outline-primary">
+                  清除設定
+                </button>
+                <button type="button" class="btn btn-primary">確定更新</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
         <button type="button" class="btn btn-primary btn-rounded confirmButton">
@@ -813,6 +930,100 @@
           };
 
           container.appendChild(card);
+        });
+      });
+    </script>
+
+    <!-- select date -->
+    <script>
+      let viewMonth = new Date();
+      let startDate = null;
+      let endDate = null;
+
+      function renderTwoMonthCalendar(baseDate) {
+        $("#calendarWrapper").empty();
+
+        for (let m = 0; m < 2; m++) {
+          const date = new Date(
+            baseDate.getFullYear(),
+            baseDate.getMonth() + m,
+            1
+          );
+          const year = date.getFullYear();
+          const month = date.getMonth();
+          const lastDay = new Date(year, month + 1, 0).getDate();
+
+          const $container = $('<div class="calendar-container">');
+          $container.append(
+            `<div class="calendar-title">${year}年${month + 1}月</div>`
+          );
+          const $grid = $('<div class="calendar-grid">');
+
+          for (let i = 1; i <= lastDay; i++) {
+            const dateStr = `${year}-${String(month + 1).padStart(
+              2,
+              "0"
+            )}-${String(i).padStart(2, "0")}`;
+            const $day = $('<div class="calendar-date">')
+              .text(i)
+              .attr("data-date", dateStr);
+
+            if (startDate === dateStr) {
+              $day.addClass("select").attr("data-type", "startDate");
+            } else if (endDate === dateStr) {
+              $day.addClass("select").attr("data-type", "endDate");
+            } else if (
+              startDate &&
+              endDate &&
+              dateStr > startDate &&
+              dateStr < endDate
+            ) {
+              $day.addClass("range");
+            }
+
+            $grid.append($day);
+          }
+
+          $container.append($grid);
+          $("#calendarWrapper").append($container);
+        }
+      }
+
+      $(function () {
+        // 初次載入月曆
+        renderTwoMonthCalendar(viewMonth);
+
+        $("#prevMonth").on("click", function () {
+          viewMonth.setMonth(viewMonth.getMonth() - 1);
+          renderTwoMonthCalendar(viewMonth);
+        });
+
+        $("#nextMonth").on("click", function () {
+          viewMonth.setMonth(viewMonth.getMonth() + 1);
+          renderTwoMonthCalendar(viewMonth);
+        });
+
+        $("#calendarWrapper").on("click", ".calendar-date", function () {
+          const selectedDate = $(this).data("date");
+
+          if (!startDate || (startDate && endDate)) {
+            startDate = selectedDate;
+            endDate = null;
+          } else if (selectedDate < startDate) {
+            startDate = selectedDate;
+            endDate = null;
+          } else {
+            endDate = selectedDate;
+            $("#dateDisplay").text(`${startDate} ~ ${endDate}`);
+          }
+
+          renderTwoMonthCalendar(viewMonth);
+        });
+
+        // 每次展開都重新渲染
+        $("#datePickerCollapse").on("shown.bs.collapse", function () {
+          viewMonth = new Date();
+          renderTwoMonthCalendar(viewMonth);
         });
       });
     </script>

@@ -4,37 +4,86 @@
         let currentView = "month";
         let expandedDateStr = null;
 
-        const calendarData = {
-          "2025-06-01": {
-            status: "started",
-            course: [
-              { title: "瑜伽課程", session: "上半" },
-              { title: "英文會話", session: "下半" },
-              { title: "程式設計", session: "上半" },
-              { title: "商業簡報", session: "下半" },
-            ],
-          },
-          "2025-06-03": {
-            status: "booked",
-            course: [{ title: "鋼琴初階", session: "上半" }],
-          },
-          "2025-06-05": {
-            status: "customized",
-            course: [
-              { title: "籃球訓練", session: "下半" },
-              { title: "日語進階", session: "下半" },
-            ],
-          },
-          "2025-06-08": {
-            status: "awaitingPayment",
-            course: [
-              { title: "語言交換", session: "上半" },
-              { title: "創業分享", session: "下半" },
-              { title: "心靈成長", session: "下半" },
-              { title: "AI 簡報", session: "上半" },
-            ],
-          },
-        };
+       const calendarData = {
+            "2025-06-01": {
+                status: "started",
+                course: [
+                    { title: "瑜伽課程", session: "上半" },
+                    { title: "英文會話", session: "下半" },
+                    { title: "程式設計", session: "上半" },
+                    { title: "商業簡報", session: "下半" },
+                    { title: "資料分析", session: "全天" }
+                ]
+            },
+            "2025-06-03": {
+                status: "booked",
+                course: [
+                    { title: "行銷策略", session: "全天" },
+                ]
+            },
+            "2025-06-05": {
+                status: "customized",
+                course: [
+                    { title: "籃球訓練", session: "下半" },
+                    { title: "日語進階", session: "下半" },
+                    { title: "資料分析", session: "全天" }
+                ]
+            },
+            "2025-06-08": {
+                status: "awaitingPayment",
+                course: [
+                    { title: "語言交換", session: "上半" },
+                    { title: "創業分享", session: "下半" },
+                    { title: "心靈成長", session: "下半" },
+                    { title: "AI 簡報", session: "上半" },
+                    { title: "行銷策略", session: "全天" },
+                ]
+            },
+            "2025-06-10": {
+                status: "started",
+                course: [
+                    { title: "行銷策略", session: "全天" },
+                    { title: "團隊合作", session: "全天" }
+                ]
+            },
+            "2025-06-12": {
+                status: "booked",
+                course: [
+                    { title: "網站開發", session: "上半" },
+                    { title: "語言交換", session: "上半" },
+                    { title: "攝影實作", session: "下半" },
+                    { title: "團隊合作", session: "全天" }
+                ]
+            },
+            "2025-06-15": {
+                status: "customized",
+                course: [
+                    { title: "資料分析", session: "全天" }
+                ]
+            },
+            "2025-06-18": {
+                status: "awaitingPayment",
+                course: [
+                { title: "音樂欣賞", session: "下半" },
+                { title: "哲學討論", session: "下半" }
+                ]
+            },
+            "2025-06-22": {
+                status: "started",
+                course: [
+                    { title: "專案提案", session: "上半" },
+                    { title: "溝通技巧", session: "上半" },
+                    { title: "時間管理", session: "下半" }
+                ]
+            },
+            "2025-06-25": {
+                status: "booked",
+                course: [
+                    { title: "AI 訓練營", session: "全天" },
+                ]
+            }
+            };
+
 
         function buildCalendarCell(dateObj, items, dateStr, status) {
           const $cell = $('<div class="calendar-cell"></div>');
@@ -43,15 +92,17 @@
 
           $cell.append(`<div class="date-number">${dateObj.getDate()}</div>`);
 
-          const hasMorning = items.some((i) => i.session === "上半");
-          const hasAfternoon = items.some((i) => i.session === "下半");
-          if (hasMorning || hasAfternoon) {
+          const hasMorning = items.some(i => i.session === "上半");
+            const hasAfternoon = items.some(i => i.session === "下半");
+            const hasAllDay = items.some(i => i.session === "全天");
+
+            if (hasMorning || hasAfternoon || hasAllDay) {
             $cell.append(
-              `<div class="session-text">${hasMorning ? "(上半)" : ""}${
-                hasAfternoon ? "(下半)" : ""
-              }</div>`
+                `<div class="session-text ${status}">
+                ${hasMorning ? `<span class="session-morning">(下半)</span>`  : ""}${hasAfternoon ? `<span class="session-afternoon">(下半)</span>` : ""}${hasAllDay ? `<span class="session-all">(全)</span>` : ""}
+                </div>`
             );
-          }
+        }
 
           items.forEach((item, index) => {
             if (index < 2) {
@@ -78,8 +129,9 @@
 
                 const $header = $(`
                 <div class="expanded-cell-header">
-                    <div class="d-flex justify-content-end align-items-center expanded-cell-header-top"><button type="button"></button></div>
-                    <div>(上半)(下半)<span>(全)</span></div>
+                    <div class="d-flex justify-content-end align-items-center expanded-cell-header-top ${status==="started"?"":"opacity-0 pe-none"}"><button type="button" data-bs-toggle="modal"
+        data-bs-target="#editCoachCourse"></button></div>
+                    <div>(上半)(下半)<span class="${status}">(全)</span></div>
                 </div>
               `);
                 
