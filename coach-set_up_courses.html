@@ -247,15 +247,11 @@
                     <!-- 平/旺季tab -->
                     <div class="tab-content" id="resultTabs">
                       <div class="tab-pane fade show active" id="half" role="tabpanel">
-                        <h6 class="mt-2">平季</h6>
                         <div class="off-season"></div>
-                        <h6 class="mt-3">旺季</h6>
                         <div class="peak-season"></div>
                       </div>
                       <div class="tab-pane fade" id="full" role="tabpanel">
-                        <h6 class="mt-2">平季</h6>
                         <div class="off-season"></div>
-                        <h6 class="mt-3">旺季</h6>
                         <div class="peak-season"></div>
                       </div>
                     </div>
@@ -271,10 +267,17 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="modalTitle">半天收費設定</h5>
+                      <h5 class="modal-title" id="modalTitle">半天/三小時收費設定</h5>
                       <button class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
+                      <div class="mb-3">
+                        <label for="resortSelectDisplay" class="form-label fw-bold text-primary">選擇雪場：</label>
+                        <input type="text" id="resortSelectDisplay" class="form-control" placeholder="請選擇適用雪場" readonly  onclick="openResortSelectorModal(isEditMode)">
+                      </div>
+
+                     
+
                       <ul class="nav nav-tabs" id="seasonTabs">
                         <li class="nav-item">
                           <button class="nav-link active" id="offSeason-tab" data-bs-toggle="tab" data-bs-target="#offSeasonContent" type="button">平季收費</button>
@@ -291,13 +294,7 @@
                           <div id="priceInputs-peak"></div>
                         </div>
                       </div>
-                      <label class="form-label mt-3">選擇適用雪場（可複選）：</label>
-                      <select multiple class="form-select" id="resortsSelect">
-                        <option value="藏王溫泉滑雪場">藏王溫泉滑雪場</option>
-                        <option value="札幌手稻滑雪場">札幌手稻滑雪場</option>
-                        <option value="越後湯澤 Gala滑雪場">越後湯澤 Gala滑雪場</option>
-                        <option value="白馬滑雪場">白馬滑雪場</option>
-                      </select>
+                      
                     </div>
                     <div class="modal-footer">
                       <button class="btn btn-secondary" id="nextBtn">全天設定</button>
@@ -306,7 +303,50 @@
                   </div>
                 </div>
               </div>
-              
+               <!-- 雪場選擇 Modal 彈窗 -->
+               <div class="modal fade" id="resortSelectorModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">選擇適用雪場</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <h6 class="fw-bold mb-2">北海道</h6>
+                      <div class="mb-3 d-flex flex-wrap gap-2">
+                        <input type="checkbox" class="btn-check" id="resort1" autocomplete="off" value="Sahoro" data-label="Sahoro">
+                        <label class="btn btn-outline-secondary" for="resort1">Sahoro</label>
+                        <input type="checkbox" class="btn-check" id="resort2" autocomplete="off" value="Moiwa" data-label="Moiwa">
+                        <label class="btn btn-outline-secondary" for="resort2">Moiwa</label>
+                        <input type="checkbox" class="btn-check" id="resort3" autocomplete="off" value="Annupur" data-label="Annupur">
+                        <label class="btn btn-outline-secondary" for="resort3">Annupur</label>
+                        <input type="checkbox" class="btn-check" id="resort4" autocomplete="off" value="Grand HIRAFU" data-label="Grand HIRAFU">
+                        <label class="btn btn-outline-secondary" for="resort4">Grand HIRAFU</label>
+                        <input type="checkbox" class="btn-check" id="resort5" autocomplete="off" value="札幌手稻" data-label="札幌手稻">
+                        <label class="btn btn-outline-secondary" for="resort5">札幌手稻</label>
+                        <input type="checkbox" class="btn-check" id="resort6" autocomplete="off" value="札幌國際" data-label="札幌國際">
+                        <label class="btn btn-outline-secondary" for="resort6">札幌國際</label>
+                        <input type="checkbox" class="btn-check" id="resort7" autocomplete="off" value="喜樂樂" data-label="喜樂樂">
+                        <label class="btn btn-outline-secondary" for="resort7">喜樂樂</label>
+                        <input type="checkbox" class="btn-check" id="resort8" autocomplete="off" value="富良野" data-label="富良野">
+                        <label class="btn btn-outline-secondary" for="resort8">富良野</label>
+                      </div>
+                      <h6 class="fw-bold mb-2">東北</h6>
+                      <div class="mb-3 d-flex flex-wrap gap-2">
+                        <input type="checkbox" class="btn-check" id="resort101" autocomplete="off" value="東北-Moiwa" data-label="Moiwa">
+                        <label class="btn btn-outline-secondary" for="resort101">Moiwa</label>
+                        <input type="checkbox" class="btn-check" id="resort102" autocomplete="off" value="東北-Sahoro" data-label="Sahoro">
+                        <label class="btn btn-outline-secondary" for="resort102">Sahoro</label>
+                        <input type="checkbox" class="btn-check" id="resort103" autocomplete="off" value="藏王溫泉滑雪場" data-label="藏王溫泉滑雪場">
+                        <label class="btn btn-outline-secondary" for="resort103">藏王溫泉滑雪場</label>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button class="btn btn-primary" onclick="confirmResortSelection()">確定新增</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             
               </div>
               <div
@@ -564,271 +604,6 @@
     ></script>
     <script src="./js/login.js"></script>
     <script src="./js/user.js"></script>
-    <script>
-      let stage = 'half';
-      function updateTabVisibility() {
-      const tabConfigs = [
-        { contentId: 'half' },
-        { contentId: 'full' }
-      ];
-
-      let hasAnyData = false;
-
-      tabConfigs.forEach(({ contentId }) => {
-        const container = document.getElementById(contentId);
-        const offSeason = container.querySelector('.off-season');
-        const peakSeason = container.querySelector('.peak-season');
-        const offTitle = container.querySelector('h6:nth-of-type(1)');
-        const peakTitle = container.querySelector('h6:nth-of-type(2)');
-
-        const hasOff = offSeason?.children.length > 0;
-        const hasPeak = peakSeason?.children.length > 0;
-
-        // 顯示 / 隱藏 平季標題 + 區塊
-        if (offTitle && offSeason) {
-          offTitle.style.display = hasOff ? '' : 'none';
-          offSeason.style.display = hasOff ? '' : 'none';
-        }
-
-        // 顯示 / 隱藏 旺季標題 + 區塊
-        if (peakTitle && peakSeason) {
-          peakTitle.style.display = hasPeak ? '' : 'none';
-          peakSeason.style.display = hasPeak ? '' : 'none';
-        }
-
-        // 如果任一個 tab 有資料，就視為有資料
-        if (hasOff || hasPeak) {
-          hasAnyData = true;
-        }
-      });
-
-      // ✅ 若都無資料，整個 Tabs（#typeTabs）區塊隱藏
-      const typeTabs = document.getElementById('typeTabs');
-      typeTabs.style.display = hasAnyData ? '' : 'none';
-    }
-      function appendCardToSection(stage, html) {
-        const container = document.getElementById(stage === 'full' ? 'full' : 'half');
-        container.insertAdjacentHTML('beforeend', html);
-        updateTabVisibility();
-      }
-
-      function handleFormSubmission(stage, values) {
-        const targetId = stage === 'full' ? 'full' : 'half';
-        const cardHTML = `
-          <div class="card mb-2">
-            <div class="card-body">
-              <h5 class="card-title">${stage === 'full' ? '全天收費' : '半天收費'}</h5>
-              <p class="card-text">${values}</p>
-            </div>
-          </div>`;
-        appendCardToSection(stage, cardHTML);
-      }
-
-      submitPricingCard = (stage, offData, peakData, resorts) => {
-        createPricingCard(stage, offData, peakData, resorts);
-      } 
-      document.addEventListener('DOMContentLoaded', function () {
-        updateTabVisibility();
-
-        // 測試用：以下可依實際功能觸發移除
-        handleFormSubmission('half', '示意收費資訊 for 半天');
-        handleFormSubmission('full', '示意收費資訊 for 全天');
-      });
-      
-      function createPricingCard(stage, offData, peakData, resorts) {
-        const uniqueId = Date.now();
-        const card = document.createElement('div');
-        card.className = 'price-card card mb-3';
-        card.innerHTML = `
-          <div class="price-box border border-primary border-2 rounded p-3 position-relative">
-            <ul class="nav nav-tabs border-bottom mb-3" id="seasonTab-${uniqueId}" role="tablist">
-              <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="off-tab-${uniqueId}" data-bs-toggle="tab" data-bs-target="#off-${uniqueId}" type="button" role="tab">平季收費</button>
-              </li>
-              <li class="nav-item" role="presentation">
-                <button class="nav-link" id="peak-tab-${uniqueId}" data-bs-toggle="tab" data-bs-target="#peak-${uniqueId}" type="button" role="tab">旺季收費</button>
-              </li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane fade show active" id="off-${uniqueId}" role="tabpanel">
-                <div class="row text-center fw-bold mb-3">
-                  ${offData.map((v, i) => `
-                    <div class="col">${i + 1}人/堂<br><div class="fw-normal">${v}</div></div>
-                  `).join('')}
-                </div>
-              </div>
-              <div class="tab-pane fade" id="peak-${uniqueId}" role="tabpanel">
-                <div class="row text-center fw-bold mb-3">
-                  ${peakData.map((v, i) => `
-                    <div class="col">${i + 1}人/堂<br><div class="fw-normal">${v}</div></div>
-                  `).join('')}
-                </div>
-              </div>
-            </div>
-            <div class="mt-3">
-              ${resorts.map(r => `<span class="badge rounded-pill bg-secondary me-1">${r}</span>`).join('')}
-              <button class="btn btn-sm btn-outline-secondary">＋ 增加相同收費雪場</button>
-            </div>
-            <div class="position-absolute top-0 end-0 mt-2 me-2">
-              <i class="bi bi-pencil-square text-primary me-2" role="button" onclick="editCard(this)"></i>
-              <i class="bi bi-trash text-danger" role="button" onclick="this.closest('.price-card').remove(); updateTabVisibility();"></i>
-            </div>
-          </div>
-        `;
-        const container = document.querySelector(`#${stage} .off-season`);
-        container.appendChild(card);
-        updateTabVisibility();
-      }
-      
-      function generatePriceInputs(targetId, prefix) {
-        const container = document.getElementById(targetId);
-        container.innerHTML = '';
-        for (let i = 1; i <= 6; i++) {
-          const inputId = `${prefix}${i}`;
-          const group = document.createElement('div');
-          group.className = 'input-group mb-2';
-          group.innerHTML = `
-            <span class="input-group-text">${i}人/堂</span>
-            <button class="btn btn-outline-secondary" type="button" onclick="adjust('${inputId}', -1000)">-</button>
-            <input type="number" class="form-control text-center" id="${inputId}" value="6000" min="1000" onblur="validateAndFormat(this)">
-            <button class="btn btn-outline-secondary" type="button" onclick="adjust('${inputId}', 1000)">+</button>
-          `;
-          container.appendChild(group);
-        }
-      }
-
-      function adjust(id, delta) {
-        const input = document.getElementById(id);
-        if (!input) return;
-        let value = parseInt(input.value) || 0;
-        value = Math.max(1000, Math.round((value + delta) / 1000) * 1000);
-        input.value = value;
-      }
-
-      function validateAndFormat(input) {
-        let val = parseInt(input.value) || 0;
-        if (val < 1000) val = 1000;
-        val = Math.round(val / 1000) * 1000;
-        input.value = val;
-      }
-
-      function validatePriceInputs(prefix) {
-        for (let i = 1; i <= 6; i++) {
-          const value = document.getElementById(`${prefix}${i}`).value;
-          if (!value || parseInt(value) < 1000) return false;
-        }
-        return true;
-      }
-
-      function validateResortsSelected() {
-        return document.getElementById('resortsSelect').selectedOptions.length > 0;
-      }
-
-      document.getElementById('nextBtn').addEventListener('click', function() {
-        if (!validateResortsSelected() || !validatePriceInputs('off') || (document.getElementById('option2').checked && !validatePriceInputs('peak'))) {
-          alert('請填寫完整半天收費資訊並選擇至少一個雪場');
-          return;
-        }
-
-                // 先儲存半天設定的資料
-                const offDataHalf = [];
-        const peakDataHalf = [];
-        for (let i = 1; i <= 6; i++) {
-          offDataHalf.push(document.getElementById(`off${i}`).value);
-          peakDataHalf.push(document.getElementById(`peak${i}`).value);
-        }
-        const selectedResorts = Array.from(document.getElementById('resortsSelect').selectedOptions).map(opt => opt.value);
-        submitPricingCard('half', offDataHalf, peakDataHalf, selectedResorts);
-
-        stage = 'full';
-        document.getElementById('modalTitle').textContent = '全天收費設定';
-        this.classList.add('d-none');
-        document.getElementById('backBtn').classList.remove('d-none');
-        document.getElementById('confirmBtn').classList.remove('d-none');
-        generatePriceInputs('priceInputs-off', 'offFull');
-        generatePriceInputs('priceInputs-peak', 'peakFull');
-
-      });
-
-      const backBtn = document.createElement('button');
-      backBtn.className = 'btn btn-secondary d-none';
-      backBtn.id = 'backBtn';
-      backBtn.textContent = '返回半天設定';
-      backBtn.addEventListener('click', function () {
-        stage = 'half';
-        document.getElementById('modalTitle').textContent = '半天收費設定';
-        this.classList.add('d-none');
-        document.getElementById('nextBtn').classList.remove('d-none');
-        document.getElementById('confirmBtn').classList.add('d-none');
-        generatePriceInputs('priceInputs-off', 'off');
-        generatePriceInputs('priceInputs-peak', 'peak');
-      });
-      document.querySelector('.modal-footer').insertBefore(backBtn, document.getElementById('confirmBtn'));
-
-      document.getElementById('confirmBtn').addEventListener('click', function() {
-        if (!validateResortsSelected() || !validatePriceInputs('offFull') || (document.getElementById('option2').checked && !validatePriceInputs('peakFull'))) {
-          alert('請填寫完整全天收費資訊並選擇至少一個雪場');
-          return;
-        }
-
-         
-  const offData = [], peakData = [];
-  for (let i = 1; i <= 6; i++) {
-    offData.push(document.getElementById('offFull' + i).value);
-    peakData.push(document.getElementById('peakFull' + i).value);
-    }
-      const resorts = Array.from(document.getElementById('resortsSelect').selectedOptions).map(opt => opt.value);
-
-      createPricingCard('full', offData, peakData, resorts);
-
-      bootstrap.Modal.getInstance(document.getElementById('priceModal')).hide();
-      });
-      
-      document.addEventListener('DOMContentLoaded', function () {
-        generatePriceInputs('priceInputs-off', 'off');
-        generatePriceInputs('priceInputs-peak', 'peak');
-        updateTabVisibility();
-        const option2 = document.getElementById('option2');
-        function updatePeakSeasonTabVisibility() {
-          const isChecked = option2.checked;
-          const peakTab = document.getElementById('peakSeason-tab');
-          const peakContent = document.getElementById('peakSeasonContent');
-          if (!isChecked) {
-            peakTab.classList.add('d-none');
-            peakContent.classList.remove('show', 'active');
-            document.getElementById('offSeason-tab').classList.add('active');
-            document.getElementById('offSeasonContent').classList.add('show', 'active');
-          } else {
-            peakTab.classList.remove('d-none');
-          }
-        }
-        updatePeakSeasonTabVisibility();
-        option2.addEventListener('change', updatePeakSeasonTabVisibility);
-      });
-
-      document.getElementById('priceModal').addEventListener('show.bs.modal', function () {
-        stage = 'half';
-        document.getElementById('modalTitle').textContent = '半天收費設定';
-        document.getElementById('nextBtn').classList.remove('d-none');
-        document.getElementById('confirmBtn').classList.add('d-none');
-        document.getElementById('backBtn').classList.add('d-none');
-        generatePriceInputs('priceInputs-off', 'off');
-        generatePriceInputs('priceInputs-peak', 'peak');
-        document.getElementById('offSeason-tab').classList.add('active');
-        document.getElementById('offSeasonContent').classList.add('show', 'active');
-        document.getElementById('peakSeason-tab').classList.remove('active');
-        document.getElementById('peakSeasonContent').classList.remove('show', 'active');
-        const isChecked = document.getElementById('option2').checked;
-        const peakTab = document.getElementById('peakSeason-tab');
-        const peakContent = document.getElementById('peakSeasonContent');
-        if (!isChecked) {
-          peakTab.classList.add('d-none');
-          peakContent.classList.remove('show', 'active');
-        } else {
-          peakTab.classList.remove('d-none');
-        }
-        Array.from(document.getElementById('resortsSelect').options).forEach(opt => opt.selected = false);
-      });
-    </script>
+    <script src="./js/pricingCard.js"></script>
   </body>
 </html>
