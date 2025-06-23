@@ -1,0 +1,499 @@
+/* course-info-box */
+.course-info-box {
+  margin: 6px 0 26px;
+}
+ul.course-range {
+  gap: 12px;
+}
+ul.course-range li {
+  height: 30px;
+  background: #ebebeb;
+  border-radius: 8px;
+  padding: 7px 6px;
+  color: #444;
+}
+
+/* plus_outline */
+.btn-plus {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  height: 50px;
+  padding: 0 16px;
+}
+.btn-plus::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("../images/plus_outline.svg") center;
+  background-size: contain;
+}
+
+.calendar {
+  padding: 24px 16px;
+  border-radius: 16px;
+  background-color: #fff;
+}
+.calendar-info {
+  color: #444;
+  font-size: 18px;
+}
+.calendar-tag {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+@media (max-width: 767px) {
+  ul.course-range {
+    gap: 2px;
+    margin-bottom: 16px;
+  }
+  .calendar-tag {
+    gap: 2px;
+  }
+}
+@media (max-width: 480px) {
+  .calendar-info,
+  ul.course-range {
+    font-size: 13px;
+  }
+}
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+  border-bottom: 1px solid #c2c2c2;
+}
+#calendar-title,
+#today-btn {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 700;
+}
+#today-btn {
+  color: #1ba4ed;
+  border-bottom: 1px solid #1ba4ed;
+  padding-bottom: 2px;
+  cursor: pointer;
+}
+#prev-btn,
+#next-btn,
+#prevMonth,
+#nextMonth {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid #c2c2c2;
+  background: url(../images/date_arrow_left.svg) center no-repeat;
+}
+#next-btn,
+#nextMonth {
+  transform: rotate(180deg);
+  background-position-x: 10px;
+}
+#prev-btn:hover,
+#next-btn:hover,
+#prevMonth:hover,
+#nextMonth:hover {
+  background-color: #ebf1f5;
+}
+
+.calendar-days {
+  display: flex;
+}
+.calendar-days div {
+  flex: 1;
+  color: #666;
+  font-size: 20px;
+  font-weight: 500;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-self: stretch;
+}
+.calendar-row {
+  display: flex;
+}
+.calendar-cell {
+  flex: 1;
+  padding: 5px;
+  min-height: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: 2px solid transparent;
+}
+@media (max-width: 480px) {
+  .calendar-row .calendar-cell {
+    font-size: 10px;
+    padding-left: 2px;
+    padding-right: 2px;
+  }
+}
+.calendar-cell.empty {
+  /* background: #f5f5f5; */
+}
+.date-number {
+  color: #000;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+}
+@media (max-width: 480px) {
+  .date-number {
+    font-size: 13px;
+  }
+}
+.session-text {
+  font-size: 14px;
+  color: #c2c2c2;
+  border-bottom: 1px solid #c2c2c2;
+  padding-bottom: 4px;
+}
+.session-text.started {
+  color: #666;
+}
+
+.calendar-cell .item {
+  line-height: 30px;
+  padding: 0;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.more-button {
+  color: #8d8888;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: block;
+  text-align: center;
+}
+.expanded-row {
+  background: #fcfcfc;
+  border: 1px solid #e3e3e3;
+  border-radius: 16px;
+  padding: 4px 12px 16px;
+  display: flex;
+  margin: 2px 0 4px;
+}
+.expanded-cell {
+  flex: 1 1 100%;
+}
+.expanded-cell-header {
+  margin-bottom: 8px;
+  font-size: 14px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.expanded-cell-header-top {
+  height: 48px;
+}
+.expanded-cell-header button {
+  width: 24px;
+  height: 24px;
+  background: url(../images/edit.svg) no-repeat;
+  background-size: contain;
+  border: none;
+}
+
+/* view-toggle */
+.view-toggle button {
+  width: 68px;
+  height: 50px;
+  padding: 5px 10px;
+  border-radius: 30px;
+  color: #666666;
+  background-color: #fff;
+  border: 1px solid #c2c2c2;
+}
+@media (max-width: 992px) {
+  .view-toggle {
+    margin-top: 12px;
+  }
+  .view-toggle button {
+    width: 50px;
+    height: 40px;
+  }
+}
+.view-toggle .active {
+  color: #fff;
+  background-color: #00558f;
+  border-color: #00558f;
+}
+.calendar-cell.select {
+  border-color: #444444;
+}
+.calendar-cell.select::after {
+  content: "";
+  position: absolute;
+  bottom: -48px;
+  height: 20px;
+  width: 20px;
+  left: 50%;
+  margin-left: -10px;
+  background: url(../images/more.svg) no-repeat;
+}
+/* Status 樣式 */
+.status-started,
+.status-booked,
+.status-customized,
+.status-awaitingPayment {
+  color: #26b249;
+  background: #e9f7ed;
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+.status-booked {
+  color: #1ba4ed;
+  background: #e8f6fd;
+}
+.expanded-cell-header span.booked,
+.session-text.booked .session-all {
+  color: #1ba4ed;
+}
+.status-customized {
+  color: #ff9500;
+  background: #fff4e5;
+}
+.expanded-cell-header span.customized,
+.session-text.customized .session-all {
+  color: #ff9500;
+}
+.status-awaitingPayment {
+  color: #ff2d55;
+  background: #ffeaee;
+}
+.expanded-cell-header span.awaitingPayment,
+.session-text.awaitingPayment .session-all {
+  color: #ff2d55;
+}
+
+.calendar-cell.status-started {
+  background-color: transparent;
+}
+.calendar-cell.status-started .item {
+  color: #26b249;
+  background: #e9f7ed;
+  border-radius: 8px;
+  padding: 0 6px;
+}
+
+.status-box {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0 4px;
+}
+.status-box span {
+  display: inline-block;
+}
+
+/* editCoachCourse */
+#editCoachCourseForm {
+  position: relative;
+  gap: 24px;
+}
+#editCoachCourseForm .form-label {
+  color: #000;
+  font-size: 16px;
+}
+#editCoachCourseForm .btn-radio {
+  border-color: #dedede;
+  width: 118px;
+  line-height: 38px;
+}
+#editCoachCourseForm .btn-radio.select {
+  color: #ffffff;
+  background-color: #00558f;
+  border-color: #dedede;
+}
+.select-collapse {
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+  border: 1px solid #c2c2c2;
+  border-radius: 8px;
+  background-color: #f5f5f5;
+  line-height: 46px;
+  padding: 0 12px;
+}
+#editCoachCourse .modal-dialog {
+  max-width: 859px;
+  width: 100%;
+}
+#editCoachCourse .btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+#editCoachCourse .modal-content {
+  padding: 56px 40px 40px;
+  border-radius: 20px;
+}
+@media (max-width: 992px) {
+  #editCoachCourse .modal-content {
+    padding: 48px 20px 32px;
+  }
+}
+@media (max-width: 481px) {
+  #editCoachCourseForm .btn-radio {
+    width: 88px;
+  }
+}
+#editCoachCourse .btn-box {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 24px;
+}
+#editCoachCourse .btn-box button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 146px;
+  height: 50px;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 30px;
+}
+
+/* select date */
+#calendarWrapper {
+  margin-top: -26px;
+}
+#datePickerCollapse {
+  position: absolute;
+  left: 0;
+  right: 0;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+}
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  width: 356px;
+}
+
+.calendar-weekdays {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.calendar-weekdays > div {
+  width: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+.calendar-weekdays,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 50px);
+}
+
+.calendar-date {
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  cursor: pointer;
+  z-index: 2;
+}
+@media (max-width: 481px) {
+  .calendar-weekdays,
+  .calendar-grid {
+    grid-template-columns: repeat(7, 40px);
+  }
+  .calendar-date {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+  }
+}
+.calendar-date.select {
+  position: relative;
+  background-color: #00558f;
+  color: white;
+  border-radius: 50%;
+}
+
+.calendar-date.range {
+  position: relative;
+  background-color: #ebf1f5;
+  z-index: 0;
+}
+/* 左邊延伸：range-start */
+.calendar-date.range.range-start::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #ebf1f5;
+  z-index: -1;
+}
+
+/* 右邊延伸：range-end */
+.calendar-date.range.range-end::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50%;
+  width: 50%;
+  height: 100%;
+  background-color: #ebf1f5;
+  z-index: -1;
+}
+
+.calendar-date.disabled {
+  color: #ccc;
+  pointer-events: none;
+}
+
+.calendar-title {
+  font-size: 18px;
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.datePickerContent {
+  padding: 24px 16px;
+  background: #ffffff;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+}
+
+/* skiResort-tag-box */
+.skiResort-tag {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  background: #ebf1f5;
+  border-radius: 8px;
+  padding: 4px;
+  font-weight: 500;
+  color: #1ba4ed;
+}
+.skiResort-tag.yellow {
+  color: #836942;
+  background-color: #fcf1e1;
+}
+.skiResort-tag::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  background: url("../images/icon_close_white.svg");
+  background-size: contain;
+}
