@@ -15,15 +15,16 @@
     />
     <link href="./style/layout.css" rel="stylesheet" />
     <link
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
-  rel="stylesheet"
-/>
- <!--  -->
- <link href="./style/user-profile.css" rel="stylesheet" />
- <link href="./style/user-bookings.css" rel="stylesheet" />
- 
- <link href="./style/member-center.css" rel="stylesheet" />
- <link href="./style/coach-set_up_courses.css" rel="stylesheet" />
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!--  -->
+    <link href="./style/user-profile.css" rel="stylesheet" />
+    <link href="./style/user-bookings.css" rel="stylesheet" />
+
+    <link href="./style/member-center.css" rel="stylesheet" />
+    <link href="./style/coach-set_up_courses.css" rel="stylesheet" />
+    <link href="./style/coachCourse.css" rel="stylesheet" />
   </head>
   <body>
     <main>
@@ -143,29 +144,29 @@
       </div>
       <section class="container">
         <div class="d-flex user-profile">
-          <div id="left-side" >
+          <div id="left-side">
             <div class="user-card">
               <div class="user-avatar"></div>
               <p class="user-name">測試名字測試名字長度測試名字測試名字長度</p>
               <p class="user-level">一般會員</p>
             </div>
             <ul class="profile-menu">
+              <li class="coach-info" data-url="coach-profile.html?status=1">
+                教練資料設定
+              </li>
               <li
-                class="user-info active"
-                data-url="user-profile.html?status=1"
+                class="course-settings active"
+                data-url="coach-set_up_courses.html?status=1"
               >
-                個人資料
+                開設設定
               </li>
-              <li class="course-record" data-url="user-bookings.html?status=1">
-                課程紀錄
-              </li>
-              <li class="order-info" data-url="user-orders.html?status=1">
-                訂單資料
-              </li>
+              <li class="course-record" data-url="#">課程紀錄</li>
+              <li class="course-earnings" data-url="#">課程收益</li>
+              <li class="user-info" data-url="#">個人資料</li>
             </ul>
           </div>
-          <div id="right-side" class="flex-grow-1 ">
-            <div  class="d-flex justify-content-between pb-3">
+          <div id="right-side" class="flex-grow-1">
+            <div class="d-flex justify-content-between pb-3">
               <div>
                 <a class="page-arrow" href="coach-profile.html"></a>
                 <h2>開課設定</h2>
@@ -177,7 +178,7 @@
                 <button
                   class="btn btn-primary btn-rounded btn-save btn-m align-items-center d-flex justify-content-center"
                 >
-                  儲存<img src="./images/icon_arrow_right.svg">
+                  儲存<img src="./images/icon_arrow_right.svg" />
                 </button>
               </div>
             </div>
@@ -193,131 +194,256 @@
                   aria-controls="pills-future"
                   aria-selected="true"
                 >
-                收費設定
+                  收費設定
                 </button>
               </li>
               <li class="nav-item default-tab" role="presentation">
                 <button
                   class="nav-link"
-                  id="pills-history-tab"
+                  id="pills-courses-tab"
                   data-bs-toggle="pill"
-                  data-bs-target="#pills-history"
+                  data-bs-target="#pills-courses"
                   type="button"
                   role="tab"
-                  aria-controls="pills-history"
+                  aria-controls="pills-courses"
                   aria-selected="false"
                 >
-                開課日期設定
+                  開課日期設定
                 </button>
               </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
-            <div class="tab-pane fade show active" id="pills-future" role="tabpanel" aria-labelledby="pills-future-tab" tabindex="0">
-                <div class="form-check mb-1 d-flex align-items-center option-setting">
-                  <input class="form-check-input p-1" type="checkbox" id="option1" checked disabled>
+              <div
+                class="tab-pane fade show active"
+                id="pills-future"
+                role="tabpanel"
+                aria-labelledby="pills-future-tab"
+                tabindex="0"
+              >
+                <div
+                  class="form-check mb-1 d-flex align-items-center option-setting"
+                >
+                  <input
+                    class="form-check-input p-1"
+                    type="checkbox"
+                    id="option1"
+                    checked
+                    disabled
+                  />
                   <label class="form-check-label p-2" for="option1">
-                    單次訂課10小時以上再95折 <span class="text-primary-blue">(必選)</span>
+                    單次訂課10小時以上再95折
+                    <span class="text-primary-blue">(必選)</span>
                   </label>
                 </div>
-                <div class="form-check mb-1 d-flex align-items-start option-setting">
-                  <input class="form-check-input mt-3" type="checkbox" id="option2" checked>
+                <div
+                  class="form-check mb-1 d-flex align-items-start option-setting"
+                >
+                  <input
+                    class="form-check-input mt-3"
+                    type="checkbox"
+                    id="option2"
+                    checked
+                  />
                   <label class="form-check-label p-2" for="option2">
                     啟用旺季收費，旺季期間：
-                    <span class="text-primary-blue">(需啟用才能設定)</span><br>
+                    <span class="text-primary-blue">(需啟用才能設定)</span
+                    ><br />
                     聖誕跨年2024/12/21～2025/01/05、農曆新年2025/01/18～2025/02/08
                   </label>
                 </div>
                 <div class="container">
-                  <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+                  <div
+                    class="d-flex justify-content-between align-items-center mt-3 mb-3"
+                  >
                     <!-- 左邊：Tabs -->
                     <div>
-                      <ul class="nav nav-tabs mb-0 form-check-inline" id="typeTabs" role="tablist">
-                        <li class="nav-item " role="presentation" id="tabHalf">
-                          <button class="form-check-label active btn-rounded" id="half-tab" data-bs-toggle="tab" data-bs-target="#half" type="button" role="tab">
+                      <ul
+                        class="nav nav-tabs mb-0 form-check-inline"
+                        id="typeTabs"
+                        role="tablist"
+                      >
+                        <li class="nav-item" role="presentation" id="tabHalf">
+                          <button
+                            class="form-check-label active btn-rounded"
+                            id="half-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#half"
+                            type="button"
+                            role="tab"
+                          >
                             半天設定
                           </button>
                         </li>
                         <li class="nav-item" role="presentation" id="tabFull">
-                          <button class="form-check-label btn-rounded" id="full-tab" data-bs-toggle="tab" data-bs-target="#full" type="button" role="tab">
+                          <button
+                            class="form-check-label btn-rounded"
+                            id="full-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#full"
+                            type="button"
+                            role="tab"
+                          >
                             全天設定
                           </button>
                         </li>
                       </ul>
                     </div>
-                
+
                     <!-- 右邊：新增按鈕 -->
                     <div>
-                      <button class="btn btn-primary btn-rounded btn-m" data-bs-toggle="modal" data-bs-target="#priceModal">
+                      <button
+                        class="btn btn-primary btn-rounded btn-m"
+                        data-bs-toggle="modal"
+                        data-bs-target="#priceModal"
+                      >
                         新增收費設定
                       </button>
                     </div>
                   </div>
-                
+
                   <!-- 下方：tab-pane 區域 -->
                   <div class="tab-content" id="resultTabs">
-                    <div class="tab-pane fade show active" id="half" role="tabpanel">
+                    <div
+                      class="tab-pane fade show active"
+                      id="half"
+                      role="tabpanel"
+                    >
                       <div class="off-season">
                         <div class="price-card rounded card mb-3">
-                          <div class="price-box  rounded p-3 position-relative">
-                          <ul class="nav nav-tabs border-bottom mb-3" id="seasonTab-1750675044197" role="tablist">
-                            <li class="nav-item" role="presentation">
-                              <button class="nav-link active" id="off-tab-1750675044197" data-bs-toggle="tab" data-bs-target="#off-1750675044197" type="button" role="tab">平季收費</button>
-                            </li>
-                            
-                          <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="peak-tab-1750675044197" data-bs-toggle="tab" data-bs-target="#peak-1750675044197" type="button" role="tab">旺季收費</button>
-                          </li>
-                        
-                          </ul>
-                          <div class="tab-content">
-                            <div class="tab-pane fade show active" id="off-1750675044197" role="tabpanel">
-                              <div class="row text-center fw-bold mb-3">
-                                
-                                  <div class="col">1人/堂<br><div class="fw-normal">6000</div></div>
-                                
-                                  <div class="col">2人/堂<br><div class="fw-normal">6000</div></div>
-                                
-                                  <div class="col">3人/堂<br><div class="fw-normal">6000</div></div>
-                                
-                                  <div class="col">4人/堂<br><div class="fw-normal">6000</div></div>
-                                
-                                  <div class="col">5人/堂<br><div class="fw-normal">6000</div></div>
-                                
-                                  <div class="col">6人/堂<br><div class="fw-normal">6000</div></div>
-                                
+                          <div class="price-box rounded p-3 position-relative">
+                            <ul
+                              class="nav nav-tabs border-bottom mb-3"
+                              id="seasonTab-1750675044197"
+                              role="tablist"
+                            >
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link active"
+                                  id="off-tab-1750675044197"
+                                  data-bs-toggle="tab"
+                                  data-bs-target="#off-1750675044197"
+                                  type="button"
+                                  role="tab"
+                                >
+                                  平季收費
+                                </button>
+                              </li>
+
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link"
+                                  id="peak-tab-1750675044197"
+                                  data-bs-toggle="tab"
+                                  data-bs-target="#peak-1750675044197"
+                                  type="button"
+                                  role="tab"
+                                >
+                                  旺季收費
+                                </button>
+                              </li>
+                            </ul>
+                            <div class="tab-content">
+                              <div
+                                class="tab-pane fade show active"
+                                id="off-1750675044197"
+                                role="tabpanel"
+                              >
+                                <div class="row text-center fw-bold mb-3">
+                                  <div class="col">
+                                    1人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    2人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    3人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    4人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    5人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    6人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div
+                                class="tab-pane fade"
+                                id="peak-1750675044197"
+                                role="tabpanel"
+                              >
+                                <div class="row text-center fw-bold mb-3">
+                                  <div class="col">
+                                    1人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    2人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    3人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    4人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    5人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+
+                                  <div class="col">
+                                    6人/堂<br />
+                                    <div class="fw-normal">6000</div>
+                                  </div>
+                                </div>
                               </div>
                             </div>
-                            
-                          <div class="tab-pane fade" id="peak-1750675044197" role="tabpanel">
-                            <div class="row text-center fw-bold mb-3">
-                              
-                                <div class="col">1人/堂<br><div class="fw-normal">6000</div></div>
-                              
-                                <div class="col">2人/堂<br><div class="fw-normal">6000</div></div>
-                              
-                                <div class="col">3人/堂<br><div class="fw-normal">6000</div></div>
-                              
-                                <div class="col">4人/堂<br><div class="fw-normal">6000</div></div>
-                              
-                                <div class="col">5人/堂<br><div class="fw-normal">6000</div></div>
-                              
-                                <div class="col">6人/堂<br><div class="fw-normal">6000</div></div>
-                              
+                            <div class="mt-3 badge-container">
+                              <span class="badge bg-secondary me-1"
+                                >藏王溫泉滑雪場</span
+                              >
+                              <button
+                                class="btn btn-sm btn-outline-secondary btn-add-resort"
+                              >
+                                ＋ 增加相同收費雪場
+                              </button>
+                            </div>
+                            <div
+                              class="position-absolute top-0 end-0 mt-2 me-2"
+                            >
+                              <span
+                                class="insurance insurance-followUp"
+                                onclick="editCard(this)"
+                              ></span>
+                              <i
+                                class="bi bi-trash text-danger"
+                                role="button"
+                                onclick="this.closest('.price-card').remove(); updateTabVisibility();"
+                              ></i>
                             </div>
                           </div>
-                        
-                          </div>
-                              <div class="mt-3 badge-container">
-                              <span class="badge bg-secondary me-1">藏王溫泉滑雪場</span>
-                                <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
-                        
-                              </div>
-                              <div class="position-absolute top-0 end-0 mt-2 me-2">
-                                <span class="insurance insurance-followUp" onclick="editCard(this)"></span>
-                                <i class="bi bi-trash text-danger" role="button" onclick="this.closest('.price-card').remove(); updateTabVisibility();"></i>
-                              </div>
-                            </div>
-                          </div>
+                        </div>
                       </div>
                       <div class="peak-season"></div>
                     </div>
@@ -327,85 +453,311 @@
                     </div>
                   </div>
                 </div>
-                
-             
-       
-              <!-- Modal 彈窗 -->
-              <div class="modal fade" id="priceModal" tabindex="-1">
-                <div class="modal-dialog modal-md">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="modalTitle">半天/三小時收費設定</h5>
-                      <button class="btn-close" data-bs-dismiss="modal"></button>
-                    </div>
-                    <div class="modal-body">
-                      <div class="mb-3 mb-3 d-flex justify-content-center align-items-center resort-select-display">
-                        <label class="form-label text-primary-blue option-label">選擇雪場：</label>
+
+                <!-- Modal 彈窗 -->
+                <div class="modal fade" id="priceModal" tabindex="-1">
+                  <div class="modal-dialog modal-md">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitle">
+                          半天/三小時收費設定
+                        </h5>
+                        <button
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div
+                          class="mb-3 mb-3 d-flex justify-content-center align-items-center resort-select-display"
+                        >
+                          <label
+                            class="form-label text-primary-blue option-label"
+                            >選擇雪場：</label
+                          >
                           <div
                             id="resortSelectDisplay"
                             class="form-select"
                             onclick="openResortSelectorModal(isEditMode)"
-                            style="cursor: pointer;"
+                            style="cursor: pointer"
                           >
                             請選擇適用雪場
                           </div>
+                        </div>
+
+                        <ul class="nav nav-tabs" id="seasonTabs">
+                          <li class="nav-item">
+                            <button
+                              class="nav-link active"
+                              id="offSeason-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#offSeasonContent"
+                              type="button"
+                            >
+                              平季收費
+                            </button>
+                          </li>
+                          <li class="nav-item">
+                            <button
+                              class="nav-link"
+                              id="peakSeason-tab"
+                              data-bs-toggle="tab"
+                              data-bs-target="#peakSeasonContent"
+                              type="button"
+                            >
+                              旺季收費
+                            </button>
+                          </li>
+                        </ul>
+                        <div class="tab-content">
+                          <div
+                            class="tab-pane fade show active pt-3"
+                            id="offSeasonContent"
+                          >
+                            <div id="priceInputs-off"></div>
+                          </div>
+                          <div
+                            class="tab-pane fade pt-3"
+                            id="peakSeasonContent"
+                          >
+                            <div id="priceInputs-peak"></div>
+                          </div>
+                        </div>
                       </div>
+                      <div class="modal-footer">
+                        <button class="btn btn-secondary" id="nextBtn">
+                          全天設定
+                        </button>
+                        <button
+                          class="btn btn-primary d-none"
+                          id="confirmBtn"
+                          data-bs-dismiss="modal"
+                        >
+                          確認
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- 雪場選擇 Modal 彈窗 -->
+                <div class="modal fade" id="resortSelectorModal" tabindex="-1">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title">選擇適用雪場</h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div id="resortOptionsContainer"></div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          class="btn btn-primary"
+                          onclick="confirmResortSelection()"
+                        >
+                          確定新增
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- courses -->
+              <div
+                class="tab-pane fade show"
+                id="pills-courses"
+                role="tabpanel"
+                aria-labelledby="pills-courses-tab"
+                tabindex="0"
+              >
+                <div
+                  class="d-flex flex-column flex-md-row justify-content-between course-info-box"
+                >
+                  <ul class="course-range d-flex align-items-center">
+                    <li class="rounded-1 fw-medium">上半 09:00~12:00</li>
+                    <li class="rounded-1 fw-medium">下半 13:00~16:00</li>
+                    <li class="rounded-1 fw-medium">全天 09:30~15:30</li>
+                  </ul>
+                  <button class="btn btn-primary btn-rounded btn-plus">
+                    新增時段
+                  </button>
+                </div>
+                <div id="system-alert" class="success">
+                  『請注意，學員下單後，您無法單方面取消。請謹慎設定您的雪場跟開放時段，並隨時注意訂單更新狀況。』
+                </div>
 
-                     
-
-                      <ul class="nav nav-tabs" id="seasonTabs">
-                        <li class="nav-item">
-                          <button class="nav-link active" id="offSeason-tab" data-bs-toggle="tab" data-bs-target="#offSeasonContent" type="button">平季收費</button>
-                        </li>
-                        <li class="nav-item">
-                          <button class="nav-link" id="peakSeason-tab" data-bs-toggle="tab" data-bs-target="#peakSeasonContent" type="button">旺季收費</button>
-                        </li>
+                <div class="calendar mt-3">
+                  <div class="d-xl-flex justify-content-between">
+                    <div
+                      class="calendar-info fw-medium d-flex align-items-center gap-0 gap-xl-3"
+                    >
+                      <p>雪場狀況：</p>
+                      <ul class="calendar-tag">
+                        <li class="status-started">已開課</li>
+                        <li class="status-booked">已被預訂</li>
+                        <li class="status-customized">客製時段</li>
+                        <li class="status-awaitingPayment">已預定代付款</li>
                       </ul>
-                      <div class="tab-content">
-                        <div class="tab-pane fade show active pt-3" id="offSeasonContent">
-                          <div id="priceInputs-off"></div>
-                        </div>
-                        <div class="tab-pane fade pt-3" id="peakSeasonContent">
-                          <div id="priceInputs-peak"></div>
-                        </div>
-                      </div>
-                      
                     </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-secondary" id="nextBtn">全天設定</button>
-                      <button class="btn btn-primary d-none" id="confirmBtn" data-bs-dismiss="modal">確認</button>
+                    <div class="view-toggle text-end">
+                      <button id="month-view" class="active">月</button>
+                      <button id="week-view">週</button>
                     </div>
                   </div>
-                </div>
-              </div>
-               <!-- 雪場選擇 Modal 彈窗 -->
-               <div class="modal fade" id="resortSelectorModal" tabindex="-1">
-                <div class="modal-dialog modal-lg">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title">選擇適用雪場</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  <!-- 月曆 -->
+                  <div class="calendar-header">
+                    <button id="prev-btn"></button>
+                    <div class="d-flex gap-2">
+                      <span id="calendar-title">2025年06月</span>
+                      <div id="today-btn">今日</div>
                     </div>
-                    <div class="modal-body">
-                      <div id="resortOptionsContainer"></div>
-                    </div>
-                    <div class="modal-footer">
-                      <button class="btn btn-primary" onclick="confirmResortSelection()">確定新增</button>
-                    </div>
+                    <button id="next-btn"></button>
                   </div>
+                  <div class="calendar-days">
+                    <div>日</div>
+                    <div>一</div>
+                    <div>二</div>
+                    <div>三</div>
+                    <div>四</div>
+                    <div>五</div>
+                    <div>六</div>
+                  </div>
+                  <div class="calendar-dates" id="calendar-dates"></div>
                 </div>
               </div>
-              
-            
             </div>
           </div>
-
+        </div>
       </section>
-     
+
       <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
         <button type="button" class="btn btn-primary btn-rounded confirmButton">
           儲存變更
         </button>
+      </div>
+
+      <!-- Edit Coach Course Modal -->
+      <div
+        class="modal fade"
+        id="editCoachCourse"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="editCoachCourseLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div class="modal-body">
+              <form id="editCoachCourseForm" class="d-flex flex-column">
+                <div>
+                  <label for="date" class="form-label">日期</label>
+                  <input id="date" class="visually-hidden" />
+                  <div
+                    id="dateDisplay"
+                    class="select-collapse"
+                    style="cursor: pointer"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#datePickerCollapse"
+                    aria-expanded="false"
+                    aria-controls="datePickerCollapse"
+                  >
+                    開始與結束日期
+                  </div>
+
+                  <!-- 日期選擇器 Collapse 區塊 -->
+                  <div id="datePickerCollapse" class="collapse mt-2">
+                    <div class="datePickerContent">
+                      <div class="d-flex justify-content-between">
+                        <button
+                          id="prevMonth"
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        ></button>
+                        <button
+                          id="nextMonth"
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        ></button>
+                      </div>
+                      <div
+                        id="calendarWrapper"
+                        class="d-flex flex-wrap justify-content-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">開放時段</label>
+
+                  <div>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_morning"
+                      value="morning"
+                    />
+                    <label class="btn btn-radio" for="selectRange_morning"
+                      >上半時段</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_afternoon"
+                      value="afternoon"
+                    />
+                    <label class="btn btn-radio" for="selectRange_afternoon"
+                      >下半時段</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_all"
+                      value="all"
+                    />
+                    <label class="btn btn-radio" for="selectRange_all"
+                      >全天時段</label
+                    >
+                  </div>
+                </div>
+
+                <div>
+                  <label for="skiResort" class="form-label"
+                    >已設定雪場(可複選)</label
+                  >
+                  <input id="skiResort" class="visually-hidden" />
+                  <div class="select-collapse">請選擇</div>
+                </div>
+              </form>
+              <div class="skiResort-tag-box d-flex gap-2 mt-2">
+                <div class="skiResort-tag">札幌手稻</div>
+                <div class="skiResort-tag yellow">越後湯澤 Gala</div>
+              </div>
+              <div class="btn-box">
+                <button type="button" class="btn btn-outline-primary">
+                  清除設定
+                </button>
+                <button type="button" class="btn btn-primary">確定更新</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- pc footer -->
@@ -647,8 +999,9 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/login.js"></script>
- 
+
     <script src="./js/pricingCard.js"></script>
     <script src="./js/user.js"></script>
+    <script src="./js/coachCourse.js"></script>
   </body>
 </html>
