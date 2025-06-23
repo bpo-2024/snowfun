@@ -132,9 +132,9 @@ const peakPaneHtml = showPeak ? `
   </div>
 ` : '';
 
-  card.className = 'price-card card mb-3';
+  card.className = 'price-card rounded card mb-3';
   card.innerHTML = `
-  <div class="price-box border border-primary border-2 rounded p-3 position-relative">
+  <div class="price-box rounded p-3 position-relative">
   <ul class="nav nav-tabs border-bottom mb-3" id="seasonTab-${uniqueId}" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="off-tab-${uniqueId}" data-bs-toggle="tab" data-bs-target="#off-${uniqueId}" type="button" role="tab">平季收費</button>
@@ -157,8 +157,8 @@ const peakPaneHtml = showPeak ? `
 
       </div>
       <div class="position-absolute top-0 end-0 mt-2 me-2">
-        <i class="bi bi-pencil-square text-primary me-2" role="button" onclick="editCard(this)"></i>
-        <i class="bi bi-trash text-danger" role="button" onclick="this.closest('.price-card').remove(); updateTabVisibility();"></i>
+        <span class="insurance insurance-followUp" onclick="editCard(this)">接續填寫</span>
+        <i class="bi bi-trash text-danger" role="button" ></i>
       </div>
     </div>
   `;
@@ -216,6 +216,7 @@ submitPricingCard = (stage, offData, peakData, resorts) => {
 
 // Modal 初始化與事件邏輯
 document.addEventListener('DOMContentLoaded', function () {
+  renderResortOptions();
   generatePriceInputs('priceInputs-off', 'off');
   generatePriceInputs('priceInputs-peak', 'peak');
   updateTabVisibility();
@@ -586,3 +587,72 @@ function updateCardBadge(card, resortLabels) {
     openResortSelectorModal(true);
   });
 }
+
+// ---------------------- 雪場資料 ----------------------
+const resortData = [
+  {
+    region: "北海道",
+    resorts: [
+      { id: "resort1", label: "Sahoro" },
+      { id: "resort2", label: "Moiwa" },
+      { id: "resort3", label: "Annupur" },
+      { id: "resort4", label: "Grand HIRAFU" },
+      { id: "resort5", label: "札幌手稻" },
+      { id: "resort6", label: "札幌國際" },
+      { id: "resort7", label: "喜樂樂" },
+      { id: "resort8", label: "富良野" }
+    ]
+  },
+  {
+    region: "東北",
+    resorts: [
+      { id: "resort101", label: "Moiwa" },
+      { id: "resort102", label: "Sahoro" },
+      { id: "resort103", label: "藏王溫泉滑雪場" }
+    ]
+  }
+];
+
+function renderResortOptions() {
+  const container = document.getElementById("resortOptionsContainer");
+  container.innerHTML = "";
+
+  resortData.forEach(group => {
+    const titleWrapper = document.createElement("div");
+    titleWrapper.className = "selectPlaceLine-box";
+
+    const titleDiv = document.createElement("div");
+    titleDiv.innerText = group.region;
+
+    const selectLineDiv = document.createElement("div");
+    selectLineDiv.className = "selectPlaceLine";
+    titleDiv.appendChild(selectLineDiv);
+
+    titleWrapper.appendChild(titleDiv);
+
+    const btnGroup = document.createElement("div");
+    btnGroup.className = "mb-3 d-flex flex-wrap gap-2";
+
+    group.resorts.forEach(resort => {
+      const input = document.createElement("input");
+      input.type = "checkbox";
+      input.className = "btn-check";
+      input.id = resort.id;
+      input.value = `${group.region}-${resort.label}`;
+      input.setAttribute("autocomplete", "off");
+      input.setAttribute("data-label", resort.label);
+
+      const label = document.createElement("label");
+      label.className = "btn btn-outline-secondary";
+      label.htmlFor = resort.id;
+      label.innerText = resort.label;
+
+      btnGroup.appendChild(input);
+      btnGroup.appendChild(label);
+    });
+
+    container.appendChild(titleWrapper);
+    container.appendChild(btnGroup);
+  });
+}
+

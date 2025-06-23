@@ -30,11 +30,10 @@
 }
 
 .price-card {
-  border-radius: 12px;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  background-color: #f8f9fa;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 16px;
+    border: 0;
 }
 .tag {
   display: inline-block;
@@ -74,4 +73,67 @@
 .price-box i.bi {
   font-size: 1.2rem;
   cursor: pointer;
+}
+.resort-select-display .option-label,
+.option-label .form-control{
+  font-size: 16px;
+  max-width: max-content;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.resort-select-display .form-select {
+  font-size: 14px;
+  border: 1px solid #C2C2C2;
+  background-color: #F5F5F5;
+  color: #666666;
+}
+/*  */
+.insurance-followUp {
+  position: relative;
+  padding-right: 20px;
+  color: #1ba4ed;
+  border-bottom: 1px solid #1ba4ed;
+  cursor: pointer;
+}
+.insurance-followUp::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url(../images/icon_blue_edit.svg) no-repeat;
+  vertical-align: middle;
+  background-size: 100%;
+}
+
+/*  */
+
+.selectPlaceLine-box {
+  box-sizing: border-box;
+  padding: 20px 0px 10px 0px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+  flex-shrink: 0;
+  position: relative;
+  color: #000000;
+  text-align: center;
+  font-family: "NotoSansTamil-Bold", sans-serif;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  position: relative;
+}
+.selectPlaceLine {
+  margin-top: -1px;
+  border-style: solid;
+  border-color: #c2c2c2;
+  border-width: 1px 0 0 0;
+  flex: 1;
+  height: 0px;
+  position: relative;
+  transform-origin: 0 0;
+  transform: rotate(0deg) scale(1, 1);
 }

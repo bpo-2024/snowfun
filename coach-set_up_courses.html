@@ -21,6 +21,7 @@
  <!--  -->
  <link href="./style/user-profile.css" rel="stylesheet" />
  <link href="./style/user-bookings.css" rel="stylesheet" />
+ 
  <link href="./style/member-center.css" rel="stylesheet" />
  <link href="./style/coach-set_up_courses.css" rel="stylesheet" />
   </head>
@@ -142,7 +143,7 @@
       </div>
       <section class="container">
         <div class="d-flex user-profile">
-          <div id="left-side">
+          <div id="left-side" >
             <div class="user-card">
               <div class="user-avatar"></div>
               <p class="user-name">測試名字測試名字長度測試名字測試名字長度</p>
@@ -211,13 +212,7 @@
               </li>
             </ul>
             <div class="tab-content" id="pills-tabContent">
-              <div
-                class="tab-pane fade show active"
-                id="pills-future"
-                role="tabpanel"
-                aria-labelledby="pills-future-tab"
-                tabindex="0"
-              >
+            <div class="tab-pane fade show active" id="pills-future" role="tabpanel" aria-labelledby="pills-future-tab" tabindex="0">
                 <div class="form-check mb-1 d-flex align-items-center option-setting">
                   <input class="form-check-input p-1" type="checkbox" id="option1" checked disabled>
                   <label class="form-check-label p-2" for="option1">
@@ -232,48 +227,128 @@
                     聖誕跨年2024/12/21～2025/01/05、農曆新年2025/01/18～2025/02/08
                   </label>
                 </div>
-       
-                <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
-                  <div>
-                    <!-- 類型切換 Tabs -->
-                    <ul class="nav nav-tabs mb-3 form-check-inline" id="typeTabs" role="tablist">
-                      <li class="nav-item" role="presentation" id="tabHalf">
-                        <button class="form-check-label active btn-rounded" id="half-tab" data-bs-toggle="tab" data-bs-target="#half" type="button" role="tab">半天設定</button>
-                      </li>
-                      <li class="nav-item" role="presentation" id="tabFull">
-                        <button class="form-check-label  btn-rounded" id="full-tab" data-bs-toggle="tab" data-bs-target="#full" type="button" role="tab">全天設定</button>
-                      </li>
-                    </ul>
-                    <!-- 平/旺季tab -->
-                    <div class="tab-content" id="resultTabs">
-                      <div class="tab-pane fade show active" id="half" role="tabpanel">
-                        <div class="off-season"></div>
-                        <div class="peak-season"></div>
-                      </div>
-                      <div class="tab-pane fade" id="full" role="tabpanel">
-                        <div class="off-season"></div>
-                        <div class="peak-season"></div>
-                      </div>
+                <div class="container">
+                  <div class="d-flex justify-content-between align-items-center mt-3 mb-3">
+                    <!-- 左邊：Tabs -->
+                    <div>
+                      <ul class="nav nav-tabs mb-0 form-check-inline" id="typeTabs" role="tablist">
+                        <li class="nav-item " role="presentation" id="tabHalf">
+                          <button class="form-check-label active btn-rounded" id="half-tab" data-bs-toggle="tab" data-bs-target="#half" type="button" role="tab">
+                            半天設定
+                          </button>
+                        </li>
+                        <li class="nav-item" role="presentation" id="tabFull">
+                          <button class="form-check-label btn-rounded" id="full-tab" data-bs-toggle="tab" data-bs-target="#full" type="button" role="tab">
+                            全天設定
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                
+                    <!-- 右邊：新增按鈕 -->
+                    <div>
+                      <button class="btn btn-primary btn-rounded btn-m" data-bs-toggle="modal" data-bs-target="#priceModal">
+                        新增收費設定
+                      </button>
                     </div>
                   </div>
-                <div>
-                    <!-- 新增按鈕 -->
-                    <button class="btn btn-primary btn-rounded btn-m" data-bs-toggle="modal" data-bs-target="#priceModal">新增收費設定</button>
+                
+                  <!-- 下方：tab-pane 區域 -->
+                  <div class="tab-content" id="resultTabs">
+                    <div class="tab-pane fade show active" id="half" role="tabpanel">
+                      <div class="off-season">
+                        <div class="price-card rounded card mb-3">
+                          <div class="price-box  rounded p-3 position-relative">
+                          <ul class="nav nav-tabs border-bottom mb-3" id="seasonTab-1750675044197" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="off-tab-1750675044197" data-bs-toggle="tab" data-bs-target="#off-1750675044197" type="button" role="tab">平季收費</button>
+                            </li>
+                            
+                          <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="peak-tab-1750675044197" data-bs-toggle="tab" data-bs-target="#peak-1750675044197" type="button" role="tab">旺季收費</button>
+                          </li>
+                        
+                          </ul>
+                          <div class="tab-content">
+                            <div class="tab-pane fade show active" id="off-1750675044197" role="tabpanel">
+                              <div class="row text-center fw-bold mb-3">
+                                
+                                  <div class="col">1人/堂<br><div class="fw-normal">6000</div></div>
+                                
+                                  <div class="col">2人/堂<br><div class="fw-normal">6000</div></div>
+                                
+                                  <div class="col">3人/堂<br><div class="fw-normal">6000</div></div>
+                                
+                                  <div class="col">4人/堂<br><div class="fw-normal">6000</div></div>
+                                
+                                  <div class="col">5人/堂<br><div class="fw-normal">6000</div></div>
+                                
+                                  <div class="col">6人/堂<br><div class="fw-normal">6000</div></div>
+                                
+                              </div>
+                            </div>
+                            
+                          <div class="tab-pane fade" id="peak-1750675044197" role="tabpanel">
+                            <div class="row text-center fw-bold mb-3">
+                              
+                                <div class="col">1人/堂<br><div class="fw-normal">6000</div></div>
+                              
+                                <div class="col">2人/堂<br><div class="fw-normal">6000</div></div>
+                              
+                                <div class="col">3人/堂<br><div class="fw-normal">6000</div></div>
+                              
+                                <div class="col">4人/堂<br><div class="fw-normal">6000</div></div>
+                              
+                                <div class="col">5人/堂<br><div class="fw-normal">6000</div></div>
+                              
+                                <div class="col">6人/堂<br><div class="fw-normal">6000</div></div>
+                              
+                            </div>
+                          </div>
+                        
+                          </div>
+                              <div class="mt-3 badge-container">
+                              <span class="badge bg-secondary me-1">藏王溫泉滑雪場</span>
+                                <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
+                        
+                              </div>
+                              <div class="position-absolute top-0 end-0 mt-2 me-2">
+                                <span class="insurance insurance-followUp" onclick="editCard(this)"></span>
+                                <i class="bi bi-trash text-danger" role="button" onclick="this.closest('.price-card').remove(); updateTabVisibility();"></i>
+                              </div>
+                            </div>
+                          </div>
+                      </div>
+                      <div class="peak-season"></div>
+                    </div>
+                    <div class="tab-pane fade" id="full" role="tabpanel">
+                      <div class="off-season"></div>
+                      <div class="peak-season"></div>
+                    </div>
                   </div>
                 </div>
+                
+             
        
               <!-- Modal 彈窗 -->
               <div class="modal fade" id="priceModal" tabindex="-1">
-                <div class="modal-dialog modal-lg">
+                <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     <div class="modal-header">
                       <h5 class="modal-title" id="modalTitle">半天/三小時收費設定</h5>
                       <button class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                      <div class="mb-3">
-                        <label for="resortSelectDisplay" class="form-label fw-bold text-primary">選擇雪場：</label>
-                        <input type="text" id="resortSelectDisplay" class="form-control" placeholder="請選擇適用雪場" readonly  onclick="openResortSelectorModal(isEditMode)">
+                      <div class="mb-3 mb-3 d-flex justify-content-center align-items-center resort-select-display">
+                        <label class="form-label text-primary-blue option-label">選擇雪場：</label>
+                          <div
+                            id="resortSelectDisplay"
+                            class="form-select"
+                            onclick="openResortSelectorModal(isEditMode)"
+                            style="cursor: pointer;"
+                          >
+                            請選擇適用雪場
+                          </div>
                       </div>
 
                      
@@ -312,34 +387,7 @@
                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                      <h6 class="fw-bold mb-2">北海道</h6>
-                      <div class="mb-3 d-flex flex-wrap gap-2">
-                        <input type="checkbox" class="btn-check" id="resort1" autocomplete="off" value="Sahoro" data-label="Sahoro">
-                        <label class="btn btn-outline-secondary" for="resort1">Sahoro</label>
-                        <input type="checkbox" class="btn-check" id="resort2" autocomplete="off" value="Moiwa" data-label="Moiwa">
-                        <label class="btn btn-outline-secondary" for="resort2">Moiwa</label>
-                        <input type="checkbox" class="btn-check" id="resort3" autocomplete="off" value="Annupur" data-label="Annupur">
-                        <label class="btn btn-outline-secondary" for="resort3">Annupur</label>
-                        <input type="checkbox" class="btn-check" id="resort4" autocomplete="off" value="Grand HIRAFU" data-label="Grand HIRAFU">
-                        <label class="btn btn-outline-secondary" for="resort4">Grand HIRAFU</label>
-                        <input type="checkbox" class="btn-check" id="resort5" autocomplete="off" value="札幌手稻" data-label="札幌手稻">
-                        <label class="btn btn-outline-secondary" for="resort5">札幌手稻</label>
-                        <input type="checkbox" class="btn-check" id="resort6" autocomplete="off" value="札幌國際" data-label="札幌國際">
-                        <label class="btn btn-outline-secondary" for="resort6">札幌國際</label>
-                        <input type="checkbox" class="btn-check" id="resort7" autocomplete="off" value="喜樂樂" data-label="喜樂樂">
-                        <label class="btn btn-outline-secondary" for="resort7">喜樂樂</label>
-                        <input type="checkbox" class="btn-check" id="resort8" autocomplete="off" value="富良野" data-label="富良野">
-                        <label class="btn btn-outline-secondary" for="resort8">富良野</label>
-                      </div>
-                      <h6 class="fw-bold mb-2">東北</h6>
-                      <div class="mb-3 d-flex flex-wrap gap-2">
-                        <input type="checkbox" class="btn-check" id="resort101" autocomplete="off" value="東北-Moiwa" data-label="Moiwa">
-                        <label class="btn btn-outline-secondary" for="resort101">Moiwa</label>
-                        <input type="checkbox" class="btn-check" id="resort102" autocomplete="off" value="東北-Sahoro" data-label="Sahoro">
-                        <label class="btn btn-outline-secondary" for="resort102">Sahoro</label>
-                        <input type="checkbox" class="btn-check" id="resort103" autocomplete="off" value="藏王溫泉滑雪場" data-label="藏王溫泉滑雪場">
-                        <label class="btn btn-outline-secondary" for="resort103">藏王溫泉滑雪場</label>
-                      </div>
+                      <div id="resortOptionsContainer"></div>
                     </div>
                     <div class="modal-footer">
                       <button class="btn btn-primary" onclick="confirmResortSelection()">確定新增</button>
@@ -347,15 +395,11 @@
                   </div>
                 </div>
               </div>
+              
             
-              </div>
-              <div
-              class="tab-pane fade"
-              id="pills-history"
-              role="tabpanel"
-              aria-labelledby="pills-future-tab"
-              tabindex="0"
-            >
+            </div>
+          </div>
+
       </section>
      
       <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
@@ -603,7 +647,8 @@
       crossorigin="anonymous"
     ></script>
     <script src="./js/login.js"></script>
-    <script src="./js/user.js"></script>
+ 
     <script src="./js/pricingCard.js"></script>
+    <script src="./js/user.js"></script>
   </body>
 </html>
