@@ -8,6 +8,39 @@ let isEditMode = false;
 let currentEditingCard = null; 
 let resortSelectorModalMode = ''; // 'append' 表示為增加相同雪場模式
 
+function generateResortData(rawData) {
+  return rawData.map(({ region, regionKey, resorts }) => ({
+    region,
+    resorts: resorts.map((label, index) => ({
+      id: `${regionKey}-${index + 1}`,
+      label
+    }))
+  }));
+}
+
+// 原始地區 + 雪場資料（可持續擴充）
+const resortData = generateResortData([
+  {
+    region: "北海道",
+    regionKey: "hk",
+    resorts: ["Sahoro", "Moiwa", "Annupur", "Grand HIRAFU", "札幌手稻", "札幌國際", "喜樂樂", "富良野"]
+  },
+  {
+    region: "東北",
+    regionKey: "tk",
+    resorts: ["Moiwa", "Sahoro", "藏王溫泉滑雪場"]
+  },
+  {
+    region: "新瀉",
+    regionKey: "ng",
+    resorts: ["Moiwa", "Sahoro", "藏王溫泉滑雪場","Sahoro", "Moiwa", "Annupur", "Grand HIRAFU"]
+  },
+  {
+    region: "長野",
+    regionKey: "ty",
+    resorts: ["Cortina / 乘鞍", "斑尾高原 / 斑尾東急", "五龍 / 47","八方尾根", "鹿島槍", "白樺高原", "志賀高原","奧志賀"]
+  }
+]);
 
 // 雪場選擇
 function openResortSelectorModal(editMode = false) {
@@ -28,7 +61,7 @@ function setSelectedResortsFromValue(values) {
     input.checked = values.includes(input.value);
   });
   selectedResortsText = Array.from(allOptions).filter(input => input.checked).map(input => input.getAttribute('data-label')).join(', ');
-  document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+  document.getElementById('resortSelectDisplay').textContent = selectedResortsText.split(', ')[0] || '請選擇適用雪場';
 
 }
 
@@ -41,7 +74,7 @@ resortOptions.forEach(option => {
       .map(opt => opt.value);
     selectedResortsValue = selected;
     selectedResortsText = selected.join(', ');
-    document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+    document.getElementById('resortSelectDisplay').textContent = selectedResortsText.split(', ')[0] || '請選擇適用雪場';
   });
 });
 
@@ -158,7 +191,7 @@ const peakPaneHtml = showPeak ? `
       </div>
       <div class="position-absolute top-0 end-0 mt-2 me-2">
         <span class="insurance insurance-followUp" onclick="editCard(this)">接續填寫</span>
-        <i class="bi bi-trash text-danger" role="button" ></i>
+        <i class="bi bi-trash text-danger" role="button" onclick="this.closest('.price-card').remove(); updateTabVisibility();"></i>
       </div>
     </div>
   `;
@@ -394,7 +427,7 @@ document.getElementById('priceModal').addEventListener('show.bs.modal', function
   // 清空雪場選擇
   selectedResortsValue = [];
   selectedResortsText = '';
-  document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+  document.getElementById('resortSelectDisplay').textContent = selectedResortsText.split(', ')[0] || '請選擇適用雪場';
 
   const allOptions = document.querySelectorAll('#resortSelectorModal .btn-check');
   allOptions.forEach(opt => (opt.checked = false));
@@ -443,37 +476,44 @@ function editCard(icon) {
   const peakTab = card.querySelector('[id^="peak-tab"]');
   const hasPeak = !!peakTab;
 
+  // 1. 取得卡片內部 off/peak 價格
   const offValues = Array.from(card.querySelectorAll('[id^="off-"] .fw-normal')).map(el => el.textContent.trim());
   const peakValues = hasPeak
     ? Array.from(card.querySelectorAll('[id^="peak-"] .fw-normal')).map(el => el.textContent.trim())
     : [];
 
+  // 2. 取得卡片內的雪場 badge 名稱（純文字）
   const resortLabels = Array.from(card.querySelectorAll('.badge')).map(badge => badge.textContent.trim());
 
+  // 3. 暫存當前卡片資料（不影響其他卡片）
   tempHalfData = {
-    off: offValues,
-    peak: peakValues,
-    resorts: resortLabels,
+    off: [...offValues],
+    peak: [...peakValues],
+    resorts: [...resortLabels]
   };
 
+  // 4. 編輯狀態記錄
   isEditMode = true;
   currentEditingCard = card;
 
-  setResortSelectorMode(true); 
-
+  // 5. 平/旺季勾選狀態回填
   const option2 = document.getElementById('option2');
   option2.checked = hasPeak;
   option2.dispatchEvent(new Event('change'));
 
+  // 6. 顯示 modal
   const modal = new bootstrap.Modal(document.getElementById('priceModal'));
   modal.show();
 
+  // 7. 延遲填入價格與雪場，避免 UI 尚未渲染完成
   setTimeout(() => {
+    // 填入 off 價格
     offValues.forEach((val, i) => {
       const input = document.getElementById(`off${i + 1}`);
       if (input) input.value = val;
     });
 
+    // 填入 peak 價格
     if (hasPeak) {
       peakValues.forEach((val, i) => {
         const input = document.getElementById(`peak${i + 1}`);
@@ -481,15 +521,22 @@ function editCard(icon) {
       });
     }
 
+    // 回填雪場選擇（轉換成對應 checkbox value）
     const allResortInputs = document.querySelectorAll('#resortSelectorModal .btn-check');
     const valueList = Array.from(allResortInputs)
       .filter(btn => resortLabels.includes(btn.getAttribute('data-label')))
       .map(btn => btn.value);
 
-    setSelectedResortsFromValue(valueList);
+    setSelectedResortsFromValue(valueList); // 這裡只更新彈窗 UI，不影響全域
+
+    // 顯示對應名稱在 resortSelectDisplay
+    const display = document.getElementById('resortSelectDisplay');
+    if (display) display.textContent = resortLabels[0] || '請選擇適用雪場';
   }, 300);
-  setResortSelectorMode(true)
+
+  setResortSelectorMode(true); // 確保打開彈窗時為複選模式
 }
+
 
 // 專用：將雪場選項從單選切為複選
 function setResortSelectorMode(isMultiSelect = false) {
@@ -512,7 +559,7 @@ function setResortSelectorMode(isMultiSelect = false) {
       const checked = Array.from(container.querySelectorAll('.btn-check:checked'));
       selectedResortsValue = checked.map(el => el.value);
       selectedResortsText = checked.map(el => el.getAttribute('data-label')).join(', ');
-      document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+      document.getElementById('resortSelectDisplay').textContent = selectedResortsText.split(', ')[0] || '請選擇適用雪場';
     });
 
     input.parentNode.replaceChild(clone, input);
@@ -543,37 +590,44 @@ function confirmResortSelection() {
     newValues
   });
 
+  // ✅ 編輯模式下：更新 tempHalfData，並更新該卡片的 badge
   if (resortSelectorModalMode === 'append' && currentEditingCard) {
-    const updatedLabels = newTexts; 
-    selectedResortsValue = newValues;
-    selectedResortsText = updatedLabels.join(', ');
+    // 單純更新當前卡片的雪場 badge
+    updateCardBadge(currentEditingCard, newTexts);
 
-    
-  updateCardBadge(currentEditingCard, updatedLabels);
+    // 更新暫存資料，避免後續送出錯誤
+    if (isEditMode && tempHalfData) {
+      tempHalfData.resorts = [...newTexts];
+    }
 
-  if (isEditMode && tempHalfData) {
-    tempHalfData.resorts = updatedLabels;
+    // UI 更新（僅顯示第一個名稱）
+    const resortDisplay = document.getElementById('resortSelectDisplay');
+    if (resortDisplay) {
+      resortDisplay.textContent = newTexts[0] || '請選擇適用雪場';
+    }
+
+    // 關閉彈窗
+    bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal')).hide();
+    resortSelectorModalMode = '';
+    return;
   }
 
-  const resortDisplayInput = document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
-  if (resortDisplayInput) resortDisplayInput.value = updatedLabels[0] || '';
-
-  bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal')).hide();
-  resortSelectorModalMode = '';
-  return;
-  }
- 
-
+  // ✅ 新增模式：更新全域暫存變數（用於下一步/送出）
   selectedResortsText = newTexts.join(', ');
-  selectedResortsValue = newValues;
-  document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+  selectedResortsValue = [...newValues];
 
+  const resortDisplay = document.getElementById('resortSelectDisplay');
+  if (resortDisplay) {
+    resortDisplay.textContent = newTexts[0] || '請選擇適用雪場';
+  }
 
   bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal')).hide();
+
   document.getElementById('resortSelectorModal').addEventListener('hidden.bs.modal', function () {
     resortSelectorModalMode = '';
-  });
+  }, { once: true }); // ✅ 避免重複綁定
 }
+
 function updateCardBadge(card, resortLabels) {
   const badgeContainer = card.querySelector('.badge-container');
   badgeContainer.innerHTML = `
@@ -588,31 +642,6 @@ function updateCardBadge(card, resortLabels) {
   });
 }
 
-// ---------------------- 雪場資料 ----------------------
-const resortData = [
-  {
-    region: "北海道",
-    resorts: [
-      { id: "resort1", label: "Sahoro" },
-      { id: "resort2", label: "Moiwa" },
-      { id: "resort3", label: "Annupur" },
-      { id: "resort4", label: "Grand HIRAFU" },
-      { id: "resort5", label: "札幌手稻" },
-      { id: "resort6", label: "札幌國際" },
-      { id: "resort7", label: "喜樂樂" },
-      { id: "resort8", label: "富良野" }
-    ]
-  },
-  {
-    region: "東北",
-    resorts: [
-      { id: "resort101", label: "Moiwa" },
-      { id: "resort102", label: "Sahoro" },
-      { id: "resort103", label: "藏王溫泉滑雪場" }
-    ]
-  }
-];
-
 function renderResortOptions() {
   const container = document.getElementById("resortOptionsContainer");
   container.innerHTML = "";
@@ -623,6 +652,7 @@ function renderResortOptions() {
 
     const titleDiv = document.createElement("div");
     titleDiv.innerText = group.region;
+    titleDiv.className = "selectPlaceTitle";
 
     const selectLineDiv = document.createElement("div");
     selectLineDiv.className = "selectPlaceLine";
@@ -643,7 +673,7 @@ function renderResortOptions() {
       input.setAttribute("data-label", resort.label);
 
       const label = document.createElement("label");
-      label.className = "btn btn-outline-secondary";
+      label.className = "btn btn-radio col-lg-3 col-sm-6";
       label.htmlFor = resort.id;
       label.innerText = resort.label;
 
@@ -655,4 +685,5 @@ function renderResortOptions() {
     container.appendChild(btnGroup);
   });
 }
+
 

@@ -136,4 +136,64 @@
   position: relative;
   transform-origin: 0 0;
   transform: rotate(0deg) scale(1, 1);
+  margin-left: 10px;
 }
+.selectPlaceTitle{
+  width: 100%;
+  display: flex;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.btn.btn-radio {
+  position: relative;
+  min-width: 132px;
+  padding: 0;
+  line-height: 50px;
+  border-radius: 30px;
+  color: #666;
+  border: 1px solid #c2c2c2;
+  box-shadow: none;
+  background-color: #fff;
+}
+.btn-check:checked+.btn,
+.btn-check {
+  color: white;
+  background-color: #00558F;
+  border-color: #00558F;
+}
+.btn.btn-radio:hover {
+  border-color: #00558F;
+}
+
+.btn.btn-radio:hover::before, .btn-check:checked+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid #00558F;
+  border-radius: 30px;
+}
+
+#resortSelectorModal .modal-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 6px;
+  right: 6px;
+  height: 20px;
+  z-index: 1;
+  background-color: #ffffff;
+  border-radius: 30px 30px 0 0;
+}
+#resortSelectorModal .modal-body {
+  border-radius: 30px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    max-height: 584px;
+}
+
