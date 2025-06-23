@@ -5,7 +5,7 @@ let tempHalfData = null;
 let selectedResortsText = '';
 let selectedResortsValue = [];
 let isEditMode = false;
-let currentEditingCard = null; // 用來記錄目前正在編輯的卡片
+let currentEditingCard = null; 
 let resortSelectorModalMode = ''; // 'append' 表示為增加相同雪場模式
 
 
@@ -28,7 +28,8 @@ function setSelectedResortsFromValue(values) {
     input.checked = values.includes(input.value);
   });
   selectedResortsText = Array.from(allOptions).filter(input => input.checked).map(input => input.getAttribute('data-label')).join(', ');
-  document.getElementById('resortSelectDisplay').value = selectedResortsText;
+  document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+
 }
 
 // 初始化雪場選項監聽
@@ -40,7 +41,7 @@ resortOptions.forEach(option => {
       .map(opt => opt.value);
     selectedResortsValue = selected;
     selectedResortsText = selected.join(', ');
-    document.getElementById('resortSelectDisplay').value = selectedResortsText;
+    document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
   });
 });
 
@@ -314,12 +315,16 @@ document.getElementById('confirmBtn').addEventListener('click', function () {
     peakData.push(document.getElementById('peakFull' + i).value);
   }
 
-  const resorts = selectedResortsValue;
+  // ✅ 修正重點：取 tempHalfData.resorts（append 模式會更新它）
+  const resorts = isEditMode && tempHalfData
+    ? tempHalfData.resorts  // 👈 這裡保證使用使用者最後一次勾選
+    : selectedResortsValue;
 
   if (currentEditingCard) {
     updateCardContent(currentEditingCard, offData, peakData, resorts);
+    updateCardBadge(currentEditingCard, resorts);  // ✅ 新增：同步更新 badge
     currentEditingCard = null;
-    isEditMode = false; 
+    isEditMode = false;
   } else if (tempHalfData) {
     createPricingCard('half', tempHalfData.off, tempHalfData.peak, tempHalfData.resorts);
     tempHalfData = null;
@@ -330,6 +335,7 @@ document.getElementById('confirmBtn').addEventListener('click', function () {
 
   bootstrap.Modal.getInstance(document.getElementById('priceModal')).hide();
 });
+
 
 function updateCardContent(card, off, peak, resorts) {
   const tabContent = card.querySelector('.tab-content');
@@ -364,16 +370,8 @@ function updateCardContent(card, off, peak, resorts) {
     </div>` : ''}
   `;
 
-  const badgeContainer = card.querySelector('.badge-container');
-  badgeContainer.innerHTML = `
-  ${resorts.map(text => `<span class="badge bg-secondary me-1">${text}</span>`).join('')}
-  <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
-`;
-  
 }
-
 document.getElementById('priceModal').addEventListener('show.bs.modal', function () {
-  // isEditMode = false;
   if (isEditMode) {
     setResortSelectorMode(true);
   }else{
@@ -395,7 +393,7 @@ document.getElementById('priceModal').addEventListener('show.bs.modal', function
   // 清空雪場選擇
   selectedResortsValue = [];
   selectedResortsText = '';
-  document.getElementById('resortSelectDisplay').value = '';
+  document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
 
   const allOptions = document.querySelectorAll('#resortSelectorModal .btn-check');
   allOptions.forEach(opt => (opt.checked = false));
@@ -491,6 +489,7 @@ function editCard(icon) {
   }, 300);
   setResortSelectorMode(true)
 }
+
 // 專用：將雪場選項從單選切為複選
 function setResortSelectorMode(isMultiSelect = false) {
   const container = document.getElementById('resortSelectorModal');
@@ -512,7 +511,7 @@ function setResortSelectorMode(isMultiSelect = false) {
       const checked = Array.from(container.querySelectorAll('.btn-check:checked'));
       selectedResortsValue = checked.map(el => el.value);
       selectedResortsText = checked.map(el => el.getAttribute('data-label')).join(', ');
-      document.getElementById('resortSelectDisplay').value = selectedResortsText;
+      document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
     });
 
     input.parentNode.replaceChild(clone, input);
@@ -536,27 +535,54 @@ function confirmResortSelection() {
   const newTexts = Array.from(checkedButtons).map(btn => btn.getAttribute('data-label'));
   const newValues = Array.from(checkedButtons).map(btn => btn.value);
 
+  console.log('🔎 confirmResortSelection called', {
+    mode: resortSelectorModalMode,
+    card: currentEditingCard,
+    newTexts,
+    newValues
+  });
+
   if (resortSelectorModalMode === 'append' && currentEditingCard) {
-  const existingLabels = Array.from(currentEditingCard.querySelectorAll('.badge-container .badge'))
-    .map(b => b.textContent.trim())
-    .filter(text => text !== '＋ 增加相同收費雪場');
+    const updatedLabels = newTexts; 
+    selectedResortsValue = newValues;
+    selectedResortsText = updatedLabels.join(', ');
 
-  const merged = Array.from(new Set([...existingLabels, ...newTexts]));
-  selectedResortsText = merged.join(', ');
-  selectedResortsValue = merged;
+    
+  updateCardBadge(currentEditingCard, updatedLabels);
 
-  const badgeContainer = currentEditingCard.querySelector('.badge-container');
-  if (badgeContainer) {
-    badgeContainer.innerHTML = `
-      ${merged.map(text => `<span class="badge bg-secondary me-1">${text}</span>`).join('')}
-      <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
-    `;
+  if (isEditMode && tempHalfData) {
+    tempHalfData.resorts = updatedLabels;
   }
+
+  const resortDisplayInput = document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+  if (resortDisplayInput) resortDisplayInput.value = updatedLabels[0] || '';
+
+  bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal')).hide();
+  resortSelectorModalMode = '';
+  return;
   }
+ 
 
   selectedResortsText = newTexts.join(', ');
   selectedResortsValue = newValues;
-  document.getElementById('resortSelectDisplay').value = selectedResortsText;
+  document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+
 
   bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal')).hide();
+  document.getElementById('resortSelectorModal').addEventListener('hidden.bs.modal', function () {
+    resortSelectorModalMode = '';
+  });
+}
+function updateCardBadge(card, resortLabels) {
+  const badgeContainer = card.querySelector('.badge-container');
+  badgeContainer.innerHTML = `
+    ${resortLabels.map(text => `<span class="badge bg-secondary me-1">${text}</span>`).join('')}
+    <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
+  `;
+  badgeContainer.querySelector('.btn-add-resort')?.addEventListener('click', function () {
+    currentEditingCard = badgeContainer.closest('.price-card');
+    isEditMode = true;
+    resortSelectorModalMode = 'append';
+    openResortSelectorModal(true);
+  });
 }
