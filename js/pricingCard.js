@@ -6,15 +6,19 @@ let selectedResortsText = '';
 let selectedResortsValue = [];
 let isEditMode = false;
 let currentEditingCard = null; // 用來記錄目前正在編輯的卡片
+let resortSelectorModalMode = ''; // 'append' 表示為增加相同雪場模式
 
 
 // 雪場選擇
 function openResortSelectorModal(editMode = false) {
   isEditMode = editMode;
-  setResortSelectorMode(editMode); // ✅ 單一責任：這裡就決定複選/單選
+  setResortSelectorMode(editMode);
 
-  const resortSelectorModal = new bootstrap.Modal(document.getElementById('resortSelectorModal'));
-  resortSelectorModal.show();
+  const modalEl = document.getElementById('resortSelectorModal');
+  const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+  modal.show();
+
+  console.log('🔔 打開雪場選擇 Modal, editMode:', editMode);
 }
 
 function setSelectedResortsFromValue(values) {
@@ -146,9 +150,10 @@ const peakPaneHtml = showPeak ? `
     </div>
     ${peakPaneHtml}
   </div>
-      <div class="mt-3">
-        ${resorts.map(r => `<span class="badge rounded-pill bg-secondary me-1">${r}</span>`).join('')}
-        <button class="btn btn-sm btn-outline-secondary">＋ 增加相同收費雪場</button>
+      <div class="mt-3 badge-container">
+      ${resorts.map(label => `<span class="badge bg-secondary me-1">${label}</span>`).join('')}
+        <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
+
       </div>
       <div class="position-absolute top-0 end-0 mt-2 me-2">
         <i class="bi bi-pencil-square text-primary me-2" role="button" onclick="editCard(this)"></i>
@@ -312,17 +317,14 @@ document.getElementById('confirmBtn').addEventListener('click', function () {
   const resorts = selectedResortsValue;
 
   if (currentEditingCard) {
-    // ✅ 編輯狀態：只更新，不新增
     updateCardContent(currentEditingCard, offData, peakData, resorts);
     currentEditingCard = null;
-    isEditMode = false; // ✅ 也重設編輯狀態
+    isEditMode = false; 
   } else if (tempHalfData) {
-    // ✅ 半天資料來的新增
     createPricingCard('half', tempHalfData.off, tempHalfData.peak, tempHalfData.resorts);
     tempHalfData = null;
     createPricingCard('full', offData, peakData, resorts);
   } else {
-    // ✅ 單純新增
     createPricingCard('full', offData, peakData, resorts);
   }
 
@@ -362,12 +364,11 @@ function updateCardContent(card, off, peak, resorts) {
     </div>` : ''}
   `;
 
-  const badgeContainer = card.querySelector('.mt-3');
+  const badgeContainer = card.querySelector('.badge-container');
   badgeContainer.innerHTML = `
-    ${resorts.map(r => `<span class="badge rounded-pill bg-secondary me-1">${r}</span>`).join('')}
-    <button class="btn btn-sm btn-outline-secondary">＋ 增加相同收費雪場</button>
-  `;
-
+  ${resorts.map(text => `<span class="badge bg-secondary me-1">${text}</span>`).join('')}
+  <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
+`;
   
 }
 
@@ -459,7 +460,7 @@ function editCard(icon) {
   isEditMode = true;
   currentEditingCard = card;
 
-  setResortSelectorMode(true); // ✅ 切換複選
+  setResortSelectorMode(true); 
 
   const option2 = document.getElementById('option2');
   option2.checked = hasPeak;
@@ -496,11 +497,10 @@ function setResortSelectorMode(isMultiSelect = false) {
   const oldCheckboxes = container.querySelectorAll('.btn-check');
 
   oldCheckboxes.forEach(input => {
-    const clone = input.cloneNode(true); // 移除舊事件
+    const clone = input.cloneNode(true);
     clone.type = 'checkbox';
-    clone.name = isMultiSelect ? '' : 'resort'; // 單選模式才需要 name
+    clone.name = isMultiSelect ? '' : 'resort';
 
-    // ✅ 加入正確的事件：複選 or 模擬單選
     clone.addEventListener('change', function () {
       if (!isMultiSelect && this.checked) {
         const all = container.querySelectorAll('.btn-check');
@@ -509,7 +509,6 @@ function setResortSelectorMode(isMultiSelect = false) {
         });
       }
 
-      // ✅ 同步選擇資料
       const checked = Array.from(container.querySelectorAll('.btn-check:checked'));
       selectedResortsValue = checked.map(el => el.value);
       selectedResortsText = checked.map(el => el.getAttribute('data-label')).join(', ');
@@ -519,20 +518,45 @@ function setResortSelectorMode(isMultiSelect = false) {
     input.parentNode.replaceChild(clone, input);
   });
 }
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('.btn-add-resort');
+  if (!btn) return;
+
+  const card = btn.closest('.price-card');
+  if (!card) return;
+
+  currentEditingCard = card; 
+  isEditMode = true;
+  resortSelectorModalMode = 'append';
+  openResortSelectorModal(true);
+});
 
 function confirmResortSelection() {
   const checkedButtons = document.querySelectorAll('#resortSelectorModal .btn-check:checked');
+  const newTexts = Array.from(checkedButtons).map(btn => btn.getAttribute('data-label'));
+  const newValues = Array.from(checkedButtons).map(btn => btn.value);
 
-  selectedResortsText = Array.from(checkedButtons)
-    .map(btn => btn.getAttribute('data-label'))
-    .join(', ');
+  if (resortSelectorModalMode === 'append' && currentEditingCard) {
+  const existingLabels = Array.from(currentEditingCard.querySelectorAll('.badge-container .badge'))
+    .map(b => b.textContent.trim())
+    .filter(text => text !== '＋ 增加相同收費雪場');
 
-  selectedResortsValue = Array.from(checkedButtons).map(btn => btn.value);
+  const merged = Array.from(new Set([...existingLabels, ...newTexts]));
+  selectedResortsText = merged.join(', ');
+  selectedResortsValue = merged;
 
-  // ✅ 顯示於輸入框
-  document.getElementById('resortSelectDisplay').value = selectedResortsText.split(', ')[0] || '';
+  const badgeContainer = currentEditingCard.querySelector('.badge-container');
+  if (badgeContainer) {
+    badgeContainer.innerHTML = `
+      ${merged.map(text => `<span class="badge bg-secondary me-1">${text}</span>`).join('')}
+      <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
+    `;
+  }
+  }
 
-  // ✅ 關閉 modal
-  const resortSelectorModal = bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal'));
-  resortSelectorModal.hide();
+  selectedResortsText = newTexts.join(', ');
+  selectedResortsValue = newValues;
+  document.getElementById('resortSelectDisplay').value = selectedResortsText;
+
+  bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal')).hide();
 }
