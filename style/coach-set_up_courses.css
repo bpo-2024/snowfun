@@ -24,6 +24,9 @@
 .form-check-inline li+li{
   padding-left: 10px;
 }
+.form-check-inline{
+  border: 0;
+}
 .option-setting{
   line-height: 150%;
   padding-left: 0;
@@ -56,24 +59,131 @@
 /* card */
 
 .price-box {
-  background-color: #f8fbfe;
+  background-color: #FFFFFF;
   border-style: dashed !important;
+  border-radius: 16px;
 }
 
-.price-box .nav-tabs .nav-link {
-  border: none;
+#seasonTabs .nav-item{
+  width: 100%;
+  
+}
+.price-box .nav-tabs .nav-link,
+#seasonTabs .nav-link
+ {
+   flex-flow: row;
+   display: flex;
+   justify-content: center;
+  width: 100%;
+  border: 0;
   border-bottom: 2px solid transparent;
+  color:#444444;
+  font-size: 18px;
+  font-weight: bold;
+
 }
 
-.price-box .nav-tabs .nav-link.active {
-  border-color: #0d6efd;
-  font-weight: bold;
+.price-box .nav-tabs .nav-link.active,
+#seasonTabs .nav-link.active {
+  border-color: #0F8ABD;
+  color:  #0F8ABD
+
 }
 
 .price-box i.bi {
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+#priceModal input[type="number"]::-webkit-inner-spin-button,
+#priceModal input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+/* 彈窗樣式 */
+.price-input {
+  font-size: 24px;
+  font-weight: 600;
+  border-radius: 8px;
+  border-color: #C2C2C2;
+  max-width: 100px; 
+  font-weight: bold
+}
+
+.adjust-btn {
+  font-size: 1.2rem;
+  width: 26px;
+  height: 26px;
+  border-color: #D9D9D9;
+  color: #D9D9D9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.adjust-btn:hover{
+  border-color: #212529;
+}
+
+.lesson{
+  font-weight: 600;
+  color: #444444;
+  font-size: 20px;
+}
+#priceModal .modal-body{
+  padding: 20px;
+}
+
+@media (max-height: 610px){
+  #priceModal .tab-content {
+    overflow-y: scroll;
+    height: 216px;
+  }
+}
+
+/*  */
+
+/* 按鈕樣式 */
+.add-set-btn{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.add-set-btn .btn-icon{
+  font-size: 17px;
+  color: white;
+}
+.set-btn {
+  font-size: 18px;
+  width: 146px;
+  height: 50px;
+  font-weight: bold;
+  border-color:#C2C2C2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.set-btn:hover {
+  background-color: #C2C2C2;
+  color: white;
+}
+.check-add {
+  height: 50px;
+  width: 128px;
+}
+@media (max-width:610px) {
+  .form-check-inline{
+    /* display: flex; */
+    justify-content: center;
+    padding-bottom: 20px;
+  }
+}
+
+
+
+
+
 .resort-select-display .option-label,
 .option-label .form-control{
   font-size: 16px;
@@ -93,8 +203,9 @@
   position: relative;
   padding-right: 20px;
   color: #1ba4ed;
-  border-bottom: 1px solid #1ba4ed;
+  /* border-bottom: 1px solid #1ba4ed; */
   cursor: pointer;
+  margin-left: 8px;
 }
 .insurance-followUp::after {
   content: "";
@@ -105,7 +216,9 @@
   vertical-align: middle;
   background-size: 100%;
 }
-
+.bi {
+  color: #F58888;
+}
 /*  */
 
 .selectPlaceLine-box {
@@ -120,9 +233,7 @@
   position: relative;
   color: #000000;
   text-align: center;
-  font-family: "NotoSansTamil-Bold", sans-serif;
   font-size: 18px;
-  letter-spacing: 0.1em;
   font-weight: 700;
   position: relative;
 }
@@ -147,9 +258,9 @@
 
 }
 
-.btn.btn-radio {
+.collapseSelectPlace-item .btn {
   position: relative;
-  min-width: 132px;
+  /* min-width: 132px; */
   padding: 0;
   line-height: 50px;
   border-radius: 30px;
@@ -164,11 +275,12 @@
   background-color: #00558F;
   border-color: #00558F;
 }
-.btn.btn-radio:hover {
+.collapseSelectPlace-item .btn:hover {
   border-color: #00558F;
 }
 
-.btn.btn-radio:hover::before, .btn-check:checked+.btn::before {
+.collapseSelectPlace-item .btn:hover::before,
+.collapseSelectPlace-item .btn-check:checked+.btn::before {
   content: '';
   position: absolute;
   top: 0;
@@ -191,9 +303,161 @@
   border-radius: 30px 30px 0 0;
 }
 #resortSelectorModal .modal-body {
-  border-radius: 30px;
+    border-radius: 30px;
     overflow-x: hidden;
     overflow-y: scroll;
     max-height: 584px;
+    padding: 30px;
 }
 
+
+
+/* // */
+
+.custom-tabs {
+  border-bottom: 1px solid #E3E3E3;
+  display: flex;
+    width: 100%;
+    flex-flow: nowrap;
+}
+
+.custom-tabs .nav-link {
+  border: none;
+  border-radius: 0;
+  font-weight: 500;
+  color: #444;
+  padding: 10px 20px;
+  background-color: #fff;
+  margin-right: 2px;
+  width: 100%;
+  font-size: 18px;
+}
+
+.custom-tabs .nav-item{
+  width: 100%;
+}
+
+.custom-tabs .nav-link.active {
+  background-color: white;
+  border-bottom: 2px solid #1BA4ED; /* 藍色底線 */
+  color: #1BA4ED;
+  font-weight: 600;
+}
+
+.custom-tabs .nav-link:focus {
+  box-shadow: none;
+}
+
+.alert{
+  height: auto;
+  color: #0f80bd;
+  line-height: 35px;
+  background-color: rgba(27, 164, 237, 0.1);
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.confirmBtn{
+  height: 50px;
+  font-size: 18px;
+  width: 125px;
+}
+
+.btn-add-resort{
+  font-size: 14px;
+  border-color: #E5E5E5;
+  border-radius: 8px;
+  height: 36px;
+}
+
+.lesson-wrapper{
+  padding: 12px 16px;
+}
+.lesson-title{
+  color: #666;
+  font-size: 16px;
+  margin-bottom: 12px;
+  min-width: 70px;
+  text-align: left;
+}
+
+.lesson-amount{
+  color: #040404;
+  font-size: 20px;
+  font-weight: 500;
+  min-width: 70px;
+  text-align: left;
+}
+
+@media (max-width:610px){
+  .lesson-amount{
+      margin-bottom: 20px;
+    }
+    .btn-warpper{
+    flex-flow: wrap;
+  }
+  
+  .helf-full-btn,.add-set-btn {
+    width: 100%;
+  }
+  .btn-warpper{
+    flex-flow: wrap;
+  }
+}
+
+
+/* 通用 badge 外觀 */
+.custom-resort-badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 1.5rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  margin-right: 0.25rem;
+  position: relative;
+}
+
+/* 白色圓形關閉按鈕包裝 */
+.custom-resort-badge .badge-close {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+  cursor: pointer;
+}
+
+/* 雪場文字 */
+.custom-resort-badge .badge-label {
+  margin-left: 2px;
+}
+
+.badge-hokkaido { background-color: #eeecfd;
+  color: #5b4fa7;}
+.badge-tohoku { background-color: #ebf1f5;
+  color: #1ba4ed;}
+.badge-niigata { background-color: #fcf1e1;
+  color: #836942; }
+.badge-nagano {     background-color: #e5f2f0;
+  color: #109084;}
+
+.badge-close {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 6px;
+  cursor: pointer;
+  color: #000;
+}
+.badge{
+  display: inline-flex;
+  align-items: center;
+  height: 27px;
+}

@@ -6,7 +6,7 @@ let selectedResortsText = '';
 let selectedResortsValue = [];
 let isEditMode = false;
 let currentEditingCard = null; 
-let resortSelectorModalMode = ''; // 'append' 表示為增加相同雪場模式
+let resortSelectorModalMode = '';
 
 function generateResortData(rawData) {
   return rawData.map(({ region, regionKey, resorts }) => ({
@@ -18,22 +18,22 @@ function generateResortData(rawData) {
   }));
 }
 
-// 原始地區 + 雪場資料（可持續擴充）
+// 原始地區 + 雪場資料
 const resortData = generateResortData([
   {
     region: "北海道",
     regionKey: "hk",
-    resorts: ["Sahoro", "Moiwa", "Annupur", "Grand HIRAFU", "札幌手稻", "札幌國際", "喜樂樂", "富良野"]
+    resorts: ["Sahoro","Annupur", "Grand HIRAFU", "札幌手稻", "札幌國際", "喜樂樂", "富良野"]
   },
   {
     region: "東北",
     regionKey: "tk",
-    resorts: ["Moiwa", "Sahoro", "藏王溫泉滑雪場"]
+    resorts: ["Moiwa", "藏王溫泉滑雪場"]
   },
   {
     region: "新瀉",
     regionKey: "ng",
-    resorts: ["Moiwa", "Sahoro", "藏王溫泉滑雪場","Sahoro", "Moiwa", "Annupur", "Grand HIRAFU"]
+    resorts: ["手稻", "小樽天狗山","盤溪","Tomamu"]
   },
   {
     region: "長野",
@@ -41,6 +41,13 @@ const resortData = generateResortData([
     resorts: ["Cortina / 乘鞍", "斑尾高原 / 斑尾東急", "五龍 / 47","八方尾根", "鹿島槍", "白樺高原", "志賀高原","奧志賀"]
   }
 ]);
+
+const regionColorMap = {
+  "北海道": "badge-hokkaido",
+  "東北": "badge-tohoku",
+  "新瀉": "badge-niigata",
+  "長野": "badge-nagano"
+};
 
 // 雪場選擇
 function openResortSelectorModal(editMode = false) {
@@ -50,8 +57,6 @@ function openResortSelectorModal(editMode = false) {
   const modalEl = document.getElementById('resortSelectorModal');
   const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
   modal.show();
-
-  console.log('🔔 打開雪場選擇 Modal, editMode:', editMode);
 }
 
 function setSelectedResortsFromValue(values) {
@@ -144,7 +149,6 @@ function handleFormSubmission(stage, values) {
 }
 
 // 表單提交與卡片
-
 function createPricingCard(stage, offData, peakData, resorts) {
   const uniqueId = Date.now();
   const card = document.createElement('div');
@@ -157,9 +161,9 @@ function createPricingCard(stage, offData, peakData, resorts) {
 
 const peakPaneHtml = showPeak ? `
   <div class="tab-pane fade" id="peak-${uniqueId}" role="tabpanel">
-    <div class="row text-center fw-bold mb-3">
+    <div class="row text-center fw-bold mb-4">
       ${peakData.map((v, i) => `
-        <div class="col">${i + 1}人/堂<br><div class="fw-normal">${v}</div></div>
+      <div class="col-sm-2 col-4"><div class="lesson-title">${i + 1}人/堂</div><div class="lesson-amount">${v}</div></div>
       `).join('')}
     </div>
   </div>
@@ -168,7 +172,7 @@ const peakPaneHtml = showPeak ? `
   card.className = 'price-card rounded card mb-3';
   card.innerHTML = `
   <div class="price-box rounded p-3 position-relative">
-  <ul class="nav nav-tabs border-bottom mb-3" id="seasonTab-${uniqueId}" role="tablist">
+  <ul class="nav nav-tabs border-bottom mb-4" id="seasonTab-${uniqueId}" role="tablist">
     <li class="nav-item" role="presentation">
       <button class="nav-link active" id="off-tab-${uniqueId}" data-bs-toggle="tab" data-bs-target="#off-${uniqueId}" type="button" role="tab">平季收費</button>
     </li>
@@ -176,23 +180,23 @@ const peakPaneHtml = showPeak ? `
   </ul>
   <div class="tab-content">
     <div class="tab-pane fade show active" id="off-${uniqueId}" role="tabpanel">
-      <div class="row text-center fw-bold mb-3">
+      <div class="row text-center fw-bold mb-4">
         ${offData.map((v, i) => `
-          <div class="col">${i + 1}人/堂<br><div class="fw-normal">${v}</div></div>
+          <div class="col-sm-2 col-4"><div class="lesson-title">${i + 1}人/堂</div><div class="lesson-amount">${v}</div></div>
         `).join('')}
       </div>
     </div>
     ${peakPaneHtml}
   </div>
       <div class="mt-3 badge-container">
-      ${resorts.map(label => `<span class="badge bg-secondary me-1">${label}</span>`).join('')}
+      ${resorts.map(label => `<span class="badge bg-secondary m-1">${label}</span>`).join('')}
         <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
 
       </div>
-      <div class="position-absolute top-0 end-0 mt-2 me-2">
-        <span class="insurance insurance-followUp" onclick="editCard(this)">接續填寫</span>
-        <i class="bi bi-trash text-danger" role="button" onclick="this.closest('.price-card').remove(); updateTabVisibility();"></i>
-      </div>
+      <div class="position-absolute top-0 end-0 mt-4 me-2">
+      <i class="bi bi-trash" role="button" onclick="this.closest('.price-card').remove(); updateTabVisibility();"></i>
+        <span class="insurance insurance-followUp" onclick="editCard(this)"></span>
+        </div>
     </div>
   `;
   const container = document.querySelector(`#${stage} .off-season`);
@@ -205,11 +209,21 @@ const container = document.getElementById(targetId);
 container.innerHTML = '';
 for (let i = 1; i <= count; i++) {
     container.insertAdjacentHTML('beforeend', `
-      <div class="input-group mb-2">
-        <span class="input-group-text">${i}人/堂</span>
-        <button class="btn btn-outline-secondary" type="button" onclick="adjust('${prefix}${i}', -1000)">-</button>
-        <input type="number" class="form-control text-center" id="${prefix}${i}" value="6000" min="1000" onblur="validateAndFormat(this)">
-        <button class="btn btn-outline-secondary" type="button" onclick="adjust('${prefix}${i}', 1000)">+</button>
+      <div class="d-flex align-items-center justify-content-between mb-3">
+        <span class="lesson">${i}人/堂</span>
+        <div class="d-flex align-items-center gap-2 flex-grow-1 justify-content-end">
+        <button type="button" class="btn rounded-circle px-0 adjust-btn"  onclick="adjust('${prefix}${i}', -1000)">－</button>
+        <input type="number"
+        id="${prefix}${i}"
+               class="form-control text-center price-input"
+               data-stage="${prefix}"
+               value="39000"
+               min="1000"
+               step="1000"
+               onblur="validateAndFormat(this)">
+        <button type="button" class="btn rounded-circle px-0 adjust-btn" onclick="adjust('${prefix}${i}', 1000)">＋</button>
+      </div>
+     
       </div>
     `);
   }
@@ -304,7 +318,7 @@ document.getElementById('nextBtn').addEventListener('click', function () {
 });
 
 const backBtn = document.createElement('button');
-backBtn.className = 'btn btn-secondary d-none';
+backBtn.className = 'btn set-btn btn-rounded tn-outline-secondary d-none';
 backBtn.id = 'backBtn';
 backBtn.textContent = '返回半天設定';
 backBtn.addEventListener('click', function () {
@@ -336,40 +350,43 @@ backBtn.addEventListener('click', function () {
 });
 document.querySelector('.modal-footer').insertBefore(backBtn, document.getElementById('confirmBtn'));
 
-// 
 document.getElementById('confirmBtn').addEventListener('click', function () {
-  if (!validateResortsSelected() || !validatePriceInputs('offFull') || (document.getElementById('option2').checked && !validatePriceInputs('peakFull'))) {
-    alert('請填寫完整全天收費資訊並選擇至少一個雪場');
-    return;
-  }
+  if (isEditMode && currentEditingCard) {
+    const offData = [], peakData = [];
+    for (let i = 1; i <= 6; i++) {
+      const offInput = document.getElementById('offFull' + i) || document.getElementById('off' + i);
+      const peakInput = document.getElementById('peakFull' + i) || document.getElementById('peak' + i);
+      if (offInput) offData.push(offInput.value);
+      if (peakInput) peakData.push(peakInput.value);
+    }
 
-  const offData = [], peakData = [];
-  for (let i = 1; i <= 6; i++) {
-    offData.push(document.getElementById('offFull' + i).value);
-    peakData.push(document.getElementById('peakFull' + i).value);
-  }
+    const resorts = tempHalfData?.resorts || [];
 
-  // ✅ 修正重點：取 tempHalfData.resorts（append 模式會更新它）
-  const resorts = isEditMode && tempHalfData
-    ? tempHalfData.resorts  // 👈 這裡保證使用使用者最後一次勾選
-    : selectedResortsValue;
-
-  if (currentEditingCard) {
     updateCardContent(currentEditingCard, offData, peakData, resorts);
-    updateCardBadge(currentEditingCard, resorts);  // ✅ 新增：同步更新 badge
+    updateCardBadge(currentEditingCard, resorts);
+
+    const allCards = document.querySelectorAll('.price-card');
+    allCards.forEach(card => {
+      if (card !== currentEditingCard) {
+        const badgeNames = Array.from(card.querySelectorAll('.badge')).map(b => b.dataset.label);
+        const isSame = resorts.length && resorts.every(r => badgeNames.includes(r));
+        if (isSame) {
+          updateCardContent(card, offData, peakData, resorts);
+          updateCardBadge(card, resorts);
+        }
+      }
+    });
+
+    // 關閉彈窗並重置狀態
+    bootstrap.Modal.getInstance(document.getElementById('priceModal')).hide();
     currentEditingCard = null;
     isEditMode = false;
-  } else if (tempHalfData) {
-    createPricingCard('half', tempHalfData.off, tempHalfData.peak, tempHalfData.resorts);
     tempHalfData = null;
-    createPricingCard('full', offData, peakData, resorts);
   } else {
-    createPricingCard('full', offData, peakData, resorts);
+    // 非編輯模式：僅關閉彈窗
+    bootstrap.Modal.getInstance(document.getElementById('priceModal')).hide();
   }
-
-  bootstrap.Modal.getInstance(document.getElementById('priceModal')).hide();
 });
-
 
 function updateCardContent(card, off, peak, resorts) {
   const tabContent = card.querySelector('.tab-content');
@@ -388,17 +405,17 @@ function updateCardContent(card, off, peak, resorts) {
 
   tabContent.innerHTML = `
     <div class="tab-pane fade show active" id="off-${uniqueId}" role="tabpanel">
-      <div class="row text-center fw-bold mb-3">
+      <div class="row text-center fw-bold mb-4">
         ${off.map((v, i) => `
-          <div class="col">${i + 1}人/堂<br><div class="fw-normal">${v}</div></div>
+        <div class="col-sm-2 col-4"><div class="lesson-title">${i + 1}人/堂</div><div class="lesson-amount">${v}</div></div>
         `).join('')}
       </div>
     </div>
     ${hasPeak ? `
     <div class="tab-pane fade" id="peak-${uniqueId}" role="tabpanel">
-      <div class="row text-center fw-bold mb-3">
+      <div class="row text-center fw-bold mb-4">
         ${peak.map((v, i) => `
-          <div class="col">${i + 1}人/堂<br><div class="fw-normal">${v}</div></div>
+        <div class="col-sm-2 col-4"><div class="lesson-title">${i + 1}人/堂</div><div class="lesson-amount">${v}</div></div>
         `).join('')}
       </div>
     </div>` : ''}
@@ -476,36 +493,35 @@ function editCard(icon) {
   const peakTab = card.querySelector('[id^="peak-tab"]');
   const hasPeak = !!peakTab;
 
-  // 1. 取得卡片內部 off/peak 價格
+  const stage = card.getAttribute('data-stage');
+if (stage === 'full') {
+  switchToFullStage();
+} else {
+  switchToHalfStage();
+}
   const offValues = Array.from(card.querySelectorAll('[id^="off-"] .fw-normal')).map(el => el.textContent.trim());
   const peakValues = hasPeak
     ? Array.from(card.querySelectorAll('[id^="peak-"] .fw-normal')).map(el => el.textContent.trim())
     : [];
 
-  // 2. 取得卡片內的雪場 badge 名稱（純文字）
   const resortLabels = Array.from(card.querySelectorAll('.badge')).map(badge => badge.textContent.trim());
 
-  // 3. 暫存當前卡片資料（不影響其他卡片）
   tempHalfData = {
     off: [...offValues],
     peak: [...peakValues],
     resorts: [...resortLabels]
   };
 
-  // 4. 編輯狀態記錄
   isEditMode = true;
   currentEditingCard = card;
 
-  // 5. 平/旺季勾選狀態回填
   const option2 = document.getElementById('option2');
   option2.checked = hasPeak;
   option2.dispatchEvent(new Event('change'));
 
-  // 6. 顯示 modal
   const modal = new bootstrap.Modal(document.getElementById('priceModal'));
   modal.show();
 
-  // 7. 延遲填入價格與雪場，避免 UI 尚未渲染完成
   setTimeout(() => {
     // 填入 off 價格
     offValues.forEach((val, i) => {
@@ -521,22 +537,18 @@ function editCard(icon) {
       });
     }
 
-    // 回填雪場選擇（轉換成對應 checkbox value）
     const allResortInputs = document.querySelectorAll('#resortSelectorModal .btn-check');
     const valueList = Array.from(allResortInputs)
       .filter(btn => resortLabels.includes(btn.getAttribute('data-label')))
       .map(btn => btn.value);
 
-    setSelectedResortsFromValue(valueList); // 這裡只更新彈窗 UI，不影響全域
-
-    // 顯示對應名稱在 resortSelectDisplay
+    setSelectedResortsFromValue(valueList); 
     const display = document.getElementById('resortSelectDisplay');
     if (display) display.textContent = resortLabels[0] || '請選擇適用雪場';
   }, 300);
 
   setResortSelectorMode(true); // 確保打開彈窗時為複選模式
 }
-
 
 // 專用：將雪場選項從單選切為複選
 function setResortSelectorMode(isMultiSelect = false) {
@@ -580,39 +592,31 @@ document.addEventListener('click', function (e) {
 
 function confirmResortSelection() {
   const checkedButtons = document.querySelectorAll('#resortSelectorModal .btn-check:checked');
-  const newTexts = Array.from(checkedButtons).map(btn => btn.getAttribute('data-label'));
-  const newValues = Array.from(checkedButtons).map(btn => btn.value);
-
-  console.log('🔎 confirmResortSelection called', {
-    mode: resortSelectorModalMode,
-    card: currentEditingCard,
-    newTexts,
-    newValues
+  
+  const newTexts = Array.from(checkedButtons).map(btn => {
+    const value = btn.dataset.label; 
+    return value; 
   });
+    const newValues = Array.from(checkedButtons).map(btn => btn.value);
 
-  // ✅ 編輯模式下：更新 tempHalfData，並更新該卡片的 badge
+
   if (resortSelectorModalMode === 'append' && currentEditingCard) {
-    // 單純更新當前卡片的雪場 badge
     updateCardBadge(currentEditingCard, newTexts);
 
-    // 更新暫存資料，避免後續送出錯誤
     if (isEditMode && tempHalfData) {
       tempHalfData.resorts = [...newTexts];
     }
 
-    // UI 更新（僅顯示第一個名稱）
     const resortDisplay = document.getElementById('resortSelectDisplay');
     if (resortDisplay) {
       resortDisplay.textContent = newTexts[0] || '請選擇適用雪場';
     }
 
-    // 關閉彈窗
     bootstrap.Modal.getInstance(document.getElementById('resortSelectorModal')).hide();
     resortSelectorModalMode = '';
     return;
   }
 
-  // ✅ 新增模式：更新全域暫存變數（用於下一步/送出）
   selectedResortsText = newTexts.join(', ');
   selectedResortsValue = [...newValues];
 
@@ -625,22 +629,68 @@ function confirmResortSelection() {
 
   document.getElementById('resortSelectorModal').addEventListener('hidden.bs.modal', function () {
     resortSelectorModalMode = '';
-  }, { once: true }); // ✅ 避免重複綁定
+  }, { once: true }); 
 }
 
+// function updateCardBadge(card, resortLabels) {
+//   const badgeContainer = card.querySelector('.badge-container');
+//   badgeContainer.innerHTML = `
+//     ${resortLabels.map(text => `<span class="badge bg-secondary m-1">${text}</span>`).join('')}
+//     <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
+//   `;
+//   badgeContainer.querySelector('.btn-add-resort')?.addEventListener('click', function () {
+//     currentEditingCard = badgeContainer.closest('.price-card');
+//     isEditMode = true;
+//     resortSelectorModalMode = 'append';
+//     openResortSelectorModal(true);
+//   });
+// }
 function updateCardBadge(card, resortLabels) {
   const badgeContainer = card.querySelector('.badge-container');
-  badgeContainer.innerHTML = `
-    ${resortLabels.map(text => `<span class="badge bg-secondary me-1">${text}</span>`).join('')}
-    <button class="btn btn-sm btn-outline-secondary btn-add-resort">＋ 增加相同收費雪場</button>
-  `;
-  badgeContainer.querySelector('.btn-add-resort')?.addEventListener('click', function () {
-    currentEditingCard = badgeContainer.closest('.price-card');
+  badgeContainer.innerHTML = '';
+
+  resortLabels.forEach((resort, idx) => {
+    // 此時 resortLabels 僅為 resort 名稱
+    const region = Object.keys(regionColorMap).find(regionKey => {
+      return resortData.some(group => group.region === regionKey && group.resorts.some(r => r.label === resort));
+    });
+
+    const badge = document.createElement('span');
+    badge.className = `badge m-1 ${regionColorMap[region] || 'bg-secondary'}`;
+    badge.dataset.label = resort;
+
+    if (idx === 0) {
+      badge.textContent = resort;
+    } else {
+      badge.innerHTML = `<span class="badge-close">×</span>${resort} `;
+      badge.querySelector('.badge-close').addEventListener('click', () => {
+        removeResortFromCard(card, resort);
+      });
+    }
+
+    badgeContainer.appendChild(badge);
+  });
+
+  const addBtn = document.createElement('button');
+  addBtn.className = 'btn btn-sm btn-outline-secondary btn-add-resort';
+  addBtn.textContent = '＋ 增加相同收費雪場';
+  addBtn.addEventListener('click', function () {
+    currentEditingCard = card;
     isEditMode = true;
     resortSelectorModalMode = 'append';
     openResortSelectorModal(true);
   });
+  badgeContainer.appendChild(addBtn);
 }
+
+function removeResortFromCard(card, labelToRemove) {
+  if (tempHalfData) {
+    tempHalfData.resorts = tempHalfData.resorts.filter(l => l !== labelToRemove);
+  }
+  const newLabels = tempHalfData?.resorts || [];
+  updateCardBadge(card, newLabels);
+}
+
 
 function renderResortOptions() {
   const container = document.getElementById("resortOptionsContainer");
@@ -657,33 +707,34 @@ function renderResortOptions() {
     const selectLineDiv = document.createElement("div");
     selectLineDiv.className = "selectPlaceLine";
     titleDiv.appendChild(selectLineDiv);
-
     titleWrapper.appendChild(titleDiv);
 
     const btnGroup = document.createElement("div");
-    btnGroup.className = "mb-3 d-flex flex-wrap gap-2";
+    btnGroup.className = "mb-3 d-flex row";
 
     group.resorts.forEach(resort => {
-      const input = document.createElement("input");
-      input.type = "checkbox";
-      input.className = "btn-check";
-      input.id = resort.id;
-      input.value = `${group.region}-${resort.label}`;
-      input.setAttribute("autocomplete", "off");
-      input.setAttribute("data-label", resort.label);
+      const wrapper = document.createElement('div');
+      wrapper.className = 'collapseSelectPlace-item col-6 col-sm-4 col-md-3 col-lg-3 mb-2';
 
-      const label = document.createElement("label");
-      label.className = "btn btn-radio col-lg-3 col-sm-6";
+      const input = document.createElement('input');
+      input.type = 'checkbox';
+      input.className = 'btn-check';
+      input.id = resort.id;
+      input.value = resort.label;
+      input.setAttribute('autocomplete', 'off');
+      input.setAttribute('data-label', resort.label);
+
+      const label = document.createElement('label');
+      label.className = 'btn btn-radio w-100';
       label.htmlFor = resort.id;
       label.innerText = resort.label;
 
-      btnGroup.appendChild(input);
-      btnGroup.appendChild(label);
+      wrapper.appendChild(input);
+      wrapper.appendChild(label);
+      btnGroup.appendChild(wrapper);
     });
 
     container.appendChild(titleWrapper);
     container.appendChild(btnGroup);
   });
 }
-
-
