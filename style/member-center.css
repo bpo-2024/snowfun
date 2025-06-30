@@ -56,6 +56,9 @@
   .profile-menu li.coach-info.active::before {
     background-image: url("../images/coach_info_active.svg");
   }
+  .profile-menu li.course-settings.active::before {
+    background-image: url("../images/course_settings_active.svg");
+  }
 }
 
 /* form */
@@ -165,6 +168,28 @@ form .label-title.required::before {
   .form-check-label.btn-check-l {
     width: 171px;
   }
+}
+
+/* textarea */
+/* Firefox */
+textarea {
+  scrollbar-width: thin;
+  scrollbar-color: gray black;
+}
+
+/* Webkit (Chrome, Safari, Edge) */
+textarea::-webkit-scrollbar {
+  width: 12px;
+}
+
+textarea::-webkit-scrollbar-track {
+  background: black;
+}
+
+textarea::-webkit-scrollbar-thumb {
+  background-color: gray;
+  border-radius: 6px;
+  border: 3px solid black;
 }
 
 /* introForm */

@@ -4,85 +4,86 @@
         let currentView = "month";
         let expandedDateStr = null;
 
-       const calendarData = {
-            "2025-06-01": {
-                status: "started",
-                course: [
-                    { title: "瑜伽課程", session: "上半" },
-                    { title: "英文會話", session: "下半" },
-                    { title: "程式設計", session: "上半" },
-                    { title: "商業簡報", session: "下半" },
-                    { title: "資料分析", session: "全天" }
-                ]
-            },
-            "2025-06-03": {
-                status: "booked",
-                course: [
-                    { title: "行銷策略", session: "全天" },
-                ]
-            },
-            "2025-06-05": {
-                status: "customized",
-                course: [
-                    { title: "籃球訓練", session: "下半" },
-                    { title: "日語進階", session: "下半" },
-                    { title: "資料分析", session: "全天" }
-                ]
-            },
-            "2025-06-08": {
-                status: "awaitingPayment",
-                course: [
-                    { title: "語言交換", session: "上半" },
-                    { title: "創業分享", session: "下半" },
-                    { title: "心靈成長", session: "下半" },
-                    { title: "AI 簡報", session: "上半" },
-                    { title: "行銷策略", session: "全天" },
-                ]
-            },
-            "2025-06-10": {
-                status: "started",
-                course: [
-                    { title: "行銷策略", session: "全天" },
-                    { title: "團隊合作", session: "全天" }
-                ]
-            },
-            "2025-06-12": {
-                status: "booked",
-                course: [
-                    { title: "網站開發", session: "上半" },
-                    { title: "語言交換", session: "上半" },
-                    { title: "攝影實作", session: "下半" },
-                    { title: "團隊合作", session: "全天" }
-                ]
-            },
-            "2025-06-15": {
-                status: "customized",
-                course: [
-                    { title: "資料分析", session: "全天" }
-                ]
-            },
-            "2025-06-18": {
-                status: "awaitingPayment",
-                course: [
-                { title: "音樂欣賞", session: "下半" },
-                { title: "哲學討論", session: "下半" }
-                ]
-            },
-            "2025-06-22": {
-                status: "started",
-                course: [
-                    { title: "專案提案", session: "上半" },
-                    { title: "溝通技巧", session: "上半" },
-                    { title: "時間管理", session: "下半" }
-                ]
-            },
-            "2025-06-25": {
-                status: "booked",
-                course: [
-                    { title: "AI 訓練營", session: "全天" },
-                ]
-            }
-            };
+    const calendarData = {
+        "2025-06-01": {
+            status: "started",
+            course: [
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "下半" },
+            { title: "白馬八方尾根", session: "上半" },
+            { title: "苗場", session: "下半" },
+            { title: "藏王溫泉", session: "全天" }
+            ]
+        },
+        "2025-06-03": {
+            status: "booked",
+            course: [
+            { title: "妙高杉之原", session: "全天" }
+            ]
+        },
+        "2025-06-05": {
+            status: "customized",
+            course: [
+            { title: "安比高原", session: "下半" },
+            { title: "神樂", session: "下半" },
+            { title: "志賀高原", session: "全天" }
+            ]
+        },
+        "2025-06-08": {
+            status: "awaitingPayment",
+            course: [
+            { title: "野澤溫泉", session: "上半" },
+            { title: "群馬草津國際", session: "下半" },
+            { title: "斑尾高原", session: "下半" },
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "全天" }
+            ]
+        },
+        "2025-06-10": {
+            status: "started",
+            course: [
+            { title: "白馬八方尾根", session: "全天" },
+            { title: "苗場", session: "全天" }
+            ]
+        },
+        "2025-06-12": {
+            status: "booked",
+            course: [
+            { title: "藏王溫泉", session: "上半" },
+            { title: "妙高杉之原", session: "上半" },
+            { title: "安比高原", session: "下半" },
+            { title: "神樂", session: "全天" }
+            ]
+        },
+        "2025-06-15": {
+            status: "customized",
+            course: [
+            { title: "志賀高原", session: "全天" }
+            ]
+        },
+        "2025-06-18": {
+            status: "awaitingPayment",
+            course: [
+            { title: "野澤溫泉", session: "下半" },
+            { title: "群馬草津國際", session: "下半" }
+            ]
+        },
+        "2025-06-22": {
+            status: "started",
+            course: [
+            { title: "斑尾高原", session: "上半" },
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "下半" }
+            ]
+        },
+        "2025-06-25": {
+            status: "booked",
+            course: [
+            { title: "白馬八方尾根", session: "全天" }
+            ]
+        }
+        };
+
 
 
         function buildCalendarCell(dateObj, items, dateStr, status) {
@@ -377,27 +378,27 @@ $("#calendarWrapper").on("click", ".calendar-date", function () {
 });
 
 $("#datePickerCollapse").on("shown.bs.collapse", function () {
-    viewMonth = new Date();
-    renderTwoMonthCalendar(viewMonth);
-});
+        viewMonth = new Date();
+        renderTwoMonthCalendar(viewMonth);
+    });
 });
 
-// 開放時段
+    // 開放時段
 $(function () {
-// 初次進入頁面，如果有預設選項，套上 select class
-$('input[name="selectRange"]').each(function () {
-    if ($(this).is(":checked")) {
-    $('label[for="' + this.id + '"]').addClass("select");
-    }
-});
-
-// 切換選項時更新 select class
-$('input[name="selectRange"]').on("change", function () {
+    // 初次進入頁面，如果有預設選項，套上 select class
     $('input[name="selectRange"]').each(function () {
-    $('label[for="' + this.id + '"]').removeClass("select");
+        if ($(this).is(":checked")) {
+        $('label[for="' + this.id + '"]').addClass("select");
+        }
     });
 
-    const selectedId = $(this).attr("id");
-    $('label[for="' + selectedId + '"]').addClass("select");
-});
+    // 切換選項時更新 select class
+    $('input[name="selectRange"]').on("change", function () {
+        $('input[name="selectRange"]').each(function () {
+        $('label[for="' + this.id + '"]').removeClass("select");
+        });
+
+        const selectedId = $(this).attr("id");
+        $('label[for="' + selectedId + '"]').addClass("select");
+    });
 });

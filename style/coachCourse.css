@@ -39,10 +39,14 @@ ul.course-range li {
   color: #444;
   font-size: 18px;
 }
+.calendar-info p {
+  min-width: 65px;
+}
 .calendar-tag {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex-wrap: wrap;
 }
 @media (max-width: 767px) {
   ul.course-range {
@@ -127,11 +131,12 @@ ul.course-range li {
   gap: 4px;
   border: 2px solid transparent;
 }
-@media (max-width: 480px) {
+@media (max-width: 767px) {
   .calendar-row .calendar-cell {
     font-size: 10px;
     padding-left: 2px;
     padding-right: 2px;
+    width: 35px;
   }
 }
 .calendar-cell.empty {
@@ -327,7 +332,7 @@ ul.course-range li {
 }
 #editCoachCourse .modal-dialog {
   max-width: 859px;
-  width: 100%;
+  margin: 0 auto;
 }
 #editCoachCourse .btn-close {
   position: absolute;
@@ -337,6 +342,7 @@ ul.course-range li {
 #editCoachCourse .modal-content {
   padding: 56px 40px 40px;
   border-radius: 20px;
+  margin: 0 20px;
 }
 @media (max-width: 992px) {
   #editCoachCourse .modal-content {
@@ -409,7 +415,7 @@ ul.course-range li {
   cursor: pointer;
   z-index: 2;
 }
-@media (max-width: 481px) {
+@media (max-width: 767px) {
   .calendar-weekdays,
   .calendar-grid {
     grid-template-columns: repeat(7, 40px);
@@ -420,6 +426,10 @@ ul.course-range li {
     line-height: 40px;
   }
 }
+.modal-body {
+  padding: 0;
+}
+
 .calendar-date.select {
   position: relative;
   background-color: #00558f;

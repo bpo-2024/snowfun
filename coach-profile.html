@@ -163,18 +163,9 @@
               >
                 開設設定
               </li>
-              <li class="course-record" data-url="coach-profile.html?status=1">
-                課程紀錄
-              </li>
-              <li
-                class="course-earnings"
-                data-url="coach-profile.html?status=1"
-              >
-                課程收益
-              </li>
-              <li class="user-info" data-url="coach-profile.html?status=1">
-                個人資料
-              </li>
+              <li class="course-record" data-url="#">課程紀錄</li>
+              <li class="course-earnings" data-url="#">課程收益</li>
+              <li class="user-info" data-url="#">個人資料</li>
             </ul>
           </div>
           <div id="right-side" class="profile-card">
@@ -205,7 +196,7 @@
                 <button
                   id="btn-next"
                   data-direction="next"
-                  class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center btn-m"
+                  class="btn-next btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center btn-m"
                 >
                   下一步
                   <img src="./images/icon_arrow_right.svg" />
@@ -1904,7 +1895,7 @@
           <button
             id="btn-next"
             data-direction="next"
-            class="btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center btn-m"
+            class="btn-next btn btn-primary btn-rounded d-flex gap-2 justify-content-center align-items-center btn-m"
           >
             下一步
             <img src="./images/icon_arrow_right.svg" />
@@ -2414,6 +2405,13 @@
             } else {
               $("#btn-prev").removeClass("visually-hidden");
             }
+
+            // 根據 step 改變下一步按鈕文字
+            if (next.key === "agreement") {
+              $(".btn-next").text("送審");
+            } else {
+              $(".btn-next").text("下一步");
+            }
           }
         });
 
@@ -2590,6 +2588,17 @@
         url.searchParams.set(key, value);
         window.history.replaceState({}, "", url);
       }
+
+      $(document).ready(function () {
+        const urlParams = new URLSearchParams(window.location.search);
+        const step = urlParams.get("step");
+
+        if (step === "agreement") {
+          $(".btn-next").text("送審");
+        } else {
+          $(".btn-next").text("下一步");
+        }
+      });
     </script>
     <!-- select -->
     <script>
