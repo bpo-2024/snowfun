@@ -60,7 +60,12 @@ ul.course-range li {
 @media (max-width: 480px) {
   .calendar-info,
   ul.course-range {
-    font-size: 13px;
+    font-size: 12px;
+  }
+}
+@media (max-width: 375px) {
+  .calendar {
+    padding: 24px 9px;
   }
 }
 .calendar-header {
@@ -120,6 +125,9 @@ ul.course-range li {
 }
 .calendar-row {
   display: flex;
+}
+.no-edit .calendar-row {
+  padding-top: 16px;
 }
 .calendar-cell {
   flex: 1;
@@ -239,7 +247,7 @@ ul.course-range li {
 .calendar-cell.select::after {
   content: "";
   position: absolute;
-  bottom: -48px;
+  bottom: -44px;
   height: 20px;
   width: 20px;
   left: 50%;

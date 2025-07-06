@@ -59,6 +59,9 @@
   .profile-menu li.course-settings.active::before {
     background-image: url("../images/course_settings_active.svg");
   }
+  .profile-menu li.course-earnings.active::before {
+  background-image: url("../images/course_earnings_active.svg");
+}
 }
 
 /* form */
@@ -622,4 +625,29 @@ textarea::-webkit-scrollbar-thumb {
 .accordion-button:not(.collapsed) {
   background-color: transparent;
   box-shadow: none;
+}
+
+/* summary-box */
+.summary-box {
+  padding: 8px 0;
+}
+.summary-item {
+  padding: 8px 16px;
+  color: #666666;
+  font-size: 14px;
+}
+@media (min-width: 375px) {
+  .summary-item {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+}
+
+.summary-box .summary-item + .summary-item {
+  border-left: 1px solid #c2c2c2;
+}
+.summary-item .summary-value {
+  color: #000;
+  font-size: 20px;
+  font-weight: 500;
 }

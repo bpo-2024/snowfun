@@ -160,9 +160,21 @@
               >
                 開設設定
               </li>
-              <li class="course-record" data-url="#">課程紀錄</li>
-              <li class="course-earnings" data-url="#">課程收益</li>
-              <li class="user-info" data-url="#">個人資料</li>
+              <li
+                class="course-record"
+                data-url="coach-course-record.html?status=1"
+              >
+                課程紀錄
+              </li>
+              <li
+                class="course-earnings"
+                data-url="coach-earnings.html?status=1"
+              >
+                課程收益
+              </li>
+              <li class="user-info" data-url="coach-account.html?status=1">
+                個人資料
+              </li>
             </ul>
           </div>
           <div id="right-side" class="flex-grow-1">
@@ -1169,6 +1181,81 @@
     <script src="./js/pricingCard.js"></script>
     <script src="./js/pricingCard_patch.js"></script>
     <script src="./js/user.js"></script>
+    <script>
+      const calendarData = {
+        "2025-06-01": {
+          status: "started",
+          course: [
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "下半" },
+            { title: "白馬八方尾根", session: "上半" },
+            { title: "苗場", session: "下半" },
+            { title: "藏王溫泉", session: "全天" },
+          ],
+        },
+        "2025-06-03": {
+          status: "booked",
+          course: [{ title: "妙高杉之原", session: "全天" }],
+        },
+        "2025-06-05": {
+          status: "customized",
+          course: [
+            { title: "安比高原", session: "下半" },
+            { title: "神樂", session: "下半" },
+            { title: "志賀高原", session: "全天" },
+          ],
+        },
+        "2025-06-08": {
+          status: "awaitingPayment",
+          course: [
+            { title: "野澤溫泉", session: "上半" },
+            { title: "群馬草津國際", session: "下半" },
+            { title: "斑尾高原", session: "下半" },
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "全天" },
+          ],
+        },
+        "2025-07-10": {
+          status: "started",
+          course: [
+            { title: "白馬八方尾根", session: "全天" },
+            { title: "苗場", session: "全天" },
+          ],
+        },
+        "2025-07-12": {
+          status: "booked",
+          course: [
+            { title: "藏王溫泉", session: "上半" },
+            { title: "妙高杉之原", session: "上半" },
+            { title: "安比高原", session: "下半" },
+            { title: "神樂", session: "全天" },
+          ],
+        },
+        "2025-07-15": {
+          status: "customized",
+          course: [{ title: "志賀高原", session: "全天" }],
+        },
+        "2025-07-18": {
+          status: "awaitingPayment",
+          course: [
+            { title: "野澤溫泉", session: "下半" },
+            { title: "群馬草津國際", session: "下半" },
+          ],
+        },
+        "2025-07-22": {
+          status: "started",
+          course: [
+            { title: "斑尾高原", session: "上半" },
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "下半" },
+          ],
+        },
+        "2025-07-25": {
+          status: "booked",
+          course: [{ title: "白馬八方尾根", session: "全天" }],
+        },
+      };
+    </script>
     <script src="./js/coachCourse.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
