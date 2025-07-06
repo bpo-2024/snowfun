@@ -39,14 +39,14 @@
             { title: "富良野", session: "全天" }
             ]
         },
-        "2025-06-10": {
+        "2025-07-10": {
             status: "started",
             course: [
             { title: "白馬八方尾根", session: "全天" },
             { title: "苗場", session: "全天" }
             ]
         },
-        "2025-06-12": {
+        "2025-07-12": {
             status: "booked",
             course: [
             { title: "藏王溫泉", session: "上半" },
@@ -55,20 +55,20 @@
             { title: "神樂", session: "全天" }
             ]
         },
-        "2025-06-15": {
+        "2025-07-15": {
             status: "customized",
             course: [
             { title: "志賀高原", session: "全天" }
             ]
         },
-        "2025-06-18": {
+        "2025-07-18": {
             status: "awaitingPayment",
             course: [
             { title: "野澤溫泉", session: "下半" },
             { title: "群馬草津國際", session: "下半" }
             ]
         },
-        "2025-06-22": {
+        "2025-07-22": {
             status: "started",
             course: [
             { title: "斑尾高原", session: "上半" },
@@ -76,7 +76,7 @@
             { title: "富良野", session: "下半" }
             ]
         },
-        "2025-06-25": {
+        "2025-07-25": {
             status: "booked",
             course: [
             { title: "白馬八方尾根", session: "全天" }
@@ -84,10 +84,8 @@
         }
         };
 
-
-
         function buildCalendarCell(dateObj, items, dateStr, status) {
-          const $cell = $('<div class="calendar-cell text-truncate"></div>');
+          const $cell = $('<div class="calendar-cell"></div>');
           if (expandedDateStr === dateStr) $cell.addClass("select");
           if (status) $cell.addClass("status-" + status);
 
@@ -107,6 +105,8 @@
 
             const isMobile = window.innerWidth <= 767;
             const visibleCount = isMobile ? 1 : 2;
+            
+            const noEdit = $('#calendar-dates').hasClass("no-edit")
 
             items.forEach((item, index) => {
             if (index < visibleCount) {
@@ -143,8 +143,10 @@
                     const $box = $(`<div class="expanded-box"><span class="status-${status}">${i.title}</span></div>`);
                     $statusBox.append($box);
                 });
-
-                $expandedCell.append($header).append($statusBox);
+                // noEdit
+                if (!noEdit) { $expandedCell.append($header) }
+                 
+                $expandedCell.append($statusBox);
                 $expandedRow.append($expandedCell);
                 $row.after($expandedRow);
 

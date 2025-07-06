@@ -31,6 +31,8 @@
 .default-tab .nav-link.active {
   position: relative;
   color: #1ba4ed;
+  background: transparent;
+  border-color: transparent;
 }
 .default-tab .nav-link.active::after {
   content: "";

@@ -1,0 +1,7 @@
+.user-bookings-card {
+  margin-top: 20px;
+}
+
+.calendar-cell.select::after {
+  bottom: -22px;
+}
