@@ -351,12 +351,15 @@
 
 /* video */
 .owl-carousel .item {
-  position: relative;
+  height: 493px; /* 或是你要統一的高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .video-carousel {
   max-width: 714px;
-  max-height: 493px;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -386,8 +389,9 @@
 
 /* Additional styling to ensure dots are above the image */
 .owl-carousel .item img {
-  width: 100%;
-  height: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
   object-fit: cover;
 }
 
@@ -448,6 +452,9 @@
   #videoCarouselModal .modal-dialog,
   #certificate-modal .modal-dialog {
     max-width: 550px;
+  }
+  .owl-carousel .item {
+    height: 274px;
   }
 }
 @media (max-width: 600px) {
