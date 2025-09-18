@@ -220,6 +220,12 @@ img[alt="Google"],
 .article-box .owl-carousel .owl-stage-outer {
   padding: 8px 0;
 }
+.owl-carousel .item {
+  height: auto;
+}
+.owl-carousel.owl-banner .item img {
+  height: auto;
+}
 
 .owl-carousel-article .owl-nav {
   position: absolute;
