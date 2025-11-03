@@ -97,6 +97,7 @@ select,
 textarea,
 input {
   line-height: 44px;
+  min-height: 44px;
   -webkit-appearance: none;
   padding: 0 12px;
   border-radius: 8px;
@@ -156,6 +157,16 @@ select {
   background-image: url(../../images/select_down.svg);
   background-repeat: no-repeat;
   background-position: right 10px center;
+}
+
+#date {
+  text-align: left;
+}
+#date::-webkit-date-and-time-value {
+  text-align: left !important;
+}
+#date * {
+  text-align: left !important;
 }
 
 li {

@@ -93,6 +93,7 @@ select,
 textarea,
 input {
 	line-height: 44px;
+	min-height: 44px;
 	-webkit-appearance: none;
 	padding: 0 12px;
 	border-radius: 8px;
@@ -139,6 +140,16 @@ select {
 	background-image: url(../../images/select_down.svg);
 	background-repeat: no-repeat;
 	background-position: right 10px center;
+}
+
+#date {
+	text-align: left;
+	&::-webkit-date-and-time-value {
+		text-align: left !important;
+	}
+	* {
+		text-align: left !important;
+	}
 }
 
 li {
@@ -468,13 +479,12 @@ input[type="checkbox"] {
 				padding-top: 12px !important;
 				padding-bottom: 12px !important;
 			}
-
 		}
 	}
 	.handler {
 		display: none;
 	}
-	
+
 	@media (max-width: 992px) {
 		padding-top: 0;
 		top: inherit;
@@ -504,7 +514,7 @@ input[type="checkbox"] {
 				margin: 0 auto;
 				display: block;
 				transform: rotate(-90deg);
-				transition: all .3s;
+				transition: all 0.3s;
 			}
 			&.show {
 				img {
@@ -521,7 +531,7 @@ input[type="checkbox"] {
 			}
 		}
 		.mb_collapsed {
-			transition: all .3s;
+			transition: all 0.3s;
 			height: 40px;
 			padding-top: 0 !important;
 			&.show_205 {
@@ -533,7 +543,6 @@ input[type="checkbox"] {
 		}
 	}
 }
-
 
 .modal {
 	.btn-close {
