@@ -118,4 +118,178 @@ $(document).ready(function () {
       }
   });
 
+});
+
+  const previewData = {
+    initialPreview: [
+      "https://picsum.photos/id/101/1920/1080",
+      "https://picsum.photos/id/102/1920/1080",
+    ],
+    initialPreviewConfig: [
+      {
+        caption: "picture-1.jpg",
+        description: "<h5>Picture One</h5> 描述1",
+        size: 329892,
+        width: "120px",
+        url: "/site/file-delete",
+        key: 101
+      },
+      {
+        caption: "picture-2.jpg",
+        description: "<h5>Picture Two</h5> 描述2",
+        size: 872378,
+        width: "120px",
+        url: "/site/file-delete",
+        key: 102
+      },
+    ]
+  };
+
+  
+
+// 上傳照片
+$(document).ready(function() {
+  $("#input-image").fileinput({
+    theme: "explorer",
+    uploadUrl: "/",
+    language: "zh-TW",
+    showRemove: false,
+    overwriteInitial: false,
+    initialPreviewAsData: true,
+    initialPreview: previewData.initialPreview,
+    initialPreviewConfig: previewData.initialPreviewConfig,
+    dropZoneTitle: "<div class='text-blue lh-sm fw-medium fs-6'>可拖曳或直接點擊複選檔案<br>支援JPG與PNG圖檔, 檔案大小6MB以下</div>",
+    // maxFileCount: 3, // Limit to 3 files
+    maxFileSize: 6000, // Set file size limit to 6000 KB (6 MB)
+    msgFilesTooMany:
+      "您選擇的檔案數量 ({n}) 超過了上限 {m}。檔案上限為n個。",
+    msgSizeTooLarge:
+      '檔案 "{name}" (大小: {size} KB) 超過了允許的最大大小 {maxSize} KB。檔案請小於6000 KB。',
+    msgUploadError: "上傳錯誤",
+    msgProcessing: "處理中....<span>1234</span>",
+  }).on('fileuploaded pic', function(event, previewId, index, fileId) {
+      console.log('File Uploaded pic', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
+    }).on('fileuploaderror', function(event, data, msg) {
+        console.log('File Upload Error pic', 'ID: ' + data.fileId + ', Thumb ID: ' + data.previewId);
+    }).on('filebatchuploadcomplete', function(event, preview, config, tags, extraData) {
+        console.log('File Batch Uploaded', preview, config, tags, extraData);
+    });
+  
+  $('#input-image').on('change', function () {
+  const count = this.files.length;
+    // 用原生方式取得目前選取的檔案數
+    const fileCount = this.files.length;
+
+    // 更新文字與加上 class
+    $('#image-upload-num')
+      .text(fileCount)
+      .addClass('stock');
   });
+  
+  $('#addPicBtn, .image-upload .upload-area, .image-upload .file-preview').on('click', function (e) {
+  // 如果點到的是影片預覽區，就不要觸發
+  if (
+    $(e.target).closest('.kv-file-content, .kv-file-remove, .kv-file-upload, .kv-file-zoom, .fileinput-remove, .file-error-message').length > 0
+  ) return;
+    $('#input-image').trigger('click');
+  });
+
+  // 封面
+  let coverSet = false;
+
+  $(document).on('click', '.upload-with-tag .file-preview-frame', function (e) {
+    // 如果點擊來自內部的按鈕（例如刪除、下載、其他操作），則跳過
+    if (
+      $(e.target).closest('.kv-file-remove, .kv-file-download, .fileinput-upload').length
+    ) {
+      return;
+    }
+
+    // 移除其他 active 樣式與 cover 標籤
+    $('.file-preview-frame').removeClass('active').find('.cover-tag').remove();
+
+    // 加上 active 樣式
+    $(this).addClass('active');
+
+    // 插入 cover 標籤
+    const label = coverSet ? '封面' : '設為封面';
+    $(this).append(`<div class="cover-tag d-flex align-items-center"><img src="./images/icon_check.svg">${label}</div>`);
+
+    // 切換封面狀態
+    coverSet = !coverSet;
+  });
+
+});
+
+// 上傳影片
+$(document).ready(function() {
+  $("#input-video").fileinput({
+    theme: "explorer",
+    uploadUrl: "/",
+    language: "zh-TW",
+    uploadAsync: false,
+    showRemove: false,
+    overwriteInitial: false,
+    initialPreviewAsData: true,
+    initialPreview: [],
+    initialPreviewConfig:[],
+    dropZoneTitle: "<div class='text-blue lh-sm fw-medium fs-6'>可拖曳或直接點擊複選檔案<br>單一影片檔案上限為500mb，為避免檔案傳輸過程中發生錯誤，建議影片大小為200mb以下，或是先將影片壓縮轉檔後上傳</div>",
+    maxFileCount: 2, // Limit to 2 files
+    maxFileSize: 6000, // Set file size limit to 6000 KB (6 MB)
+    msgFilesTooMany:
+      "！超過限制數量，最多只能上傳兩段影，若要更改影片請先刪除不要的影片",
+    msgSizeTooLarge:
+      '檔案 "{name}" (大小: {size} KB) 超過了允許的最大大小 {maxSize} KB。檔案請小於6000 KB。',
+    msgUploadError: "上傳錯誤",
+    msgProcessing: "<div class='d-flex flex-column align-items-center'><img width='60' src='./images/icon_loading.svg'><div class='msgProcessing text-blue lh-sm fw-medium fs-6'>可拖曳或直接點擊複選檔案<br>單一影片檔案上限為500mb，為避免檔案傳輸過程中發生錯誤，建議影片大小為200mb以下，或是先將影片壓縮轉檔後上傳</div></div> ",
+    }).on('fileuploaded', function(event, previewId, index, fileId) {
+          console.log('File Uploaded', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
+      }).on('fileuploaderror', function(event, previewId, index, fileId) {
+          console.log('File Upload Error', 'ID: ' + fileId + ', Thumb ID: ' + previewId);
+      }).on('filebatchuploadcomplete', function(event, preview, config, tags, extraData) {
+          console.log('File Batch Uploaded', preview, config, tags, extraData);
+      }).on('filebatchselected', function(event, files) {
+      var pending = $('#input-video').fileinput('getFileStack').length;
+      console.log('選取新檔案，待上傳數量:', pending, files.length);
+    });
+    
+
+    
+    $('#addVideoBtn, .video-upload .upload-area, .video-upload .file-preview').on('click', function (e) {
+    // 如果點到的是影片預覽區，就不要觸發
+    if (
+      $(e.target).closest('.kv-file-content, .kv-file-remove, .kv-file-upload, .kv-file-zoom, .fileinput-remove, .file-error-message').length > 0
+    ) return;
+    // 其他地方可以觸發開啟檔案選擇
+    $('#input-video').trigger('click');
+    });
+  
+   $('#input-video').on('change', function () {
+    const count = this.files.length;
+      // 用原生方式取得目前選取的檔案數
+      const fileCount = this.files.length;
+
+      // 更新文字與加上 class
+      $('#video-upload-num')
+        .text(fileCount)
+        .addClass('stock');
+    });
+
+  // upload-area show / hidden
+  function updateUploadAreaVisibility() {
+      $(".upload-area").each(function () {
+        const $uploadArea = $(this);
+        // 找尋它後方的 .file-input-ajax-new（或用 parent/sibling 依結構調整）
+        const hasInput = $uploadArea.nextAll(".file-input-ajax-new").length > 0;
+        $uploadArea.toggle(!hasInput);
+      });
+    }
+
+    // 初始執行
+    updateUploadAreaVisibility();
+
+    // 用 MutationObserver 偵測 DOM 變動
+    const observer = new MutationObserver(updateUploadAreaVisibility);
+    observer.observe(document.body, { childList: true, subtree: true });
+
+});

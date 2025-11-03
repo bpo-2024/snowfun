@@ -28,13 +28,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/fontawesome.min.css"
     />
-    <!-- the fileinput plugin styling CSS file -->
-    <link
-      href="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/css/fileinput.min.css"
-      media="all"
-      rel="stylesheet"
-      type="text/css"
-    />
 
     <!-- OwlCarousel2 -->
     <link
@@ -380,6 +373,370 @@
               </div>
             </div>
           </div>
+          <div class="coach-content d-lg-block d-none">
+            <ul class="nav coach-tab" id="tab" role="tablist">
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="introduction-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#introduction"
+                  type="button"
+                  role="tab"
+                  aria-controls="introduction"
+                  aria-selected="true"
+                >
+                  雪道介紹
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="cableCarFare-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#cableCarFare"
+                  type="button"
+                  role="tab"
+                  aria-controls="cableCarFare"
+                  aria-selected="false"
+                >
+                  纜車票價
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="equipmentRental-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#equipmentRental"
+                  type="button"
+                  role="tab"
+                  aria-controls="equipmentRental"
+                  aria-selected="false"
+                >
+                  裝備租賃
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="transportation-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#transportation"
+                  type="button"
+                  role="tab"
+                  aria-controls="transportation"
+                  aria-selected="false"
+                >
+                  交通
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="accommodation-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#accommodation"
+                  type="button"
+                  role="tab"
+                  aria-controls="accommodation"
+                  aria-selected="false"
+                >
+                  住宿
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="dining-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#dining"
+                  type="button"
+                  role="tab"
+                  aria-controls="dining"
+                  aria-selected="false"
+                >
+                  餐飲
+                </button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button
+                  class="nav-link"
+                  id="meetingPoint-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#meetingPoint"
+                  type="button"
+                  role="tab"
+                  aria-controls="meetingPoint"
+                  aria-selected="false"
+                >
+                  集合地點
+                </button>
+              </li>
+            </ul>
+            <!-- tab -->
+            <div class="tab-content" id="tabContent">
+              <!-- introduction -->
+              <div
+                class="tab-pane fade show active"
+                id="introduction"
+                role="tabpanel"
+                aria-labelledby="introduction-tab"
+                tabindex="0"
+              >
+                <div class="description">
+                  <h3 class="fs-5 fw-bold mb-3 title">
+                    藏王溫泉滑雪場雪道介紹
+                  </h3>
+                  <div class="description-content">
+                    此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                    此區知名度較高的雪具出租是 Best
+                    Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                    兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                    營業，但通常
+                    07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                    <!-- TODO -->
+                    <span>
+                      地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                      08:00，但通常都會提早在 07:40
+                      開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                      值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                      總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                    </span>
+                  </div>
+                  <span class="description-button"
+                    >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                  ></span>
+                </div>
+              </div>
+              <!-- cableCarFare -->
+              <div
+                class="tab-pane fade"
+                id="cableCarFare"
+                role="tabpanel"
+                aria-labelledby="cableCarFare-tab"
+                tabindex="0"
+              >
+                <div class="description">
+                  <h3 class="fs-5 fw-bold mb-3 title">
+                    藏王溫泉滑雪場纜車票價
+                  </h3>
+                  <div class="description-content">
+                    此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                    此區知名度較高的雪具出租是 Best
+                    Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                    兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                    營業，但通常
+                    07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                    <!-- TODO -->
+                    <span>
+                      地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                      08:00，但通常都會提早在 07:40
+                      開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                      值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                      總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                    </span>
+                  </div>
+                  <span class="description-button"
+                    >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                  ></span>
+                </div>
+              </div>
+              <!-- equipmentRental -->
+              <div
+                class="tab-pane fade"
+                id="equipmentRental"
+                role="tabpanel"
+                aria-labelledby="equipmentRental-tab"
+                tabindex="0"
+              >
+                <div class="description">
+                  <h3 class="fs-5 fw-bold mb-3 title">
+                    藏王溫泉滑雪場裝備租賃方式
+                  </h3>
+                  <div class="description-content">
+                    此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                    此區知名度較高的雪具出租是 Best
+                    Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                    兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                    營業，但通常
+                    07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                    <!-- TODO -->
+                    <span>
+                      地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                      08:00，但通常都會提早在 07:40
+                      開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                      值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                      總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                    </span>
+                  </div>
+                  <span class="description-button"
+                    >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                  ></span>
+                </div>
+              </div>
+              <!-- transportation -->
+              <div
+                class="tab-pane fade"
+                id="transportation"
+                role="tabpanel"
+                aria-labelledby="transportation-tab"
+                tabindex="0"
+              >
+                <div class="description">
+                  <h3 class="fs-5 fw-bold mb-3 title">
+                    藏王溫泉滑雪場交通方式
+                  </h3>
+                  <div class="description-content">
+                    此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                    此區知名度較高的雪具出租是 Best
+                    Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                    兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                    營業，但通常
+                    07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                    <!-- TODO -->
+                    <span>
+                      地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                      08:00，但通常都會提早在 07:40
+                      開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                      值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                      總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                    </span>
+                  </div>
+                  <span class="description-button"
+                    >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                  ></span>
+                </div>
+              </div>
+              <!-- transportation -->
+              <div
+                class="tab-pane fade"
+                id="accommodation"
+                role="tabpanel"
+                aria-labelledby="accommodation-tab"
+                tabindex="0"
+              >
+                <div class="description">
+                  <h3 class="fs-5 fw-bold mb-3 title">
+                    藏王溫泉滑雪場住宿方式
+                  </h3>
+                  <div class="description-content">
+                    此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                    此區知名度較高的雪具出租是 Best
+                    Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                    兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                    營業，但通常
+                    07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                    <!-- TODO -->
+                    <span>
+                      地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                      08:00，但通常都會提早在 07:40
+                      開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                      值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                      總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                    </span>
+                  </div>
+                  <span class="description-button"
+                    >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                  ></span>
+                </div>
+              </div>
+              <!-- dining -->
+              <div
+                class="tab-pane fade"
+                id="dining"
+                role="tabpanel"
+                aria-labelledby="dining-tab"
+                tabindex="0"
+              >
+                <div class="description">
+                  <h3 class="fs-5 fw-bold mb-3 title">
+                    藏王溫泉滑雪場餐飲方式
+                  </h3>
+                  <div class="description-content">
+                    此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                    此區知名度較高的雪具出租是 Best
+                    Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                    兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                    營業，但通常
+                    07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                    <!-- TODO -->
+                    <span>
+                      地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                      08:00，但通常都會提早在 07:40
+                      開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                      值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                      總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                    </span>
+                  </div>
+                  <span class="description-button"
+                    >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                  ></span>
+                </div>
+              </div>
+              <!-- meetingPoint -->
+              <div
+                class="tab-pane fade"
+                id="meetingPoint"
+                role="tabpanel"
+                aria-labelledby="meetingPoint-tab"
+                tabindex="0"
+              >
+                <div class="description">
+                  <h3 class="fs-5 fw-bold mb-3 title">
+                    藏王溫泉滑雪場集合地點
+                  </h3>
+                  <div class="description-content">
+                    此區大型飯店、雪場周邊專門店，都有提供雙板、單板及配件出租服務。但品質、選項都較簡單基本，對講究設備的中高級程度雪友，還是自帶雪具比較放心。<br />
+                    此區知名度較高的雪具出租是 Best
+                    Rental  跟 Jupeer滑雪中心 雪具租賃店，前者有出租貼身用品三小件(護目鏡、防水手套跟毛帽)，但後者環境較寬敞；許多當地民宿會提供租賃折價券，入住時別忘了索取。<br />
+                    兩間雪具店都在初學地點「上之台纜車站」旁，地點非常方便。另，表訂早上08:00
+                    營業，但通常
+                    07:40就開門了。想避開人潮的朋友，可前一天先去試穿、租借，約好隔日直接取件。
+                    <!-- TODO -->
+                    <span>
+                      地理位置方面，這兩家雪具出租店都位於初學者主要活動區域——「上之台纜車站」旁邊。這個地點不僅方便到達，還靠近滑雪場地，對於初次滑雪或是短期遊玩的旅客來說，特別實用。<br />雖然兩家店的表定營業時間是早上
+                      08:00，但通常都會提早在 07:40
+                      開門。若想避開人潮，建議滑雪者可以在前一天傍晚先到店內試穿裝備並完成租借手續，這樣隔日只需到店直接取件，既方便又節省時間。<br />
+                      值得一提的是，這些店鋪的員工通常對滑雪裝備相當了解，無論是設備選擇還是佩戴的舒適性調整，都能提供專業的建議。如果是滑雪新手，也不必擔心裝備選擇的問題，他們會根據您的需求和滑雪等級提供合適的建議。此外，租賃店的設備保養良好，即使是基礎款也能滿足一般滑雪需求，讓您在雪場上享受滑雪樂趣的同時，毫無後顧之憂。
+                      總之，無論您是滑雪新手還是滑雪達人，在此區都能找到適合自己的裝備和服務。對於講究細節和追求高品質裝備的滑雪者，自帶雪具雖是更穩妥的選擇，但租借店的服務也足以應付多數滑雪需求。如果行程安排緊湊，建議提前與店家確認租賃細節並規劃好取件時間，讓您的滑雪旅程更加順暢和愉快！
+                    </span>
+                  </div>
+                  <span class="description-button"
+                    >顯示更多內容<i class="fa-solid fa-angle-down"></i
+                  ></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- 雪場照片 -->
+            <h3 class="fs-5 fw-bold mb-3">雪場照片</h3>
+            <!-- light gallery -->
+            <div class="owl-carousel video-carousel">
+              <div
+                class="item video-item"
+                data-bs-toggle="modal"
+                data-slide-to="0"
+              >
+                <img src="./images/video1.png" alt="Item 1" />
+              </div>
+              <div
+                class="item video-item"
+                data-bs-toggle="modal"
+                data-slide-to="1"
+              >
+                <img src="./images/video1.png" alt="Item 2" />
+              </div>
+              <div
+                class="item video-item"
+                data-bs-toggle="modal"
+                data-slide-to="2"
+              >
+                <img src="./images/video1.png" alt="Item 3" />
+              </div>
+              <!-- Add more items as needed -->
+            </div>
+          </div>
         </div>
         <div class="col-lg-4 col-12 type-mb">
           <div class="d-flex justify-content-end calculation">
@@ -462,7 +819,7 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-12 coach-content">
+        <div class="coach-content d-block d-lg-none">
           <ul class="nav coach-tab" id="tab" role="tablist">
             <li class="nav-item" role="presentation">
               <button
@@ -813,37 +1170,36 @@
             </div>
             <!-- Add more items as needed -->
           </div>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="videoCarouselModal"
+          tabindex="-1"
+          aria-labelledby="videoCarouselModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
 
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="videoCarouselModal"
-            tabindex="-1"
-            aria-labelledby="videoCarouselModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered" role="document">
-              <div class="modal-content">
-                <div class="modal-body">
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-
-                  <div class="owl-carousel modal-carousel">
-                    <div class="modal-item">
-                      <img src="./images/video1.png" alt="Item 1" />
-                    </div>
-                    <div class="modal-item">
-                      <img src="./images/video1.png" alt="Item 2" />
-                    </div>
-                    <div class="modal-item">
-                      <img src="./images/video1.png" alt="Item 3" />
-                    </div>
-                    <!-- Add more items as needed -->
+                <div class="owl-carousel modal-carousel">
+                  <div class="modal-item">
+                    <img src="./images/video1.png" alt="Item 1" />
                   </div>
+                  <div class="modal-item">
+                    <img src="./images/video1.png" alt="Item 2" />
+                  </div>
+                  <div class="modal-item">
+                    <img src="./images/video1.png" alt="Item 3" />
+                  </div>
+                  <!-- Add more items as needed -->
                 </div>
               </div>
             </div>
@@ -851,44 +1207,7 @@
         </div>
       </div>
     </div>
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="fileUploadModal"
-      tabindex="-1"
-      aria-labelledby="fileUploadModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body">
-            <button
-              type="button"
-              class="btn-close btn-close-black"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-            <div class="container kv-main">
-              <form id="upload-form" enctype="multipart/form-data">
-                <input id="file-upload-image" type="file" multiple />
-                <div class="d-flex justify-content-end">
-                  <button
-                    type="submit"
-                    class="btn btn-primary btn-lg fs-6 fw-medium rounded-pill btn-submit"
-                  >
-                    上傳照片
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-          <!-- <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div> -->
-        </div>
-      </div>
-    </div>
+
     <div class="fixed-footer-bar">
       <div class="container">
         <div class="layout d-flex justify-content-end align-items-center">
@@ -1165,31 +1484,6 @@
       integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
       crossorigin="anonymous"
     ></script>
-    <script
-      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/buffer.min.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/filetype.min.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/piexif.min.js"
-      type="text/javascript"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/plugins/sortable.min.js"
-      type="text/javascript"
-    ></script>
-
-    <!-- the main fileinput plugin script JS file -->
-    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/fileinput.min.js"></script>
-
-    <!-- following theme script is needed to use the Font Awesome 5.x theme (`fa5`). Uncomment if needed. -->
-    <!-- script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/themes/fa5/theme.min.js"></script -->
-
-    <!-- optionally if you need translation for your language then include the locale file as mentioned below (replace LANG.js with your language locale) -->
-    <script src="https://cdn.jsdelivr.net/gh/kartik-v/bootstrap-fileinput@5.5.0/js/locales/zh-TW.js"></script>
 
     <script src="js/owl.js"></script>
 

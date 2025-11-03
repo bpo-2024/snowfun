@@ -9,6 +9,7 @@ $(document).ready(function() {
     $mainCarousel.owlCarousel({
       items: 1,
       dots: true,
+      autoHeight: false, 
       mouseDrag: false,  // Disable mouse dragging
       touchDrag: false,   // Disable touch dragging
       dotsClass: 'video-dots'

@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <title>SnowFun滑雪趣 - 帶你享受滑雪的美好</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link href="./style/layout.css" rel="stylesheet" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <!--  -->
+    <link href="./style/user-profile.css" rel="stylesheet" />
+    <link href="./style/user-bookings.css" rel="stylesheet" />
+
+    <link href="./style/member-center.css" rel="stylesheet" />
+    <link href="./style/coach-set_up_courses.css" rel="stylesheet" />
+    <link href="./style/coachCourse.css" rel="stylesheet" />
+  </head>
+  <body>
+    <main>
+      <nav class="navbar" aria-label="Light offcanvas navbar">
+        <div class="container-fluid justify-content-between">
+          <div class="d-flex align-items-center flex-grow-1">
+            <div class="me-4 me-lg-0" id="offcanvasNavbarLightLabel">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" />
+              </a>
+            </div>
+            <ul class="nav d-none d-lg-flex">
+              <li class="nav-item">
+                <a class="nav-link" href="coach-item.html">教練團隊</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="skiResort-instructors.html"
+                  >雪場資訊</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">常見問題</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">旅遊攻略</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">最新消息</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">聯絡客服</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            id="header-avatar"
+            data-bs-toggle="collapse"
+            href="#collapseHeaderMenu"
+            role="button"
+            aria-expanded="false"
+            aria-controls="collapseHeaderMenu"
+          ></div>
+
+          <button
+            class="navbar-toggler d-block d-lg-none border-0"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasNavbarLight"
+            aria-controls="offcanvasNavbarLight"
+            aria-label="Toggle navigation"
+          >
+            <img src="./images/icon_hamburger.svg" />
+          </button>
+          <div
+            class="offcanvas offcanvas-start nav-offcanvas"
+            tabindex="-1"
+            id="offcanvasNavbarLight"
+            style="z-index: 1051"
+          >
+            <div class="offcanvas-header">
+              <a href="index.html" class="logo">
+                <img src="./images/logo.svg" height="60" />
+              </a>
+            </div>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1">
+                <li class="nav-item">
+                  <a class="nav-link" href="coach-item.html">教練團隊</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="skiResort-instructors.html"
+                    >雪場資訊</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">常見問題</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">旅遊攻略</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">最新消息</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">聯絡客服</a>
+                </li>
+                <li class="nav-item d-flex justify-content-between">
+                  <button type="button" class="btn coach-register">
+                    教練註冊
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-outline-primary px-1 px-lg-2"
+                    onclick="loginModal()"
+                    data-bs-toggle="modal"
+                    data-bs-target="#snowModal"
+                    data-bs-dismiss="offcanvas"
+                  >
+                    登入
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div class="collapse-login collapse" id="collapseHeaderMenu">
+        <div class="isLogin">
+          <p>個人資料</p>
+          <button
+            type="button"
+            class="btn btn-outline-primary px-1 px-lg-2 float-end me-3"
+          >
+            登出
+          </button>
+        </div>
+      </div>
+      <section class="container">
+        <div class="d-flex user-profile">
+          <div id="left-side">
+            <div class="user-card">
+              <div class="user-avatar"></div>
+              <p class="user-name">測試名字測試名字長度測試名字測試名字長度</p>
+              <p class="user-level">一般會員</p>
+            </div>
+            <ul class="profile-menu">
+              <li class="coach-info" data-url="coach-profile.html?status=1">
+                教練資料設定
+              </li>
+              <li
+                class="course-settings active"
+                data-url="coach-set_up_courses.html?status=1"
+              >
+                開設設定
+              </li>
+              <li
+                class="course-record"
+                data-url="coach-course-record.html?status=1"
+              >
+                課程紀錄
+              </li>
+              <li
+                class="course-earnings"
+                data-url="coach-earnings.html?status=1"
+              >
+                課程收益
+              </li>
+              <li class="user-info" data-url="coach-account.html?status=1">
+                個人資料
+              </li>
+            </ul>
+          </div>
+          <div id="right-side" class="flex-grow-1">
+            <div class="d-flex justify-content-between pb-3">
+              <div>
+                <div class="d-flex">
+                  <a class="page-arrow" href="coach-profile.html"></a>
+                  <h2>開課設定</h2>
+                </div>
+                <p class="text-gary">
+                  注意：切換設定選項後必須點選「儲存」後才會生效
+                </p>
+              </div>
+              <div class="d-none gap-3 d-lg-flex">
+                <button
+                  class="btn btn-primary btn-rounded btn-save btn-m align-items-center d-flex justify-content-center"
+                >
+                  儲存<img src="./images/icon_arrow_right.svg" />
+                </button>
+              </div>
+            </div>
+            <ul class="nav nav-tabs mt-3" id="pills-tab" role="tablist">
+              <li class="nav-item default-tab" role="presentation">
+                <button
+                  class="nav-link active"
+                  id="pills-future-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-future"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-future"
+                  aria-selected="true"
+                >
+                  收費設定
+                </button>
+              </li>
+              <li class="nav-item default-tab" role="presentation">
+                <button
+                  class="nav-link"
+                  id="pills-courses-tab"
+                  data-bs-toggle="pill"
+                  data-bs-target="#pills-courses"
+                  type="button"
+                  role="tab"
+                  aria-controls="pills-courses"
+                  aria-selected="false"
+                >
+                  開課日期設定
+                </button>
+              </li>
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
+              <div
+                class="tab-pane fade show active"
+                id="pills-future"
+                role="tabpanel"
+                aria-labelledby="pills-future-tab"
+                tabindex="0"
+              >
+                <div
+                  class="form-check mb-1 d-flex align-items-center option-setting"
+                >
+                  <input
+                    class="form-check-input p-1"
+                    type="checkbox"
+                    id="option1"
+                    checked
+                    disabled
+                  />
+                  <label class="form-check-label p-2" for="option1">
+                    單次訂課10小時以上再95折
+                    <span class="text-primary-blue">(必選)</span>
+                  </label>
+                </div>
+                <div
+                  class="form-check mb-1 d-flex align-items-start option-setting"
+                >
+                  <input
+                    class="form-check-input mt-3"
+                    type="checkbox"
+                    id="option2"
+                    checked
+                  />
+                  <label class="form-check-label p-2" for="option2">
+                    啟用旺季收費，旺季期間：
+                    <span class="text-primary-blue">(需啟用才能設定)</span
+                    ><br />
+                    聖誕跨年2024/12/21～2025/01/05、農曆新年2025/01/18～2025/02/08
+                  </label>
+                </div>
+                <div class="container">
+                  <div
+                    class="row d-flex justify-content-between align-items-center mt-3 mb-3 form-check-inline"
+                  >
+                    <!-- 左邊：Tabs -->
+                    <div class="col-12 col-sm-8">
+                      <ul
+                        class="nav nav-tabs mb-0 form-check-inline"
+                        id="typeTabs"
+                        role="tablist"
+                      >
+                        <li class="nav-item" role="presentation" id="tabHalf">
+                          <button
+                            class="form-check-label active btn-rounded"
+                            id="half-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#half"
+                            type="button"
+                            role="tab"
+                          >
+                            半天設定
+                          </button>
+                        </li>
+                        <li class="nav-item" role="presentation" id="tabFull">
+                          <button
+                            class="form-check-label btn-rounded"
+                            id="full-tab"
+                            data-bs-toggle="tab"
+                            data-bs-target="#full"
+                            type="button"
+                            role="tab"
+                          >
+                            全天設定
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <!-- 右邊：新增按鈕 -->
+                    <div class="col-12 col-sm-4 text-sm-end p-0">
+                      <button
+                        class="add-set-btn btn btn-primary btn-rounded btn-m"
+                        data-bs-toggle="modal"
+                        data-bs-target="#priceModal"
+                      >
+                        <i class="bi bi-plus-circle-fill btn-icon"></i>
+
+                        新增收費設定
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- 下方：tab-pane 區域 -->
+                  <div class="tab-content" id="resultTabs">
+                    <div
+                      class="tab-pane fade show active"
+                      id="half"
+                      role="tabpanel"
+                    >
+                      <div class="off-season" id="off-half">
+                        <div
+                          class="price-card rounded card mb-3"
+                          data-stage="half"
+                        >
+                          <div class="price-box rounded p-3 position-relative">
+                            <ul
+                              class="nav nav-tabs border-bottom mb-4"
+                              id="seasonTab-1750675044197"
+                              role="tablist"
+                            >
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link active"
+                                  id="off-tab-1750968511588"
+                                  data-bs-toggle="tab"
+                                  data-tab-target="off"
+                                  type="button"
+                                  role="tab"
+                                >
+                                  平季收費
+                                </button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link"
+                                  id="peak-tab-1750968511588"
+                                  data-bs-toggle="tab"
+                                  data-tab-target="peak"
+                                  type="button"
+                                  role="tab"
+                                >
+                                  旺季收費
+                                </button>
+                              </li>
+                            </ul>
+                            <div class="tab-content">
+                              <div
+                                class="tab-pane fade show active"
+                                data-tab="off"
+                                role="tabpanel"
+                              >
+                                <div class="row text-center fw-bold mb-4">
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">1人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">2人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">3人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">4人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">5人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">6人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div
+                                class="tab-pane fade"
+                                data-tab="peak"
+                                role="tabpanel"
+                              >
+                                <div class="row text-center fw-bold mb-4">
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">1人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">2人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">3人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">4人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">5人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">6人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="badge-container mb-2">
+                              <span
+                                class="badge badge-hokkaido m-1"
+                                data-label="Sahoro"
+                              >
+                                Sahoro
+                              </span>
+                              <span
+                                class="badge badge-hokkaido m-1"
+                                data-label="Tomamu"
+                              >
+                                <span
+                                  class="badge-close"
+                                  onclick="removeResortFromCard(this.closest('.price-card'), 'Tomamu')"
+                                  >×</span
+                                >
+                                Tomamu
+                              </span>
+                              <button
+                                class="btn btn-sm btn-outline-secondary btn-add-resort"
+                              >
+                                ＋ 增加相同收費雪場
+                              </button>
+                            </div>
+                            <div
+                              class="position-absolute top-0 end-0 mt-4 me-2"
+                            >
+                              <i
+                                class="bi bi-trash"
+                                role="button"
+                                onclick="this.closest('.price-card').remove(); updateTabVisibility();"
+                              ></i>
+                              <span
+                                class="insurance insurance-followUp"
+                                onclick="editCard(this)"
+                              ></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="tab-pane fade" id="full" role="tabpanel">
+                      <div class="off-season" id="full-half">
+                        <div
+                          class="price-card rounded card mb-3"
+                          data-stage="full"
+                        >
+                          <div class="price-box rounded p-3 position-relative">
+                            <ul
+                              class="nav nav-tabs border-bottom mb-4"
+                              id="seasonTab-1750675044197"
+                              role="tablist"
+                            >
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link active"
+                                  id="off-tab-1750968511588"
+                                  data-bs-toggle="tab"
+                                  data-tab-target="off"
+                                  type="button"
+                                  role="tab"
+                                >
+                                  平季收費
+                                </button>
+                              </li>
+                              <li class="nav-item" role="presentation">
+                                <button
+                                  class="nav-link"
+                                  id="peak-tab-1750968511588"
+                                  data-bs-toggle="tab"
+                                  data-tab-target="peak"
+                                  type="button"
+                                  role="tab"
+                                >
+                                  旺季收費
+                                </button>
+                              </li>
+                            </ul>
+                            <div class="tab-content">
+                              <div
+                                class="tab-pane fade show active"
+                                data-tab="off"
+                                role="tabpanel"
+                              >
+                                <div class="row text-center fw-bold mb-4">
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">1人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">2人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">3人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">4人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">5人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">6人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div
+                                class="tab-pane fade"
+                                data-tab="peak"
+                                role="tabpanel"
+                              >
+                                <div class="row text-center fw-bold mb-4">
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">1人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">2人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">3人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">4人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">5人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+
+                                  <div class="col-sm-2 col-4">
+                                    <div class="lesson-title">6人/堂</div>
+                                    <div class="lesson-amount">39000</div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+
+                            <div class="badge-container mb-2">
+                              <span
+                                class="badge badge-hokkaido m-1"
+                                data-label="Sahoro"
+                              >
+                                Sahoro
+                              </span>
+                              <span
+                                class="badge badge-hokkaido m-1"
+                                data-label="Tomamu"
+                              >
+                                <span
+                                  class="badge-close"
+                                  onclick="removeResortFromCard(this.closest('.price-card'), 'Tomamu')"
+                                  >×</span
+                                >
+                                Tomamu
+                              </span>
+                              <button
+                                class="btn btn-sm btn-outline-secondary btn-add-resort"
+                              >
+                                ＋ 增加相同收費雪場
+                              </button>
+                            </div>
+                            <div
+                              class="position-absolute top-0 end-0 mt-4 me-2"
+                            >
+                              <i
+                                class="bi bi-trash"
+                                role="button"
+                                onclick="this.closest('.price-card').remove(); updateTabVisibility();"
+                              ></i>
+                              <span
+                                class="insurance insurance-followUp"
+                                onclick="editCard(this)"
+                              ></span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="peak-season" id="full-peak"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- courses -->
+              <div
+                class="tab-pane fade show"
+                id="pills-courses"
+                role="tabpanel"
+                aria-labelledby="pills-courses-tab"
+                tabindex="0"
+              >
+                <div
+                  class="d-flex flex-column flex-md-row justify-content-between course-info-box"
+                >
+                  <ul class="course-range d-flex align-items-center">
+                    <li class="rounded-1 fw-medium">上半 09:00~12:00</li>
+                    <li class="rounded-1 fw-medium">下半 13:00~16:00</li>
+                    <li class="rounded-1 fw-medium">全天 09:30~15:30</li>
+                  </ul>
+                  <button class="btn btn-primary btn-rounded btn-plus">
+                    新增時段
+                  </button>
+                </div>
+                <div id="system-alert" class="success">
+                  『請注意，學員下單後，您無法單方面取消。請謹慎設定您的雪場跟開放時段，並隨時注意訂單更新狀況。』
+                </div>
+
+                <div class="calendar mt-3">
+                  <div class="d-xl-flex justify-content-between">
+                    <div
+                      class="calendar-info fw-medium d-flex align-items-center gap-0 gap-xl-3"
+                    >
+                      <p>雪場狀況：</p>
+                      <ul class="calendar-tag">
+                        <li class="status-started">已開課</li>
+                        <li class="status-booked">已被預訂</li>
+                        <li class="status-customized">客製時段</li>
+                        <li class="status-awaitingPayment">已預定代付款</li>
+                      </ul>
+                    </div>
+                    <div class="view-toggle text-end">
+                      <button id="month-view" class="active">月</button>
+                      <button id="week-view">週</button>
+                    </div>
+                  </div>
+                  <!-- 月曆 -->
+                  <div class="calendar-header">
+                    <button id="prev-btn"></button>
+                    <div class="d-flex gap-2">
+                      <span id="calendar-title">2025年06月</span>
+                      <div id="today-btn">今日</div>
+                    </div>
+                    <button id="next-btn"></button>
+                  </div>
+                  <div class="calendar-days">
+                    <div>日</div>
+                    <div>一</div>
+                    <div>二</div>
+                    <div>三</div>
+                    <div>四</div>
+                    <div>五</div>
+                    <div>六</div>
+                  </div>
+                  <div class="calendar-dates" id="calendar-dates"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div id="mb-profile-confirm" class="d-flex d-lg-none justify-content-end">
+        <button type="button" class="btn btn-primary btn-rounded confirmButton">
+          儲存變更
+        </button>
+      </div>
+
+      <!-- Edit Coach Course Modal -->
+      <div
+        class="modal fade"
+        id="editCoachCourse"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabindex="-1"
+        aria-labelledby="editCoachCourseLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+            <div class="modal-body">
+              <form id="editCoachCourseForm" class="d-flex flex-column">
+                <div>
+                  <label for="date" class="form-label">日期</label>
+                  <input id="date" class="visually-hidden" />
+                  <div
+                    id="dateDisplay"
+                    class="select-collapse"
+                    style="cursor: pointer"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#datePickerCollapse"
+                    aria-expanded="false"
+                    aria-controls="datePickerCollapse"
+                  >
+                    開始與結束日期
+                  </div>
+
+                  <!-- 日期選擇器 Collapse 區塊 -->
+                  <div id="datePickerCollapse" class="collapse mt-2">
+                    <div class="datePickerContent">
+                      <div class="d-flex justify-content-between">
+                        <button
+                          id="prevMonth"
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        ></button>
+                        <button
+                          id="nextMonth"
+                          class="btn btn-outline-secondary btn-sm"
+                          type="button"
+                        ></button>
+                      </div>
+                      <div
+                        id="calendarWrapper"
+                        class="d-flex flex-wrap justify-content-center"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label class="form-label">開放時段</label>
+
+                  <div>
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_morning"
+                      value="morning"
+                    />
+                    <label class="btn btn-radio" for="selectRange_morning"
+                      >上半時段</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_afternoon"
+                      value="afternoon"
+                    />
+                    <label class="btn btn-radio" for="selectRange_afternoon"
+                      >下半時段</label
+                    >
+
+                    <input
+                      type="radio"
+                      class="btn-check"
+                      name="selectRange"
+                      id="selectRange_all"
+                      value="all"
+                    />
+                    <label class="btn btn-radio" for="selectRange_all"
+                      >全天時段</label
+                    >
+                  </div>
+                </div>
+
+                <div>
+                  <label for="skiResort" class="form-label"
+                    >已設定雪場(可複選)</label
+                  >
+                  <input id="skiResort" class="visually-hidden" />
+                  <div
+                    class="select-collapse"
+                    onclick="openResortSelectorModal(false)"
+                  >
+                    請選擇
+                  </div>
+                </div>
+              </form>
+              <div class="skiResort-tag-box d-flex gap-2 mt-2 flex-wrap">
+                <div class="skiResort-tag">札幌手稻</div>
+                <div class="skiResort-tag yellow">越後湯澤 Gala</div>
+                <div class="skiResort-tag">札幌手稻</div>
+                <div class="skiResort-tag yellow">越後湯澤 Gala</div>
+                <div class="skiResort-tag">札幌手稻</div>
+                <div class="skiResort-tag yellow">越後湯澤 Gala</div>
+                <div class="skiResort-tag">札幌手稻</div>
+                <div class="skiResort-tag yellow">越後湯澤 Gala</div>
+              </div>
+              <div class="btn-box">
+                <button type="button" class="btn btn-outline-primary">
+                  清除設定
+                </button>
+                <button type="button" class="btn btn-primary">確定更新</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 收費 Modal 彈窗 -->
+      <div class="modal fade" id="priceModal" tabindex="-1">
+        <div class="modal-dialog modal-md">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalTitle">半天/三小時收費設定</h5>
+              <button class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+              <div
+                class="mb-3 mb-3 d-flex justify-content-center align-items-center resort-select-display"
+              >
+                <div class="form-label text-primary-blue option-label">
+                  選擇雪場：
+                </div>
+                <div
+                  id="resortSelectDisplay"
+                  class="form-select"
+                  onclick="openResortSelectorModal(true)"
+                  style="cursor: pointer"
+                >
+                  請選擇適用雪場
+                </div>
+              </div>
+
+              <ul
+                class="nav nav-tabs seasonTabs d-flex flex-nowrap"
+                id="seasonTabs"
+              >
+                <li class="nav-item">
+                  <button
+                    class="nav-link active"
+                    id="offSeason-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#offSeasonContent"
+                    type="button"
+                  >
+                    平季收費
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button
+                    class="nav-link"
+                    id="peakSeason-tab"
+                    data-bs-toggle="tab"
+                    data-bs-target="#peakSeasonContent"
+                    type="button"
+                  >
+                    旺季收費
+                  </button>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div
+                  class="tab-pane fade show active pt-3"
+                  id="offSeasonContent"
+                >
+                  <div id="priceInputs-off"></div>
+                </div>
+                <div class="tab-pane fade pt-3" id="peakSeasonContent">
+                  <div id="priceInputs-peak"></div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer d-flex justify-content-center">
+              <button
+                class="btn set-btn btn-rounded tn-outline-secondary"
+                id="nextBtn"
+              >
+                全天設定
+              </button>
+              <button
+                class="btn btn-primary d-none btn-rounded confirmBtn"
+                id="confirmBtn"
+                data-bs-dismiss="modal"
+              >
+                確認
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- 雪場選擇 Modal 彈窗 -->
+      <div class="modal fade" id="resortSelectorModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-body">
+              <div id="resortOptionsContainer"></div>
+            </div>
+            <div class="modal-footer justify-content-center">
+              <button
+                class="btn btn-primary btn-rounded check-add"
+                onclick="confirmResortSelection()"
+              >
+                確定新增
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- pc footer -->
+      <footer class="footer-pc">
+        <div class="container">
+          <div class="row">
+            <div class="col-9">
+              <div>
+                <img src="./images/logo_white.svg" />
+              </div>
+              <div class="row">
+                <div class="col-4">
+                  <ul>
+                    <li>滑雪趣有限公司</li>
+                    <li>Snow Fun International Co., Ltd.</li>
+                    <li>統一編號 82841380</li>
+                    <li>Email : info@snowfun.com.tw</li>
+                  </ul>
+                </div>
+                <div class="col-8 align-self-end">
+                  <ul class="social-box">
+                    <li>
+                      <a
+                        href="//www.facebook.com/groups/453785412129721/"
+                        target="_blank"
+                      >
+                        <img src="./images/fb.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                        <img src="./images/ig.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/tk.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/wc.svg" />
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#">
+                        <img src="./images/yt.svg" />
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="col">
+                  <p class="footer-title">信息</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >關於我們</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >常見問題</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >聯絡我們</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+                <div class="col">
+                  <p class="footer-title">合作</p>
+                  <ul class="footer-link">
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >成為教練</a
+                      >
+                    </li>
+                    <li>
+                      <a
+                        class="link-underline link-underline-opacity-0"
+                        href="#"
+                        >合作夥伴申請</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- mb footer -->
+      <footer class="footer-mb">
+        <div class="container">
+          <div class="row">
+            <div class="col-6 d-flex justify-content-center">
+              <img src="./images/logo_white.svg" width="100%" />
+            </div>
+            <div class="col-6 d-flex justify-content-center align-items-center">
+              <ul>
+                <li>滑雪趣有限公司</li>
+                <li>Snow Fun International Co., Ltd.</li>
+                <li>統一編號 82841380</li>
+                <li>Email : info@snowfun.com.tw</li>
+              </ul>
+            </div>
+            <div class="row mt-3">
+              <div class="col-12 align-self-end">
+                <ul class="social-box d-flex justify-content-center">
+                  <li>
+                    <a
+                      href="//www.facebook.com/groups/453785412129721/"
+                      target="_blank"
+                    >
+                      <img src="./images/fb.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="//www.instagram.com/snowfunfun/" target="_blank">
+                      <img src="./images/ig.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/tk.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/wc.svg" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#">
+                      <img src="./images/yt.svg" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <p class="footer-title">信息</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >關於我們</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >常見問題</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >聯絡我們</a
+                    >
+                  </li>
+                </ul>
+              </div>
+              <div class="col-4">
+                <p class="footer-title">合作</p>
+                <ul class="footer-link">
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >成為教練</a
+                    >
+                  </li>
+                  <li>
+                    <a class="link-underline link-underline-opacity-0" href="#"
+                      >合作夥伴申請</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-between footer-bottom">
+            <ul class="row g-3">
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >網站使用聲明</a
+                >
+              </li>
+              <li class="col">
+                <a class="link-underline link-underline-opacity-0" href="#"
+                  >隱私權條款</a
+                >
+              </li>
+            </ul>
+            <div>© 2024 SnowFun ALL RIGHTS RESERVED.</div>
+          </div>
+        </div>
+      </footer>
+      <!-- 登入 modal -->
+      <div id="sharedModalContainer"></div>
+    </main>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/login.js"></script>
+
+    <script src="./js/pricingCard.js"></script>
+    <script src="./js/pricingCard_patch.js"></script>
+    <script src="./js/user.js"></script>
+    <script>
+      const calendarData = {
+        "2025-06-01": {
+          status: "started",
+          course: [
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "下半" },
+            { title: "白馬八方尾根", session: "上半" },
+            { title: "苗場", session: "下半" },
+            { title: "藏王溫泉", session: "全天" },
+          ],
+        },
+        "2025-06-03": {
+          status: "booked",
+          course: [{ title: "妙高杉之原", session: "全天" }],
+        },
+        "2025-06-05": {
+          status: "customized",
+          course: [
+            { title: "安比高原", session: "下半" },
+            { title: "神樂", session: "下半" },
+            { title: "志賀高原", session: "全天" },
+          ],
+        },
+        "2025-06-08": {
+          status: "awaitingPayment",
+          course: [
+            { title: "野澤溫泉", session: "上半" },
+            { title: "群馬草津國際", session: "下半" },
+            { title: "斑尾高原", session: "下半" },
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "全天" },
+          ],
+        },
+        "2025-07-10": {
+          status: "started",
+          course: [
+            { title: "白馬八方尾根", session: "全天" },
+            { title: "苗場", session: "全天" },
+          ],
+        },
+        "2025-07-12": {
+          status: "booked",
+          course: [
+            { title: "藏王溫泉", session: "上半" },
+            { title: "妙高杉之原", session: "上半" },
+            { title: "安比高原", session: "下半" },
+            { title: "神樂", session: "全天" },
+          ],
+        },
+        "2025-07-15": {
+          status: "customized",
+          course: [{ title: "志賀高原", session: "全天" }],
+        },
+        "2025-07-18": {
+          status: "awaitingPayment",
+          course: [
+            { title: "野澤溫泉", session: "下半" },
+            { title: "群馬草津國際", session: "下半" },
+          ],
+        },
+        "2025-07-22": {
+          status: "started",
+          course: [
+            { title: "斑尾高原", session: "上半" },
+            { title: "二世古", session: "上半" },
+            { title: "富良野", session: "下半" },
+          ],
+        },
+        "2025-07-25": {
+          status: "booked",
+          course: [{ title: "白馬八方尾根", session: "全天" }],
+        },
+      };
+    </script>
+    <script src="./js/coachCourse.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const preselectLabels = ["Sahoro", "Tomamu"];
+        const modal = document.getElementById("resortSelectorModal");
+        modal.addEventListener(
+          "show.bs.modal",
+          function () {
+            const allOptions = modal.querySelectorAll(".btn-check");
+            allOptions.forEach((opt) => {
+              const label = opt.getAttribute("data-label");
+              opt.checked = preselectLabels.includes(label);
+            });
+
+            // 同步顯示選擇在文字顯示區域
+            const display = document.getElementById("resortSelectDisplay");
+            if (display) {
+              const selected = preselectLabels.join(", ");
+              display.textContent = preselectLabels[0] || "請選擇適用雪場";
+            }
+
+            // 同步全域變數
+            window.selectedResortsValue = [...preselectLabels];
+            window.selectedResortsText = preselectLabels.join(", ");
+          },
+          { once: true }
+        );
+      });
+    </script>
+  </body>
+</html>

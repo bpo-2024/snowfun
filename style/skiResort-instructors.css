@@ -138,7 +138,7 @@
 
 .coach-content {
   padding-top: 0;
-  margin-top: -390px;
+  margin-top: 60px;
 }
 @media (max-width: 992px) {
   .coach-content {
@@ -219,6 +219,12 @@ img[alt="Google"],
 /* carousel */
 .article-box .owl-carousel .owl-stage-outer {
   padding: 8px 0;
+}
+.owl-carousel .item {
+  height: auto;
+}
+.owl-carousel.owl-banner .item img {
+  height: auto;
 }
 
 .owl-carousel-article .owl-nav {
